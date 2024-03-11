@@ -1,0 +1,45 @@
+/**
+ * BUTTONS
+ **/
+.horizontal .c-button {
+  /* Make buttons in horizontal columns only fit content */
+  flex: 0 1 fit-content !important;
+  /* Full width buttons in mobile size container */
+}
+@container (max-width: 480px) {
+  .horizontal .c-button {
+    flex-basis: 100% !important;
+  }
+  .horizontal .c-button button,
+  .horizontal .c-button a {
+    width: 100%;
+  }
+}
+
+.c-button .btn-primary {
+  box-shadow: 0 10px 25px 0 var(--theme-primary-button-shadow) !important;
+}
+.c-button .btn-primary:hover {
+  box-shadow: 0 0 0 0 var(--theme-primary-button-shadow) !important;
+  transform: scale(0.95);
+}
+
+.btn-primary .form-builder--btn-submit button {
+  color: var(--theme-button-primary-text-color) !important;
+  background: var(--theme-button-primary-bg-color) !important;
+}
+
+.btn-primary button[type=submit], .btn-primary button.form-btn {
+  box-shadow: 0 10px 25px 0 var(--theme-primary-button-shadow) !important;
+}
+.btn-primary button[type=submit]:hover, .btn-primary button.form-btn:hover {
+  box-shadow: 0 0 0 0 var(--theme-primary-button-shadow) !important;
+  transform: scale(0.95);
+}
+
+.c-button .btn-secondary:hover {
+  background-color: var(--theme-button-primary-bg-color);
+  color: var(--theme-button-primary-text-color);
+}
+
+/*# sourceMappingURL=button.css.map */

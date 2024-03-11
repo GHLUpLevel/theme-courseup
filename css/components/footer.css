@@ -1,0 +1,10 @@
+/**
+ * FOOTER
+ */
+@container (max-width: 480px) {
+  .footer .social-links {
+    justify-content: center;
+  }
+}
+
+/*# sourceMappingURL=footer.css.map */

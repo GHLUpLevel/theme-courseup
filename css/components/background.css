@@ -1,0 +1,30 @@
+/**
+ * BACKGROUNDS COMPONENTS
+ **/
+/* Background green circle floating upper left */
+.circle-top-left::before {
+  content: "";
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+  background-color: var(--theme-primary-color);
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 200px;
+  height: 200px;
+  scale: 1.2;
+  z-index: -1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .circle-top-left::before {
+    animation: animatedBackgroundCircle 10s linear 1 alternate;
+  }
+}
+
+@keyframes animatedBackgroundCircle {
+  from {
+    top: 0;
+    left: -1%;
+  }
+}
+
+/*# sourceMappingURL=background.css.map */

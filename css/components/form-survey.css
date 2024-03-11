@@ -1,0 +1,191 @@
+/**
+ * FORM & SURVEY
+ **/
+#form-builder {
+  --input-padding-top: var(--theme-input-padding-top, 15px);
+  --input-padding-left: var(--theme-input-padding-left, 2em);
+  --input-text-color: var(--theme-input-text-color, black);
+  --input-bg-color: var(--theme-input-bg-color, #efefef);
+  --input-border: var(--theme-input-border, 0px solid #acacac);
+  --input-border-radius: calc(var(--input-padding-top) * 2);
+  --input-font-size: var(--theme-input-font-size, 1em);
+  --input-box-shadow: var(--theme-input-box-shadow, 0px 0px 3px 0px #000000c4);
+  --input-placeholder-opacity: var(--theme-input-placeholder-opacity, 0.7);
+  --label-color: var(--theme-text-content-color, black);
+  --label-margin-bottom: var(--theme-label-margin-bottom, 5px);
+  --nav-bg-color: var(--theme-button-primary-bg-color, initial);
+  --nav-progressbar-color: var(--theme-button-primary-text-color, initial);
+  --nav-progressbar-opacity: var(--theme-survey-progressbar-opacity, 0.8);
+  font-size: 1rem;
+}
+#form-builder #_builder-form .text-element {
+  font-family: var(--contentfont) !important;
+  font-size: 1em !important;
+  background: none !important;
+}
+#form-builder #_builder-form .text-element h1,
+#form-builder #_builder-form .text-element h2,
+#form-builder #_builder-form .text-element h3 {
+  font-size: 1.75em;
+}
+#form-builder #_builder-form label,
+#form-builder #_builder-form input {
+  font-family: var(--contentfont) !important;
+  font-size: 1em;
+}
+#form-builder #_builder-form .fields-container > div:nth-child(n+2):has(label) {
+  margin-top: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 5px;
+}
+#form-builder #_builder-form .form-builder--item {
+  position: relative;
+}
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number]) {
+  background-color: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+  border: var(--input-border) !important;
+  border-radius: var(--input-border-radius) !important;
+  padding: var(--input-padding-top) var(--input-padding-left) !important;
+  box-shadow: var(--input-box-shadow);
+  font-size: var(--input-font-size);
+  position: relative;
+  line-height: 1;
+  height: calc(1lh + var(--input-padding-top) * 2);
+}
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number])::placeholder {
+  visibility: hidden;
+}
+#form-builder #_builder-form .form-builder--item .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#form-builder #_builder-form .form-builder--item .row td > label {
+  position: initial;
+}
+@supports selector(:has(+ *)) {
+  #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload) {
+    display: block;
+    color: var(--label-color);
+    opacity: var(--input-placeholder-opacity);
+    background-color: var(--input-bg-color);
+    font-size: var(--input-font-size);
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    line-height: 1;
+    pointer-events: none;
+    position: relative;
+    top: calc(var(--input-padding-top) + var(--label-margin-bottom) + 1lh);
+    left: var(--input-padding-left);
+    padding: 0;
+    margin: -1em 0 var(--label-margin-bottom) 0;
+    width: fit-content;
+  }
+  #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload):has(+ input:focus), #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload):has(+ input:not(:placeholder-shown)) {
+    left: 1.5em;
+    top: 1.1em;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 0.85em;
+  }
+  #form-builder #_builder-form .form-builder--item:has(table,
+  canvas,
+  .multiselect,
+  .date-picker-custom-style,
+  input:where([type=checkbox], [type=radio], [type=file])) label:not(.item-description, .custom-file-upload) {
+    position: initial;
+    width: initial;
+    opacity: 1;
+    font-weight: bold;
+    margin-bottom: var(--label-margin-bottom);
+    margin-top: initial;
+    background-color: initial;
+  }
+  #form-builder #_builder-form .form-builder--item .option-radio label,
+  #form-builder #_builder-form .form-builder--item .in-r-c label {
+    font-weight: normal !important;
+  }
+}
+#form-builder #_builder-form .form-builder--item .option > input {
+  width: fit-content;
+}
+#form-builder #_builder-form .form-builder--item .signature-button,
+#form-builder #_builder-form .form-builder--item .custom-file-upload {
+  background-color: var(--input-bg-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form {
+  font-family: var(--contentfont) !important;
+  font-size: var(--input-font-size) !important;
+  background: transparent !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tags {
+  border-radius: calc(var(--input-padding-top) * 2) !important;
+  font-size: var(--input-font-size) !important;
+  border-radius: var(--input-border-radius) !important;
+  padding: var(--input-padding-top) var(--input-padding-left) !important;
+  height: calc(1lh + var(--input-padding-top) * 2);
+  line-height: 1em;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__single,
+#form-builder #_builder-form .form-builder--item .multi_select_form input,
+#form-builder #_builder-form .form-builder--item .multi_select_form input::placeholder {
+  font-family: var(--contentfont) !important;
+  font-size: var(--input-font-size) !important;
+  line-height: 1 !important;
+  background: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
+#form-builder #_builder-form .form-builder--item .multi_select_form input::placeholder {
+  color: var(--label-color) !important;
+  opacity: var(--input-placeholder-opacity);
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form input {
+  top: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 1lh;
+  line-height: 1em;
+}
+.c-survey #form-builder {
+  --survey-bg: var(--theme-survey-bg, initial);
+  --label-color: var(--theme-survey-label-color, black);
+  --input-bg-color: var(--theme-survey-input-bg-color, white);
+}
+.c-survey #form-builder .hl_form-builder--main {
+  padding: 0;
+}
+.c-survey #form-builder #_builder-form {
+  background: var(--survey-bg) !important;
+  border-color: var(--survey-bg, initial) !important;
+  padding: 0 var(--theme-survey-padding-width, 40px) !important;
+}
+@container (max-width: 480px) {
+  .c-survey #form-builder #_builder-form {
+    --theme-survey-padding-width: 20px;
+  }
+}
+.c-survey #form-builder .ghl-footer {
+  background-color: var(--nav-bg-color) !important;
+  position: relative !important;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-bar {
+  border-color: var(--nav-progressbar-color) !important;
+  opacity: var(--nav-progressbar-opacity);
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-bar .ghl-progress-bar-fill {
+  background-color: var(--nav-progressbar-color) !important;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-bar .ghl-progress-bar-fill .ghl-footer-progress-text {
+  display: none;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-text {
+  color: var(--nav-progressbar-color) !important;
+}
+.c-survey #form-builder #_builder-form .ghl-footer {
+  margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
+  width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
+}
+
+/*# sourceMappingURL=form-survey.css.map */

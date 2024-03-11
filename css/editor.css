@@ -1,0 +1,1053 @@
+/**
+ * THEME CSS FOR GHL EDITOR VIEW
+ * Includes all CSS for both live and editor views with the addition
+ * of @media and @container queries. Provides consistency between
+ * the editor and live views and editor specific CSS.
+ **/
+/**
+ * THEME CSS CONFIG
+ * Import this file before importing other css files.
+ **/
+/**
+ * Theme Properties
+ **/
+@property --color-lt985yd7 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9ca2ns {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #56D296;
+}
+@property --color-lt9cay4k {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --color-lt9cbrrr {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #859389;
+}
+@property --color-lt9cc31b {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --color-lt9cceqm {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #859389;
+}
+@property --color-lt9cdq6h {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #859389;
+}
+@property --color-lt9ceg80 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #188bf6;
+}
+@property --color-lt9cetri {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9cf6ne {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9cg14m {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9cge0z {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9cgr2u {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9ch38v {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --color-lt9chjvd {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9cidqc {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9ciq7x {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #FBFBFB;
+}
+@property --color-lt9cj7fg {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #191E1C;
+}
+:root {
+  /* Primary Button Shadow Color */
+  --theme-primary-button-shadow: rgba(0, 0, 0, 0.21);
+  /* Forms */
+  --theme-input-bg-color: #efefef;
+  --theme-input-text-color: black;
+  /* Surveys */
+  --theme-survey-bg: #efefef;
+  --theme-survey-input-bg-color: #fff;
+  --theme-survey-label-color: black;
+  --theme-survey-padding-width: 40px;
+  --theme-survey-progressbar-opacity: 1;
+  /* Secion max width */
+  --section-width: 1342px;
+  /* CUSTOM VALUE VARIABLES - vars set from GHL custom values  */
+  /* Theme Colors */
+  --theme-primary-color: var(--color-lt985yd7);
+  --theme-secondary-color: var(--color-lt9ca2ns);
+  /* Text Colors */
+  --theme-text-headline-color: var(--color-lt9cay4k);
+  --theme-text-content-color: var(--color-lt9cbrrr);
+  --theme-text-bold-color: var(--color-lt9cc31b);
+  --theme-text-italic-color: var(--color-lt9cceqm);
+  --theme-text-underlined-color: var(--color-lt9cdq6h);
+  --theme-text-link-color: var(--color-lt9ceg80);
+  --theme-text-highlight-color: var(--color-lt9cetri);
+  --theme-text-dark-bg-color: var(--color-lt9cf6ne);
+  /* Icon Colors */
+  --theme-icon-color: var(--color-lt9cg14m);
+  /* Button Colors */
+  --theme-button-primary-text-color: var(--color-lt9cge0z);
+  --theme-button-primary-bg-color: var(--color-lt9cgr2u);
+  --theme-button-secondary-text-color: var(--color-lt9ch38v);
+  --theme-button-secondary-bg-color: var(--color-lt9chjvd);
+  /* Background Colors */
+  --theme-background-1-color: var(--color-lt9cidqc);
+  --theme-background-2-color: var(--color-lt9ciq7x);
+  --theme-background-3-color: var(--color-lt9cj7fg);
+  /* Fonts */
+}
+
+/* Override the GHL default vars */
+:root {
+  --text-color: var(--theme-text-content-color);
+  --link-color: var(--theme-text-link-color);
+}
+
+/**
+ * OVERRIDES
+ * Overrides of default page behavior in editor & live pages.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.c-column > .inner {
+  /* This will break fixed items */
+  container-type: inline-size;
+}
+
+.inner {
+  gap: var(--gap, initial);
+}
+
+.c-column.container-normal > .inner {
+  container-type: normal;
+}
+
+.c-section > .inner {
+  max-width: var(--section-width) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/**
+ * BACKGROUNDS COMPONENTS
+ **/
+/* Background green circle floating upper left */
+.circle-top-left::before {
+  content: "";
+  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+  background-color: var(--theme-primary-color);
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 200px;
+  height: 200px;
+  scale: 1.2;
+  z-index: -1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .circle-top-left::before {
+    animation: animatedBackgroundCircle 10s linear 1 alternate;
+  }
+}
+
+@keyframes animatedBackgroundCircle {
+  from {
+    top: 0;
+    left: -1%;
+  }
+}
+/**
+ * BUTTONS
+ **/
+.horizontal .c-button {
+  /* Make buttons in horizontal columns only fit content */
+  flex: 0 1 fit-content !important;
+  /* Full width buttons in mobile size container */
+}
+@container (max-width: 480px) {
+  .horizontal .c-button {
+    flex-basis: 100% !important;
+  }
+  .horizontal .c-button button,
+  .horizontal .c-button a {
+    width: 100%;
+  }
+}
+
+.c-button .btn-primary {
+  box-shadow: 0 10px 25px 0 var(--theme-primary-button-shadow) !important;
+}
+.c-button .btn-primary:hover {
+  box-shadow: 0 0 0 0 var(--theme-primary-button-shadow) !important;
+  transform: scale(0.95);
+}
+
+.btn-primary .form-builder--btn-submit button {
+  color: var(--theme-button-primary-text-color) !important;
+  background: var(--theme-button-primary-bg-color) !important;
+}
+
+.btn-primary button[type=submit], .btn-primary button.form-btn {
+  box-shadow: 0 10px 25px 0 var(--theme-primary-button-shadow) !important;
+}
+.btn-primary button[type=submit]:hover, .btn-primary button.form-btn:hover {
+  box-shadow: 0 0 0 0 var(--theme-primary-button-shadow) !important;
+  transform: scale(0.95);
+}
+
+.c-button .btn-secondary:hover {
+  background-color: var(--theme-button-primary-bg-color);
+  color: var(--theme-button-primary-text-color);
+}
+
+/**
+ * CARD FLIPPER
+ **/
+@container EditorViewPort (min-width: 768px) {
+  .c-column.card-flipper {
+    cursor: pointer;
+    perspective: 1000px;
+    border: none !important;
+    box-shadow: none;
+    padding-bottom: 0;
+  }
+  #preview-container .c-column.card-flipper:hover > .inner {
+    transform: rotateY(180deg);
+  }
+  .c-column.card-flipper > .inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    will-change: transform;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  .c-column.card-flipper .c-wrapper:has(> .card-front, > .card-back),
+  .c-column.card-flipper .c-image:has(.card-front, .card-back) {
+    width: 100%;
+    flex: 0 0 auto;
+    backface-visibility: hidden;
+  }
+  #preview-container .c-column.card-flipper .c-wrapper:has(> .card-back), #preview-container .c-column.card-flipper .c-image:has(.card-back) {
+    transform: rotateY(180deg);
+    position: absolute;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 768px) and (hover: hover) {
+  .c-column.card-flipper {
+    cursor: pointer;
+    perspective: 1000px;
+    border: none !important;
+    box-shadow: none;
+    padding-bottom: 0;
+  }
+  #preview-container .c-column.card-flipper:hover > .inner {
+    transform: rotateY(180deg);
+  }
+  .c-column.card-flipper > .inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    will-change: transform;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  .c-column.card-flipper .c-wrapper:has(> .card-front, > .card-back),
+  .c-column.card-flipper .c-image:has(.card-front, .card-back) {
+    width: 100%;
+    flex: 0 0 auto;
+    backface-visibility: hidden;
+  }
+  #preview-container .c-column.card-flipper .c-wrapper:has(> .card-back), #preview-container .c-column.card-flipper .c-image:has(.card-back) {
+    transform: rotateY(180deg);
+    position: absolute;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/**
+ * LAYOUT
+ * Add these classes to columns to change the layout behavior.
+ **/
+/* Layout Columns */
+.c-column.content {
+  align-self: center;
+}
+.c-column.content .c-wrapper:not(.c-button, .c-custom-code) {
+  flex-basis: 100% !important;
+}
+.c-column.card {
+  align-self: start;
+}
+.c-column.card .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
+  flex-basis: 100% !important;
+}
+@container EditorViewPort (min-width: 481px) and (max-width: 767px) {
+  .c-column.card {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .c-column.card {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@container EditorViewPort (min-width: 481px) and (max-width: 767px) {
+  .c-column.floating {
+    margin: unset;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .c-column.floating {
+    margin: unset;
+  }
+}
+
+/**
+ * FAQS
+ **/
+.c-faq .hl-faq-child {
+  border: 1px solid #f8f8f8;
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.08);
+  border: none !important;
+  margin-bottom: 24px;
+  padding: 30px 10px;
+  background: var(--theme-background-1-color);
+  transition: box-shadow 0.3s;
+}
+.c-faq .hl-faq-child:hover {
+  box-shadow: 0 4px 15px rgba(27, 27, 27, 0.15);
+}
+.c-faq .hl-faq-child .hl-faq-child-heading-icon {
+  font-size: 1.5em;
+}
+.c-faq .hl-faq-child .hl-faq-child-panel {
+  margin-left: 3em;
+}
+.c-faq .hl-faq-child.active {
+  border-color: var(--theme-text-highlight-color);
+}
+
+/**
+ * FEATURE IMAGE STYLES
+ * Add class to containing column
+ **/
+.feature-image-full-width .c-image-feature {
+  flex-basis: 100% !important;
+}
+.feature-image-full-width .c-image-feature .img-feature-container {
+  display: flex !important;
+  gap: 10px;
+}
+.feature-image-full-width .c-image-feature .img-feature-container.feature-img-right .img-container {
+  order: 2;
+}
+.feature-image-full-width .c-image-feature .img-container {
+  flex: 0 0 max-content;
+}
+.feature-image-full-width .c-image-feature .txt-container {
+  flex: 1 auto;
+}
+
+/**
+ * FLEX & GRID CLASSES
+ */
+.col-span-2,
+div.c-wrapper:has(> .col-span-2) {
+  grid-column: span 2;
+}
+
+.col-span-3,
+div.c-wrapper:has(> .col-span-3) {
+  grid-column: span 3;
+}
+
+.col-span-4,
+div.c-wrapper:has(> .col-span-4) {
+  grid-column: span 4;
+}
+
+@container EditorViewPort (max-width: 767px) {
+  .tablet-grid-cols-2 > .inner,
+  .tablet-grid-cols-3 > .inner,
+  .tablet-grid-cols-4 > .inner {
+    display: grid !important;
+    align-items: center;
+    justify-items: center;
+  }
+  .tablet-grid-cols-2 > .inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tablet-col-span-2,
+  div.c-wrapper:has(> .tablet-col-span-2) {
+    grid-column: span 2;
+  }
+  .tablet-grid-cols-3 > .inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tablet-col-span-3,
+  div.c-wrapper:has(> .tablet-col-span-3) {
+    grid-column: span 3;
+  }
+  .tablet-grid-cols-4 > .inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .tablet-col-span-4,
+  div.c-wrapper:has(> .tablet-col-span-4) {
+    grid-column: span 4;
+  }
+  .tablet-order-1 {
+    order: 1;
+  }
+  .tablet-order-2 {
+    order: 2;
+  }
+  .tablet-order-3 {
+    order: 3;
+  }
+  .tablet-order-4 {
+    order: 4;
+  }
+  .tablet-order-5 {
+    order: 5;
+  }
+  .tablet-order-6 {
+    order: 6;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .tablet-grid-cols-2 > .inner,
+  .tablet-grid-cols-3 > .inner,
+  .tablet-grid-cols-4 > .inner {
+    display: grid !important;
+    align-items: center;
+    justify-items: center;
+  }
+  .tablet-grid-cols-2 > .inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tablet-col-span-2,
+  div.c-wrapper:has(> .tablet-col-span-2) {
+    grid-column: span 2;
+  }
+  .tablet-grid-cols-3 > .inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tablet-col-span-3,
+  div.c-wrapper:has(> .tablet-col-span-3) {
+    grid-column: span 3;
+  }
+  .tablet-grid-cols-4 > .inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .tablet-col-span-4,
+  div.c-wrapper:has(> .tablet-col-span-4) {
+    grid-column: span 4;
+  }
+  .tablet-order-1 {
+    order: 1;
+  }
+  .tablet-order-2 {
+    order: 2;
+  }
+  .tablet-order-3 {
+    order: 3;
+  }
+  .tablet-order-4 {
+    order: 4;
+  }
+  .tablet-order-5 {
+    order: 5;
+  }
+  .tablet-order-6 {
+    order: 6;
+  }
+}
+@container EditorViewPort (max-width: 480px) {
+  .mobile-grid-cols-2 > .inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+  }
+  .mobile-col-span-2,
+  div.c-wrapper:has(> .mobile-col-span-2) {
+    grid-column: span 2;
+  }
+  .mobile-order-1 {
+    order: 1;
+  }
+  .mobile-order-2 {
+    order: 2;
+  }
+  .mobile-order-3 {
+    order: 3;
+  }
+  .mobile-order-4 {
+    order: 4;
+  }
+  .mobile-order-5 {
+    order: 5;
+  }
+  .mobile-order-6 {
+    order: 6;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-grid-cols-2 > .inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+  }
+  .mobile-col-span-2,
+  div.c-wrapper:has(> .mobile-col-span-2) {
+    grid-column: span 2;
+  }
+  .mobile-order-1 {
+    order: 1;
+  }
+  .mobile-order-2 {
+    order: 2;
+  }
+  .mobile-order-3 {
+    order: 3;
+  }
+  .mobile-order-4 {
+    order: 4;
+  }
+  .mobile-order-5 {
+    order: 5;
+  }
+  .mobile-order-6 {
+    order: 6;
+  }
+}
+/**
+ * FORM & SURVEY
+ **/
+#form-builder {
+  --input-padding-top: var(--theme-input-padding-top, 15px);
+  --input-padding-left: var(--theme-input-padding-left, 2em);
+  --input-text-color: var(--theme-input-text-color, black);
+  --input-bg-color: var(--theme-input-bg-color, #efefef);
+  --input-border: var(--theme-input-border, 0px solid #acacac);
+  --input-border-radius: calc(var(--input-padding-top) * 2);
+  --input-font-size: var(--theme-input-font-size, 1em);
+  --input-box-shadow: var(--theme-input-box-shadow, 0px 0px 3px 0px #000000c4);
+  --input-placeholder-opacity: var(--theme-input-placeholder-opacity, 0.7);
+  --label-color: var(--theme-text-content-color, black);
+  --label-margin-bottom: var(--theme-label-margin-bottom, 5px);
+  --nav-bg-color: var(--theme-button-primary-bg-color, initial);
+  --nav-progressbar-color: var(--theme-button-primary-text-color, initial);
+  --nav-progressbar-opacity: var(--theme-survey-progressbar-opacity, 0.8);
+  font-size: 1rem;
+}
+#form-builder #_builder-form .text-element {
+  font-family: var(--contentfont) !important;
+  font-size: 1em !important;
+  background: none !important;
+}
+#form-builder #_builder-form .text-element h1,
+#form-builder #_builder-form .text-element h2,
+#form-builder #_builder-form .text-element h3 {
+  font-size: 1.75em;
+}
+#form-builder #_builder-form label,
+#form-builder #_builder-form input {
+  font-family: var(--contentfont) !important;
+  font-size: 1em;
+}
+#form-builder #_builder-form .fields-container > div:nth-child(n+2):has(label) {
+  margin-top: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 5px;
+}
+#form-builder #_builder-form .form-builder--item {
+  position: relative;
+}
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number]) {
+  background-color: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+  border: var(--input-border) !important;
+  border-radius: var(--input-border-radius) !important;
+  padding: var(--input-padding-top) var(--input-padding-left) !important;
+  box-shadow: var(--input-box-shadow);
+  font-size: var(--input-font-size);
+  position: relative;
+  line-height: 1;
+  height: calc(1lh + var(--input-padding-top) * 2);
+}
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number])::placeholder {
+  visibility: hidden;
+}
+#form-builder #_builder-form .form-builder--item .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#form-builder #_builder-form .form-builder--item .row td > label {
+  position: initial;
+}
+@supports selector(:has(+ *)) {
+  #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload) {
+    display: block;
+    color: var(--label-color);
+    opacity: var(--input-placeholder-opacity);
+    background-color: var(--input-bg-color);
+    font-size: var(--input-font-size);
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    line-height: 1;
+    pointer-events: none;
+    position: relative;
+    top: calc(var(--input-padding-top) + var(--label-margin-bottom) + 1lh);
+    left: var(--input-padding-left);
+    padding: 0;
+    margin: -1em 0 var(--label-margin-bottom) 0;
+    width: fit-content;
+  }
+  #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload):has(+ input:focus), #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload):has(+ input:not(:placeholder-shown)) {
+    left: 1.5em;
+    top: 1.1em;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 0.85em;
+  }
+  #form-builder #_builder-form .form-builder--item:has(table,
+  canvas,
+  .multiselect,
+  .date-picker-custom-style,
+  input:where([type=checkbox], [type=radio], [type=file])) label:not(.item-description, .custom-file-upload) {
+    position: initial;
+    width: initial;
+    opacity: 1;
+    font-weight: bold;
+    margin-bottom: var(--label-margin-bottom);
+    margin-top: initial;
+    background-color: initial;
+  }
+  #form-builder #_builder-form .form-builder--item .option-radio label,
+  #form-builder #_builder-form .form-builder--item .in-r-c label {
+    font-weight: normal !important;
+  }
+}
+#form-builder #_builder-form .form-builder--item .option > input {
+  width: fit-content;
+}
+#form-builder #_builder-form .form-builder--item .signature-button,
+#form-builder #_builder-form .form-builder--item .custom-file-upload {
+  background-color: var(--input-bg-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form {
+  font-family: var(--contentfont) !important;
+  font-size: var(--input-font-size) !important;
+  background: transparent !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tags {
+  border-radius: calc(var(--input-padding-top) * 2) !important;
+  font-size: var(--input-font-size) !important;
+  border-radius: var(--input-border-radius) !important;
+  padding: var(--input-padding-top) var(--input-padding-left) !important;
+  height: calc(1lh + var(--input-padding-top) * 2);
+  line-height: 1em;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__single,
+#form-builder #_builder-form .form-builder--item .multi_select_form input,
+#form-builder #_builder-form .form-builder--item .multi_select_form input::placeholder {
+  font-family: var(--contentfont) !important;
+  font-size: var(--input-font-size) !important;
+  line-height: 1 !important;
+  background: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
+#form-builder #_builder-form .form-builder--item .multi_select_form input::placeholder {
+  color: var(--label-color) !important;
+  opacity: var(--input-placeholder-opacity);
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form input {
+  top: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 1lh;
+  line-height: 1em;
+}
+.c-survey #form-builder {
+  --survey-bg: var(--theme-survey-bg, initial);
+  --label-color: var(--theme-survey-label-color, black);
+  --input-bg-color: var(--theme-survey-input-bg-color, white);
+}
+.c-survey #form-builder .hl_form-builder--main {
+  padding: 0;
+}
+.c-survey #form-builder #_builder-form {
+  background: var(--survey-bg) !important;
+  border-color: var(--survey-bg, initial) !important;
+  padding: 0 var(--theme-survey-padding-width, 40px) !important;
+}
+@container (max-width: 480px) {
+  .c-survey #form-builder #_builder-form {
+    --theme-survey-padding-width: 20px;
+  }
+}
+.c-survey #form-builder .ghl-footer {
+  background-color: var(--nav-bg-color) !important;
+  position: relative !important;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-bar {
+  border-color: var(--nav-progressbar-color) !important;
+  opacity: var(--nav-progressbar-opacity);
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-bar .ghl-progress-bar-fill {
+  background-color: var(--nav-progressbar-color) !important;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-bar .ghl-progress-bar-fill .ghl-footer-progress-text {
+  display: none;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-progress-text {
+  color: var(--nav-progressbar-color) !important;
+}
+.c-survey #form-builder #_builder-form .ghl-footer {
+  margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
+  width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
+}
+
+/**
+ * FOOTER
+ */
+@container (max-width: 480px) {
+  .footer .social-links {
+    justify-content: center;
+  }
+}
+
+/**
+ * ORDER FORM
+ **/
+.c-order {
+  --accent-color: var(--theme-primary-color);
+}
+@container EditorViewPort (max-width: 480px) {
+  .c-order {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .c-order .form-step + .form-step, .c-order .form-step:has(+ .form-step) {
+    margin-bottom: 10px;
+  }
+  .c-order .form-step + .form-step .form-sub-heading, .c-order .form-step:has(+ .form-step) .form-sub-heading {
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .c-order {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .c-order .form-step + .form-step, .c-order .form-step:has(+ .form-step) {
+    margin-bottom: 10px;
+  }
+  .c-order .form-step + .form-step .form-sub-heading, .c-order .form-step:has(+ .form-step) .form-sub-heading {
+    display: none;
+  }
+}
+.c-order .form-step .form-heading {
+  color: var(--theme-text-headline-color);
+}
+.c-order .form-step .form-sub-heading {
+  color: var(--theme-text-content-color);
+}
+.c-order .divider-form {
+  background-color: var(--accent-color);
+}
+.c-order .divider-form i {
+  color: var(--accent-color);
+}
+.c-order button.form-btn {
+  font-family: var(--contentfont);
+  padding: 20px 50px;
+  border: 1px solid var(--transparent);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.c-order .coupon-container {
+  margin-bottom: 40px;
+}
+.c-order .payment-content {
+  margin-top: 80px;
+}
+
+/**
+ * SHOW MORE
+ **/
+#preview-container .c-button.c-wrapper:has(> .show-less-btn),
+#preview-container .c-button.show-less {
+  display: none;
+}
+#preview-container .show-more-shown .c-button.c-wrapper:has(> .show-less-btn),
+#preview-container .show-more-shown .c-button.show-less {
+  display: initial;
+}
+#preview-container .show-more-shown .c-button.c-wrapper:has(> .show-more-btn),
+#preview-container .show-more-shown .c-button.show-more {
+  display: none;
+}
+#preview-container .c-row.show-more {
+  display: none;
+}
+#preview-container .c-row.show-more.show-more-shown {
+  display: initial;
+}
+
+/**
+ * SOCIAL LINKS
+ **/
+.fa-facebook:before {
+  content: "\f09a";
+}
+
+.fa-instagram:before {
+  content: "\f16d";
+}
+
+.fa-twitter:before {
+  content: "\f099";
+}
+
+.fa-slack:before {
+  content: "\f198";
+}
+
+.fa-linkedin-in:before {
+  content: "\f0e1";
+}
+
+.fa-youtube:before {
+  content: "\f167";
+}
+
+.fa-telegram:before {
+  content: "\f2c6";
+}
+
+.fa-whatsapp:before {
+  content: "\f232";
+}
+
+.fa-pinterest:before {
+  content: "\f0d2";
+}
+
+ul.social-links {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+ul.social-links li {
+  list-style: none;
+}
+ul.social-links li a {
+  margin: 0 5px 10px;
+}
+ul.social-links li a i {
+  padding: 5px;
+  border: 1px solid #9ba8a5;
+  font-size: 20px;
+  background-color: #9ba8a5;
+  border-radius: 40px;
+  color: #ffffff;
+  transition: 0.5s;
+}
+ul.social-links li a[href]:not([href^=http]), ul.social-links li a[href=""], ul.social-links li a[href="-"] {
+  display: none;
+}
+ul.social-links li:hover a i {
+  background-color: var(--theme-button-primary-bg-color);
+  color: #ffffff;
+}
+
+/**
+ * UTILITY CLASSES
+ * Add these to columns or elements as needed.
+ */
+.align-self-center {
+  align-self: center !important;
+}
+
+.align-self-start {
+  align-self: flex-start !important;
+}
+
+.align-self-end {
+  align-self: flex-end !important;
+}
+
+.gap-10 > .inner {
+  --gap: 10px;
+}
+
+.gap-20 > .inner {
+  --gap: 20px;
+}
+
+.horizontal > .c-wrapper:has(.w-100) {
+  flex-basis: 100% !important;
+}
+.horizontal > .c-wrapper:has(.w-auto) {
+  flex-basis: auto !important;
+}
+
+#preview-container .c-wrapper:has(> .sticky) {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Text Utilities */
+.text-wrap-nowrap {
+  text-wrap: nowrap;
+}
+
+.responsive-text-hero h1 {
+  font-size: clamp(1.5rem, 4vw + 1rem, 3.75rem) !important;
+  line-height: 1.3em;
+}
+
+.responsive-text h1 {
+  font-size: clamp(1.25rem, 2vw + 1rem, 2.375rem) !important;
+  line-height: 1.2em;
+}
+
+/**
+ * EDITOR HELPERS
+ * Make pages easier to edit and more visually consistent with the live version
+ **/
+/* Make the editor behave with @container queries */
+.hl_page-creator--content {
+  container-type: inline-size;
+  container-name: EditorViewPort;
+}
+
+/* Style Editor Modifications */
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme] {
+  order: -1;
+  margin-bottom: 10px !important;
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme]::after {
+  font-size: 10px;
+  content: attr(title);
+  position: absolute;
+  overflow: clip;
+  left: 0;
+  bottom: -1.4em;
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  color: black;
+  background: white;
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme][title*=Primary]::after {
+  content: "Primary";
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme][title*=Secondary]::after {
+  content: "Secondary";
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme][title*=Text]::after {
+  content: "Text";
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme][title*=Icon]::after {
+  content: "Icon";
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme][title*=Button]::after {
+  content: "Button";
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme][title*=Background]::after {
+  content: "BG";
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^="[CustomValue]"] {
+  display: var(--editor-display-custom-colors, none);
+  order: -1;
+  margin-bottom: 10px !important;
+  border-radius: 0;
+  background-color: #ccc;
+  background-image: none;
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^="[CustomValue]"]::after {
+  content: "{CV}";
+  font-size: 10px;
+  position: absolute;
+  overflow: clip;
+  left: 0;
+  bottom: -1.4em;
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  color: black;
+  background: white;
+}
+#page-creator .hl_style-control .color-border .color-box .active-color {
+  border: 2px dotted red !important;
+}
+
+/* GHL Editor Variables */
+:root {
+  /* Set to "block" to show custom value colors */
+  --editor-display-custom-colors: none;
+}
+
+/*# sourceMappingURL=editor.css.map */

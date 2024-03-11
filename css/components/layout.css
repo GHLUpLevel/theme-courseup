@@ -1,0 +1,30 @@
+/**
+ * LAYOUT
+ * Add these classes to columns to change the layout behavior.
+ **/
+/* Layout Columns */
+.c-column.content {
+  align-self: center;
+}
+.c-column.content .c-wrapper:not(.c-button, .c-custom-code) {
+  flex-basis: 100% !important;
+}
+.c-column.card {
+  align-self: start;
+}
+.c-column.card .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
+  flex-basis: 100% !important;
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .c-column.card {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .c-column.floating {
+    margin: unset;
+  }
+}
+
+/*# sourceMappingURL=layout.css.map */

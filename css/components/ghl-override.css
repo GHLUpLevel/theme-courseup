@@ -1,0 +1,29 @@
+/**
+ * OVERRIDES
+ * Overrides of default page behavior in editor & live pages.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.c-column > .inner {
+  /* This will break fixed items */
+  container-type: inline-size;
+}
+
+.inner {
+  gap: var(--gap, initial);
+}
+
+.c-column.container-normal > .inner {
+  container-type: normal;
+}
+
+.c-section > .inner {
+  max-width: var(--section-width) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/*# sourceMappingURL=ghl-override.css.map */
