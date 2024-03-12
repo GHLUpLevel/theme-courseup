@@ -2,6 +2,9 @@
  * ADORNMENTS
  **/
 /* Background green circle floating upper left */
+.adorn-circle-top-left {
+  isolation: isolate;
+}
 .adorn-circle-top-left::before {
   content: "";
   mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');

@@ -23,23 +23,32 @@
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) !important;
   transform: scale(0.95);
 }
+.c-button .btn-secondary:hover,
+.c-button .btn-link:hover {
+  background-color: var(--theme-button-primary-bg-color);
+  color: var(--theme-button-primary-text-color);
+}
+.c-button .btn-link {
+  box-shadow: none !important;
+  border: none !important;
+}
+.c-button .btn-link .main-heading-button {
+  text-decoration: underline;
+}
 
 .btn-primary .form-builder--btn-submit button {
   color: var(--theme-button-primary-text-color) !important;
   background: var(--theme-button-primary-bg-color) !important;
 }
 
-.btn-primary button[type=submit], .btn-primary button.form-btn {
+.btn-primary button[type=submit],
+.btn-primary button.form-btn {
   box-shadow: var(--theme-primary-button-shadow) !important;
 }
-.btn-primary button[type=submit]:hover, .btn-primary button.form-btn:hover {
+.btn-primary button[type=submit]:hover,
+.btn-primary button.form-btn:hover {
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) !important;
   transform: scale(0.95);
-}
-
-.c-button .btn-secondary:hover {
-  background-color: var(--theme-button-primary-bg-color);
-  color: var(--theme-button-primary-text-color);
 }
 
 /*# sourceMappingURL=button.css.map */

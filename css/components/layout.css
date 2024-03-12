@@ -7,13 +7,13 @@
   align-self: center;
 }
 .c-column.content .c-wrapper:not(.c-button, .c-custom-code) {
-  flex-basis: 100% !important;
+  flex-basis: 100%;
 }
 .c-column.card {
   align-self: start;
 }
 .c-column.card .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
-  flex-basis: 100% !important;
+  flex-basis: 100%;
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .c-column.card {
@@ -48,13 +48,36 @@
   --gap: 20px;
 }
 
-.horizontal > .c-wrapper:has(.w-100) {
-  flex-basis: 100% !important;
+@supports selector(:has(+ *)) {
+  .horizontal > .c-wrapper .w-20,
+  .horizontal > .c-wrapper .w-30,
+  .horizontal > .c-wrapper .w-50,
+  .horizontal > .c-wrapper .w-70,
+  .horizontal > .c-wrapper .w-80 {
+    width: 100% !important;
+  }
+  .horizontal > .c-wrapper:has(.w-20) {
+    flex-basis: calc(20% - var(--gap)) !important;
+  }
+  .horizontal > .c-wrapper:has(.w-30) {
+    flex-basis: calc(30% - var(--gap)) !important;
+  }
+  .horizontal > .c-wrapper:has(.w-50) {
+    flex-basis: calc(50% - var(--gap)) !important;
+  }
+  .horizontal > .c-wrapper:has(.w-70) {
+    flex-basis: calc(70% - var(--gap)) !important;
+  }
+  .horizontal > .c-wrapper:has(.w-80) {
+    flex-basis: calc(80% - var(--gap)) !important;
+  }
+  .horizontal > .c-wrapper:has(.w-100) {
+    flex-basis: 100% !important;
+  }
+  .horizontal > .c-wrapper:has(.w-auto) {
+    flex-basis: auto !important;
+  }
 }
-.horizontal > .c-wrapper:has(.w-auto) {
-  flex-basis: auto !important;
-}
-
 #preview-container .c-wrapper:has(> .sticky) {
   position: sticky;
   top: 0;
