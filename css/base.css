@@ -1,5 +1,81 @@
 /**
- * FORM & SURVEY
+ * THEME CSS FOR GHL BASE
+ * Base GHL theme styles that modify a page without any additional custom classes.
+ * Include config.css before this file and components after this file.
+ **/
+/**
+ * GHL BASE
+ * Modify GHL page behavior.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  p > a[href] {
+    position: relative;
+  }
+  p > a[href]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  p > a[href]:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+.c-column > .inner {
+  container-type: inline-size;
+}
+
+.c-column.container-normal > .inner {
+  container-type: normal;
+}
+
+.inner {
+  gap: var(--gap, initial);
+}
+
+.c-section > .inner {
+  max-width: var(--section-width) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/**
+ * GHL FAQS
+ **/
+.c-faq .hl-faq-child {
+  border: 1px solid #f8f8f8;
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.08);
+  border: none !important;
+  margin-bottom: 24px;
+  padding: 30px 10px;
+  background: var(--theme-background-1-color);
+  transition: box-shadow 0.3s;
+}
+.c-faq .hl-faq-child:hover {
+  box-shadow: 0 4px 15px rgba(27, 27, 27, 0.15);
+}
+.c-faq .hl-faq-child .hl-faq-child-heading-icon {
+  font-size: 1.5em;
+}
+.c-faq .hl-faq-child .hl-faq-child-panel {
+  margin-left: 3em;
+}
+.c-faq .hl-faq-child.active {
+  border-color: var(--theme-text-highlight-color);
+}
+
+/**
+ * GHL FORM & SURVEY
  **/
 #form-builder {
   --input-padding-top: var(--theme-input-padding-top, 15px);
@@ -38,12 +114,9 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 5px;
 }
-#form-builder #_builder-form .form-builder--item {
-  position: relative;
-}
 #form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number]) {
-  background-color: var(--input-bg-color) !important;
   color: var(--input-text-color) !important;
+  background-color: var(--input-bg-color) !important;
   border: var(--input-border) !important;
   border-radius: var(--input-border-radius) !important;
   padding: var(--input-padding-top) var(--input-padding-left) !important;
@@ -55,6 +128,12 @@
 }
 #form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number])::placeholder {
   visibility: hidden;
+}
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number]):not(:placeholder-shown) {
+  box-shadow: none;
+}
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=email], [type=tel], [type=number]):hover {
+  box-shadow: 0px 0px 0px 2px var(--theme-button-primary-bg-color) !important;
 }
 #form-builder #_builder-form .form-builder--item .row {
   margin-left: 0;
@@ -68,7 +147,6 @@
     display: block;
     color: var(--label-color);
     opacity: var(--input-placeholder-opacity);
-    background-color: var(--input-bg-color);
     font-size: var(--input-font-size);
     transition: all 0.3s ease-in-out;
     z-index: 1;
@@ -82,6 +160,7 @@
     width: fit-content;
   }
   #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload):has(+ input:focus), #form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload):has(+ input:not(:placeholder-shown)) {
+    background-color: var(--input-bg-color);
     left: 1.5em;
     top: 1.1em;
     opacity: 1;
@@ -104,10 +183,32 @@
   #form-builder #_builder-form .form-builder--item .option-radio label,
   #form-builder #_builder-form .form-builder--item .in-r-c label {
     font-weight: normal !important;
+    pointer-events: auto;
+  }
+  #form-builder #_builder-form .form-builder--item .option-radio input,
+  #form-builder #_builder-form .form-builder--item .in-r-c input {
+    color: var(--input-text-color) !important;
+    background-color: var(--input-bg-color) !important;
+  }
+  #form-builder #_builder-form .form-builder--item .option-radio input:not(:placeholder-shown),
+  #form-builder #_builder-form .form-builder--item .in-r-c input:not(:placeholder-shown) {
+    box-shadow: none;
+  }
+  #form-builder #_builder-form .form-builder--item .option-radio input:hover,
+  #form-builder #_builder-form .form-builder--item .in-r-c input:hover {
+    box-shadow: 0px 0px 0px 2px var(--theme-button-primary-bg-color) !important;
   }
 }
 #form-builder #_builder-form .form-builder--item .option > input {
   width: fit-content;
+  color: var(--input-text-color) !important;
+  background-color: var(--input-bg-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .option > input:not(:placeholder-shown) {
+  box-shadow: none;
+}
+#form-builder #_builder-form .form-builder--item .option > input:hover {
+  box-shadow: 0px 0px 0px 2px var(--theme-button-primary-bg-color) !important;
 }
 #form-builder #_builder-form .form-builder--item .signature-button,
 #form-builder #_builder-form .form-builder--item .custom-file-upload {
@@ -119,6 +220,7 @@
   background: transparent !important;
 }
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tags {
+  background-color: var(--input-bg-color) !important;
   border-radius: calc(var(--input-padding-top) * 2) !important;
   font-size: var(--input-font-size) !important;
   border-radius: var(--input-border-radius) !important;
@@ -150,6 +252,8 @@
 }
 .c-survey #form-builder {
   --survey-bg: var(--theme-survey-bg, initial);
+  --survey-border-radius: 8px;
+  --survey-box-shadow: var(--theme-primary-button-shadow, none);
   --label-color: var(--theme-survey-label-color, black);
   --input-bg-color: var(--theme-survey-input-bg-color, white);
 }
@@ -160,6 +264,8 @@
   background: var(--survey-bg) !important;
   border-color: var(--survey-bg, initial) !important;
   padding: 0 var(--theme-survey-padding-width, 40px) !important;
+  border-radius: var(--survey-border-radius, 8px) !important;
+  box-shadow: var(--survey-box-shadow) !important;
 }
 @container (max-width: 480px) {
   .c-survey #form-builder #_builder-form {
@@ -167,8 +273,10 @@
   }
 }
 .c-survey #form-builder .ghl-footer {
-  background-color: var(--nav-bg-color) !important;
   position: relative !important;
+  background-color: var(--nav-bg-color) !important;
+  box-shadow: none !important;
+  border-radius: 0 0 var(--survey-border-radius) var(--survey-border-radius) !important;
 }
 .c-survey #form-builder .ghl-footer .ghl-footer-progress-bar {
   border-color: var(--nav-progressbar-color) !important;
@@ -183,9 +291,62 @@
 .c-survey #form-builder .ghl-footer .ghl-footer-progress-text {
   color: var(--nav-progressbar-color) !important;
 }
+.c-survey #form-builder .ghl-footer .ghl-footer-buttons .ghl-footer-back {
+  border-radius: 0 0 0 var(--survey-border-radius) !important;
+}
+.c-survey #form-builder .ghl-footer .ghl-footer-buttons .ghl-footer-next {
+  border-radius: 0 0 var(--survey-border-radius) 0 !important;
+}
 .c-survey #form-builder #_builder-form .ghl-footer {
   margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
   width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
 }
 
-/*# sourceMappingURL=form-survey.css.map */
+/**
+ * GHL FORM & SURVEY
+ **/
+/**
+ * GHL ORDER FORM
+ **/
+.c-order {
+  --accent-color: var(--theme-primary-color);
+}
+@media only screen and (max-width: 480px) {
+  .c-order {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .c-order .form-step + .form-step, .c-order .form-step:has(+ .form-step) {
+    margin-bottom: 10px;
+  }
+  .c-order .form-step + .form-step .form-sub-heading, .c-order .form-step:has(+ .form-step) .form-sub-heading {
+    display: none;
+  }
+}
+.c-order .form-step .form-heading {
+  color: var(--theme-text-headline-color);
+}
+.c-order .form-step .form-sub-heading {
+  color: var(--theme-text-content-color);
+}
+.c-order .divider-form {
+  background-color: var(--accent-color);
+}
+.c-order .divider-form i {
+  color: var(--accent-color);
+}
+.c-order button.form-btn {
+  font-family: var(--contentfont);
+  padding: 20px 50px;
+  border: 1px solid var(--transparent);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.c-order .coupon-container {
+  margin-bottom: 40px;
+}
+.c-order .payment-content {
+  margin-top: 80px;
+}
+
+/*# sourceMappingURL=base.css.map */

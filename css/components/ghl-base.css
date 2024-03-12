@@ -1,0 +1,47 @@
+/**
+ * GHL BASE
+ * Modify GHL page behavior.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  p > a[href] {
+    position: relative;
+  }
+  p > a[href]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  p > a[href]:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+.c-column > .inner {
+  container-type: inline-size;
+}
+
+.c-column.container-normal > .inner {
+  container-type: normal;
+}
+
+.inner {
+  gap: var(--gap, initial);
+}
+
+.c-section > .inner {
+  max-width: var(--section-width) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/*# sourceMappingURL=ghl-base.css.map */

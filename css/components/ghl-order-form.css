@@ -1,5 +1,5 @@
 /**
- * ORDER FORM
+ * GHL ORDER FORM
  **/
 .c-order {
   --accent-color: var(--theme-primary-color);
@@ -42,4 +42,4 @@
   margin-top: 80px;
 }
 
-/*# sourceMappingURL=order-form.css.map */
+/*# sourceMappingURL=ghl-order-form.css.map */
