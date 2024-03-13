@@ -55,7 +55,7 @@ ul.social-links li a i {
   background-color: #9ba8a5;
   border-radius: 40px;
   color: #ffffff;
-  transition: 0.5s;
+  transition: background-color 0.5s linear;
 }
 ul.social-links li a[href]:not([href^=http]), ul.social-links li a[href=""], ul.social-links li a[href="-"] {
   display: none;

@@ -95,20 +95,20 @@ div.c-wrapper:has(> .col-span-4) {
   }
 }
 @supports selector(:has(+ *)) {
-  .horizontal > .c-wrapper .w-grid-2,
-  .horizontal > .c-wrapper .w-grid-3,
-  .horizontal > .c-wrapper .w-grid-4 {
+  .c-column > .horizontal > .c-wrapper .w-grid-2,
+  .c-column > .horizontal > .c-wrapper .w-grid-3,
+  .c-column > .horizontal > .c-wrapper .w-grid-4 {
     width: 100% !important;
   }
-  .horizontal > .c-wrapper:has(.w-grid-2) {
+  .c-column > .horizontal > .c-wrapper:has(.w-grid-2) {
     flex-basis: calc(50% - var(--gap)) !important;
     flex-grow: 0 !important;
   }
-  .horizontal > .c-wrapper:has(.w-grid-3) {
+  .c-column > .horizontal > .c-wrapper:has(.w-grid-3) {
     flex-basis: calc(30% - var(--gap)) !important;
     flex-grow: 0 !important;
   }
-  .horizontal > .c-wrapper:has(.w-grid-4) {
+  .c-column > .horizontal > .c-wrapper:has(.w-grid-4) {
     flex-basis: calc(25% - var(--gap)) !important;
     flex-grow: 0 !important;
   }
