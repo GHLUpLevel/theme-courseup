@@ -1,8 +1,9 @@
-/**
- * THEME CSS FOR GHL BASE
- * Base GHL theme styles that modify a page without any additional custom classes.
- * Include config.css before this file and components after this file.
- **/
+/****************************************
+ * Level Up Theme for High Level (GHL)
+ * https//highlevelthemes.com
+ * Version: 1.1.x
+ ****************************************/
+/* BASE GHL OVERRIDES */
 /**
  * GHL BASE
  * Modify GHL page behavior.

@@ -1,0 +1,8 @@
+/**
+ * ICONS
+ **/
+.level-1 div :is(h1, h2, h3, p) {
+  mask-image: linear-gradient(90deg, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0.3) 20%);
+}
+
+/*# sourceMappingURL=icons.css.map */

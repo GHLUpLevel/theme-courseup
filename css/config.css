@@ -1,10 +1,10 @@
-/**
- * THEME CSS CONFIG
- * Import this file before importing other css files.
- **/
-/**
- * Theme Properties
- **/
+/****************************************
+ * Level Up Theme for High Level (GHL)
+ * https//highlevelthemes.com
+ * Version: 1.1.x
+ ****************************************/
+/* THEME CONFIG VARS */
+/* Theme Custom Properties */
 @property --color-lt985yd7 {
   syntax: "<color>";
   inherits: false;

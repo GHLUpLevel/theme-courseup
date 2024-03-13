@@ -1,13 +1,13 @@
-/**
- * THEME CSS FOR LIVE PAGES
- **/
-/**
- * THEME CSS CONFIG
- * Import this file before importing other css files.
- **/
-/**
- * Theme Properties
- **/
+/****************************************
+ * Level Up Theme for High Level (GHL)
+ * https//highlevelthemes.com
+ * Version: 1.1.x
+ ****************************************/
+/*
+THEME CSS FOR LIVE PAGES
+*/
+/* THEME CONFIG VARS */
+/* Theme Custom Properties */
 @property --color-lt985yd7 {
   syntax: "<color>";
   inherits: false;
@@ -145,11 +145,7 @@
   --link-color: var(--theme-text-link-color);
 }
 
-/**
- * THEME CSS FOR GHL BASE
- * Base GHL theme styles that modify a page without any additional custom classes.
- * Include config.css before this file and components after this file.
- **/
+/* BASE GHL OVERRIDES */
 /**
  * GHL BASE
  * Modify GHL page behavior.
@@ -547,6 +543,7 @@
   margin-top: 80px;
 }
 
+/* CUSTOM COMPONENTS */
 /**
  * ADORNMENTS
  **/
@@ -667,6 +664,42 @@
     align-items: center;
   }
 }
+/**
+ * IMAGE
+ **/
+.c-image .img-invert {
+  filter: invert(1);
+}
+.c-image .img-circle-primary {
+  --color: ;
+  border-radius: 9999px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  height: auto;
+  background-color: var(--theme-primary-color);
+}
+.c-image .img-invert.img-circle-primary {
+  filter: none;
+  border: 4px solid var(--theme-primary-color);
+  background: none;
+}
+@supports selector(:has(+ *)) {
+  .c-image .img-circle-primary {
+    background: none;
+  }
+  .c-image .img-circle-primary.img-invert {
+    border: none;
+    filter: invert(1);
+  }
+  .c-image picture:has(.img-circle-primary) {
+    background-color: var(--theme-primary-color);
+    border-radius: 9999px;
+    aspect-ratio: 1/1;
+    max-width: fit-content;
+    margin: auto;
+  }
+}
+
 /**
  * LAYOUT
  * Add these classes to columns to change the layout behavior.
