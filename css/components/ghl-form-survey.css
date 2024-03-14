@@ -113,6 +113,11 @@
 #form-builder #_builder-form .form-builder--item .option > input {
   width: fit-content;
 }
+@media only screen and (max-width: 480px) {
+  #form-builder #_builder-form .form-builder--item .option > input {
+    max-width: 10em;
+  }
+}
 #form-builder #_builder-form .form-builder--item .signature-button,
 #form-builder #_builder-form .form-builder--item .custom-file-upload {
   background-color: var(--input-bg-color) !important;
@@ -220,12 +225,21 @@
   box-shadow: 0 4px 20px rgba(27, 27, 27, 0.08) !important;
   border-color: var(--theme-button-primary-bg-color) !important;
 }
+
+.c-survey {
+  container-type: inline-size;
+}
 .c-survey #form-builder {
   --survey-bg: var(--theme-survey-bg, initial);
   --survey-border-radius: 8px;
   --survey-box-shadow: var(--theme-primary-button-shadow, none);
   --label-color: var(--theme-survey-label-color, black);
   --input-bg-color: var(--theme-survey-input-bg-color, white);
+}
+@container (max-width: 480px) {
+  .c-survey #form-builder {
+    --theme-survey-padding-width: 20px;
+  }
 }
 .c-survey #form-builder .hl_form-builder--main {
   padding: 0;
@@ -236,11 +250,6 @@
   padding: 0 var(--theme-survey-padding-width, 40px) !important;
   border-radius: var(--survey-border-radius, 8px) !important;
   box-shadow: var(--survey-box-shadow) !important;
-}
-@container (max-width: 480px) {
-  .c-survey #form-builder #_builder-form {
-    --theme-survey-padding-width: 20px;
-  }
 }
 .c-survey #form-builder .ghl-footer {
   position: relative !important;

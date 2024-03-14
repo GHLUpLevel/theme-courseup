@@ -2,10 +2,13 @@
  * GHL EDITOR
  * Make pages easier to edit and more visually consistent with the live version
  **/
-/* Make the editor behave with @container queries */
-.hl_page-creator--content {
+/* Make the editor behave with @container queries only in mobile view */
+section.hl_page-creator--content.--mobile {
   container-type: inline-size;
   container-name: EditorViewPort;
+}
+section.hl_page-creator--content.--mobile div[id^=tippy] {
+  position: absolute !important;
 }
 
 /* Style Editor Modifications */

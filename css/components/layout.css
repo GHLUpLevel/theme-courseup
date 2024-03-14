@@ -3,49 +3,59 @@
  * Add these classes to columns to change the layout behavior.
  **/
 /* Layout Columns */
-.c-column.content {
+.content.c-column {
   align-self: center;
 }
-.c-column.content .c-wrapper:not(.c-button, .c-custom-code) {
+.content.c-column .c-wrapper:not(.c-button, .c-custom-code) {
   flex-basis: 100%;
 }
-.c-column.card {
-  align-self: start;
+
+.card.c-column {
+  align-self: flex-start;
 }
-.c-column.card .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
+.card.c-column .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
   flex-basis: 100%;
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  .c-column.card {
+  .card.c-column .card.c-column {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 }
+
+:is(.content, .card) .horizontal .c-button {
+  flex: 0 1 fit-content !important;
+}
+@media only screen and (max-width: 480px) {
+  :is(.content, .card) .horizontal .c-button {
+    flex-basis: 100% !important;
+  }
+  :is(.content, .card) .horizontal .c-button button,
+  :is(.content, .card) .horizontal .c-button a {
+    width: 100%;
+  }
+}
+
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  .c-column.floating {
+  .floating.c-column {
     margin: unset;
   }
 }
 
 /* Layout Utilities */
-.align-self-center, .c-wrapper:has(> .align-self-center) {
+.align-self-center,
+.c-wrapper:has(> .align-self-center) {
   align-self: center !important;
 }
 
-.align-self-start, .c-wrapper:has(> .align-self-start) {
+.align-self-start,
+.c-wrapper:has(> .align-self-start) {
   align-self: flex-start !important;
 }
 
-.align-self-end, .c-wrapper:has(> .align-self-end) {
+.align-self-end,
+.c-wrapper:has(> .align-self-end) {
   align-self: flex-end !important;
-}
-
-.gap-10 > .inner {
-  --gap: 10px;
-}
-
-.gap-20 > .inner {
-  --gap: 20px;
 }
 
 @supports selector(:has(+ *)) {

@@ -1,0 +1,17 @@
+.card-shadow {
+  box-shadow: var(--theme-card-shadow);
+}
+
+.card2 .inner > div:last-child {
+  position: absolute;
+  bottom: 0;
+  align-self: flex-end;
+}
+.card2 .inner > div:nth-last-child(2) {
+  align-self: flex-start;
+}
+.card2 .inner > div:nth-last-child(3) {
+  margin-bottom: auto;
+}
+
+/*# sourceMappingURL=experimental.css.map */

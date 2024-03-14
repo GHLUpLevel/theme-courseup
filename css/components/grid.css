@@ -1,6 +1,30 @@
 /**
  * GRID CLASSES
  */
+.gap-10 > .inner {
+  --gap: 10px;
+}
+
+.gap-20 > .inner {
+  --gap: 20px;
+}
+
+.gap-30 > .inner {
+  --gap: 30px;
+}
+
+.gap-40 > .inner {
+  --gap: 40px;
+}
+
+.gap-50 > .inner {
+  --gap: 50px;
+}
+
+.gap-60 > .inner {
+  --gap: 60px;
+}
+
 .col-span-2,
 div.c-wrapper:has(> .col-span-2) {
   grid-column: span 2;

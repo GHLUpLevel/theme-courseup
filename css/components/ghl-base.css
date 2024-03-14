@@ -3,15 +3,14 @@
  * Modify GHL page behavior.
  */
 @media (prefers-reduced-motion: no-preference) {
-  html {
+  #preview-container html {
     scroll-behavior: smooth;
   }
 }
-.c-column > .inner {
+#preview-container .c-column > .inner {
   container-type: inline-size;
 }
-
-.c-column.container-normal > .inner {
+#preview-container .c-column.container-normal > .inner {
   container-type: normal;
 }
 
