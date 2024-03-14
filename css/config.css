@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.2.0
+ * Version: v1.2.1
  ****************************************/
 /* THEME CONFIG VARS */
 /* Theme Custom Properties */
@@ -96,6 +96,10 @@
   initial-value: #191E1C;
 }
 :root {
+  /* Animate line under links: none | initial */
+  --decorate-links: initial;
+  /* Secion max width */
+  --section-width: 1342px;
   /* Primary Button Shadow Color */
   --theme-primary-button-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);
   /* Forms */
@@ -107,8 +111,6 @@
   --theme-survey-label-color: black;
   --theme-survey-padding-width: 40px;
   --theme-survey-progressbar-opacity: 0.2;
-  /* Secion max width */
-  --section-width: 1342px;
   /* CUSTOM VALUE VARIABLES - vars set from GHL custom values  */
   /* Theme Colors */
   --theme-primary-color: var(--color-lt985yd7);

@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.2.0
+ * Version: v1.2.1
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -515,6 +515,7 @@ Does not include config
     position: relative;
   }
   p > a[href]::after {
+    display: var(--decorate-links, initial);
     content: "";
     position: absolute;
     width: 100%;
@@ -527,6 +528,7 @@ Does not include config
     transition: transform 0.25s ease-out;
   }
   p > a[href]:hover::after {
+    display: var(--decorate-links, initial);
     transform: scaleX(1);
     transform-origin: bottom left;
   }
