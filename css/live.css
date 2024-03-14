@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.1.7
+ * Version: v1.2.0
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -145,7 +145,7 @@ THEME CSS FOR LIVE PAGES
   --link-color: var(--theme-text-link-color);
 }
 
-/* BASE GHL OVERRIDES */
+/* GHL CORE OVERRIDES */
 /**
  * GHL BASE
  * Modify GHL page behavior.
@@ -153,25 +153,6 @@ THEME CSS FOR LIVE PAGES
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
-  }
-  p > a[href] {
-    position: relative;
-  }
-  p > a[href]::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--theme-text-link-color);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  p > a[href]:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
   }
 }
 .c-column > .inner {
@@ -665,6 +646,30 @@ THEME CSS FOR LIVE PAGES
   }
 }
 /**
+ * DECORATORS
+ **/
+@media (prefers-reduced-motion: no-preference) {
+  p > a[href] {
+    position: relative;
+  }
+  p > a[href]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  p > a[href]:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+/**
  * IMAGE
  **/
 .c-image .img-invert {
@@ -1021,8 +1026,8 @@ ul.social-links li:hover a i {
 }
 
 /**
- * UTILITY CLASSES
- * Add these to columns or elements as needed.
+ * TEXT UTILITIES
+ * Add these to columns or elements to modify text elements.
  */
 /* Text Utilities */
 .text-wrap-nowrap {
