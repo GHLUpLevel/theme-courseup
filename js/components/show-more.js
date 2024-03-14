@@ -1,3 +1,9 @@
+/****************************************
+ * Level Up Theme for High Level (GHL)
+ * https//highlevelthemes.com
+ * Version: v1.1.7
+ ****************************************/
+
 const SEL_BTN_MORE = ".c-button .show-more-btn";
 const SEL_BTN_LESS = ".c-button .show-less-btn";
 const SEL_ROWS = ".c-row.show-more";
