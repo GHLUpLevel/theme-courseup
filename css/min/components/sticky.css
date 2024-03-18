@@ -1,0 +1,1 @@
+#preview-container .c-column .c-wrapper:has(>.sticky),#preview-container .c-column>.inner>.sticky{position:sticky;top:0;z-index:1}#preview-container .sticky.c-column{position:sticky;top:0;align-self:flex-start}@media only screen and (max-width: 767px){#preview-container .sticky.c-column{position:static;max-height:unset}}
