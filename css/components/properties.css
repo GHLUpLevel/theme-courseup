@@ -1,1 +1,103 @@
-:root{--default-theme-primary-color: #079561;--default-theme-secondary-color: #56D296;--default-theme-text-headline-color: #000;--default-theme-text-content-color: #859389;--default-theme-text-bold-color: #000;--default-theme-text-italic-color: #859389;--default-theme-text-underlined-color: #859389;--default-theme-text-link-color: #188bf6;--default-theme-text-highlight-color: #079561;--default-theme-text-dark-bg-color: #fff;--default-theme-icon-color: #079561;--default-theme-button-primary-text-color: #fff;--default-theme-button-primary-bg-color: #079561;--default-theme-button-secondary-text-color: #000;--default-theme-button-secondary-bg-color: #fff;--default-theme-background-1-color: #fff;--default-theme-background-2-color: #FBFBFB;--default-theme-background-3-color: #191E1C;--default-theme-headlinefont: Plus Jakarta Sans;--default-theme-contentfont: Plus Jakarta Sans}@property --color-lt985yd7{syntax:"<color>";inherits:false}@property --color-lt9ca2ns{syntax:"<color>";inherits:false}@property --color-lt9cay4k{syntax:"<color>";inherits:false}@property --color-lt9cbrrr{syntax:"<color>";inherits:false}@property --color-lt9cc31b{syntax:"<color>";inherits:false}@property --color-lt9cceqm{syntax:"<color>";inherits:false}@property --color-lt9cdq6h{syntax:"<color>";inherits:false}@property --color-lt9ceg80{syntax:"<color>";inherits:false}@property --color-lt9cetri{syntax:"<color>";inherits:false}@property --color-lt9cf6ne{syntax:"<color>";inherits:false}@property --color-lt9cg14m{syntax:"<color>";inherits:false}@property --color-lt9cge0z{syntax:"<color>";inherits:false}@property --color-lt9cgr2u{syntax:"<color>";inherits:false}@property --color-lt9ch38v{syntax:"<color>";inherits:false}@property --color-lt9chjvd{syntax:"<color>";inherits:false}@property --color-lt9cidqc{syntax:"<color>";inherits:false}@property --color-lt9ciq7x{syntax:"<color>";inherits:false}@property --color-lt9cj7fg{syntax:"<color>";inherits:false}
+/** THEME DEFAULTS
+ * These values are used as fallbacks if Custom Values are not set.
+ * Defaults are used by javascript to set fallbacks when custom value config
+ * options are improperly set. This is required since some browsers (i.e. Firefox)
+ * do not properly use @property initial-value when a variable is set to an
+ * invalid value.
+ **/
+:root {
+  --default-theme-primary-color: #079561;
+  --default-theme-secondary-color: #56D296;
+  --default-theme-text-headline-color: #000;
+  --default-theme-text-content-color: #859389;
+  --default-theme-text-bold-color: #000;
+  --default-theme-text-italic-color: #859389;
+  --default-theme-text-underlined-color: #859389;
+  --default-theme-text-link-color: #188bf6;
+  --default-theme-text-highlight-color: #079561;
+  --default-theme-text-dark-bg-color: #fff;
+  --default-theme-icon-color: #079561;
+  --default-theme-button-primary-text-color: #fff;
+  --default-theme-button-primary-bg-color: #079561;
+  --default-theme-button-secondary-text-color: #000;
+  --default-theme-button-secondary-bg-color: #fff;
+  --default-theme-background-1-color: #fff;
+  --default-theme-background-2-color: #FBFBFB;
+  --default-theme-background-3-color: #191E1C;
+  --default-theme-headlinefont: Plus Jakarta Sans;
+  --default-theme-contentfont: Plus Jakarta Sans;
+}
+
+/* Theme Custom Properties */
+@property --color-lt985yd7 {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9ca2ns {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cay4k {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cbrrr {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cc31b {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cceqm {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cdq6h {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9ceg80 {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cetri {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cf6ne {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cg14m {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cge0z {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cgr2u {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9ch38v {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9chjvd {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cidqc {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9ciq7x {
+  syntax: "<color>";
+  inherits: false;
+}
+@property --color-lt9cj7fg {
+  syntax: "<color>";
+  inherits: false;
+}

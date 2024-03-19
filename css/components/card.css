@@ -1,1 +1,30 @@
-.card.c-column.card-compact{align-self:flex-start}@media only screen and (min-width: 481px)and (max-width: 767px){.card.c-column{padding-left:20px !important;padding-right:20px !important}}.card.c-column>.horizontal .c-wrapper:not(.c-button,.c-custom-code,.c-image){flex-basis:100%}.card.c-column>.horizontal .c-button{flex:0 1 fit-content !important}@media only screen and (max-width: 480px){.card.c-column>.horizontal .c-button{flex-basis:100% !important}.card.c-column>.horizontal .c-button button,.card.c-column>.horizontal .c-button a{width:100%}}.card.c-column .inner>div:nth-last-child(2){margin-bottom:auto}
+/**
+ * CARD
+ **/
+.card.c-column.card-compact {
+  align-self: flex-start;
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .card.c-column {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+.card.c-column > .horizontal .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
+  flex-basis: 100%;
+}
+.card.c-column > .horizontal .c-button {
+  flex: 0 1 fit-content !important;
+}
+@media only screen and (max-width: 480px) {
+  .card.c-column > .horizontal .c-button {
+    flex-basis: 100% !important;
+  }
+  .card.c-column > .horizontal .c-button button,
+  .card.c-column > .horizontal .c-button a {
+    width: 100%;
+  }
+}
+.card.c-column .inner > div:nth-last-child(2) {
+  margin-bottom: auto;
+}

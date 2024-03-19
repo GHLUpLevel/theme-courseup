@@ -117,7 +117,7 @@
 
   setCSSDefaults();
   showMore.init();
-  console.log(`"Level Up Theme" v: "1.4.2"`);
+  console.log(`"Level Up Theme" v: "1.4.3"`);
   console.log(`https://highlevelthemes.com`);
 
 })();

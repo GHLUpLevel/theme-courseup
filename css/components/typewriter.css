@@ -1,1 +1,27 @@
-@keyframes anim-typing{from{width:0}to{width:100%}}@keyframes anim-blink-cursor{from{border-color:rgba(0,0,0,0)}to{border-color:orange}}.anim-typewriter>div h1{overflow:hidden;border-right:.15em solid orange;white-space:nowrap;width:0;animation:anim-typing 1s steps(25, end) forwards,anim-blink-cursor 1s infinite;animation-delay:1s}
+/**
+ * TYPEWRITER EFFECT
+ */
+@keyframes anim-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes anim-blink-cursor {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: orange;
+  }
+}
+.anim-typewriter > div h1 {
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  width: 0;
+  animation: anim-typing 1s steps(25, end) forwards, anim-blink-cursor 1s infinite;
+  animation-delay: 1s;
+}

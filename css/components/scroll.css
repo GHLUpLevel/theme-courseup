@@ -1,1 +1,34 @@
-.scroll-horizontal{--_scrollbar-size: var(--scrollbar-size, 10px)}@media only screen and (max-width: 767px){.scroll-horizontal{margin-left:-24px !important;min-width:100vmin;padding-right:0 !important}}.scroll-horizontal>.inner{overflow-x:scroll;flex-direction:row;padding-block:var(--_scrollbar-size);padding-left:var(--_scrollbar-size) !important;margin-left:calc(-1*var(--_scrollbar-size)) !important}section.hl_page-creator--content .scroll-horizontal>.inner{padding-top:30px !important}.scroll-horizontal>.inner>.c-column{flex-shrink:0 !important;width:calc(50% - var(--gap))}.scroll-horizontal>.inner>div:last-child{margin-right:max(var(--gap),10px)}.scroll-horizontal .card.c-column{width:400px;width:max(300px,33.3333333333% - var(--gap)*2) !important}
+/**
+ * SCROLL
+ **/
+.scroll-horizontal {
+  --_scrollbar-size: var(--scrollbar-size, 10px);
+}
+@media only screen and (max-width: 767px) {
+  .scroll-horizontal {
+    margin-left: -24px !important;
+    min-width: 100vmin;
+    padding-right: 0 !important;
+  }
+}
+.scroll-horizontal > .inner {
+  overflow-x: scroll;
+  flex-direction: row;
+  padding-block: var(--_scrollbar-size);
+  padding-left: var(--_scrollbar-size) !important;
+  margin-left: calc(-1 * var(--_scrollbar-size)) !important;
+}
+section.hl_page-creator--content .scroll-horizontal > .inner {
+  padding-top: 30px !important;
+}
+.scroll-horizontal > .inner > .c-column {
+  flex-shrink: 0 !important;
+  width: calc(50% - var(--gap));
+}
+.scroll-horizontal > .inner > div:last-child {
+  margin-right: max(var(--gap), 10px);
+}
+.scroll-horizontal .card.c-column {
+  width: 400px;
+  width: max(300px, 33.3333333333% - var(--gap) * 2) !important;
+}
