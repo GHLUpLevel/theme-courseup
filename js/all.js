@@ -88,19 +88,29 @@
     "theme-button-secondary-bg-color",
     "theme-background-1-color",
     "theme-background-2-color",
-    "theme-background-3-color",
+    "theme-background-3-color"
+  ];
+  const globalVariables = [
     "headlinefont",
     "contentfont"
   ];
   function setCSSDefaults() {
     themeVariablesDefaults.forEach((name) => {
-      const themeVar = `--theme-${name}`;
+      const themeVar = `--${name}`;
       if (getComputedStyle(document.documentElement).getPropertyValue(themeVar).trim().length < 2) {
         const defaultValue = getComputedStyle(
           document.documentElement
         ).getPropertyValue(`--default-${name}`);
         document.documentElement.style.setProperty(themeVar, defaultValue);
         console.log(`${themeVar} set to default:`, defaultValue);
+      }
+    });
+    globalVariables.forEach((name) => {
+      const varName = `--global-${name}`;
+      const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+      if (value.replace(/["']/g, "").length > 0) {
+        document.documentElement.style.setProperty(name, value);
+        console.log(`--${name} set to global value:`, value);
       }
     });
   }
