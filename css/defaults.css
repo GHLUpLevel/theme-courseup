@@ -1,1 +1,31 @@
-:root{--theme-default-primary-color: #079561;--theme-default-secondary-color: #56D296;--theme-default-text-headline-color: #000;--theme-default-text-content-color: #859389;--theme-default-text-bold-color: #000;--theme-default-text-italic-color: #859389;--theme-default-text-underlined-color: #859389;--theme-default-text-link-color: #188bf6;--theme-default-text-highlight-color: #079561;--theme-default-text-dark-bg-color: #fff;--theme-default-icon-color: #079561;--theme-default-button-primary-text-color: #fff;--theme-default-button-primary-bg-color: #079561;--theme-default-button-secondary-text-color: #000;--theme-default-button-secondary-bg-color: #fff;--theme-default-background-1-color: #fff;--theme-default-background-2-color: #FBFBFB;--theme-default-background-3-color: #191E1C}
+/** THEME DEFAULTS
+ * These values are used as fallbacks if Custom Values are not set.
+ * Defaults are used by javascript to set fallbacks when custom value config
+ * options are improperly set. This is required since some browsers (i.e. Firefox)
+ * do not properly use @property initial-value when a variable is set to an
+ * invalid value.
+ **/
+:root {
+  --default-primary-color: #079561;
+  --default-secondary-color: #56D296;
+  --default-text-headline-color: #000;
+  --default-text-content-color: #859389;
+  --default-text-bold-color: #000;
+  --default-text-italic-color: #859389;
+  --default-text-underlined-color: #859389;
+  --default-text-link-color: #188bf6;
+  --default-text-highlight-color: #079561;
+  --default-text-dark-bg-color: #fff;
+  --default-icon-color: #079561;
+  --default-button-primary-text-color: #fff;
+  --default-button-primary-bg-color: #079561;
+  --default-button-secondary-text-color: #000;
+  --default-button-secondary-bg-color: #fff;
+  --default-background-1-color: #fff;
+  --default-background-2-color: #FBFBFB;
+  --default-background-3-color: #191E1C;
+  --default-headlinefont: Plus Jakarta Sans;
+  --default-contentfont: Plus Jakarta Sans;
+}
+
+/*# sourceMappingURL=defaults.css.map */

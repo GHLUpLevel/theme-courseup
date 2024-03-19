@@ -1,1 +1,227 @@
-:root{--theme-default-primary-color: #079561;--theme-default-secondary-color: #56D296;--theme-default-text-headline-color: #000;--theme-default-text-content-color: #859389;--theme-default-text-bold-color: #000;--theme-default-text-italic-color: #859389;--theme-default-text-underlined-color: #859389;--theme-default-text-link-color: #188bf6;--theme-default-text-highlight-color: #079561;--theme-default-text-dark-bg-color: #fff;--theme-default-icon-color: #079561;--theme-default-button-primary-text-color: #fff;--theme-default-button-primary-bg-color: #079561;--theme-default-button-secondary-text-color: #000;--theme-default-button-secondary-bg-color: #fff;--theme-default-background-1-color: #fff;--theme-default-background-2-color: #FBFBFB;--theme-default-background-3-color: #191E1C}@property --color-lt985yd7{syntax:"<color>";inherits:false;initial-value:#079561}@property --color-lt9ca2ns{syntax:"<color>";inherits:false;initial-value:#56D296}@property --color-lt9cay4k{syntax:"<color>";inherits:false;initial-value:#000}@property --color-lt9cbrrr{syntax:"<color>";inherits:false;initial-value:#859389}@property --color-lt9cc31b{syntax:"<color>";inherits:false;initial-value:#000}@property --color-lt9cceqm{syntax:"<color>";inherits:false;initial-value:#859389}@property --color-lt9cdq6h{syntax:"<color>";inherits:false;initial-value:#859389}@property --color-lt9ceg80{syntax:"<color>";inherits:false;initial-value:#188bf6}@property --color-lt9cetri{syntax:"<color>";inherits:false;initial-value:#079561}@property --color-lt9cf6ne{syntax:"<color>";inherits:false;initial-value:#fff}@property --color-lt9cg14m{syntax:"<color>";inherits:false;initial-value:#079561}@property --color-lt9cge0z{syntax:"<color>";inherits:false;initial-value:#fff}@property --color-lt9cgr2u{syntax:"<color>";inherits:false;initial-value:#079561}@property --color-lt9ch38v{syntax:"<color>";inherits:false;initial-value:#000}@property --color-lt9chjvd{syntax:"<color>";inherits:false;initial-value:#fff}@property --color-lt9cidqc{syntax:"<color>";inherits:false;initial-value:#fff}@property --color-lt9ciq7x{syntax:"<color>";inherits:false;initial-value:#FBFBFB}@property --color-lt9cj7fg{syntax:"<color>";inherits:false;initial-value:#191E1C}:root{--decorate-links: initial;--decorate-links-underline: none;--decorate-links-wrap: nowrap;--section-width: 1342px;--theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);--theme-button-primary-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);--theme-button-secondary-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(27, 27, 27, 0.02), 0 4px 14px rgba(25, 25, 25, 0.06);--theme-input-bg-color: #f5f5f5;--theme-input-text-color: black;--theme-survey-bg: #fff;--theme-survey-input-bg-color: var(--theme-input-bg-color);--theme-survey-label-color: black;--theme-survey-padding-width: 40px;--theme-survey-progressbar-opacity: 0.2;--theme-primary-color: var(--color-lt985yd7);--theme-secondary-color: var(--color-lt9ca2ns);--theme-text-headline-color: var(--color-lt9cay4k);--theme-text-content-color: var(--color-lt9cbrrr);--theme-text-bold-color: var(--color-lt9cc31b);--theme-text-italic-color: var(--color-lt9cceqm);--theme-text-underlined-color: var(--color-lt9cdq6h);--theme-text-link-color: var(--color-lt9ceg80);--theme-text-highlight-color: var(--color-lt9cetri);--theme-text-dark-bg-color: var(--color-lt9cf6ne);--theme-icon-color: var(--color-lt9cg14m);--theme-button-primary-text-color: var(--color-lt9cge0z);--theme-button-primary-bg-color: var(--color-lt9cgr2u);--theme-button-secondary-text-color: var(--color-lt9ch38v);--theme-button-secondary-bg-color: var(--color-lt9chjvd);--theme-background-1-color: var(--color-lt9cidqc);--theme-background-2-color: var(--color-lt9ciq7x);--theme-background-3-color: var(--color-lt9cj7fg)}:root{--text-color: var(--theme-text-content-color);--link-color: var(--theme-text-link-color)}
+/****************************************
+ * Level Up Theme for High Level (GHL)
+ * https//highlevelthemes.com
+ * Version: v1.3.1
+ ****************************************/
+/* THEME CONFIG VARS */
+/** THEME DEFAULTS
+ * These values are used as fallbacks if Custom Values are not set.
+ * Defaults are used by javascript to set fallbacks when custom value config
+ * options are improperly set. This is required since some browsers (i.e. Firefox)
+ * do not properly use @property initial-value when a variable is set to an
+ * invalid value.
+ **/
+:root {
+  --default-primary-color: #079561;
+  --default-secondary-color: #56D296;
+  --default-text-headline-color: #000;
+  --default-text-content-color: #859389;
+  --default-text-bold-color: #000;
+  --default-text-italic-color: #859389;
+  --default-text-underlined-color: #859389;
+  --default-text-link-color: #188bf6;
+  --default-text-highlight-color: #079561;
+  --default-text-dark-bg-color: #fff;
+  --default-icon-color: #079561;
+  --default-button-primary-text-color: #fff;
+  --default-button-primary-bg-color: #079561;
+  --default-button-secondary-text-color: #000;
+  --default-button-secondary-bg-color: #fff;
+  --default-background-1-color: #fff;
+  --default-background-2-color: #FBFBFB;
+  --default-background-3-color: #191E1C;
+  --default-headlinefont: Plus Jakarta Sans;
+  --default-contentfont: Plus Jakarta Sans;
+}
+
+/* Theme Custom Properties */
+@property --color-lt985yd7 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9ca2ns {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #56D296;
+}
+@property --color-lt9cay4k {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --color-lt9cbrrr {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #859389;
+}
+@property --color-lt9cc31b {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --color-lt9cceqm {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #859389;
+}
+@property --color-lt9cdq6h {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #859389;
+}
+@property --color-lt9ceg80 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #188bf6;
+}
+@property --color-lt9cetri {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9cf6ne {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9cg14m {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9cge0z {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9cgr2u {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
+@property --color-lt9ch38v {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #000;
+}
+@property --color-lt9chjvd {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9cidqc {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --color-lt9ciq7x {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #FBFBFB;
+}
+@property --color-lt9cj7fg {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #191E1C;
+}
+:root {
+  /* Animate line under links: none | initial */
+  --decorate-links: initial;
+  --decorate-links-underline: none;
+  --decorate-links-wrap: nowrap;
+  /* Secion max width */
+  --section-width: 1342px;
+  --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
+  /* Primary Button Shadow Color */
+  --theme-button-primary-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);
+  --theme-button-secondary-shadow: 0 6px 14px rgba(0, 0, 0, 0.02),
+    0 1px 4px rgba(27, 27, 27, 0.02), 0 4px 14px rgba(25, 25, 25, 0.06);
+  /* Forms */
+  --theme-input-bg-color: #f5f5f5;
+  --theme-input-text-color: black;
+  /* Surveys */
+  --theme-survey-bg: #fff;
+  --theme-survey-input-bg-color: var(--theme-input-bg-color);
+  --theme-survey-label-color: black;
+  --theme-survey-padding-width: 40px;
+  --theme-survey-progressbar-opacity: 0.2;
+  /*
+    CUSTOM VALUE VARIABLES
+    These variables ar set from GHL custom values in a style block
+    in the themplate's hidden Global Code block on each page.
+  */
+  /* Theme Colors */
+  /* [CustomValue] COLOR: Primary */
+  /* {{ custom_values.color_primary }} */
+  --theme-primary-color: var(--color-lt985yd7);
+  /* [CustomValue] COLOR: Secondary */
+  /* {{ custom_values.color_secondary }} */
+  --theme-secondary-color: var(--color-lt9ca2ns);
+  /* Text Colors */
+  /* [CustomValue] COLOR: Text Headline */
+  /* {{ custom_values.color_text_headline }} */
+  --theme-text-headline-color: var(--color-lt9cay4k);
+  /* [CustomValue] COLOR: Text Content */
+  /* {{ custom_values.color_text_content }} */
+  --theme-text-content-color: var(--color-lt9cbrrr);
+  /* [CustomValue] COLOR: Text Bold */
+  /* {{ custom_values.color_text_bold }} */
+  --theme-text-bold-color: var(--color-lt9cc31b);
+  /* [CustomValue] COLOR: Text Italic */
+  /* {{ custom_values.color_text_italic }} */
+  --theme-text-italic-color: var(--color-lt9cceqm);
+  /* [CustomValue] COLOR: Text Underline */
+  /* {{ custom_values.color_text_underline }} */
+  --theme-text-underlined-color: var(--color-lt9cdq6h);
+  /* [CustomValue] COLOR: Text Link */
+  /* {{ custom_values.color_text_link }} */
+  --theme-text-link-color: var(--color-lt9ceg80);
+  /* [CustomValue] COLOR: Text Highlight */
+  /* {{ custom_values.color_text_highlight }} */
+  --theme-text-highlight-color: var(--color-lt9cetri);
+  /* [CustomValue] COLOR: Text Dark BG */
+  /* {{ custom_values.color_text_content_dark_bg }} */
+  --theme-text-dark-bg-color: var(--color-lt9cf6ne);
+  /* Icon Colors */
+  /* [CustomValue] COLOR: Icon */
+  /* {{ custom_values.color_icon }} */
+  --theme-icon-color: var(--color-lt9cg14m);
+  /* Button Colors */
+  /* [CustomValue] COLOR: Button Primary Text */
+  /* {{ custom_values.color_button_primary_text }} */
+  --theme-button-primary-text-color: var(--color-lt9cge0z);
+  /* [CustomValue] COLOR: Button Primary BG */
+  /* {{ custom_values.color_button_primary_bg }} */
+  --theme-button-primary-bg-color: var(--color-lt9cgr2u);
+  /* [CustomValue] COLOR: Button Secondary Text */
+  /* {{ custom_values.color_button_secondary_text }} */
+  --theme-button-secondary-text-color: var(--color-lt9ch38v);
+  /* [CustomValue] COLOR: Button Secondary BG */
+  /* {{ custom_values.color_button_secondary_bg }} */
+  --theme-button-secondary-bg-color: var(--color-lt9chjvd);
+  /* Background Colors */
+  /* [CustomValue] COLOR: Background #1 */
+  /* {{ custom_values.color_background_1 }} */
+  --theme-background-1-color: var(--color-lt9cidqc);
+  /* [CustomValue] COLOR: Background #2 */
+  /* {{ custom_values.color_background_2 }} */
+  --theme-background-2-color: var(--color-lt9ciq7x);
+  /* [CustomValue] COLOR: Background #3 */
+  /* {{ custom_values.color_background_3 }} */
+  --theme-background-3-color: var(--color-lt9cj7fg);
+  /* Fonts */
+  /* Add these to Custom CSS or a code block on a page to override fonts with global Custom Values
+  --headlinefont: "{{ custom_values.font_headline }}";
+  --contentfont: "{{ custom_values.font_content }}";
+  */
+}
+
+/* Override the GHL default vars */
+:root {
+  --text-color: var(--theme-text-content-color);
+  --link-color: var(--theme-text-link-color);
+  /* TODO: add additional overrides here as needed */
+}
+
+/*# sourceMappingURL=config.css.map */

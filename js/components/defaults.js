@@ -1,28 +1,30 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.3.0
+ * Version: v1.3.1
  ****************************************/
 
 const themeVariablesDefaults = [
-  "primary-color",
-  "secondary-color",
-  "text-headline-color",
-  "text-content-color",
-  "text-bold-color",
-  "text-italic-color",
-  "text-underlined-color",
-  "text-link-color",
-  "text-highlight-color",
-  "text-dark-bg-color",
-  "icon-color",
-  "button-primary-text-color",
-  "button-primary-bg-color",
-  "button-secondary-text-color",
-  "button-secondary-bg-color",
-  "background-1-color",
-  "background-2-color",
-  "background-3-color"
+  "theme-primary-color",
+  "theme-secondary-color",
+  "theme-text-headline-color",
+  "theme-text-content-color",
+  "theme-text-bold-color",
+  "theme-text-italic-color",
+  "theme-text-underlined-color",
+  "theme-text-link-color",
+  "theme-text-highlight-color",
+  "theme-text-dark-bg-color",
+  "theme-icon-color",
+  "theme-button-primary-text-color",
+  "theme-button-primary-bg-color",
+  "theme-button-secondary-text-color",
+  "theme-button-secondary-bg-color",
+  "theme-background-1-color",
+  "theme-background-2-color",
+  "theme-background-3-color",
+  "headlinefont",
+  "contentfont"
 ];
 function setCSSDefaults() {
   themeVariablesDefaults.forEach((name) => {
@@ -30,7 +32,7 @@ function setCSSDefaults() {
     if (getComputedStyle(document.documentElement).getPropertyValue(themeVar).trim().length < 2) {
       const defaultValue = getComputedStyle(
         document.documentElement
-      ).getPropertyValue(`--theme-default-${name}`);
+      ).getPropertyValue(`--default-${name}`);
       document.documentElement.style.setProperty(themeVar, defaultValue);
       console.log(`${themeVar} set to default:`, defaultValue);
     }
