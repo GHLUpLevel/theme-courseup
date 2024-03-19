@@ -5,10 +5,11 @@
   filter: invert(1);
 }
 .c-image .img-circle-primary {
-  --color: ;
+  --aspect-ratio: 1 / 1;
+  --object-fit: contain;
   border-radius: 9999px;
-  aspect-ratio: 1/1;
-  object-fit: contain;
+  aspect-ratio: var(--aspect-ratio);
+  object-fit: var(--object-fit);
   height: auto;
   background-color: var(--theme-primary-color);
 }

@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.4.4
+ * Version: v1.4.5
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -13,18 +13,12 @@ Does not include config
  * Modify GHL page behavior.
  */
 @media (prefers-reduced-motion: no-preference) {
-  #preview-container html {
+  html {
     scroll-behavior: smooth;
   }
 }
-#preview-container .c-column > .inner {
-  container-type: inline-size;
-}
-#preview-container .c-column.container-normal > .inner {
-  container-type: normal;
-}
-
 .inner {
+  gap: initial;
   gap: var(--gap, initial);
 }
 
@@ -32,6 +26,13 @@ Does not include config
   max-width: var(--section-width) !important;
   padding-left: 24px !important;
   padding-right: 24px !important;
+}
+
+#preview-container .c-column > .inner {
+  container-type: inline-size;
+}
+#preview-container .c-column.container-normal > .inner {
+  container-type: normal;
 }
 
 /**
@@ -116,6 +117,11 @@ Does not include config
   color: var(--text-headline-color);
   font-size: 1.75em;
 }
+#form-builder #_builder-form input::-moz-placeholder {
+  font-family: var(--contentfont) !important;
+  font-size: 1em;
+  line-height: 1.2;
+}
 #form-builder #_builder-form label,
 #form-builder #_builder-form .short-label,
 #form-builder #_builder-form input,
@@ -139,7 +145,7 @@ Does not include config
   box-shadow: none !important;
   height: calc(1lh + var(--input-padding-top) * 2);
 }
-#form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload) {
+#form-builder #_builder-form .form-builder--item label:not(.item-description):not(.custom-file-upload) {
   font-size: var(--label-font-size);
   font-weight: bold;
   color: var(--label-color) !important;
@@ -156,6 +162,7 @@ Does not include config
   margin-right: 0;
 }
 #form-builder #_builder-form .form-builder--item .row td > label {
+  position: static;
   position: initial;
 }
 #form-builder #_builder-form .form-builder--item .option-radio label,
@@ -172,6 +179,7 @@ Does not include config
   box-shadow: 0 0 0 3px var(--theme-button-primary-bg-color) !important;
 }
 #form-builder #_builder-form .form-builder--item .option > input {
+  width: -moz-fit-content;
   width: fit-content;
 }
 @media only screen and (max-width: 480px) {
@@ -205,6 +213,13 @@ Does not include config
   font-size: var(--input-font-size) !important;
   background: transparent !important;
 }
+#form-builder #_builder-form .form-builder--item .multi_select_form input::-moz-placeholder {
+  font-family: var(--contentfont) !important;
+  font-size: var(--input-font-size) !important;
+  line-height: 1 !important;
+  background: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+}
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tags,
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__single,
@@ -215,6 +230,10 @@ Does not include config
   line-height: 1 !important;
   background: var(--input-bg-color) !important;
   color: var(--input-text-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form input::-moz-placeholder {
+  color: var(--input-text-color) !important;
+  opacity: var(--input-placeholder-opacity);
 }
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
 #form-builder #_builder-form .form-builder--item .multi_select_form input::placeholder {
@@ -268,11 +287,20 @@ Does not include config
 #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
   transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s, color 0.3s;
 }
+#form-builder #_builder-form .form-builder--item input::-moz-placeholder, #form-builder #_builder-form .form-builder--item .multiselect__tags::-moz-placeholder, #form-builder #_builder-form .form-builder--item .date-picker-custom-style::-moz-placeholder {
+  color: var(--input-text-color) !important;
+  opacity: var(--input-placeholder-opacity);
+}
 #form-builder #_builder-form .form-builder--item input::placeholder,
 #form-builder #_builder-form .form-builder--item .multiselect__tags::placeholder,
 #form-builder #_builder-form .form-builder--item .date-picker-custom-style::placeholder {
   color: var(--input-text-color) !important;
   opacity: var(--input-placeholder-opacity);
+}
+#form-builder #_builder-form .form-builder--item input:focus::-moz-placeholder, #form-builder #_builder-form .form-builder--item .multiselect__tags:focus::-moz-placeholder, #form-builder #_builder-form .form-builder--item .date-picker-custom-style:focus::-moz-placeholder {
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 0.2;
 }
 #form-builder #_builder-form .form-builder--item input:focus::placeholder,
 #form-builder #_builder-form .form-builder--item .multiselect__tags:focus::placeholder,
@@ -311,8 +339,12 @@ Does not include config
 }
 .c-survey #form-builder #_builder-form {
   background: var(--survey-bg) !important;
+  border-color: currentcolor !important;
+  border-color: initial !important;
   border-color: var(--survey-bg, initial) !important;
+  padding: 0 40px !important;
   padding: 0 var(--theme-survey-padding-width, 40px) !important;
+  border-radius: 8px !important;
   border-radius: var(--survey-border-radius, 8px) !important;
   box-shadow: var(--survey-box-shadow) !important;
 }
@@ -342,7 +374,9 @@ Does not include config
   border-radius: 0 0 var(--survey-border-radius) 0 !important;
 }
 .c-survey #form-builder #_builder-form .ghl-footer {
+  margin: 0 calc(-1 * 40px);
   margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
+  width: calc(100% + 2 * 40px);
   width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
 }
 
@@ -404,7 +438,8 @@ Does not include config
 }
 .adorn-circle-top-left::before {
   content: "";
-  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+  -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+          mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
   background-color: var(--theme-primary-color);
   position: absolute;
   top: 0;
@@ -419,59 +454,49 @@ Does not include config
 /**
  * BUTTONS
  **/
-.c-button :is(.btn-primary, .btn-secondary, .btn-link),
-.c-form .btn,
-.c-order .form-btn {
+.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn {
   --_font-size: 1.125rem;
   --_font-weight: normal;
   --_border: 1px solid var(--transparent);
   --_border-radius: 1000px;
   --_box-shadow: none;
   --_padding-block: calc(1.15 * var(--_font-size));
-  --_padding-inline: clamp(10px, 2em, 10em);
+  --_padding-inline: max(10px, min(2em, 10em));
   font-family: var(--contentfont) !important;
+  font-size: 1.125rem !important;
   font-size: var(--_font-size) !important;
   line-height: 1em !important;
+  font-weight: normal !important;
   font-weight: var(--_font-weight) !important;
+  border: 1px solid var(--transparent) !important;
   border: var(--_border) !important;
+  border-radius: 1000px !important;
   border-radius: var(--_border-radius) !important;
-  padding-block: var(--_padding-block) !important;
+  padding-top: calc(1.15 * 1.125rem) !important;
+  padding-bottom: calc(1.15 * 1.125rem) !important;
+  padding-top: var(--_padding-block) !important;
+  padding-bottom: var(--_padding-block) !important;
+  color: #fff !important;
   color: var(--_color, #fff) !important;
+  background-color: #000 !important;
   background-color: var(--_background-color, #000) !important;
+  box-shadow: none !important;
   box-shadow: var(--_box-shadow, none) !important;
   transition: transform 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
   cursor: pointer;
 }
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .main-text,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .main-heading-button,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .button-icon-start,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .button-icon-end,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) p,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) i,
-.c-form .btn .main-text,
-.c-form .btn .main-heading-button,
-.c-form .btn .button-icon-start,
-.c-form .btn .button-icon-end,
-.c-form .btn p,
-.c-form .btn i,
-.c-order .form-btn .main-text,
-.c-order .form-btn .main-heading-button,
-.c-order .form-btn .button-icon-start,
-.c-order .form-btn .button-icon-end,
-.c-order .form-btn p,
-.c-order .form-btn i {
+.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i {
   font-size: 1em !important;
   line-height: 1em !important;
   font-weight: var(--_font-weight) !important;
 }
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) > div,
-.c-form .btn > div,
-.c-order .form-btn > div {
-  font-size: unset !important;
-  color: unset !important;
-  background-color: unset !important;
-  font-weight: unset !important;
-  font-family: unset !important;
+.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div {
+  font-size: inherit !important;
+  color: inherit !important;
+  background-color: transparent !important;
+  background-color: initial !important;
+  font-weight: inherit !important;
+  font-family: inherit !important;
 }
 
 .c-button .btn-small,
@@ -533,6 +558,7 @@ Does not include config
   --_font-weight: normal;
 }
 .c-button .btn-link .main-heading-button {
+  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 .c-button .btn-link:hover {
@@ -551,7 +577,7 @@ Does not include config
     padding-right: 20px !important;
   }
 }
-.card.c-column > .horizontal .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
+.card.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code):not(.c-image) {
   flex-basis: 100%;
 }
 .card.c-column > .horizontal .c-button {
@@ -576,7 +602,7 @@ Does not include config
 .content.c-column {
   align-self: center;
 }
-.content.c-column > .horizontal .c-wrapper:not(.c-button, .c-custom-code) {
+.content.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code) {
   flex-basis: 100%;
 }
 .content.c-column > .horizontal .c-button {
@@ -633,17 +659,54 @@ Does not include config
  * DECORATORS
  **/
 @media (prefers-reduced-motion: no-preference) {
-  #preview-container :is(p, h1, h2, h3) > a[href]:not(.no-decorate *),
-  #preview-container .decorate a[href] {
+  #preview-container p > a[href]:not(.no-decorate *) {
     position: relative;
+    text-wrap: nowrap;
     text-wrap: var(--decorate-links-wrap, nowrap);
   }
-  #preview-container :is(p, h1, h2, h3) > a[href]:not(.no-decorate *):hover,
-  #preview-container .decorate a[href]:hover {
+  #preview-container h1 > a[href]:not(.no-decorate *) {
+    position: relative;
+    text-wrap: nowrap;
+    text-wrap: var(--decorate-links-wrap, nowrap);
+  }
+  #preview-container h2 > a[href]:not(.no-decorate *) {
+    position: relative;
+    text-wrap: nowrap;
+    text-wrap: var(--decorate-links-wrap, nowrap);
+  }
+  #preview-container h3 > a[href]:not(.no-decorate *) {
+    position: relative;
+    text-wrap: nowrap;
+    text-wrap: var(--decorate-links-wrap, nowrap);
+  }
+  #preview-container .decorate a[href] {
+    position: relative;
+    text-wrap: nowrap;
+    text-wrap: var(--decorate-links-wrap, nowrap);
+  }
+  #preview-container p > a[href]:not(.no-decorate *):hover {
+    text-decoration-line: none;
     text-decoration-line: var(--decorate-links-underline, none);
   }
-  #preview-container :is(p, h1, h2, h3) > a[href]:not(.no-decorate *)::after,
-  #preview-container .decorate a[href]::after {
+  #preview-container h1 > a[href]:not(.no-decorate *):hover {
+    text-decoration-line: none;
+    text-decoration-line: var(--decorate-links-underline, none);
+  }
+  #preview-container h2 > a[href]:not(.no-decorate *):hover {
+    text-decoration-line: none;
+    text-decoration-line: var(--decorate-links-underline, none);
+  }
+  #preview-container h3 > a[href]:not(.no-decorate *):hover {
+    text-decoration-line: none;
+    text-decoration-line: var(--decorate-links-underline, none);
+  }
+  #preview-container .decorate a[href]:hover {
+    text-decoration-line: none;
+    text-decoration-line: var(--decorate-links-underline, none);
+  }
+  #preview-container p > a[href]:not(.no-decorate *)::after {
+    display: inline;
+    display: initial;
     display: var(--decorate-links, initial);
     content: "";
     position: absolute;
@@ -656,12 +719,88 @@ Does not include config
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container :is(p, h1, h2, h3) > a[href]:not(.no-decorate *):hover::after,
+  #preview-container h1 > a[href]:not(.no-decorate *)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  #preview-container h2 > a[href]:not(.no-decorate *)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  #preview-container h3 > a[href]:not(.no-decorate *)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  #preview-container .decorate a[href]::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  #preview-container p > a[href]:not(.no-decorate *):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  #preview-container h1 > a[href]:not(.no-decorate *):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  #preview-container h2 > a[href]:not(.no-decorate *):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  #preview-container h3 > a[href]:not(.no-decorate *):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
   #preview-container .decorate a[href]:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
   #preview-container .decorate a[href]::after {
+    display: inline;
     display: initial;
   }
 }
@@ -669,20 +808,20 @@ Does not include config
 /**
  * FEATURE IMAGE
  **/
-:is(.content, .card) .c-image-feature .img-feature-container {
+.content .c-image-feature .img-feature-container, .card .c-image-feature .img-feature-container {
   display: flex !important;
   gap: 10px;
 }
-:is(.content, .card) .c-image-feature .img-feature-container.feature-img-right .img-container {
+.content .c-image-feature .img-feature-container.feature-img-right .img-container, .card .c-image-feature .img-feature-container.feature-img-right .img-container {
   order: 2;
 }
-:is(.content, .card) .c-image-feature .img-container {
+.content .c-image-feature .img-container, .card .c-image-feature .img-container {
   flex: 0 0 max-content;
 }
-:is(.content, .card) .c-image-feature .txt-container {
+.content .c-image-feature .txt-container, .card .c-image-feature .txt-container {
   flex: 1 auto;
 }
-:is(.content, .card) .horizontal .c-image-feature {
+.content .horizontal .c-image-feature, .card .horizontal .c-image-feature {
   flex-basis: 100% !important;
 }
 
@@ -693,10 +832,15 @@ Does not include config
   filter: invert(1);
 }
 .c-image .img-circle-primary {
-  --color: ;
+  --aspect-ratio: 1 / 1;
+  --object-fit: contain;
   border-radius: 9999px;
-  aspect-ratio: 1/1;
-  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  aspect-ratio: var(--aspect-ratio);
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-fit: var(--object-fit);
+     object-fit: var(--object-fit);
   height: auto;
   background-color: var(--theme-primary-color);
 }
@@ -717,6 +861,7 @@ Does not include config
     background-color: var(--theme-primary-color);
     border-radius: 9999px;
     aspect-ratio: 1/1;
+    max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
   }
@@ -727,7 +872,8 @@ Does not include config
  **/
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .floating.c-column {
-    margin: unset;
+    margin: 0;
+    margin: initial;
   }
 }
 
@@ -774,7 +920,10 @@ Does not include config
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .horizontal > .c-wrapper :is(.w-10, .w-20, .w-30, .w-40, .w-50, .w-60 .w-70, .w-80, .w-90, .w-100) {
+  .c-column > .horizontal > .c-wrapper :is(.w-60 .w-70) {
+    width: 100% !important;
+  }
+  .c-column > .horizontal > .c-wrapper .w-10:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-20:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-30:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-40:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-50:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-80:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-90:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-100:not(.does-not-exist) {
     width: 100% !important;
   }
   .c-column > .horizontal > .c-wrapper:has(.w-10) {
@@ -904,7 +1053,7 @@ div.c-wrapper:has(> .col-span-4) {
 }
 /* PSEUDO GRID */
 @supports selector(:has(+ *)) {
-  .c-column > .horizontal > .c-wrapper :is(.w-grid-2, .w-grid-3, .w-grid-4) {
+  .c-column > .horizontal > .c-wrapper .w-grid-2, .c-column > .horizontal > .c-wrapper .w-grid-3, .c-column > .horizontal > .c-wrapper .w-grid-4 {
     width: 100% !important;
   }
   .c-column > .horizontal > .c-wrapper:has(.w-grid-2, .w-grid-3, .w-grid-4) {
@@ -945,7 +1094,8 @@ div.c-wrapper:has(> .col-span-4) {
 .scroll-horizontal > .inner {
   overflow-x: scroll;
   flex-direction: row;
-  padding-block: var(--_scrollbar-size);
+  padding-top: var(--_scrollbar-size);
+  padding-bottom: var(--_scrollbar-size);
   padding-left: var(--_scrollbar-size) !important;
   margin-left: calc(-1 * var(--_scrollbar-size)) !important;
 }
@@ -973,6 +1123,7 @@ section.hl_page-creator--content .scroll-horizontal > .inner {
 }
 #preview-container .show-more-shown .c-button.c-wrapper:has(> .show-less-btn),
 #preview-container .show-more-shown .c-button.show-less {
+  display: inline;
   display: initial;
 }
 #preview-container .show-more-shown .c-button.c-wrapper:has(> .show-more-btn),
@@ -983,6 +1134,7 @@ section.hl_page-creator--content .scroll-horizontal > .inner {
   display: none;
 }
 #preview-container .c-row.show-more.show-more-shown {
+  display: inline;
   display: initial;
 }
 
@@ -1003,7 +1155,8 @@ section.hl_page-creator--content .scroll-horizontal > .inner {
 @media only screen and (max-width: 767px) {
   #preview-container .sticky.c-column {
     position: static;
-    max-height: unset;
+    max-height: none;
+    max-height: initial;
   }
 }
 
