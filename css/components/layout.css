@@ -3,7 +3,8 @@
  **/
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .floating.c-column {
-    margin: unset;
+    margin: 0;
+    margin: initial;
   }
 }
 
@@ -50,7 +51,7 @@
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .horizontal > .c-wrapper :is(.w-10, .w-20, .w-30, .w-40, .w-50, .w-60 .w-70, .w-80, .w-90, .w-100) {
+  .c-column > .horizontal > .c-wrapper .w-10, .c-column > .horizontal > .c-wrapper .w-20, .c-column > .horizontal > .c-wrapper .w-30, .w-40, .w-50, .w-60, .w-70, .w-80, .w-90, .w-100 {
     width: 100% !important;
   }
   .c-column > .horizontal > .c-wrapper:has(.w-10) {
@@ -85,49 +86,141 @@
   }
 }
 /* GRID */
+.col-span-1,
+.c-wrapper:has(> .col-span-1) {
+  --col-span: 1;
+}
+:where(.col-span-1,
+.c-wrapper:has(> .col-span-1)) {
+  grid-column: span var(--col-span);
+}
+
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-1,
+  .c-wrapper:has(> .tablet-col-span-1) {
+    --col-span: 1;
+  }
+  :where(.tablet-col-span-1,
+  .c-wrapper:has(> .tablet-col-span-1)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-1,
+  .c-wrapper:has(> .mobile-col-span-1) {
+    --col-span: 1;
+  }
+  :where(.mobile-col-span-1,
+  .c-wrapper:has(> .mobile-col-span-1)) {
+    grid-column: span var(--col-span);
+  }
+}
 .col-span-2,
-div.c-wrapper:has(> .col-span-2) {
-  grid-column: span 2;
+.c-wrapper:has(> .col-span-2) {
+  --col-span: 2;
+}
+:where(.col-span-2,
+.c-wrapper:has(> .col-span-2)) {
+  grid-column: span var(--col-span);
 }
 
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-2,
+  .c-wrapper:has(> .tablet-col-span-2) {
+    --col-span: 2;
+  }
+  :where(.tablet-col-span-2,
+  .c-wrapper:has(> .tablet-col-span-2)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-2,
+  .c-wrapper:has(> .mobile-col-span-2) {
+    --col-span: 2;
+  }
+  :where(.mobile-col-span-2,
+  .c-wrapper:has(> .mobile-col-span-2)) {
+    grid-column: span var(--col-span);
+  }
+}
 .col-span-3,
-div.c-wrapper:has(> .col-span-3) {
-  grid-column: span 3;
+.c-wrapper:has(> .col-span-3) {
+  --col-span: 3;
+}
+:where(.col-span-3,
+.c-wrapper:has(> .col-span-3)) {
+  grid-column: span var(--col-span);
 }
 
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-3,
+  .c-wrapper:has(> .tablet-col-span-3) {
+    --col-span: 3;
+  }
+  :where(.tablet-col-span-3,
+  .c-wrapper:has(> .tablet-col-span-3)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-3,
+  .c-wrapper:has(> .mobile-col-span-3) {
+    --col-span: 3;
+  }
+  :where(.mobile-col-span-3,
+  .c-wrapper:has(> .mobile-col-span-3)) {
+    grid-column: span var(--col-span);
+  }
+}
 .col-span-4,
-div.c-wrapper:has(> .col-span-4) {
-  grid-column: span 4;
+.c-wrapper:has(> .col-span-4) {
+  --col-span: 4;
+}
+:where(.col-span-4,
+.c-wrapper:has(> .col-span-4)) {
+  grid-column: span var(--col-span);
 }
 
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-4,
+  .c-wrapper:has(> .tablet-col-span-4) {
+    --col-span: 4;
+  }
+  :where(.tablet-col-span-4,
+  .c-wrapper:has(> .tablet-col-span-4)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-4,
+  .c-wrapper:has(> .mobile-col-span-4) {
+    --col-span: 4;
+  }
+  :where(.mobile-col-span-4,
+  .c-wrapper:has(> .mobile-col-span-4)) {
+    grid-column: span var(--col-span);
+  }
+}
 @media only screen and (max-width: 767px) {
   .tablet-grid-cols-2 > .inner,
   .tablet-grid-cols-3 > .inner,
   .tablet-grid-cols-4 > .inner {
-    display: grid !important;
+    display: grid;
     align-items: center;
     justify-items: center;
+  }
+  .tablet-grid-cols-1 > .inner {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .tablet-grid-cols-2 > .inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .tablet-col-span-2,
-  div.c-wrapper:has(> .tablet-col-span-2) {
-    grid-column: span 2;
-  }
   .tablet-grid-cols-3 > .inner {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .tablet-col-span-3,
-  div.c-wrapper:has(> .tablet-col-span-3) {
-    grid-column: span 3;
-  }
   .tablet-grid-cols-4 > .inner {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .tablet-col-span-4,
-  div.c-wrapper:has(> .tablet-col-span-4) {
-    grid-column: span 4;
   }
   .tablet-order-1 {
     order: 1;
@@ -150,14 +243,10 @@ div.c-wrapper:has(> .col-span-4) {
 }
 @media only screen and (max-width: 480px) {
   .mobile-grid-cols-2 > .inner {
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     justify-items: center;
-  }
-  .mobile-col-span-2,
-  div.c-wrapper:has(> .mobile-col-span-2) {
-    grid-column: span 2;
   }
   .mobile-order-1 {
     order: 1;
@@ -180,7 +269,7 @@ div.c-wrapper:has(> .col-span-4) {
 }
 /* PSEUDO GRID */
 @supports selector(:has(+ *)) {
-  .c-column > .horizontal > .c-wrapper :is(.w-grid-2, .w-grid-3, .w-grid-4) {
+  .c-column > .horizontal > .c-wrapper .w-grid-2, .c-column > .horizontal > .c-wrapper .w-grid-3, .c-column > .horizontal > .c-wrapper .w-grid-4 {
     width: 100% !important;
   }
   .c-column > .horizontal > .c-wrapper:has(.w-grid-2, .w-grid-3, .w-grid-4) {

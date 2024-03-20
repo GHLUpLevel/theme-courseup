@@ -7,12 +7,20 @@
   text-wrap: nowrap;
 }
 
+.responsive-text-hero {
+  --h1-min-size: 2.375rem;
+  --h1-max-size: 3.75rem;
+}
 .responsive-text-hero h1 {
-  font-size: clamp(1.5rem, 4vw + 1rem, 3.75rem) !important;
+  font-size: clamp(var(--h1-min-size), 4vw + 1rem, var(--h1-max-size)) !important;
   line-height: 1.3em;
 }
 
+.responsive-text {
+  --h1-min-size: 1.25rem;
+  --h1-max-size: 2.375rem;
+}
 .responsive-text h1 {
-  font-size: clamp(1.25rem, 2vw + 1rem, 2.375rem) !important;
-  line-height: 1.2em;
+  font-size: clamp(var(--h1-min-size), 4vw + 1rem, var(--h1-max-size)) !important;
+  line-height: 1.3em;
 }

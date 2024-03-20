@@ -1,30 +1,85 @@
 /**
  * CARD
  **/
-.card.c-column.card-compact {
-  align-self: flex-start;
-}
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  .card.c-column {
+  .card, .card2 {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 }
-.card.c-column > .horizontal .c-wrapper:not(.c-button, .c-custom-code, .c-image) {
+.card .c-paragraph, .card2 .c-paragraph {
+  text-wrap: pretty;
+}
+
+/* Card */
+.card.c-column.card-compact {
+  align-self: flex-start;
+}
+.card.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code):not(.c-image) {
   flex-basis: 100%;
 }
 .card.c-column > .horizontal .c-button {
-  flex: 0 1 fit-content !important;
-}
-@media only screen and (max-width: 480px) {
-  .card.c-column > .horizontal .c-button {
-    flex-basis: 100% !important;
-  }
-  .card.c-column > .horizontal .c-button button,
-  .card.c-column > .horizontal .c-button a {
-    width: 100%;
-  }
+  flex: 0 1 fit-content;
 }
 .card.c-column .inner > div:nth-last-child(2) {
   margin-bottom: auto;
+}
+
+/* Card2 - flexible grid with two bottom buttons */
+.card2.c-column .inner {
+  display: grid;
+  grid-gap: 10px;
+  grid-gap: var(--gap, 10px);
+  gap: 10px;
+  gap: var(--gap, 10px);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 10fr auto;
+  grid-auto-rows: auto;
+}
+:where(.card2.c-column .inner) :not(.c-button) {
+  grid-column: 1/span 2;
+  grid-column: var(--grid-start, 1)/span var(--col-span, 2);
+}
+:where(.card2.c-column .inner) .c-image:last-child {
+  --grid-start: 2;
+  --col-span: 1;
+}
+@media only screen and (max-width: 480px) {
+  .card2.c-column .inner {
+    grid-template-columns: 1fr;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .card2.c-column .inner > .c-wrapper {
+    grid-column: 1/1;
+  }
+  .card2.c-column .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
+  }
+}
+.card2.c-column .c-image:first-child img,
+.card2.c-column .c-image:has(img.card-image) img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  aspect-ratio: var(--aspect-ratio, 3/2);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-fit: var(--object-fit, cover);
+     object-fit: var(--object-fit, cover);
+}
+.card2.c-column .c-wrapper:has(> .col-span-2) {
+  --grid-start: 1;
+  --col-span: 2;
+  justify-self: initial;
+}
+.card2.c-column .c-wrapper:has(> .left, img.left) {
+  --grid-start: 1;
+  --col-span: 1;
+  justify-self: start;
+}
+.card2.c-column .c-wrapper:has(> .right, img.right) {
+  --grid-start: 2;
+  --col-span: 1;
+  justify-self: end;
 }

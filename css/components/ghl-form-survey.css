@@ -55,6 +55,11 @@
   color: var(--text-headline-color);
   font-size: 1.75em;
 }
+#form-builder #_builder-form input::-moz-placeholder {
+  font-family: var(--contentfont) !important;
+  font-size: 1em;
+  line-height: 1.2;
+}
 #form-builder #_builder-form label,
 #form-builder #_builder-form .short-label,
 #form-builder #_builder-form input,
@@ -78,7 +83,7 @@
   box-shadow: none !important;
   height: calc(1lh + var(--input-padding-top) * 2);
 }
-#form-builder #_builder-form .form-builder--item label:not(.item-description, .custom-file-upload) {
+#form-builder #_builder-form .form-builder--item label:not(.item-description):not(.custom-file-upload) {
   font-size: var(--label-font-size);
   font-weight: bold;
   color: var(--label-color) !important;
@@ -95,6 +100,7 @@
   margin-right: 0;
 }
 #form-builder #_builder-form .form-builder--item .row td > label {
+  position: static;
   position: initial;
 }
 #form-builder #_builder-form .form-builder--item .option-radio label,
@@ -111,6 +117,7 @@
   box-shadow: 0 0 0 3px var(--theme-button-primary-bg-color) !important;
 }
 #form-builder #_builder-form .form-builder--item .option > input {
+  width: -moz-fit-content;
   width: fit-content;
 }
 @media only screen and (max-width: 480px) {
@@ -144,6 +151,13 @@
   font-size: var(--input-font-size) !important;
   background: transparent !important;
 }
+#form-builder #_builder-form .form-builder--item .multi_select_form input::-moz-placeholder {
+  font-family: var(--contentfont) !important;
+  font-size: var(--input-font-size) !important;
+  line-height: 1 !important;
+  background: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+}
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tags,
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__single,
@@ -154,6 +168,10 @@
   line-height: 1 !important;
   background: var(--input-bg-color) !important;
   color: var(--input-text-color) !important;
+}
+#form-builder #_builder-form .form-builder--item .multi_select_form input::-moz-placeholder {
+  color: var(--input-text-color) !important;
+  opacity: var(--input-placeholder-opacity);
 }
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__placeholder,
 #form-builder #_builder-form .form-builder--item .multi_select_form input::placeholder {
@@ -207,11 +225,20 @@
 #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
   transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s, color 0.3s;
 }
+#form-builder #_builder-form .form-builder--item input::-moz-placeholder, #form-builder #_builder-form .form-builder--item .multiselect__tags::-moz-placeholder, #form-builder #_builder-form .form-builder--item .date-picker-custom-style::-moz-placeholder {
+  color: var(--input-text-color) !important;
+  opacity: var(--input-placeholder-opacity);
+}
 #form-builder #_builder-form .form-builder--item input::placeholder,
 #form-builder #_builder-form .form-builder--item .multiselect__tags::placeholder,
 #form-builder #_builder-form .form-builder--item .date-picker-custom-style::placeholder {
   color: var(--input-text-color) !important;
   opacity: var(--input-placeholder-opacity);
+}
+#form-builder #_builder-form .form-builder--item input:focus::-moz-placeholder, #form-builder #_builder-form .form-builder--item .multiselect__tags:focus::-moz-placeholder, #form-builder #_builder-form .form-builder--item .date-picker-custom-style:focus::-moz-placeholder {
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 0.2;
 }
 #form-builder #_builder-form .form-builder--item input:focus::placeholder,
 #form-builder #_builder-form .form-builder--item .multiselect__tags:focus::placeholder,
@@ -250,8 +277,12 @@
 }
 .c-survey #form-builder #_builder-form {
   background: var(--survey-bg) !important;
+  border-color: currentcolor !important;
+  border-color: initial !important;
   border-color: var(--survey-bg, initial) !important;
+  padding: 0 40px !important;
   padding: 0 var(--theme-survey-padding-width, 40px) !important;
+  border-radius: 8px !important;
   border-radius: var(--survey-border-radius, 8px) !important;
   box-shadow: var(--survey-box-shadow) !important;
 }
@@ -281,6 +312,8 @@
   border-radius: 0 0 var(--survey-border-radius) 0 !important;
 }
 .c-survey #form-builder #_builder-form .ghl-footer {
+  margin: 0 calc(-1 * 40px);
   margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
+  width: calc(100% + 2 * 40px);
   width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
 }

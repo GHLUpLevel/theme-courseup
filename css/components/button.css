@@ -1,61 +1,71 @@
 /**
  * BUTTONS
  **/
-.c-button :is(.btn-primary, .btn-secondary, .btn-link),
-.c-form .btn,
-.c-order .form-btn {
+.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn {
   --_font-size: 1.125rem;
   --_font-weight: normal;
   --_border: 1px solid var(--transparent);
   --_border-radius: 1000px;
   --_box-shadow: none;
   --_padding-block: calc(1.15 * var(--_font-size));
-  --_padding-inline: clamp(10px, 2em, 10em);
+  --_padding-inline: max(10px, min(2em, 10em));
   font-family: var(--contentfont) !important;
+  font-size: 1.125rem !important;
   font-size: var(--_font-size) !important;
   line-height: 1em !important;
+  font-weight: normal !important;
   font-weight: var(--_font-weight) !important;
+  border: 1px solid var(--transparent) !important;
   border: var(--_border) !important;
+  border-radius: 1000px !important;
   border-radius: var(--_border-radius) !important;
-  padding-block: var(--_padding-block) !important;
+  padding-top: calc(1.15 * 1.125rem) !important;
+  padding-bottom: calc(1.15 * 1.125rem) !important;
+  padding-top: var(--_padding-block) !important;
+  padding-bottom: var(--_padding-block) !important;
+  color: #fff !important;
   color: var(--_color, #fff) !important;
+  background-color: #000 !important;
   background-color: var(--_background-color, #000) !important;
+  box-shadow: none !important;
   box-shadow: var(--_box-shadow, none) !important;
   transition: transform 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
   cursor: pointer;
 }
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .main-text,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .main-heading-button,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .button-icon-start,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) .button-icon-end,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) p,
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) i,
-.c-form .btn .main-text,
-.c-form .btn .main-heading-button,
-.c-form .btn .button-icon-start,
-.c-form .btn .button-icon-end,
-.c-form .btn p,
-.c-form .btn i,
-.c-order .form-btn .main-text,
-.c-order .form-btn .main-heading-button,
-.c-order .form-btn .button-icon-start,
-.c-order .form-btn .button-icon-end,
-.c-order .form-btn p,
-.c-order .form-btn i {
+.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i {
   font-size: 1em !important;
   line-height: 1em !important;
   font-weight: var(--_font-weight) !important;
 }
-.c-button :is(.btn-primary, .btn-secondary, .btn-link) > div,
-.c-form .btn > div,
-.c-order .form-btn > div {
-  font-size: unset !important;
-  color: unset !important;
-  background-color: unset !important;
-  font-weight: unset !important;
-  font-family: unset !important;
+.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div {
+  font-size: inherit !important;
+  color: inherit !important;
+  background-color: transparent !important;
+  background-color: initial !important;
+  font-weight: inherit !important;
+  font-family: inherit !important;
 }
 
+@media only screen and (max-width: 480px) {
+  .c-button {
+    --width: 100%;
+    flex: 1 0 100% !important;
+    flex: 1 0 var(--width) !important;
+  }
+  .c-button button,
+  .c-button a {
+    width: 100%;
+    width: var(--width, 100%);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .c-button .button-icon-start:empty {
+    display: none;
+  }
+  .c-button .button-icon-end:empty {
+    display: none;
+  }
+}
 .c-button .btn-small,
 .c-form .btn-small .btn[type=submit],
 .c-order .btn-small .form-btn {
@@ -115,6 +125,7 @@
   --_font-weight: normal;
 }
 .c-button .btn-link .main-heading-button {
+  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 .c-button .btn-link:hover {

@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.4.5
+ * Version: v1.5.0
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -31,7 +31,8 @@ Does not include config
 #preview-container .c-column > .inner {
   container-type: inline-size;
 }
-#preview-container .c-column.container-normal > .inner {
+
+.c-column.container-normal > .inner {
   container-type: normal;
 }
 
@@ -433,24 +434,25 @@ Does not include config
  * ADORNMENTS
  **/
 /* Background green circle floating upper left */
-.adorn-circle-top-left {
-  isolation: isolate;
+@media only screen and (min-width: 768px) {
+  .adorn-circle-top-left {
+    isolation: isolate;
+  }
+  .adorn-circle-top-left::before {
+    content: "";
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    transform: scale3d(1.2, 1.2, 1) translate3d(-40px, -80px, 0);
+    transition: transform 10s linear;
+    z-index: -1;
+  }
 }
-.adorn-circle-top-left::before {
-  content: "";
-  -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
-          mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
-  background-color: var(--theme-primary-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 200px;
-  transform: scale3d(1.2, 1.2, 1) translate3d(-40px, -80px, 0);
-  transition: transform 10s linear;
-  z-index: -1;
-}
-
 /**
  * BUTTONS
  **/
@@ -499,6 +501,26 @@ Does not include config
   font-family: inherit !important;
 }
 
+@media only screen and (max-width: 480px) {
+  .c-button {
+    --width: 100%;
+    flex: 1 0 100% !important;
+    flex: 1 0 var(--width) !important;
+  }
+  .c-button button,
+  .c-button a {
+    width: 100%;
+    width: var(--width, 100%);
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .c-button .button-icon-start:empty {
+    display: none;
+  }
+  .c-button .button-icon-end:empty {
+    display: none;
+  }
+}
 .c-button .btn-small,
 .c-form .btn-small .btn[type=submit],
 .c-order .btn-small .form-btn {
@@ -568,32 +590,87 @@ Does not include config
 /**
  * CARD
  **/
-.card.c-column.card-compact {
-  align-self: flex-start;
-}
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  .card.c-column {
+  .card, .card2 {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
+}
+.card .c-paragraph, .card2 .c-paragraph {
+  text-wrap: pretty;
+}
+
+/* Card */
+.card.c-column.card-compact {
+  align-self: flex-start;
 }
 .card.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code):not(.c-image) {
   flex-basis: 100%;
 }
 .card.c-column > .horizontal .c-button {
-  flex: 0 1 fit-content !important;
-}
-@media only screen and (max-width: 480px) {
-  .card.c-column > .horizontal .c-button {
-    flex-basis: 100% !important;
-  }
-  .card.c-column > .horizontal .c-button button,
-  .card.c-column > .horizontal .c-button a {
-    width: 100%;
-  }
+  flex: 0 1 fit-content;
 }
 .card.c-column .inner > div:nth-last-child(2) {
   margin-bottom: auto;
+}
+
+/* Card2 - flexible grid with two bottom buttons */
+.card2.c-column .inner {
+  display: grid;
+  grid-gap: 10px;
+  grid-gap: var(--gap, 10px);
+  gap: 10px;
+  gap: var(--gap, 10px);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 10fr auto;
+  grid-auto-rows: auto;
+}
+:where(.card2.c-column .inner) :not(.c-button) {
+  grid-column: 1/span 2;
+  grid-column: var(--grid-start, 1)/span var(--col-span, 2);
+}
+:where(.card2.c-column .inner) .c-image:last-child {
+  --grid-start: 2;
+  --col-span: 1;
+}
+@media only screen and (max-width: 480px) {
+  .card2.c-column .inner {
+    grid-template-columns: 1fr;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .card2.c-column .inner > .c-wrapper {
+    grid-column: 1/1;
+  }
+  .card2.c-column .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
+  }
+}
+.card2.c-column .c-image:first-child img,
+.card2.c-column .c-image:has(img.card-image) img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  aspect-ratio: var(--aspect-ratio, 3/2);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-fit: var(--object-fit, cover);
+     object-fit: var(--object-fit, cover);
+}
+.card2.c-column .c-wrapper:has(> .col-span-2) {
+  --grid-start: 1;
+  --col-span: 2;
+  justify-self: initial;
+}
+.card2.c-column .c-wrapper:has(> .left, img.left) {
+  --grid-start: 1;
+  --col-span: 1;
+  justify-self: start;
+}
+.card2.c-column .c-wrapper:has(> .right, img.right) {
+  --grid-start: 2;
+  --col-span: 1;
+  justify-self: end;
 }
 
 /**
@@ -605,17 +682,8 @@ Does not include config
 .content.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code) {
   flex-basis: 100%;
 }
-.content.c-column > .horizontal .c-button {
-  flex: 0 1 fit-content !important;
-}
-@media only screen and (max-width: 480px) {
-  .content.c-column > .horizontal .c-button {
-    flex-basis: 100% !important;
-  }
-  .content.c-column > .horizontal .c-button button,
-  .content.c-column > .horizontal .c-button a {
-    width: 100%;
-  }
+.content.c-column > .horizontal > .c-button {
+  flex: 0 1 fit-content;
 }
 
 /**
@@ -713,7 +781,7 @@ Does not include config
     width: 100%;
     transform: scaleX(0);
     height: 0.1lh;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
     background-color: var(--theme-text-link-color);
     transform-origin: bottom right;
@@ -728,7 +796,7 @@ Does not include config
     width: 100%;
     transform: scaleX(0);
     height: 0.1lh;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
     background-color: var(--theme-text-link-color);
     transform-origin: bottom right;
@@ -743,7 +811,7 @@ Does not include config
     width: 100%;
     transform: scaleX(0);
     height: 0.1lh;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
     background-color: var(--theme-text-link-color);
     transform-origin: bottom right;
@@ -758,7 +826,7 @@ Does not include config
     width: 100%;
     transform: scaleX(0);
     height: 0.1lh;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
     background-color: var(--theme-text-link-color);
     transform-origin: bottom right;
@@ -773,7 +841,7 @@ Does not include config
     width: 100%;
     transform: scaleX(0);
     height: 0.1lh;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
     background-color: var(--theme-text-link-color);
     transform-origin: bottom right;
@@ -808,20 +876,20 @@ Does not include config
 /**
  * FEATURE IMAGE
  **/
-.content .c-image-feature .img-feature-container, .card .c-image-feature .img-feature-container {
+.content .c-image-feature .img-feature-container, .card .c-image-feature .img-feature-container, .card2 .c-image-feature .img-feature-container {
   display: flex !important;
   gap: 10px;
 }
-.content .c-image-feature .img-feature-container.feature-img-right .img-container, .card .c-image-feature .img-feature-container.feature-img-right .img-container {
+.content .c-image-feature .img-feature-container.feature-img-right .img-container, .card .c-image-feature .img-feature-container.feature-img-right .img-container, .card2 .c-image-feature .img-feature-container.feature-img-right .img-container {
   order: 2;
 }
-.content .c-image-feature .img-container, .card .c-image-feature .img-container {
+.content .c-image-feature .img-container, .card .c-image-feature .img-container, .card2 .c-image-feature .img-container {
   flex: 0 0 max-content;
 }
-.content .c-image-feature .txt-container, .card .c-image-feature .txt-container {
+.content .c-image-feature .txt-container, .card .c-image-feature .txt-container, .card2 .c-image-feature .txt-container {
   flex: 1 auto;
 }
-.content .horizontal .c-image-feature, .card .horizontal .c-image-feature {
+.content .horizontal .c-image-feature, .card .horizontal .c-image-feature, .card2 .horizontal .c-image-feature {
   flex-basis: 100% !important;
 }
 
@@ -831,10 +899,13 @@ Does not include config
 .c-image .img-invert {
   filter: invert(1);
 }
-.c-image .img-circle-primary {
+.c-image .img-bg-primary {
+  background-color: var(--theme-primary-color);
+}
+.c-image .img-circle {
   --aspect-ratio: 1 / 1;
   --object-fit: contain;
-  border-radius: 9999px;
+  border-radius: 100vw;
   aspect-ratio: 1 / 1;
   aspect-ratio: var(--aspect-ratio);
   -o-object-fit: contain;
@@ -842,24 +913,25 @@ Does not include config
   -o-object-fit: var(--object-fit);
      object-fit: var(--object-fit);
   height: auto;
-  background-color: var(--theme-primary-color);
 }
-.c-image .img-invert.img-circle-primary {
+.c-image .img-invert.img-bg-primary {
   filter: none;
   border: 4px solid var(--theme-primary-color);
   background: none;
 }
 @supports selector(:has(+ *)) {
-  .c-image .img-circle-primary {
+  .c-image .img-bg-primary {
     background: none;
   }
-  .c-image .img-circle-primary.img-invert {
+  .c-image .img-bg-primary.img-invert {
     border: none;
     filter: invert(1);
   }
-  .c-image picture:has(.img-circle-primary) {
+  .c-image picture:has(.img-bg-primary) {
     background-color: var(--theme-primary-color);
-    border-radius: 9999px;
+  }
+  .c-image picture:has(.img-circle) {
+    border-radius: 100vw;
     aspect-ratio: 1/1;
     max-width: -moz-fit-content;
     max-width: fit-content;
@@ -920,10 +992,7 @@ Does not include config
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .horizontal > .c-wrapper :is(.w-60 .w-70) {
-    width: 100% !important;
-  }
-  .c-column > .horizontal > .c-wrapper .w-10:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-20:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-30:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-40:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-50:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-80:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-90:not(.does-not-exist), .c-column > .horizontal > .c-wrapper .w-100:not(.does-not-exist) {
+  .c-column > .horizontal > .c-wrapper .w-10, .c-column > .horizontal > .c-wrapper .w-20, .c-column > .horizontal > .c-wrapper .w-30, .w-40, .w-50, .w-60, .w-70, .w-80, .w-90, .w-100 {
     width: 100% !important;
   }
   .c-column > .horizontal > .c-wrapper:has(.w-10) {
@@ -958,49 +1027,141 @@ Does not include config
   }
 }
 /* GRID */
+.col-span-1,
+.c-wrapper:has(> .col-span-1) {
+  --col-span: 1;
+}
+:where(.col-span-1,
+.c-wrapper:has(> .col-span-1)) {
+  grid-column: span var(--col-span);
+}
+
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-1,
+  .c-wrapper:has(> .tablet-col-span-1) {
+    --col-span: 1;
+  }
+  :where(.tablet-col-span-1,
+  .c-wrapper:has(> .tablet-col-span-1)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-1,
+  .c-wrapper:has(> .mobile-col-span-1) {
+    --col-span: 1;
+  }
+  :where(.mobile-col-span-1,
+  .c-wrapper:has(> .mobile-col-span-1)) {
+    grid-column: span var(--col-span);
+  }
+}
 .col-span-2,
-div.c-wrapper:has(> .col-span-2) {
-  grid-column: span 2;
+.c-wrapper:has(> .col-span-2) {
+  --col-span: 2;
+}
+:where(.col-span-2,
+.c-wrapper:has(> .col-span-2)) {
+  grid-column: span var(--col-span);
 }
 
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-2,
+  .c-wrapper:has(> .tablet-col-span-2) {
+    --col-span: 2;
+  }
+  :where(.tablet-col-span-2,
+  .c-wrapper:has(> .tablet-col-span-2)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-2,
+  .c-wrapper:has(> .mobile-col-span-2) {
+    --col-span: 2;
+  }
+  :where(.mobile-col-span-2,
+  .c-wrapper:has(> .mobile-col-span-2)) {
+    grid-column: span var(--col-span);
+  }
+}
 .col-span-3,
-div.c-wrapper:has(> .col-span-3) {
-  grid-column: span 3;
+.c-wrapper:has(> .col-span-3) {
+  --col-span: 3;
+}
+:where(.col-span-3,
+.c-wrapper:has(> .col-span-3)) {
+  grid-column: span var(--col-span);
 }
 
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-3,
+  .c-wrapper:has(> .tablet-col-span-3) {
+    --col-span: 3;
+  }
+  :where(.tablet-col-span-3,
+  .c-wrapper:has(> .tablet-col-span-3)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-3,
+  .c-wrapper:has(> .mobile-col-span-3) {
+    --col-span: 3;
+  }
+  :where(.mobile-col-span-3,
+  .c-wrapper:has(> .mobile-col-span-3)) {
+    grid-column: span var(--col-span);
+  }
+}
 .col-span-4,
-div.c-wrapper:has(> .col-span-4) {
-  grid-column: span 4;
+.c-wrapper:has(> .col-span-4) {
+  --col-span: 4;
+}
+:where(.col-span-4,
+.c-wrapper:has(> .col-span-4)) {
+  grid-column: span var(--col-span);
 }
 
+@media only screen and (max-width: 767px) {
+  .tablet-col-span-4,
+  .c-wrapper:has(> .tablet-col-span-4) {
+    --col-span: 4;
+  }
+  :where(.tablet-col-span-4,
+  .c-wrapper:has(> .tablet-col-span-4)) {
+    grid-column: span var(--col-span);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .mobile-col-span-4,
+  .c-wrapper:has(> .mobile-col-span-4) {
+    --col-span: 4;
+  }
+  :where(.mobile-col-span-4,
+  .c-wrapper:has(> .mobile-col-span-4)) {
+    grid-column: span var(--col-span);
+  }
+}
 @media only screen and (max-width: 767px) {
   .tablet-grid-cols-2 > .inner,
   .tablet-grid-cols-3 > .inner,
   .tablet-grid-cols-4 > .inner {
-    display: grid !important;
+    display: grid;
     align-items: center;
     justify-items: center;
+  }
+  .tablet-grid-cols-1 > .inner {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .tablet-grid-cols-2 > .inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .tablet-col-span-2,
-  div.c-wrapper:has(> .tablet-col-span-2) {
-    grid-column: span 2;
-  }
   .tablet-grid-cols-3 > .inner {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .tablet-col-span-3,
-  div.c-wrapper:has(> .tablet-col-span-3) {
-    grid-column: span 3;
-  }
   .tablet-grid-cols-4 > .inner {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .tablet-col-span-4,
-  div.c-wrapper:has(> .tablet-col-span-4) {
-    grid-column: span 4;
   }
   .tablet-order-1 {
     order: 1;
@@ -1023,14 +1184,10 @@ div.c-wrapper:has(> .col-span-4) {
 }
 @media only screen and (max-width: 480px) {
   .mobile-grid-cols-2 > .inner {
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     justify-items: center;
-  }
-  .mobile-col-span-2,
-  div.c-wrapper:has(> .mobile-col-span-2) {
-    grid-column: span 2;
   }
   .mobile-order-1 {
     order: 1;
@@ -1098,9 +1255,6 @@ div.c-wrapper:has(> .col-span-4) {
   padding-bottom: var(--_scrollbar-size);
   padding-left: var(--_scrollbar-size) !important;
   margin-left: calc(-1 * var(--_scrollbar-size)) !important;
-}
-section.hl_page-creator--content .scroll-horizontal > .inner {
-  padding-top: 30px !important;
 }
 .scroll-horizontal > .inner > .c-column {
   flex-shrink: 0 !important;
@@ -1264,6 +1418,10 @@ ul.social-links li:hover a i {
   opacity: .9;
 }
 
+.text-color-dark-bg {
+  --text-color: var(--theme-text-dark-bg-color);
+}
+
 /**
  * TEXT UTILITIES
  * Add these to columns or elements to modify text elements.
@@ -1273,12 +1431,22 @@ ul.social-links li:hover a i {
   text-wrap: nowrap;
 }
 
+.responsive-text-hero {
+  --h1-min-size: 2.375rem;
+  --h1-max-size: 3.75rem;
+}
 .responsive-text-hero h1 {
-  font-size: clamp(1.5rem, 4vw + 1rem, 3.75rem) !important;
+  font-size: clamp(var(--h1-min-size), 4vw + 1rem, var(--h1-max-size)) !important;
   line-height: 1.3em;
 }
 
-.responsive-text h1 {
-  font-size: clamp(1.25rem, 2vw + 1rem, 2.375rem) !important;
-  line-height: 1.2em;
+.responsive-text {
+  --h1-min-size: 1.25rem;
+  --h1-max-size: 2.375rem;
 }
+.responsive-text h1 {
+  font-size: clamp(var(--h1-min-size), 4vw + 1rem, var(--h1-max-size)) !important;
+  line-height: 1.3em;
+}
+
+/*# sourceMappingURL=base.css.map */

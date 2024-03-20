@@ -48,6 +48,7 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
   content: "BG";
 }
 #page-creator .hl_style-control .color-border > div.color-box[title^="[CustomValue]"] {
+  display: none;
   display: var(--editor-display-custom-colors, none);
   order: -1;
   margin-bottom: 10px !important;

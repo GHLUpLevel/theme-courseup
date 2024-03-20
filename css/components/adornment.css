@@ -2,19 +2,22 @@
  * ADORNMENTS
  **/
 /* Background green circle floating upper left */
-.adorn-circle-top-left {
-  isolation: isolate;
-}
-.adorn-circle-top-left::before {
-  content: "";
-  mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
-  background-color: var(--theme-primary-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 200px;
-  transform: scale3d(1.2, 1.2, 1) translate3d(-40px, -80px, 0);
-  transition: transform 10s linear;
-  z-index: -1;
+@media only screen and (min-width: 768px) {
+  .adorn-circle-top-left {
+    isolation: isolate;
+  }
+  .adorn-circle-top-left::before {
+    content: "";
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    transform: scale3d(1.2, 1.2, 1) translate3d(-40px, -80px, 0);
+    transition: transform 10s linear;
+    z-index: -1;
+  }
 }

@@ -8,6 +8,7 @@
   }
 }
 .inner {
+  gap: initial;
   gap: var(--gap, initial);
 }
 
@@ -20,6 +21,7 @@
 #preview-container .c-column > .inner {
   container-type: inline-size;
 }
-#preview-container .c-column.container-normal > .inner {
+
+.c-column.container-normal > .inner {
   container-type: normal;
 }

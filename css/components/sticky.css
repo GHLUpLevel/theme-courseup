@@ -15,6 +15,7 @@
 @media only screen and (max-width: 767px) {
   #preview-container .sticky.c-column {
     position: static;
-    max-height: unset;
+    max-height: none;
+    max-height: initial;
   }
 }

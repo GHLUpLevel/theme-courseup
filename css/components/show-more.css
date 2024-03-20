@@ -7,6 +7,7 @@
 }
 #preview-container .show-more-shown .c-button.c-wrapper:has(> .show-less-btn),
 #preview-container .show-more-shown .c-button.show-less {
+  display: inline;
   display: initial;
 }
 #preview-container .show-more-shown .c-button.c-wrapper:has(> .show-more-btn),
@@ -17,5 +18,6 @@
   display: none;
 }
 #preview-container .c-row.show-more.show-more-shown {
+  display: inline;
   display: initial;
 }

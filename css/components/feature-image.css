@@ -1,19 +1,19 @@
 /**
  * FEATURE IMAGE
  **/
-:is(.content, .card) .c-image-feature .img-feature-container {
+.content .c-image-feature .img-feature-container, .card .c-image-feature .img-feature-container, .card2 .c-image-feature .img-feature-container {
   display: flex !important;
   gap: 10px;
 }
-:is(.content, .card) .c-image-feature .img-feature-container.feature-img-right .img-container {
+.content .c-image-feature .img-feature-container.feature-img-right .img-container, .card .c-image-feature .img-feature-container.feature-img-right .img-container, .card2 .c-image-feature .img-feature-container.feature-img-right .img-container {
   order: 2;
 }
-:is(.content, .card) .c-image-feature .img-container {
+.content .c-image-feature .img-container, .card .c-image-feature .img-container, .card2 .c-image-feature .img-container {
   flex: 0 0 max-content;
 }
-:is(.content, .card) .c-image-feature .txt-container {
+.content .c-image-feature .txt-container, .card .c-image-feature .txt-container, .card2 .c-image-feature .txt-container {
   flex: 1 auto;
 }
-:is(.content, .card) .horizontal .c-image-feature {
+.content .horizontal .c-image-feature, .card .horizontal .c-image-feature, .card2 .horizontal .c-image-feature {
   flex-basis: 100% !important;
 }

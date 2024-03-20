@@ -34,3 +34,7 @@
 .opacity-90 {
   opacity: .9;
 }
+
+.text-color-dark-bg {
+  --text-color: var(--theme-text-dark-bg-color);
+}

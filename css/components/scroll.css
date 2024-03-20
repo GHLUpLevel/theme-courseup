@@ -14,12 +14,10 @@
 .scroll-horizontal > .inner {
   overflow-x: scroll;
   flex-direction: row;
-  padding-block: var(--_scrollbar-size);
+  padding-top: var(--_scrollbar-size);
+  padding-bottom: var(--_scrollbar-size);
   padding-left: var(--_scrollbar-size) !important;
   margin-left: calc(-1 * var(--_scrollbar-size)) !important;
-}
-section.hl_page-creator--content .scroll-horizontal > .inner {
-  padding-top: 30px !important;
 }
 .scroll-horizontal > .inner > .c-column {
   flex-shrink: 0 !important;
