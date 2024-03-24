@@ -4,6 +4,42 @@
 .c-image .img-invert {
   filter: invert(1);
 }
+.c-image .img-fit-none {
+  --object-fit: none;
+  -o-object-fit: none;
+     object-fit: none;
+}
+.c-image .img-fit-fill {
+  --object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.c-image .img-fit-contain {
+  --object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.c-image .img-fit-cover {
+  --object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.c-image .img-aspect-ratio-auto {
+  --aspect-ratio: auto;
+  aspect-ratio: auto;
+}
+.c-image .img-aspect-ratio-3-2 {
+  --aspect-ratio: 3 / 2;
+  aspect-ratio: 3/2;
+}
+.c-image .img-aspect-ratio-16-9 {
+  --aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
+}
+.c-image .img-aspect-ratio-1-1 {
+  --aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
+}
 .c-image .img-bg-primary {
   background-color: var(--theme-primary-color);
 }
@@ -32,14 +68,17 @@
     border: none;
     filter: invert(1);
   }
-  .c-image picture:has(.img-bg-primary) {
+  .c-image .image-container:has(.img-bg-primary) {
     background-color: var(--theme-primary-color);
   }
-  .c-image picture:has(.img-circle) {
+  .c-image .image-container:has(.img-circle) {
     border-radius: 100vw;
     aspect-ratio: 1/1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
+  }
+  .c-image .image-container:has(.img-circle) picture, .c-image .image-container:has(.img-circle) > div > div {
+    display: flex !important;
   }
 }

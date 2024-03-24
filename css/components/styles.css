@@ -35,6 +35,50 @@
   opacity: .9;
 }
 
+.p-0 {
+  padding: 0rem !important;
+}
+
+.p-1 {
+  padding: 0.25rem !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.p-3 {
+  padding: 0.75rem !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
+.p-5 {
+  padding: 1.25rem !important;
+}
+
+.p-6 {
+  padding: 1.5rem !important;
+}
+
+.p-7 {
+  padding: 1.75rem !important;
+}
+
+.p-8 {
+  padding: 2rem !important;
+}
+
+.p-9 {
+  padding: 2.25rem !important;
+}
+
+.p-10 {
+  padding: 2.5rem !important;
+}
+
 .text-color-dark-bg {
   --text-color: var(--theme-text-dark-bg-color);
 }

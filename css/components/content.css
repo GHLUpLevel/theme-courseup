@@ -2,11 +2,24 @@
  * CONTENT
  **/
 .content.c-column {
-  align-self: center;
+  align-self: start;
 }
-.content.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code) {
+.content.c-column > .inner {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 20px;
+  gap: var(--gap, 20px);
+}
+.content.c-column > .inner .c-wrapper:not(.c-button) {
   flex-basis: 100%;
 }
-.content.c-column > .horizontal > .c-button {
+.content.c-column > .inner > .c-button {
   flex: 0 1 fit-content;
+}
+.content.c-column > .inner > .c-paragraph ol, .content.c-column > .inner > .c-paragraph ul {
+  padding-left: 1em;
+}
+.content.c-column > .inner > .c-paragraph ol li, .content.c-column > .inner > .c-paragraph ul li {
+  margin-bottom: 0.5em;
 }

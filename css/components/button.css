@@ -46,6 +46,12 @@
   font-family: inherit !important;
 }
 
+.c-button span.main-heading-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 480px) {
   .c-button {
     --width: 100%;
@@ -59,13 +65,14 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
-  .c-button .button-icon-start:empty {
-    display: none;
-  }
-  .c-button .button-icon-end:empty {
-    display: none;
-  }
 }
+.c-button .btn-xsmall,
+.c-form .btn-xsmall .btn[type=submit],
+.c-order .btn-xsmall .form-btn {
+  --_font-size: 0.875rem;
+  --_padding-block: 1rem;
+}
+
 .c-button .btn-small,
 .c-form .btn-small .btn[type=submit],
 .c-order .btn-small .form-btn {

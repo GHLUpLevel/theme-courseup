@@ -2,6 +2,7 @@
  * SCROLL
  **/
 .scroll-horizontal {
+  --min-column-width: 350px;
   --_scrollbar-size: var(--scrollbar-size, 10px);
 }
 @media only screen and (max-width: 767px) {
@@ -12,6 +13,7 @@
   }
 }
 .scroll-horizontal > .inner {
+  --columns-gap: var(--gap, 20px);
   overflow-x: scroll;
   flex-direction: row;
   padding-top: var(--_scrollbar-size);
@@ -21,12 +23,13 @@
 }
 .scroll-horizontal > .inner > .c-column {
   flex-shrink: 0 !important;
-  width: calc(50% - var(--gap));
+  width: max(var(--min-column-width), 50% - 20px);
+  width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
+}
+.scroll-horizontal > .inner > .card.c-column, .scroll-horizontal > .inner > .card2.c-column {
+  width: max(350px, 33.3333333333% - 20px * 2) !important;
+  width: max(var(--min-column-width, 350px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
 }
 .scroll-horizontal > .inner > div:last-child {
-  margin-right: max(var(--gap), 10px);
-}
-.scroll-horizontal .card.c-column {
-  width: 400px;
-  width: max(300px, 33.3333333333% - var(--gap) * 2) !important;
+  margin-right: var(--_scrollbar-size) !important;
 }

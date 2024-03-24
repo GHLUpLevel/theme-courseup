@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.5.0
+ * Version: v1.6.0
  ****************************************/
 /* THEME CONFIG VARS */
 /** THEME DEFAULTS
@@ -130,6 +130,8 @@
   --decorate-links: initial;
   --decorate-links-underline: none;
   --decorate-links-wrap: nowrap;
+  --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+  --card-flipper-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   /* Secion max width */
   --section-width: 1342px;
   --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);

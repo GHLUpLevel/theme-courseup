@@ -1,23 +1,22 @@
 /**
  * SHOW MORE
  **/
-#preview-container .c-button.c-wrapper:has(> .show-less-btn),
-#preview-container .c-button.show-less {
+#preview-container .inner > .c-wrapper:has(> .show-less-btn), #preview-container .c-wrapper.show-less {
   display: none;
 }
-#preview-container .show-more-shown .c-button.c-wrapper:has(> .show-less-btn),
-#preview-container .show-more-shown .c-button.show-less {
+#preview-container .show-more-enabled.inner > .c-wrapper:has(> .show-less-btn), #preview-container .show-more-enabled .c-wrapper.show-less {
   display: inline;
   display: initial;
 }
-#preview-container .show-more-shown .c-button.c-wrapper:has(> .show-more-btn),
-#preview-container .show-more-shown .c-button.show-more {
+#preview-container .show-more-enabled.inner > .c-wrapper:has(> .show-more-btn), #preview-container .show-more-enabled .c-wrapper.show-more {
   display: none;
 }
-#preview-container .c-row.show-more {
-  display: none;
+#preview-container .show-more-wrapper {
+  opacity: 1;
+  max-height: 1000px;
+  transition: max-height 0.2s ease, opacity 0.5s ease-out;
 }
-#preview-container .c-row.show-more.show-more-shown {
-  display: inline;
-  display: initial;
+#preview-container .show-more-hide {
+  opacity: 0;
+  max-height: 0;
 }

@@ -7,59 +7,83 @@
     padding-right: 20px !important;
   }
 }
-.card .c-paragraph, .card2 .c-paragraph {
+/* Card - grid with two columns and support for attaching to bottom row */
+.card.c-column, .card2.c-column {
+  --gap: 0px;
   text-wrap: pretty;
 }
-
-/* Card */
-.card.c-column.card-compact {
-  align-self: flex-start;
+#preview-container .card.c-column, #preview-container .card2.c-column {
+  container-type: inline-size;
 }
-.card.c-column > .horizontal .c-wrapper:not(.c-button):not(.c-custom-code):not(.c-image) {
-  flex-basis: 100%;
-}
-.card.c-column > .horizontal .c-button {
-  flex: 0 1 fit-content;
-}
-.card.c-column .inner > div:nth-last-child(2) {
-  margin-bottom: auto;
-}
-
-/* Card2 - flexible grid with two bottom buttons */
-.card2.c-column .inner {
-  display: grid;
-  grid-gap: 10px;
-  grid-gap: var(--gap, 10px);
-  gap: 10px;
-  gap: var(--gap, 10px);
+.card.c-column > .inner, .card2.c-column > .inner {
+  display: grid !important;
+  grid-row-gap: 0 !important;
+  row-gap: 0 !important;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto 10fr auto;
-  grid-auto-rows: auto;
+  grid-template-rows: repeat(20, min-content) auto min-content;
+  grid-auto-rows: min-content;
 }
-:where(.card2.c-column .inner) :not(.c-button) {
+.card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
   grid-column: 1/span 2;
-  grid-column: var(--grid-start, 1)/span var(--col-span, 2);
+  grid-column: var(--col-start, 1)/span var(--col-span, 2);
+  margin-bottom: var(--gap);
 }
-:where(.card2.c-column .inner) .c-image:last-child {
-  --grid-start: 2;
+.card.c-column > .inner > .c-wrapper.c-button, .card2.c-column > .inner > .c-wrapper.c-button {
+  --col-span: 1;
+  --col-start: auto;
+}
+.card.c-column > .inner > .c-wrapper:has(.left) {
+  --col-start: 1;
   --col-span: 1;
 }
-@media only screen and (max-width: 480px) {
-  .card2.c-column .inner {
-    grid-template-columns: 1fr;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-  .card2.c-column .inner > .c-wrapper {
-    grid-column: 1/1;
-  }
-  .card2.c-column .inner > .c-wrapper:has(.left, .right) {
-    justify-self: center;
-  }
+.card2.c-column > .inner > .c-wrapper:has(.left) {
+  --col-start: 1;
+  --col-span: 1;
 }
-.card2.c-column .c-image:first-child img,
-.card2.c-column .c-image:has(img.card-image) img {
-  width: 100%;
+.card.c-column > .inner > .c-wrapper:has(.right) {
+  --col-start: 2;
+  --col-span: 1;
+}
+.card2.c-column > .inner > .c-wrapper:has(.right) {
+  --col-start: 2;
+  --col-span: 1;
+}
+.card.c-column > .inner > .c-wrapper:has(.col-span-1) {
+  --col-start: auto;
+  --col-span: 1;
+}
+.card2.c-column > .inner > .c-wrapper:has(.col-span-1) {
+  --col-start: auto;
+  --col-span: 1;
+}
+.card.c-column > .inner > .c-wrapper:has(.middle, .col-span-2, .w-100) {
+  --col-start: 1;
+  --col-span: 2;
+  justify-self: initial;
+}
+.card2.c-column > .inner > .c-wrapper:has(.middle, .col-span-2, .w-100) {
+  --col-start: 1;
+  --col-span: 2;
+  justify-self: initial;
+}
+.card.c-column > .inner > .c-wrapper:has(.middle) {
+  justify-self: center;
+}
+.card2.c-column > .inner > .c-wrapper:has(.middle) {
+  justify-self: center;
+}
+.card.c-column > .inner > .c-wrapper:has(.bottom) {
+  grid-row-start: -1;
+  align-self: end;
+  margin-bottom: 0;
+}
+.card2.c-column > .inner > .c-wrapper:has(.bottom) {
+  grid-row-start: -1;
+  align-self: end;
+  margin-bottom: 0;
+}
+.card.c-column img.card-image, .card2.c-column img.card-image {
+  width: 100% !important;
   height: auto;
   aspect-ratio: 3/2;
   aspect-ratio: var(--aspect-ratio, 3/2);
@@ -68,18 +92,108 @@
   -o-object-fit: var(--object-fit, cover);
      object-fit: var(--object-fit, cover);
 }
-.card2.c-column .c-wrapper:has(> .col-span-2) {
-  --grid-start: 1;
-  --col-span: 2;
-  justify-self: initial;
+
+.card.compact.c-column, .card2.compact.c-column {
+  height: -moz-fit-content;
+  height: fit-content;
+  --gap: 0px;
 }
-.card2.c-column .c-wrapper:has(> .left, img.left) {
-  --grid-start: 1;
-  --col-span: 1;
-  justify-self: start;
+.card.compact.c-column > .inner, .card2.compact.c-column > .inner {
+  grid-template-rows: repeat(10, min-content);
 }
-.card2.c-column .c-wrapper:has(> .right, img.right) {
-  --grid-start: 2;
+
+.card2.c-column {
+  --gap: 10px;
+}
+.card2.c-column .c-image:first-child img {
+  width: 100% !important;
+  height: auto;
+  aspect-ratio: 3/2;
+  aspect-ratio: var(--aspect-ratio, 3/2);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-fit: var(--object-fit, cover);
+     object-fit: var(--object-fit, cover);
+}
+.card2.c-column .c-image:last-child {
+  --col-start: 2;
   --col-span: 1;
-  justify-self: end;
+  grid-row-start: -1;
+  margin-bottom: 0;
+}
+.card2.c-column .c-image-feature:last-child {
+  grid-row-start: -1;
+  margin-bottom: 0;
+}
+.card2.c-column .c-image:has(+ .c-image:last-child) {
+  --col-span: 1;
+  grid-row-start: -1;
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .card.c-column > .inner, .card2.c-column > .inner {
+    grid-template-columns: 1fr;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
+    grid-column: 1/1;
+    justify-self: auto !important;
+  }
+  .card.c-column > .inner > .c-button, .card2.c-column > .inner > .c-button {
+    --width: 100%;
+  }
+  .card.c-column > .inner > .c-button button, .card2.c-column > .inner > .c-button button, .card.c-column > .inner > .c-button a, .card2.c-column > .inner > .c-button a {
+    width: var(--width);
+  }
+  .card.c-column > .inner > .c-wrapper:has(.bottom) {
+    margin-bottom: 10px;
+    grid-row-start: auto;
+    align-self: auto;
+  }
+  .card2.c-column > .inner > .c-wrapper:has(.bottom) {
+    margin-bottom: 10px;
+    grid-row-start: auto;
+    align-self: auto;
+  }
+  .card.c-column > .inner > .c-wrapper:last-child {
+    margin-bottom: 0;
+  }
+  .card2.c-column > .inner > .c-wrapper:last-child {
+    margin-bottom: 0;
+  }
+}
+@container (width < 250px) {
+  .card.c-column > .inner, .card2.c-column > .inner {
+    grid-template-columns: 1fr;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
+    grid-column: 1/1;
+    justify-self: auto !important;
+  }
+  .card.c-column > .inner > .c-button, .card2.c-column > .inner > .c-button {
+    --width: 100%;
+  }
+  .card.c-column > .inner > .c-button button, .card2.c-column > .inner > .c-button button, .card.c-column > .inner > .c-button a, .card2.c-column > .inner > .c-button a {
+    width: var(--width);
+  }
+  .card.c-column > .inner > .c-wrapper:has(.bottom) {
+    margin-bottom: 10px;
+    grid-row-start: auto;
+    align-self: auto;
+  }
+  .card2.c-column > .inner > .c-wrapper:has(.bottom) {
+    margin-bottom: 10px;
+    grid-row-start: auto;
+    align-self: auto;
+  }
+  .card.c-column > .inner > .c-wrapper:last-child {
+    margin-bottom: 0;
+  }
+  .card2.c-column > .inner > .c-wrapper:last-child {
+    margin-bottom: 0;
+  }
 }

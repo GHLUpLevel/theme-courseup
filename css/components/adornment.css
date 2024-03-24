@@ -3,21 +3,106 @@
  **/
 /* Background green circle floating upper left */
 @media only screen and (min-width: 768px) {
-  .adorn-circle-top-left {
+  .adorn-primary-top-left {
     isolation: isolate;
   }
-  .adorn-circle-top-left::before {
+  .adorn-primary-top-left::before {
+    perspective: 1000px;
     content: "";
-    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
-            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+    -webkit-mask-image: var(--adorn-primary-mask-image);
+            mask-image: var(--adorn-primary-mask-image);
     background-color: var(--theme-primary-color);
     position: absolute;
     top: 0;
     left: 0;
     width: 200px;
     height: 200px;
-    transform: scale3d(1.2, 1.2, 1) translate3d(-40px, -80px, 0);
-    transition: transform 10s linear;
+    transform: translate3d(-40px, -80px, 0) scale3d(1.2, 1.2, 1);
+    transition: transform 10s ease-out;
     z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: appear;
+    animation-range-start: entry 25%;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  @keyframes appear {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    to {
+      transform: scale3d(2, 2, 1);
+    }
+  }
+  .adorn-arrow-left,
+  .adorn-arrow-right {
+    --_adorn-base-size: 150px;
+    --_adorn-size: 150px;
+    isolation: isolate;
+  }
+  .adorn-arrow-left::before, .adorn-arrow-left::after,
+  .adorn-arrow-right::before,
+  .adorn-arrow-right::after {
+    --_scaleX: 1;
+    perspective: 1000px;
+    content: "";
+    background-color: var(--theme-primary-color);
+    -webkit-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
+    position: absolute;
+    width: var(--_adorn-size);
+    height: var(--_adorn-size);
+    z-index: -1;
+    display: none;
+    transform: scale3d(1, 1, 1) translate3d(calc(var(--_adorn-size) + 10px), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, 0px)), 0);
+    transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--_adorn-size) + var(--gap, 10px)), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
+  }
+  .adorn-arrow-left::before {
+    display: block;
+    top: 0;
+    left: 0;
+    --_scaleX: -1;
+  }
+  .adorn-arrow-right::after {
+    display: block;
+    top: 0;
+    right: 0;
+  }
+  .adorn-scale-25 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+  }
+  .adorn-scale-50 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+  }
+  .adorn-scale-75 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+  }
+  .adorn-scale-100 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 1);
+  }
+  .adorn-scale-125 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
+  }
+  .adorn-scale-150 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
+  }
+  .adorn-scale-175 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
+  }
+  .adorn-scale-200 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 2);
+  }
+  .adorn-scale-225 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
+  }
+  .adorn-scale-250 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
+  }
+  .adorn-scale-275 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
+  }
+  .adorn-scale-300 {
+    --_adorn-size: calc(var(--_adorn-base-size) * 3);
   }
 }
