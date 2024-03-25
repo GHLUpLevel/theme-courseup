@@ -1,0 +1,17 @@
+/**
+ * CHAT WIDGET
+ **/
+chat-widget {
+  --chat-widget-primary-color: var(--theme-chat-widget-primary-color, #188BF6) !important;
+  --chat-widget-active-color: var(--theme-chat-widget-active-color, #188BF6) !important;
+  --chat-widget-bubble-color: var(--theme-chat-widget-bubble-color, #188BF6) !important;
+  --message-outgoing-text-color: var(--theme-message-outgoing-text-color, #fff) !important;
+  --message-incoming-color: var(--theme-message-incoming-color, #e4e9f0) !important;
+  --message-incoming-text-color: var(--theme-message-incoming-text-colo, #333) !important;
+  --conversation-background-color: var(--theme-conversation-background-color, #fff) !important;
+  --message-check-mark-color: var(--theme-message-check-mark-color, #399bf0) !important;
+  --message-padding-content: var(--theme-message-padding-content, 1em) !important;
+  --message-padding-between: var(--theme-message-padding-between, 0) !important;
+  --message-round-size: var(--theme-message-round-size, 0.5em) !important;
+  --message-round-size-negative: var(--theme-message-round-size, calc(-1 * var(--message-round-size))) !important;
+}

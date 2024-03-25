@@ -1,7 +1,7 @@
 /**
  * BUTTONS
  **/
-.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn {
+.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn, .button.primary, .button.secondary {
   --_font-size: 1.125rem;
   --_font-weight: normal;
   --_border: 1px solid var(--transparent);
@@ -32,12 +32,12 @@
   transition: transform 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
   cursor: pointer;
 }
-.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i {
+.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i, .button.primary .main-text, .button.primary .main-heading-button, .button.primary .button-icon-start, .button.primary .button-icon-end, .button.primary p, .button.primary i, .button.secondary .main-text, .button.secondary .main-heading-button, .button.secondary .button-icon-start, .button.secondary .button-icon-end, .button.secondary p, .button.secondary i {
   font-size: 1em !important;
   line-height: 1em !important;
   font-weight: var(--_font-weight) !important;
 }
-.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div {
+.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div, .button.primary > div, .button.secondary > div {
   font-size: inherit !important;
   color: inherit !important;
   background-color: transparent !important;
@@ -96,7 +96,8 @@
 
 .c-button .btn-primary,
 .c-form .btn[type=submit],
-.c-order .form-btn {
+.c-order .form-btn,
+.button.primary {
   --_color: var(--theme-button-primary-text-color);
   --_background-color: var(--theme-button-primary-bg-color);
   --_box-shadow: var(--theme-button-primary-shadow);
@@ -104,14 +105,16 @@
 }
 .c-button .btn-primary:hover,
 .c-form .btn[type=submit]:hover,
-.c-order .form-btn:hover {
+.c-order .form-btn:hover,
+.button.primary:hover {
   --_box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   transform: scale(0.95);
 }
 
 .c-button .btn-secondary,
 .c-form .btn-secondary .btn[type=submit],
-.c-order .btn-secondary .form-btn {
+.c-order .btn-secondary .form-btn,
+.button.secondary {
   --_color: var(--theme-button-secondary-text-color);
   --_background-color: var(--theme-button-secondary-bg-color);
   --_box-shadow: var(--theme-button-secondary-shadow);
@@ -119,7 +122,8 @@
 }
 .c-button .btn-secondary:hover,
 .c-form .btn-secondary .btn[type=submit]:hover,
-.c-order .btn-secondary .form-btn:hover {
+.c-order .btn-secondary .form-btn:hover,
+.button.secondary:hover {
   --_background-color: var(--theme-button-primary-bg-color);
   --_color: var(--theme-button-primary-text-color);
 }

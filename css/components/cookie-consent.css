@@ -1,0 +1,19 @@
+/**
+ * COOKIE CONSENT BANNER
+ **/
+.hl-cookie-consent-banner {
+  background-color: #000;
+  background-color: var(--theme-cookie-banner-bg-color, #000);
+}
+.hl-cookie-consent-banner .banner-text {
+  color: #fff;
+  color: var(--theme-cookie-banner-text-color, #fff);
+}
+.hl-cookie-consent-banner a[href] {
+  color: #fff;
+  color: var(--theme-cookie-banner-link-color, #fff);
+}
+.hl-cookie-consent-banner .button {
+  --_font-size: 1rem;
+  --_padding-block: 1rem;
+}

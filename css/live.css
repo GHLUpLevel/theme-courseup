@@ -1,12 +1,11 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.0
+ * Version: v1.6.1
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
 */
-/* THEME CONFIG VARS */
 /** THEME DEFAULTS
  * These values are used as fallbacks if Custom Values are not set.
  * Defaults are used by javascript to set fallbacks when custom value config
@@ -128,6 +127,7 @@ THEME CSS FOR LIVE PAGES
   inherits: false;
   initial-value: #191E1C;
 }
+/* THEME CONFIG VARS */
 :root {
   /* Animate line under links: none | initial */
   --decorate-links: initial;
@@ -151,11 +151,41 @@ THEME CSS FOR LIVE PAGES
   --theme-survey-label-color: black;
   --theme-survey-padding-width: 40px;
   --theme-survey-progressbar-opacity: 0.2;
-  /*
-    CUSTOM VALUE VARIABLES
-    These variables ar set from GHL custom values in a style block
-    in the themplate's hidden Global Code block on each page.
-  */
+  /* Chat Widget */
+  --theme-chat-widget-primary-color: var(--theme-primary-color, #188bf6);
+  --theme-chat-widget-active-color: var(--theme-primary-color, #188bf6);
+  --theme-chat-widget-bubble-color: var(--theme-primary-color, #188bf6);
+  --theme-message-outgoing-text-color: #fff;
+  --theme-message-incoming-color: #e4e9f0;
+  --theme-message-incoming-text-color: #333;
+  --theme-conversation-background-color: #fff;
+  --theme-message-check-mark-color: #399bf0;
+  --theme-message-padding-content: 1em;
+  --theme-message-padding-between: 0;
+  --theme-message-round-size: 0.5em;
+  --theme-message-round-size-negative: calc(
+    -1 * var(--theme-message-round-size)
+  );
+  /* Cookie Consent Banner */
+  --theme-cookie-banner-bg-color: var(--theme-background-3-color, #000);
+  --theme-cookie-banner-text-color: var(--theme-text-dark-bg-color, #eee);
+  --theme-cookie-banner-link-color: var(--theme-text-dark-bg-color, #eee);
+}
+
+/* Override the GHL default vars */
+:root {
+  /* Text Colors */
+  --text-color: var(--theme-text-content-color);
+  --link-color: var(--theme-text-link-color);
+  /* TODO: add additional overrides here as needed */
+}
+
+/*
+  CUSTOM VALUE VARIABLES
+  These variables ar set from GHL custom values in a style block
+  in the themplate's hidden Global Code block on each page.
+*/
+:root {
   /* Theme Colors */
   /* [CustomValue] COLOR: Primary */
   /* {{ custom_values.color_primary }} */
@@ -215,18 +245,6 @@ THEME CSS FOR LIVE PAGES
   /* [CustomValue] COLOR: Background #3 */
   /* {{ custom_values.color_background_3 }} */
   --theme-background-3-color: var(--color-lt9cj7fg);
-  /* Fonts */
-  /* Add these to Custom CSS or a code block on a page to override fonts with global Custom Values
-  --headlinefont: "{{ custom_values.font_headline }}";
-  --contentfont: "{{ custom_values.font_content }}";
-  */
-}
-
-/* Override the GHL default vars */
-:root {
-  --text-color: var(--theme-text-content-color);
-  --link-color: var(--theme-text-link-color);
-  /* TODO: add additional overrides here as needed */
 }
 
 /* GHL CORE OVERRIDES */
@@ -780,7 +798,7 @@ THEME CSS FOR LIVE PAGES
 /**
  * BUTTONS
  **/
-.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn {
+.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn, .button.primary, .button.secondary {
   --_font-size: 1.125rem;
   --_font-weight: normal;
   --_border: 1px solid var(--transparent);
@@ -811,12 +829,12 @@ THEME CSS FOR LIVE PAGES
   transition: transform 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
   cursor: pointer;
 }
-.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i {
+.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i, .button.primary .main-text, .button.primary .main-heading-button, .button.primary .button-icon-start, .button.primary .button-icon-end, .button.primary p, .button.primary i, .button.secondary .main-text, .button.secondary .main-heading-button, .button.secondary .button-icon-start, .button.secondary .button-icon-end, .button.secondary p, .button.secondary i {
   font-size: 1em !important;
   line-height: 1em !important;
   font-weight: var(--_font-weight) !important;
 }
-.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div {
+.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div, .button.primary > div, .button.secondary > div {
   font-size: inherit !important;
   color: inherit !important;
   background-color: transparent !important;
@@ -875,7 +893,8 @@ THEME CSS FOR LIVE PAGES
 
 .c-button .btn-primary,
 .c-form .btn[type=submit],
-.c-order .form-btn {
+.c-order .form-btn,
+.button.primary {
   --_color: var(--theme-button-primary-text-color);
   --_background-color: var(--theme-button-primary-bg-color);
   --_box-shadow: var(--theme-button-primary-shadow);
@@ -883,14 +902,16 @@ THEME CSS FOR LIVE PAGES
 }
 .c-button .btn-primary:hover,
 .c-form .btn[type=submit]:hover,
-.c-order .form-btn:hover {
+.c-order .form-btn:hover,
+.button.primary:hover {
   --_box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   transform: scale(0.95);
 }
 
 .c-button .btn-secondary,
 .c-form .btn-secondary .btn[type=submit],
-.c-order .btn-secondary .form-btn {
+.c-order .btn-secondary .form-btn,
+.button.secondary {
   --_color: var(--theme-button-secondary-text-color);
   --_background-color: var(--theme-button-secondary-bg-color);
   --_box-shadow: var(--theme-button-secondary-shadow);
@@ -898,7 +919,8 @@ THEME CSS FOR LIVE PAGES
 }
 .c-button .btn-secondary:hover,
 .c-form .btn-secondary .btn[type=submit]:hover,
-.c-order .btn-secondary .form-btn:hover {
+.c-order .btn-secondary .form-btn:hover,
+.button.secondary:hover {
   --_background-color: var(--theme-button-primary-bg-color);
   --_color: var(--theme-button-primary-text-color);
 }
@@ -1118,32 +1140,6 @@ THEME CSS FOR LIVE PAGES
   }
 }
 /**
- * CONTENT
- **/
-.content.c-column {
-  align-self: start;
-}
-.content.c-column > .inner {
-  display: flex;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  gap: 20px;
-  gap: var(--gap, 20px);
-}
-.content.c-column > .inner .c-wrapper:not(.c-button) {
-  flex-basis: 100%;
-}
-.content.c-column > .inner > .c-button {
-  flex: 0 1 fit-content;
-}
-.content.c-column > .inner > .c-paragraph ol, .content.c-column > .inner > .c-paragraph ul {
-  padding-left: 1em;
-}
-.content.c-column > .inner > .c-paragraph ol li, .content.c-column > .inner > .c-paragraph ul li {
-  margin-bottom: 0.5em;
-}
-
-/**
  * CARD FLIPPER
  **/
 @media only screen and (min-width: 768px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
@@ -1182,6 +1178,70 @@ THEME CSS FOR LIVE PAGES
     align-items: center;
   }
 }
+/**
+ * CHAT WIDGET
+ **/
+chat-widget {
+  --chat-widget-primary-color: var(--theme-chat-widget-primary-color, #188BF6) !important;
+  --chat-widget-active-color: var(--theme-chat-widget-active-color, #188BF6) !important;
+  --chat-widget-bubble-color: var(--theme-chat-widget-bubble-color, #188BF6) !important;
+  --message-outgoing-text-color: var(--theme-message-outgoing-text-color, #fff) !important;
+  --message-incoming-color: var(--theme-message-incoming-color, #e4e9f0) !important;
+  --message-incoming-text-color: var(--theme-message-incoming-text-colo, #333) !important;
+  --conversation-background-color: var(--theme-conversation-background-color, #fff) !important;
+  --message-check-mark-color: var(--theme-message-check-mark-color, #399bf0) !important;
+  --message-padding-content: var(--theme-message-padding-content, 1em) !important;
+  --message-padding-between: var(--theme-message-padding-between, 0) !important;
+  --message-round-size: var(--theme-message-round-size, 0.5em) !important;
+  --message-round-size-negative: var(--theme-message-round-size, calc(-1 * var(--message-round-size))) !important;
+}
+
+/**
+ * CONTENT
+ **/
+.content.c-column {
+  align-self: start;
+}
+.content.c-column > .inner {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 20px;
+  gap: var(--gap, 20px);
+}
+.content.c-column > .inner .c-wrapper:not(.c-button) {
+  flex-basis: 100%;
+}
+.content.c-column > .inner > .c-button {
+  flex: 0 1 fit-content;
+}
+.content.c-column > .inner > .c-paragraph ol, .content.c-column > .inner > .c-paragraph ul {
+  padding-left: 1em;
+}
+.content.c-column > .inner > .c-paragraph ol li, .content.c-column > .inner > .c-paragraph ul li {
+  margin-bottom: 0.5em;
+}
+
+/**
+ * COOKIE CONSENT BANNER
+ **/
+.hl-cookie-consent-banner {
+  background-color: var(--color-lt9cj7fg);
+  background-color: var(--theme-cookie-banner-bg-color, #000);
+}
+.hl-cookie-consent-banner .banner-text {
+  color: var(--color-lt9cf6ne);
+  color: var(--theme-cookie-banner-text-color, #fff);
+}
+.hl-cookie-consent-banner a[href] {
+  color: var(--color-lt9cf6ne);
+  color: var(--theme-cookie-banner-link-color, #fff);
+}
+.hl-cookie-consent-banner .button {
+  --_font-size: 1rem;
+  --_padding-block: 1rem;
+}
+
 /**
  * DECORATORS
  **/

@@ -1,9 +1,8 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.0
+ * Version: v1.6.1
  ****************************************/
-/* THEME CONFIG VARS */
 /** THEME DEFAULTS
  * These values are used as fallbacks if Custom Values are not set.
  * Defaults are used by javascript to set fallbacks when custom value config
@@ -125,6 +124,7 @@
   inherits: false;
   initial-value: #191E1C;
 }
+/* THEME CONFIG VARS */
 :root {
   /* Animate line under links: none | initial */
   --decorate-links: initial;
@@ -148,11 +148,41 @@
   --theme-survey-label-color: black;
   --theme-survey-padding-width: 40px;
   --theme-survey-progressbar-opacity: 0.2;
-  /*
-    CUSTOM VALUE VARIABLES
-    These variables ar set from GHL custom values in a style block
-    in the themplate's hidden Global Code block on each page.
-  */
+  /* Chat Widget */
+  --theme-chat-widget-primary-color: var(--theme-primary-color, #188bf6);
+  --theme-chat-widget-active-color: var(--theme-primary-color, #188bf6);
+  --theme-chat-widget-bubble-color: var(--theme-primary-color, #188bf6);
+  --theme-message-outgoing-text-color: #fff;
+  --theme-message-incoming-color: #e4e9f0;
+  --theme-message-incoming-text-color: #333;
+  --theme-conversation-background-color: #fff;
+  --theme-message-check-mark-color: #399bf0;
+  --theme-message-padding-content: 1em;
+  --theme-message-padding-between: 0;
+  --theme-message-round-size: 0.5em;
+  --theme-message-round-size-negative: calc(
+    -1 * var(--theme-message-round-size)
+  );
+  /* Cookie Consent Banner */
+  --theme-cookie-banner-bg-color: var(--theme-background-3-color, #000);
+  --theme-cookie-banner-text-color: var(--theme-text-dark-bg-color, #eee);
+  --theme-cookie-banner-link-color: var(--theme-text-dark-bg-color, #eee);
+}
+
+/* Override the GHL default vars */
+:root {
+  /* Text Colors */
+  --text-color: var(--theme-text-content-color);
+  --link-color: var(--theme-text-link-color);
+  /* TODO: add additional overrides here as needed */
+}
+
+/*
+  CUSTOM VALUE VARIABLES
+  These variables ar set from GHL custom values in a style block
+  in the themplate's hidden Global Code block on each page.
+*/
+:root {
   /* Theme Colors */
   /* [CustomValue] COLOR: Primary */
   /* {{ custom_values.color_primary }} */
@@ -212,18 +242,6 @@
   /* [CustomValue] COLOR: Background #3 */
   /* {{ custom_values.color_background_3 }} */
   --theme-background-3-color: var(--color-lt9cj7fg);
-  /* Fonts */
-  /* Add these to Custom CSS or a code block on a page to override fonts with global Custom Values
-  --headlinefont: "{{ custom_values.font_headline }}";
-  --contentfont: "{{ custom_values.font_content }}";
-  */
-}
-
-/* Override the GHL default vars */
-:root {
-  --text-color: var(--theme-text-content-color);
-  --link-color: var(--theme-text-link-color);
-  /* TODO: add additional overrides here as needed */
 }
 
 /*# sourceMappingURL=config.css.map */
