@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.1
+ * Version: v1.6.2
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -179,7 +179,7 @@ Show custom value colors: block | none
     -1 * var(--theme-message-round-size)
   );
   /* Cookie Consent Banner */
-  --theme-cookie-banner-bg-color: var(--theme-background-3-color, #000);
+  --theme-cookie-banner-bg-color: var(--theme-secondary-color, #000);
   --theme-cookie-banner-text-color: var(--theme-text-dark-bg-color, #eee);
   --theme-cookie-banner-link-color: var(--theme-text-dark-bg-color, #eee);
 }
@@ -1474,7 +1474,7 @@ chat-widget {
  * COOKIE CONSENT BANNER
  **/
 .hl-cookie-consent-banner {
-  background-color: var(--color-lt9cj7fg);
+  background-color: var(--color-lt9ca2ns);
   background-color: var(--theme-cookie-banner-bg-color, #000);
 }
 .hl-cookie-consent-banner .banner-text {
