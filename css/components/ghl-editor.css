@@ -72,3 +72,48 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 #page-creator .hl_style-control .color-border .color-box .active-color {
   border: 2px dotted red !important;
 }
+
+#page-creator .card .ui.selected .outline-border::before {
+  content: var(--_block-label);
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 12px;
+  color: var(--white);
+  background-color: var(--purple);
+  line-height: 1em;
+  padding: 2px 4px;
+}
+
+#page-creator .card2 .ui.selected .outline-border::before {
+  content: var(--_block-label);
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 12px;
+  color: var(--white);
+  background-color: var(--purple);
+  line-height: 1em;
+  padding: 2px 4px;
+}
+
+#page-creator .content .ui.selected .outline-border::before {
+  content: var(--_block-label);
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 12px;
+  color: var(--white);
+  background-color: var(--purple);
+  line-height: 1em;
+  padding: 2px 4px;
+}
+#page-creator .card {
+  --_block-label: "CARD";
+}
+#page-creator .card2 {
+  --_block-label: "CARD2";
+}
+#page-creator .content {
+  --_block-label: "CONTENT";
+}

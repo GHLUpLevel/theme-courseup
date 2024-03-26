@@ -1,10 +1,15 @@
-<!-- LEVEL UP THEME - Add this to a global code block in GHL websites & funnels -->
+<!-- Add @import to each page Custom CSS to enable theme styles in editor
+@import url("https://cdn.jsdelivr.net/gh/highlevelthemes/levelup@v1.6/css/editor.css");
+-->
+
+<!-- Add this to a global code block in GHL websites & funnels -->
+<!-- LEVEL UP THEME -->
 <style>
-  @import url("https://cdn.jsdelivr.net/gh/highlevelthemes/levelup@v1.6/css/live.css");
+  @import url("https://cdn.jsdelivr.net/gh/highlevelthemes/levelup@v1.6/css/live.min.css");
 </style>
 <script src="https://cdn.jsdelivr.net/gh/highlevelthemes/levelup@v1.6/js/all.min.js" defer></script>
-<!-- Set CSS Variables from GHL Custom Value -->
 <style>
+/* Set theme variables to GHL Custom Values */
 :root {
   --color-lt985yd7: {{ custom_values.color_primary }};
   --color-lt9ca2ns: {{ custom_values.color_secondary }};
@@ -24,7 +29,7 @@
   --color-lt9cidqc: {{ custom_values.color_background_1 }};
   --color-lt9ciq7x: {{ custom_values.color_background_2 }};
   --color-lt9cj7fg: {{ custom_values.color_background_3 }};
-  /* Override page fonts with global vars */
+  /* Override page fonts with global vars via javascript */
   --global-headlinefont: "{{ custom_values.font_headline }}";
   --global-contentfont: "{{ custom_values.font_content }}";
 }
