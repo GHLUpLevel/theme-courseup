@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.2
+ * Version: v1.6.3
  ****************************************/
 /** THEME DEFAULTS
  * These values are used as fallbacks if Custom Values are not set.
@@ -134,6 +134,8 @@
   --card-flipper-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   /* Secion max width */
   --section-width: 1342px;
+  --section-padding: 24px;
+  --section-padding-mobile: calc(var(--section-padding) / 2);
   --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
   /* Primary Button Shadow Color */
   --theme-button-primary-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);

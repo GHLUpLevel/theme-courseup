@@ -139,13 +139,18 @@
   }
   .card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
     grid-column: 1/1;
-    justify-self: auto !important;
   }
   .card.c-column > .inner > .c-button, .card2.c-column > .inner > .c-button {
     --width: 100%;
   }
   .card.c-column > .inner > .c-button button, .card2.c-column > .inner > .c-button button, .card.c-column > .inner > .c-button a, .card2.c-column > .inner > .c-button a {
     width: var(--width);
+  }
+  .card.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
+  }
+  .card2.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
   }
   .card.c-column > .inner > .c-wrapper:has(.bottom) {
     margin-bottom: 10px;
@@ -172,13 +177,18 @@
   }
   .card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
     grid-column: 1/1;
-    justify-self: auto !important;
   }
   .card.c-column > .inner > .c-button, .card2.c-column > .inner > .c-button {
     --width: 100%;
   }
   .card.c-column > .inner > .c-button button, .card2.c-column > .inner > .c-button button, .card.c-column > .inner > .c-button a, .card2.c-column > .inner > .c-button a {
     width: var(--width);
+  }
+  .card.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
+  }
+  .card2.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
   }
   .card.c-column > .inner > .c-wrapper:has(.bottom) {
     margin-bottom: 10px;

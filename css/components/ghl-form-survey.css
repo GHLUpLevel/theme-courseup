@@ -253,7 +253,8 @@
   border-color: var(--theme-button-primary-bg-color) !important;
 }
 
-.c-form, .c-survey {
+.c-form,
+.c-survey {
   width: 100%;
 }
 
@@ -269,7 +270,7 @@
 }
 @container (max-width: 480px) {
   .c-survey #form-builder {
-    --theme-survey-padding-width: 20px;
+    --theme-survey-padding-width: 1rem;
   }
 }
 .c-survey #form-builder .hl_form-builder--main {

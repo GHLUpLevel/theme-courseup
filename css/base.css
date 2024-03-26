@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.2
+ * Version: v1.6.3
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -24,16 +24,21 @@ Does not include config
 
 .c-section > .inner {
   max-width: var(--section-width) !important;
-  padding-left: 24px !important;
-  padding-right: 24px !important;
+  padding-left: var(--section-padding) !important;
+  padding-right: var(--section-padding) !important;
+}
+@media only screen and (max-width: 480px) {
+  .c-section > .inner {
+    --section-padding: var(--section-padding-mobile) !important;
+  }
 }
 
-#preview-container .c-column > .inner {
-  container-type: inline-size;
+.c-column > .inner {
+  position: relative;
 }
 
-.c-column.container-normal > .inner {
-  container-type: normal;
+.c-column > .inner:has(> .c-form, > .c-survey) {
+  z-index: 2;
 }
 
 /**
@@ -316,7 +321,8 @@ Does not include config
   border-color: var(--theme-button-primary-bg-color) !important;
 }
 
-.c-form, .c-survey {
+.c-form,
+.c-survey {
   width: 100%;
 }
 
@@ -332,7 +338,7 @@ Does not include config
 }
 @container (max-width: 480px) {
   .c-survey #form-builder {
-    --theme-survey-padding-width: 20px;
+    --theme-survey-padding-width: 1rem;
   }
 }
 .c-survey #form-builder .hl_form-builder--main {
@@ -824,13 +830,18 @@ Does not include config
   }
   .card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
     grid-column: 1/1;
-    justify-self: auto !important;
   }
   .card.c-column > .inner > .c-button, .card2.c-column > .inner > .c-button {
     --width: 100%;
   }
   .card.c-column > .inner > .c-button button, .card2.c-column > .inner > .c-button button, .card.c-column > .inner > .c-button a, .card2.c-column > .inner > .c-button a {
     width: var(--width);
+  }
+  .card.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
+  }
+  .card2.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
   }
   .card.c-column > .inner > .c-wrapper:has(.bottom) {
     margin-bottom: 10px;
@@ -857,13 +868,18 @@ Does not include config
   }
   .card.c-column > .inner > .c-wrapper, .card2.c-column > .inner > .c-wrapper {
     grid-column: 1/1;
-    justify-self: auto !important;
   }
   .card.c-column > .inner > .c-button, .card2.c-column > .inner > .c-button {
     --width: 100%;
   }
   .card.c-column > .inner > .c-button button, .card2.c-column > .inner > .c-button button, .card.c-column > .inner > .c-button a, .card2.c-column > .inner > .c-button a {
     width: var(--width);
+  }
+  .card.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
+  }
+  .card2.c-column > .inner > .c-wrapper:has(.left, .right) {
+    justify-self: center;
   }
   .card.c-column > .inner > .c-wrapper:has(.bottom) {
     margin-bottom: 10px;
@@ -1432,7 +1448,7 @@ chat-widget {
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .inner > .c-wrapper .w-10, .c-column > .inner > .c-wrapper .w-20, .c-column > .inner > .c-wrapper .w-30, .w-40, .w-50, .w-60, .w-70, .w-80, .w-90, .w-100 {
+  .c-column > .inner > .c-wrapper .w-10, .c-column > .inner > .c-wrapper .w-20, .c-column > .inner > .c-wrapper .w-30, .c-column > .inner > .c-wrapper .w-40, .c-column > .inner > .c-wrapper .w-50, .c-column > .inner > .c-wrapper .w-60, .c-column > .inner > .c-wrapper .w-70, .c-column > .inner > .c-wrapper .w-80, .c-column > .inner > .c-wrapper .w-90, .c-column > .inner > .c-wrapper .w-100 {
     width: 100% !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-10) {
@@ -1916,15 +1932,6 @@ chat-widget {
   }
 }
 /**
- * FOOTER
- */
-@container (max-width: 480px) {
-  .footer .social-links {
-    justify-content: center;
-  }
-}
-
-/**
  * POPUP
  **/
 #hl_main_popup {
@@ -2190,6 +2197,10 @@ ul.social-links li:hover a i {
 
 .text-color-dark-bg {
   --text-color: var(--theme-text-dark-bg-color);
+}
+
+.text-no-wrap {
+  text-wrap: nowrap;
 }
 
 /**

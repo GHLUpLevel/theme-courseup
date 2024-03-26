@@ -82,3 +82,7 @@
 .text-color-dark-bg {
   --text-color: var(--theme-text-dark-bg-color);
 }
+
+.text-no-wrap {
+  text-wrap: nowrap;
+}
