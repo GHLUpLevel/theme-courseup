@@ -12,9 +12,26 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 }
 
 /* Style Editor Modifications */
+#page-creator .style-manager-container .tab-settings-container {
+  overflow: visible;
+}
 #page-creator .hl_style-control .color-border > div.color-box[title^=Theme] {
   order: -1;
   margin-bottom: 10px !important;
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme]:hover::before {
+  font-size: 10px;
+  content: attr(title);
+  position: absolute;
+  right: 0;
+  top: -18px;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+  background: #188bf6;
+  text-wrap: nowrap;
+  padding: 4px;
+  line-height: 1em;
 }
 #page-creator .hl_style-control .color-border > div.color-box[title^=Theme]::after {
   font-size: 10px;
