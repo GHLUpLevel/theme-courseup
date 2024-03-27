@@ -30,3 +30,7 @@
 .c-column > .inner:has(> .c-form, > .c-survey) {
   z-index: 2;
 }
+
+.c-video {
+  align-self: normal;
+}
