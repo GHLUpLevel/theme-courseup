@@ -12,18 +12,18 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 }
 
 /* Style Editor Modifications */
-#page-creator .style-manager-container .tab-settings-container {
-  overflow: visible;
-}
 #page-creator .hl_style-control .color-border > div.color-box[title^=Theme] {
   order: -1;
   margin-bottom: 10px !important;
+}
+#page-creator .hl_style-control .color-border > div.color-box[title^=Theme]:hover {
+  perspective: 1000px;
 }
 #page-creator .hl_style-control .color-border > div.color-box[title^=Theme]:hover::before {
   font-size: 10px;
   content: attr(title);
   position: absolute;
-  right: 0;
+  left: 0;
   top: -18px;
   height: -moz-fit-content;
   height: fit-content;
