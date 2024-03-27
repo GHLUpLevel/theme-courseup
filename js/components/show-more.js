@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.6
+ * Version: v1.6.7
  ****************************************/
 
 const SEL_BTN_MORE = ".show-more-btn";

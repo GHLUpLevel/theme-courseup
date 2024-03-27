@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.6
+ * Version: v1.6.7
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -3243,34 +3243,10 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
   border: 2px dotted red !important;
 }
 
-#page-creator .card .ui.selected .outline-border::before {
+#page-creator .card > .ui .outline-border::before, #page-creator .card2 > .ui .outline-border::before, #page-creator .content > .ui .outline-border::before {
   content: var(--_block-label);
   position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 12px;
-  color: var(--white);
-  background-color: var(--purple);
-  line-height: 1em;
-  padding: 2px 4px;
-}
-
-#page-creator .card2 .ui.selected .outline-border::before {
-  content: var(--_block-label);
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 12px;
-  color: var(--white);
-  background-color: var(--purple);
-  line-height: 1em;
-  padding: 2px 4px;
-}
-
-#page-creator .content .ui.selected .outline-border::before {
-  content: var(--_block-label);
-  position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   font-size: 12px;
   color: var(--white);
