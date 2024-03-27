@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.8
+ * Version: v1.6.9
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -143,17 +143,24 @@ Does not include config
 #form-builder #_builder-form .fields-container > div:nth-child(n+2):has(label) {
   margin-top: 20px;
 }
-#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=tel], [type=number]), #form-builder #_builder-form .form-builder--item input[type=email], #form-builder #_builder-form .form-builder--item .option > input, #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=tel], [type=number]), #form-builder #_builder-form .form-builder--item input[type=email], #form-builder #_builder-form .form-builder--item > textarea, #form-builder #_builder-form .form-builder--item .option > input, #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
   color: var(--input-text-color) !important;
   background-color: var(--input-bg-color) !important;
   border: var(--input-border) !important;
   border-radius: var(--input-border-radius) !important;
   padding: var(--input-padding-top) var(--input-padding-left) !important;
+  font-family: var(--contentfont);
   font-size: var(--input-font-size);
   position: relative;
   line-height: 1;
   box-shadow: none !important;
+  font-weight: 300;
   height: calc(1lh + var(--input-padding-top) * 2);
+}
+#form-builder #_builder-form .form-builder--item textarea {
+  line-height: 1.2em;
+  height: calc(3lh + var(--input-padding-top) * 2);
+  --input-border-radius: 1em;
 }
 #form-builder #_builder-form .form-builder--item label:not(.item-description):not(.custom-file-upload) {
   font-size: var(--label-font-size);
