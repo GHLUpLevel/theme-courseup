@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.9
+ * Version: v1.6.10
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -391,7 +391,7 @@ THEME CSS FOR LIVE PAGES
 #form-builder #_builder-form .fields-container > div:nth-child(n+2):has(label) {
   margin-top: 20px;
 }
-#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=tel], [type=number]), #form-builder #_builder-form .form-builder--item input[type=email], #form-builder #_builder-form .form-builder--item > textarea, #form-builder #_builder-form .form-builder--item .option > input, #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=tel], [type=number]), #form-builder #_builder-form .form-builder--item [type=password], #form-builder #_builder-form .form-builder--item input[type=email], #form-builder #_builder-form .form-builder--item > textarea, #form-builder #_builder-form .form-builder--item .option > input, #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
   color: var(--input-text-color) !important;
   background-color: var(--input-bg-color) !important;
   border: var(--input-border) !important;

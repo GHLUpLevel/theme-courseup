@@ -90,16 +90,23 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
   border: 2px dotted red !important;
 }
 
-#page-creator .card > .ui .outline-border::before, #page-creator .card2 > .ui .outline-border::before, #page-creator .content > .ui .outline-border::before {
+/* HELPER LABELS */
+#page-creator .card > .ui .outline-border::before,
+#page-creator .card2 > .ui .outline-border::before,
+#page-creator .content > .ui .outline-border::before {
   content: var(--_block-label);
   position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 12px;
-  color: var(--white);
-  background-color: var(--purple);
-  line-height: 1em;
+  right: 1.5px;
+  bottom: -22px;
+  border-radius: 2px;
+  font-size: 10px;
+  color: #fff;
+  color: var(--white, #fff);
+  background-color: #333;
+  background-color: var(--indigo, #333);
+  line-height: 10px;
   padding: 2px 4px;
+  white-space: nowrap;
 }
 #page-creator .card {
   --_block-label: "CARD";
@@ -109,4 +116,30 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 }
 #page-creator .content {
   --_block-label: "CONTENT";
+}
+
+#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link) > .ui .outline-border::before {
+  --_label-bg-color: var(--indigo, #333);
+  content: var(--_block-label);
+  position: absolute;
+  right: 1.5px;
+  bottom: -22px;
+  border-radius: 2px;
+  font-size: 10px;
+  color: #fff;
+  color: var(--white, #fff);
+  background-color: #333;
+  background-color: var(--indigo, #333);
+  line-height: 10px;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link):has(.btn-primary) {
+  --_block-label: "PRIMARY";
+}
+#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link):has(.btn-secondary) {
+  --_block-label: "SECONDARY";
+}
+#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link):has(.btn-link) {
+  --_block-label: "LINK";
 }
