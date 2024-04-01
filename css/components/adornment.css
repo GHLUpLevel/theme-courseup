@@ -5,6 +5,7 @@
 @media only screen and (min-width: 768px) {
   .adorn-primary-top-left {
     isolation: isolate;
+    position: relative;
   }
   .adorn-primary-top-left::before {
     perspective: 1000px;
@@ -40,6 +41,7 @@
     --_adorn-base-size: 150px;
     --_adorn-size: 150px;
     isolation: isolate;
+    position: relative;
   }
   .adorn-arrow-left::before, .adorn-arrow-left::after,
   .adorn-arrow-right::before,

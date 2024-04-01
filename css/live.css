@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.11
+ * Version: v1.6.12
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -793,6 +793,7 @@ THEME CSS FOR LIVE PAGES
 @media only screen and (min-width: 768px) {
   .adorn-primary-top-left {
     isolation: isolate;
+    position: relative;
   }
   .adorn-primary-top-left::before {
     perspective: 1000px;
@@ -831,6 +832,7 @@ THEME CSS FOR LIVE PAGES
     --_adorn-base-size: 150px;
     --_adorn-size: 150px;
     isolation: isolate;
+    position: relative;
   }
   .adorn-arrow-left::before, .adorn-arrow-left::after,
   .adorn-arrow-right::before,

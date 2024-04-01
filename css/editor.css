@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.11
+ * Version: v1.6.12
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -829,6 +829,7 @@ Show custom value colors: block | none
 @container EditorViewPort (min-width: 768px) {
   .adorn-primary-top-left {
     isolation: isolate;
+    position: relative;
   }
   .adorn-primary-top-left::before {
     perspective: 1000px;
@@ -871,6 +872,7 @@ Show custom value colors: block | none
     --_adorn-base-size: 150px;
     --_adorn-size: 150px;
     isolation: isolate;
+    position: relative;
   }
   .adorn-arrow-left::before, .adorn-arrow-left::after,
   .adorn-arrow-right::before,
@@ -947,6 +949,7 @@ Show custom value colors: block | none
 @media only screen and (min-width: 768px) {
   .adorn-primary-top-left {
     isolation: isolate;
+    position: relative;
   }
   .adorn-primary-top-left::before {
     perspective: 1000px;
@@ -989,6 +992,7 @@ Show custom value colors: block | none
     --_adorn-base-size: 150px;
     --_adorn-size: 150px;
     isolation: isolate;
+    position: relative;
   }
   .adorn-arrow-left::before, .adorn-arrow-left::after,
   .adorn-arrow-right::before,
