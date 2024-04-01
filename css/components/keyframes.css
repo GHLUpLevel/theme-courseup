@@ -33,3 +33,20 @@
     transform: scale3d(1, 1, 1);
   }
 }
+@keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

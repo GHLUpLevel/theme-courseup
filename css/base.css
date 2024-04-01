@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.13
+ * Version: v1.6.14
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -482,44 +482,40 @@ Does not include config
     transform: scale3d(1, 1, 1);
   }
 }
+@keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /**
  * Animations
  **/
-@media (prefers-reduced-motion: no-preference) {
-  .animate-bounce, .animate-pulse {
+@media only screen and (prefers-reduced-motion: no-preference) {
+  #preview-container .animate-bounce, #preview-container .animate-pulse, #preview-container .animate-fadeIn, #preview-container .animate-fadeInLeft, #preview-container .animate-fadeInRight {
     --animate-duration: 1s;
-    --animate-delay: 1s;
+    --animate-delay: 1ms;
     --animate-repeat: 1;
     animation-duration: 1s;
-    animation-duration: var(--animate-duration);
+    animation-duration: var(--animate-duration, 1s);
+    animation-delay: 1ms;
+    animation-delay: var(--animate-delay, 1ms);
+    animation-iteration-count: 1;
+    animation-iteration-count: var(--animate-repeat, 1);
     animation-fill-mode: both;
   }
 }
-.animate-infinite {
-  animation-iteration-count: infinite;
-}
-
-.animate-repeat-1, .animate-repeat-2, .animate-repeat-3, .animate-repeat-4 {
-  animation-iteration-count: 1;
-  animation-iteration-count: var(--animate-repeat, 1);
-}
-
-.animate-repeat-1 {
-  --animate-repeat: 1;
-}
-
-.animate-repeat-2 {
-  --animate-repeat: 2;
-}
-
-.animate-repeat-3 {
-  --animate-repeat: 3;
-}
-
-.animate-repeat-4 {
-  --animate-repeat: 4;
-}
-
 .animate-bounce {
   animation-name: bounce;
   transform-origin: center bottom;
@@ -528,6 +524,102 @@ Does not include config
 .animate-pulse {
   animation-name: pulse;
   animation-timing-function: ease-in-out;
+}
+
+.animate-fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate-fadeInRight {
+  --animate-x: 100%;
+  --animate-y: 0;
+  animation-name: fadeIn, slide;
+}
+
+.animate-fadeInLeft {
+  --animate-x: -100%;
+  --animate-y: 0;
+  animation-name: fadeIn, slide;
+}
+
+.animate-infinite {
+  animation-iteration-count: infinite !important;
+}
+
+.animate-repeat-1 {
+  --animate-repeat: 1 !important;
+}
+
+.animate-repeat-2 {
+  --animate-repeat: 2 !important;
+}
+
+.animate-repeat-3 {
+  --animate-repeat: 3 !important;
+}
+
+.animate-repeat-4 {
+  --animate-repeat: 4 !important;
+}
+
+.animate-delay-1s {
+  --animate-delay: 1s !important;
+}
+
+.animate-delay-2s {
+  --animate-delay: 2s !important;
+}
+
+.animate-delay-3s {
+  --animate-delay: 3s !important;
+}
+
+.animate-delay-4s {
+  --animate-delay: 4s !important;
+}
+
+.animate-delay-100ms {
+  --animate-delay: 100ms !important;
+}
+
+.animate-delay-200ms {
+  --animate-delay: 200ms !important;
+}
+
+.animate-delay-300ms {
+  --animate-delay: 300ms !important;
+}
+
+.animate-delay-400ms {
+  --animate-delay: 400ms !important;
+}
+
+.animate-delay-500ms {
+  --animate-delay: 500ms !important;
+}
+
+.animate-delay-600ms {
+  --animate-delay: 600ms !important;
+}
+
+.animate-delay-700ms {
+  --animate-delay: 700ms !important;
+}
+
+.animate-delay-800ms {
+  --animate-delay: 800ms !important;
+}
+
+.animate-delay-900ms {
+  --animate-delay: 900ms !important;
+}
+
+.animate-delay-1500ms {
+  --animate-delay: 1500ms !important;
+}
+
+.animate-delay-2500ms {
+  --animate-delay: 2500ms !important;
 }
 
 /**
