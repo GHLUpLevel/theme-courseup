@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.12
+ * Version: v1.6.13
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -485,15 +485,16 @@ Does not include config
 /**
  * Animations
  **/
-.animate-bounce, .animate-pulse {
-  --animate-duration: 1s;
-  --animate-delay: 1s;
-  --animate-repeat: 1;
-  animation-duration: 1s;
-  animation-duration: var(--animate-duration);
-  animation-fill-mode: both;
+@media (prefers-reduced-motion: no-preference) {
+  .animate-bounce, .animate-pulse {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1;
+    animation-duration: 1s;
+    animation-duration: var(--animate-duration);
+    animation-fill-mode: both;
+  }
 }
-
 .animate-infinite {
   animation-iteration-count: infinite;
 }
