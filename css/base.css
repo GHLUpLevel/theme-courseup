@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.10
+ * Version: v1.6.11
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -447,6 +447,88 @@ Does not include config
 }
 
 /* CUSTOM COMPONENTS */
+/**
+ * Animation Keyframes
+ **/
+@keyframes bounce {
+  from, 20%, 53%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+/**
+ * Animations
+ **/
+.animate-bounce, .animate-pulse {
+  --animate-duration: 1s;
+  --animate-delay: 1s;
+  --animate-repeat: 1;
+  animation-duration: 1s;
+  animation-duration: var(--animate-duration);
+  animation-fill-mode: both;
+}
+
+.animate-infinite {
+  animation-iteration-count: infinite;
+}
+
+.animate-repeat-1, .animate-repeat-2, .animate-repeat-3, .animate-repeat-4 {
+  animation-iteration-count: 1;
+  animation-iteration-count: var(--animate-repeat, 1);
+}
+
+.animate-repeat-1 {
+  --animate-repeat: 1;
+}
+
+.animate-repeat-2 {
+  --animate-repeat: 2;
+}
+
+.animate-repeat-3 {
+  --animate-repeat: 3;
+}
+
+.animate-repeat-4 {
+  --animate-repeat: 4;
+}
+
+.animate-bounce {
+  animation-name: bounce;
+  transform-origin: center bottom;
+}
+
+.animate-pulse {
+  animation-name: pulse;
+  animation-timing-function: ease-in-out;
+}
+
 /**
  * ADORNMENTS
  **/
@@ -971,6 +1053,7 @@ chat-widget {
  **/
 .content.c-column {
   align-self: start;
+  --gap: 0px;
 }
 .content.c-column > .inner {
   display: flex;
@@ -1438,6 +1521,26 @@ chat-widget {
   --gap: 100px;
 }
 
+.column-gap-0 > .inner {
+  --column-gap: 0px;
+}
+
+.column-gap-10 > .inner {
+  --column-gap: 10px;
+}
+
+.column-gap-20 > .inner {
+  --column-gap: 20px;
+}
+
+.column-gap-30 > .inner {
+  --column-gap: 30px;
+}
+
+.column-gap-40 > .inner {
+  --column-gap: 40px;
+}
+
 /* ALIGN */
 .vertical-align-center,
 .align-self-center,
@@ -1463,34 +1566,44 @@ chat-widget {
     width: 100% !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-10) {
-    flex-basis: calc(10% - var(--gap)) !important;
+    flex-basis: calc(10% - 0px) !important;
+    flex-basis: calc(10% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-20) {
-    flex-basis: calc(20% - var(--gap)) !important;
+    flex-basis: calc(20% - 0px) !important;
+    flex-basis: calc(20% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-30) {
-    flex-basis: calc(30% - var(--gap)) !important;
+    flex-basis: calc(30% - 0px) !important;
+    flex-basis: calc(30% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-40) {
-    flex-basis: calc(40% - var(--gap)) !important;
+    flex-basis: calc(40% - 0px) !important;
+    flex-basis: calc(40% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-50) {
-    flex-basis: calc(50% - var(--gap)) !important;
+    flex-basis: calc(50% - 0px) !important;
+    flex-basis: calc(50% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-60) {
-    flex-basis: calc(60% - var(--gap)) !important;
+    flex-basis: calc(60% - 0px) !important;
+    flex-basis: calc(60% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-70) {
-    flex-basis: calc(70% - var(--gap)) !important;
+    flex-basis: calc(70% - 0px) !important;
+    flex-basis: calc(70% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-80) {
-    flex-basis: calc(80% - var(--gap)) !important;
+    flex-basis: calc(80% - 0px) !important;
+    flex-basis: calc(80% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-90) {
-    flex-basis: calc(90% - var(--gap)) !important;
+    flex-basis: calc(90% - 0px) !important;
+    flex-basis: calc(90% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-100) {
-    flex-basis: calc(100% - var(--gap)) !important;
+    flex-basis: calc(100% - 0px) !important;
+    flex-basis: calc(100% - var(--gap, 0px)) !important;
   }
 }
 /* GRID */
@@ -1933,13 +2046,16 @@ chat-widget {
     flex-grow: 0 !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-grid-2) {
-    flex-basis: calc(50% - var(--gap)) !important;
+    flex-basis: calc(50% - 0px) !important;
+    flex-basis: calc(50% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-grid-3) {
-    flex-basis: calc(30% - var(--gap)) !important;
+    flex-basis: calc(30% - 0px) !important;
+    flex-basis: calc(30% - var(--gap, 0px)) !important;
   }
   .c-column > .inner > .c-wrapper:has(.w-grid-4) {
-    flex-basis: calc(25% - var(--gap)) !important;
+    flex-basis: calc(25% - 0px) !important;
+    flex-basis: calc(25% - var(--gap, 0px)) !important;
   }
 }
 /**
@@ -2029,11 +2145,17 @@ chat-widget {
 #preview-container .show-more-wrapper {
   opacity: 1;
   max-height: 1000px;
-  transition: max-height 0.2s ease, opacity 0.5s ease-out;
+  transition: max-height 0.2s ease, opacity 0.2s ease-out;
 }
 #preview-container .show-more-hide {
   opacity: 0;
   max-height: 0;
+}
+#preview-container .show-more-fast {
+  transition: none;
+}
+#preview-container .show-more-fast.show-more-hide {
+  display: none;
 }
 
 /**

@@ -16,9 +16,6 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
   order: -1;
   margin-bottom: 10px !important;
 }
-#page-creator .hl_style-control .color-border > div.color-box[title^=Theme]:hover {
-  perspective: 1000px;
-}
 #page-creator .hl_style-control .color-border > div.color-box[title^=Theme]:hover::before {
   font-size: 10px;
   content: attr(title);
@@ -93,7 +90,8 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 /* HELPER LABELS */
 #page-creator .card > .ui .outline-border::before,
 #page-creator .card2 > .ui .outline-border::before,
-#page-creator .content > .ui .outline-border::before {
+#page-creator .content > .ui .outline-border::before,
+#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link) > .ui .outline-border::before {
   content: var(--_block-label);
   position: absolute;
   right: 1.5px;
@@ -117,29 +115,12 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 #page-creator .content {
   --_block-label: "CONTENT";
 }
-
-#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link) > .ui .outline-border::before {
-  --_label-bg-color: var(--indigo, #333);
-  content: var(--_block-label);
-  position: absolute;
-  right: 1.5px;
-  bottom: -22px;
-  border-radius: 2px;
-  font-size: 10px;
-  color: #fff;
-  color: var(--white, #fff);
-  background-color: #333;
-  background-color: var(--indigo, #333);
-  line-height: 10px;
-  padding: 2px 4px;
-  white-space: nowrap;
-}
-#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link):has(.btn-primary) {
+#page-creator .c-button:has(.btn-primary) {
   --_block-label: "PRIMARY";
 }
-#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link):has(.btn-secondary) {
+#page-creator .c-button:has(.btn-secondary) {
   --_block-label: "SECONDARY";
 }
-#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link):has(.btn-link) {
+#page-creator .c-button:has(.btn-link) {
   --_block-label: "LINK";
 }

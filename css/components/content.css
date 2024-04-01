@@ -3,6 +3,7 @@
  **/
 .content.c-column {
   align-self: start;
+  --gap: 0px;
 }
 .content.c-column > .inner {
   display: flex;
