@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.0
+ * Version: v1.7.1
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -35,72 +35,72 @@ THEME CSS FOR LIVE PAGES
 /* Theme Custom Properties */
 @property --color-lt985yd7 {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #079561;
 }
 @property --color-lt9ca2ns {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #56D296;
 }
 @property --color-luhfgx7m {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #56D296;
 }
 @property --color-luhfsans {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #079561;
 }
 @property --color-lt9cay4k {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #000;
 }
 @property --color-lt9cbrrr {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #859389;
 }
 @property --color-lt9ceg80 {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #188bf6;
 }
 @property --color-lt9cf6ne {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #fff;
 }
 @property --color-lt9cg14m {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #079561;
 }
 @property --color-luhh4ycy {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #fff;
 }
 @property --color-luhgqfvg {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #079561;
 }
 @property --color-lt9cidqc {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #fff;
 }
 @property --color-lt9ciq7x {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #FBFBFB;
 }
 @property --color-lt9cj7fg {
   syntax: "<color>";
-  inherits: false;
+  inherits: true;
   initial-value: #191E1C;
 }
 /* THEME CONFIG VARS */

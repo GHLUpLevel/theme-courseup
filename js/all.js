@@ -183,8 +183,7 @@
   setCSSDefaults();
   showMore.init();
   animate.init();
-  console.log(`"Level Up Theme" v: "1.7.0"`);
-  console.log(`https://highlevelthemes.com`);
+  console.log(`Powered by Level Up Theme v1.7.1:`, "https://highlevelthemes.com");
 
 })();
 //# sourceMappingURL=all.js.map
