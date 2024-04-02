@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.1
+ * Version: v1.7.2
  ****************************************/
 
 console.warn("Swiper not yet implemented");

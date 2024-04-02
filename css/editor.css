@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.1
+ * Version: v1.7.2
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -3605,5 +3605,3 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 #page-creator .c-button:has(.btn-link) {
   --_block-label: "LINK";
 }
-
-/*# sourceMappingURL=editor.css.map */
