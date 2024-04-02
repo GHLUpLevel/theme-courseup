@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.14
+ * Version: v1.7.0
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -16,24 +16,20 @@ THEME CSS FOR LIVE PAGES
 :root {
   --default-theme-primary-color: #079561;
   --default-theme-secondary-color: #56D296;
+  --default-theme-accent-color: #56D296;
+  --default-theme-attention-color: #079561;
   --default-theme-text-headline-color: #000;
   --default-theme-text-content-color: #859389;
-  --default-theme-text-bold-color: #000;
-  --default-theme-text-italic-color: #859389;
-  --default-theme-text-underlined-color: #859389;
   --default-theme-text-link-color: #188bf6;
-  --default-theme-text-highlight-color: #079561;
   --default-theme-text-dark-bg-color: #fff;
   --default-theme-icon-color: #079561;
   --default-theme-button-primary-text-color: #fff;
   --default-theme-button-primary-bg-color: #079561;
-  --default-theme-button-secondary-text-color: #000;
-  --default-theme-button-secondary-bg-color: #fff;
   --default-theme-background-1-color: #fff;
   --default-theme-background-2-color: #FBFBFB;
-  --default-theme-background-3-color: #191E1C;
-  --default-theme-headlinefont: Plus Jakarta Sans;
-  --default-theme-contentfont: Plus Jakarta Sans;
+  --default-theme-background-dark-color: #191E1C;
+  --default-theme-headlinefont: Plus Jakarta Sans, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  --default-theme-contentfont: Plus Jakarta Sans, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
 }
 
 /* Theme Custom Properties */
@@ -47,6 +43,16 @@ THEME CSS FOR LIVE PAGES
   inherits: false;
   initial-value: #56D296;
 }
+@property --color-luhfgx7m {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #56D296;
+}
+@property --color-luhfsans {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
 @property --color-lt9cay4k {
   syntax: "<color>";
   inherits: false;
@@ -57,30 +63,10 @@ THEME CSS FOR LIVE PAGES
   inherits: false;
   initial-value: #859389;
 }
-@property --color-lt9cc31b {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-@property --color-lt9cceqm {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #859389;
-}
-@property --color-lt9cdq6h {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #859389;
-}
 @property --color-lt9ceg80 {
   syntax: "<color>";
   inherits: false;
   initial-value: #188bf6;
-}
-@property --color-lt9cetri {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #079561;
 }
 @property --color-lt9cf6ne {
   syntax: "<color>";
@@ -92,25 +78,15 @@ THEME CSS FOR LIVE PAGES
   inherits: false;
   initial-value: #079561;
 }
-@property --color-lt9cge0z {
+@property --color-luhh4ycy {
   syntax: "<color>";
   inherits: false;
   initial-value: #fff;
 }
-@property --color-lt9cgr2u {
+@property --color-luhgqfvg {
   syntax: "<color>";
   inherits: false;
   initial-value: #079561;
-}
-@property --color-lt9ch38v {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-@property --color-lt9chjvd {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #fff;
 }
 @property --color-lt9cidqc {
   syntax: "<color>";
@@ -140,10 +116,15 @@ THEME CSS FOR LIVE PAGES
   --section-padding: 24px;
   --section-padding-mobile: calc(var(--section-padding) / 2);
   --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
-  /* Primary Button Shadow Color */
+  /* Buttons */
+  /* Primary buttons are fully themed. Buttons in forms inherit primary button styles. */
   --theme-button-primary-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);
+  --theme-button-secondary-text-color: var(--theme-text-headline-color, #000);
+  --theme-button-secondary-bg-color: var(--theme-background-1-color, #fff);
   --theme-button-secondary-shadow: 0 6px 14px rgba(0, 0, 0, 0.02),
     0 1px 4px rgba(27, 27, 27, 0.02), 0 4px 14px rgba(25, 25, 25, 0.06);
+  --theme-button-link-text-color: var(--theme-text-headline-color, #000);
+  --theme-button-link-bg-color: transparent;
   /* Forms */
   --theme-input-bg-color: #f5f5f5;
   --theme-input-text-color: black;
@@ -169,7 +150,7 @@ THEME CSS FOR LIVE PAGES
     -1 * var(--theme-message-round-size)
   );
   /* Cookie Consent Banner */
-  --theme-cookie-banner-bg-color: var(--theme-secondary-color, #000);
+  --theme-cookie-banner-bg-color: var(--theme-attention-color, #000);
   --theme-cookie-banner-text-color: var(--theme-text-dark-bg-color, #eee);
   --theme-cookie-banner-link-color: var(--theme-text-dark-bg-color, #eee);
 }
@@ -179,7 +160,7 @@ THEME CSS FOR LIVE PAGES
   /* Text Colors */
   --text-color: var(--theme-text-content-color);
   --link-color: var(--theme-text-link-color);
-  /* TODO: add additional overrides here as needed */
+  /* Add additional overrides here as needed */
 }
 
 /*
@@ -195,6 +176,12 @@ THEME CSS FOR LIVE PAGES
   /* [CustomValue] COLOR: Secondary */
   /* {{ custom_values.color_secondary }} */
   --theme-secondary-color: var(--color-lt9ca2ns);
+  /* [CustomValue] COLOR: Accent */
+  /* {{ custom_values.color_accent }} */
+  --theme-accent-color: var(--color-luhfgx7m);
+  /* [CustomValue] COLOR: Attention */
+  /* {{ custom_values.color_attention }} */
+  --theme-attention-color: var(--color-luhfsans);
   /* Text Colors */
   /* [CustomValue] COLOR: Text Headline */
   /* {{ custom_values.color_text_headline }} */
@@ -202,21 +189,9 @@ THEME CSS FOR LIVE PAGES
   /* [CustomValue] COLOR: Text Content */
   /* {{ custom_values.color_text_content }} */
   --theme-text-content-color: var(--color-lt9cbrrr);
-  /* [CustomValue] COLOR: Text Bold */
-  /* {{ custom_values.color_text_bold }} */
-  --theme-text-bold-color: var(--color-lt9cc31b);
-  /* [CustomValue] COLOR: Text Italic */
-  /* {{ custom_values.color_text_italic }} */
-  --theme-text-italic-color: var(--color-lt9cceqm);
-  /* [CustomValue] COLOR: Text Underline */
-  /* {{ custom_values.color_text_underline }} */
-  --theme-text-underlined-color: var(--color-lt9cdq6h);
   /* [CustomValue] COLOR: Text Link */
   /* {{ custom_values.color_text_link }} */
   --theme-text-link-color: var(--color-lt9ceg80);
-  /* [CustomValue] COLOR: Text Highlight */
-  /* {{ custom_values.color_text_highlight }} */
-  --theme-text-highlight-color: var(--color-lt9cetri);
   /* [CustomValue] COLOR: Text Dark BG */
   /* {{ custom_values.color_text_content_dark_bg }} */
   --theme-text-dark-bg-color: var(--color-lt9cf6ne);
@@ -224,19 +199,12 @@ THEME CSS FOR LIVE PAGES
   /* [CustomValue] COLOR: Icon */
   /* {{ custom_values.color_icon }} */
   --theme-icon-color: var(--color-lt9cg14m);
-  /* Button Colors */
   /* [CustomValue] COLOR: Button Primary Text */
   /* {{ custom_values.color_button_primary_text }} */
-  --theme-button-primary-text-color: var(--color-lt9cge0z);
+  --theme-button-primary-text-color: var(--color-luhh4ycy);
   /* [CustomValue] COLOR: Button Primary BG */
   /* {{ custom_values.color_button_primary_bg }} */
-  --theme-button-primary-bg-color: var(--color-lt9cgr2u);
-  /* [CustomValue] COLOR: Button Secondary Text */
-  /* {{ custom_values.color_button_secondary_text }} */
-  --theme-button-secondary-text-color: var(--color-lt9ch38v);
-  /* [CustomValue] COLOR: Button Secondary BG */
-  /* {{ custom_values.color_button_secondary_bg }} */
-  --theme-button-secondary-bg-color: var(--color-lt9chjvd);
+  --theme-button-primary-bg-color: var(--color-luhgqfvg);
   /* Background Colors */
   /* [CustomValue] COLOR: Background #1 */
   /* {{ custom_values.color_background_1 }} */
@@ -244,9 +212,9 @@ THEME CSS FOR LIVE PAGES
   /* [CustomValue] COLOR: Background #2 */
   /* {{ custom_values.color_background_2 }} */
   --theme-background-2-color: var(--color-lt9ciq7x);
-  /* [CustomValue] COLOR: Background #3 */
-  /* {{ custom_values.color_background_3 }} */
-  --theme-background-3-color: var(--color-lt9cj7fg);
+  /* [CustomValue] COLOR: Background Dark */
+  /* {{ custom_values.color_background_dark }} */
+  --theme-background-dark-color: var(--color-lt9cj7fg);
 }
 
 /* GHL CORE OVERRIDES */
@@ -311,10 +279,6 @@ THEME CSS FOR LIVE PAGES
 }
 .c-faq .hl-faq-child .hl-faq-child-panel {
   margin-left: 3em;
-}
-.c-faq .hl-faq-child.active {
-  border-color: var(--color-lt9cetri);
-  border-color: var(--theme-text-highlight-color);
 }
 
 /**
@@ -441,7 +405,7 @@ THEME CSS FOR LIVE PAGES
 }
 #form-builder #_builder-form .form-builder--item .option-radio:hover input,
 #form-builder #_builder-form .form-builder--item .in-r-c:hover input {
-  box-shadow: 0 0 0 3px var(--color-lt9cgr2u) !important;
+  box-shadow: 0 0 0 3px var(--color-luhgqfvg) !important;
   box-shadow: 0 0 0 3px var(--theme-button-primary-bg-color) !important;
 }
 #form-builder #_builder-form .form-builder--item .option > input {
@@ -517,18 +481,18 @@ THEME CSS FOR LIVE PAGES
 }
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tag {
   top: -8px;
-  background-color: var(--color-lt9cgr2u);
+  background-color: var(--color-luhgqfvg);
   background-color: var(--theme-button-primary-bg-color);
-  color: var(--color-lt9cge0z);
+  color: var(--color-luhh4ycy);
   color: var(--theme-button-primary-text-color);
 }
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tag-icon {
   line-height: 1;
-  color: var(--color-lt9cge0z);
+  color: var(--color-luhh4ycy);
   color: var(--theme-button-primary-text-color);
 }
 #form-builder #_builder-form .form-builder--item .multi_select_form .multiselect__tag-icon::after {
-  color: var(--color-lt9cge0z);
+  color: var(--color-luhh4ycy);
   color: var(--theme-button-primary-text-color);
   opacity: 0.4;
 }
@@ -582,7 +546,7 @@ THEME CSS FOR LIVE PAGES
 #form-builder #_builder-form .form-builder--item .multiselect__tags:hover,
 #form-builder #_builder-form .form-builder--item .date-picker-custom-style:hover {
   box-shadow: 0 4px 20px rgba(27, 27, 27, 0.08) !important;
-  border-color: var(--color-lt9cgr2u) !important;
+  border-color: var(--color-luhgqfvg) !important;
   border-color: var(--theme-button-primary-bg-color) !important;
 }
 
@@ -1126,8 +1090,8 @@ THEME CSS FOR LIVE PAGES
 .c-button .btn-link {
   --_box-shadown: none;
   --_border: none;
-  --_color: var(--theme-button-secondary-text-color);
-  --_background-color: var(--theme-button-secondary-bg-color);
+  --_color: var(--theme-button-link-text-color);
+  --_background-color: var(--theme-button-link-bg-color);
   --_font-weight: normal;
 }
 .c-button .btn-link .main-heading-button {
@@ -1435,7 +1399,7 @@ chat-widget {
  * COOKIE CONSENT BANNER
  **/
 .hl-cookie-consent-banner {
-  background-color: var(--color-lt9ca2ns);
+  background-color: var(--color-luhfsans);
   background-color: var(--theme-cookie-banner-bg-color, #000);
 }
 .hl-cookie-consent-banner .banner-text {
@@ -2439,14 +2403,14 @@ chat-widget {
   border-radius: 20px;
   transform: scale3d(1.5, 1.5, 1);
   perspective: 1000px;
-  background-color: var(--color-lt9cge0z);
+  background-color: var(--color-luhh4ycy);
   background-color: var(--theme-button-primary-text-color);
-  border: 1px solid var(--color-lt9cge0z);
+  border: 1px solid var(--color-luhh4ycy);
   border: 1px solid var(--theme-button-primary-text-color);
 }
 #hl_main_popup .closeLPModal::before {
   content: "";
-  background-color: var(--color-lt9cgr2u);
+  background-color: var(--color-luhgqfvg);
   background-color: var(--theme-button-primary-bg-color);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10a10 10 0 0 0 10 10ZM6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707Z' /%3E%3C/svg%3E");
           mask-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10a10 10 0 0 0 10 10ZM6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707Z' /%3E%3C/svg%3E");
@@ -2610,7 +2574,7 @@ ul.social-links li a[href]:not([href^=http]), ul.social-links li a[href=""], ul.
   display: none;
 }
 ul.social-links li:hover a i {
-  background-color: var(--color-lt9cgr2u);
+  background-color: var(--color-luhgqfvg);
   background-color: var(--theme-button-primary-bg-color);
   color: #ffffff;
 }

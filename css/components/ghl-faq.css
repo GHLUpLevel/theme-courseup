@@ -19,6 +19,3 @@
 .c-faq .hl-faq-child .hl-faq-child-panel {
   margin-left: 3em;
 }
-.c-faq .hl-faq-child.active {
-  border-color: var(--theme-text-highlight-color);
-}

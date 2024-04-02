@@ -1,28 +1,24 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.14
+ * Version: v1.7.0
  ****************************************/
 
 const themeVariablesDefaults = [
   "theme-primary-color",
   "theme-secondary-color",
+  "theme-accent-color",
+  "theme-attention-color",
   "theme-text-headline-color",
   "theme-text-content-color",
-  "theme-text-bold-color",
-  "theme-text-italic-color",
-  "theme-text-underlined-color",
   "theme-text-link-color",
-  "theme-text-highlight-color",
   "theme-text-dark-bg-color",
   "theme-icon-color",
   "theme-button-primary-text-color",
   "theme-button-primary-bg-color",
-  "theme-button-secondary-text-color",
-  "theme-button-secondary-bg-color",
   "theme-background-1-color",
   "theme-background-2-color",
-  "theme-background-3-color"
+  "theme-background-dark-color"
 ];
 const globalVariables = [
   "headlinefont",
@@ -43,7 +39,7 @@ function setCSSDefaults() {
     const varName = `--global-${name}`;
     const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
     if (value.replace(/["']/g, "").length > 0) {
-      document.documentElement.style.setProperty(name, value);
+      document.documentElement.style.setProperty(`--${name}`, value);
       console.log(`--${name} set to global value:`, value);
     }
   });

@@ -131,8 +131,8 @@
 .c-button .btn-link {
   --_box-shadown: none;
   --_border: none;
-  --_color: var(--theme-button-secondary-text-color);
-  --_background-color: var(--theme-button-secondary-bg-color);
+  --_color: var(--theme-button-link-text-color);
+  --_background-color: var(--theme-button-link-bg-color);
   --_font-weight: normal;
 }
 .c-button .btn-link .main-heading-button {

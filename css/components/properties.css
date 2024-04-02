@@ -8,24 +8,20 @@
 :root {
   --default-theme-primary-color: #079561;
   --default-theme-secondary-color: #56D296;
+  --default-theme-accent-color: #56D296;
+  --default-theme-attention-color: #079561;
   --default-theme-text-headline-color: #000;
   --default-theme-text-content-color: #859389;
-  --default-theme-text-bold-color: #000;
-  --default-theme-text-italic-color: #859389;
-  --default-theme-text-underlined-color: #859389;
   --default-theme-text-link-color: #188bf6;
-  --default-theme-text-highlight-color: #079561;
   --default-theme-text-dark-bg-color: #fff;
   --default-theme-icon-color: #079561;
   --default-theme-button-primary-text-color: #fff;
   --default-theme-button-primary-bg-color: #079561;
-  --default-theme-button-secondary-text-color: #000;
-  --default-theme-button-secondary-bg-color: #fff;
   --default-theme-background-1-color: #fff;
   --default-theme-background-2-color: #FBFBFB;
-  --default-theme-background-3-color: #191E1C;
-  --default-theme-headlinefont: Plus Jakarta Sans;
-  --default-theme-contentfont: Plus Jakarta Sans;
+  --default-theme-background-dark-color: #191E1C;
+  --default-theme-headlinefont: Plus Jakarta Sans, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  --default-theme-contentfont: Plus Jakarta Sans, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
 }
 
 /* Theme Custom Properties */
@@ -39,6 +35,16 @@
   inherits: false;
   initial-value: #56D296;
 }
+@property --color-luhfgx7m {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #56D296;
+}
+@property --color-luhfsans {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
 @property --color-lt9cay4k {
   syntax: "<color>";
   inherits: false;
@@ -49,30 +55,10 @@
   inherits: false;
   initial-value: #859389;
 }
-@property --color-lt9cc31b {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-@property --color-lt9cceqm {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #859389;
-}
-@property --color-lt9cdq6h {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #859389;
-}
 @property --color-lt9ceg80 {
   syntax: "<color>";
   inherits: false;
   initial-value: #188bf6;
-}
-@property --color-lt9cetri {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #079561;
 }
 @property --color-lt9cf6ne {
   syntax: "<color>";
@@ -84,25 +70,15 @@
   inherits: false;
   initial-value: #079561;
 }
-@property --color-lt9cge0z {
+@property --color-luhh4ycy {
   syntax: "<color>";
   inherits: false;
   initial-value: #fff;
 }
-@property --color-lt9cgr2u {
+@property --color-luhgqfvg {
   syntax: "<color>";
   inherits: false;
   initial-value: #079561;
-}
-@property --color-lt9ch38v {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-@property --color-lt9chjvd {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #fff;
 }
 @property --color-lt9cidqc {
   syntax: "<color>";

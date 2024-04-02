@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.14
+ * Version: v1.7.0
  ****************************************/
 /** THEME DEFAULTS
  * These values are used as fallbacks if Custom Values are not set.
@@ -13,24 +13,20 @@
 :root {
   --default-theme-primary-color: #079561;
   --default-theme-secondary-color: #56D296;
+  --default-theme-accent-color: #56D296;
+  --default-theme-attention-color: #079561;
   --default-theme-text-headline-color: #000;
   --default-theme-text-content-color: #859389;
-  --default-theme-text-bold-color: #000;
-  --default-theme-text-italic-color: #859389;
-  --default-theme-text-underlined-color: #859389;
   --default-theme-text-link-color: #188bf6;
-  --default-theme-text-highlight-color: #079561;
   --default-theme-text-dark-bg-color: #fff;
   --default-theme-icon-color: #079561;
   --default-theme-button-primary-text-color: #fff;
   --default-theme-button-primary-bg-color: #079561;
-  --default-theme-button-secondary-text-color: #000;
-  --default-theme-button-secondary-bg-color: #fff;
   --default-theme-background-1-color: #fff;
   --default-theme-background-2-color: #FBFBFB;
-  --default-theme-background-3-color: #191E1C;
-  --default-theme-headlinefont: Plus Jakarta Sans;
-  --default-theme-contentfont: Plus Jakarta Sans;
+  --default-theme-background-dark-color: #191E1C;
+  --default-theme-headlinefont: Plus Jakarta Sans, system-ui, sans-serif;
+  --default-theme-contentfont: Plus Jakarta Sans, system-ui, sans-serif;
 }
 
 /* Theme Custom Properties */
@@ -44,6 +40,16 @@
   inherits: false;
   initial-value: #56D296;
 }
+@property --color-luhfgx7m {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #56D296;
+}
+@property --color-luhfsans {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #079561;
+}
 @property --color-lt9cay4k {
   syntax: "<color>";
   inherits: false;
@@ -54,30 +60,10 @@
   inherits: false;
   initial-value: #859389;
 }
-@property --color-lt9cc31b {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-@property --color-lt9cceqm {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #859389;
-}
-@property --color-lt9cdq6h {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #859389;
-}
 @property --color-lt9ceg80 {
   syntax: "<color>";
   inherits: false;
   initial-value: #188bf6;
-}
-@property --color-lt9cetri {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #079561;
 }
 @property --color-lt9cf6ne {
   syntax: "<color>";
@@ -89,25 +75,15 @@
   inherits: false;
   initial-value: #079561;
 }
-@property --color-lt9cge0z {
+@property --color-luhh4ycy {
   syntax: "<color>";
   inherits: false;
   initial-value: #fff;
 }
-@property --color-lt9cgr2u {
+@property --color-luhgqfvg {
   syntax: "<color>";
   inherits: false;
   initial-value: #079561;
-}
-@property --color-lt9ch38v {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #000;
-}
-@property --color-lt9chjvd {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #fff;
 }
 @property --color-lt9cidqc {
   syntax: "<color>";
@@ -137,10 +113,15 @@
   --section-padding: 24px;
   --section-padding-mobile: calc(var(--section-padding) / 2);
   --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
-  /* Primary Button Shadow Color */
+  /* Buttons */
+  /* Primary buttons are fully themed. Buttons in forms inherit primary button styles. */
   --theme-button-primary-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);
+  --theme-button-secondary-text-color: var(--theme-text-headline-color, #000);
+  --theme-button-secondary-bg-color: var(--theme-background-1-color, #fff);
   --theme-button-secondary-shadow: 0 6px 14px rgba(0, 0, 0, 0.02),
     0 1px 4px rgba(27, 27, 27, 0.02), 0 4px 14px rgba(25, 25, 25, 0.06);
+  --theme-button-link-text-color: var(--theme-text-headline-color, #000);
+  --theme-button-link-bg-color: transparent;
   /* Forms */
   --theme-input-bg-color: #f5f5f5;
   --theme-input-text-color: black;
@@ -166,7 +147,7 @@
     -1 * var(--theme-message-round-size)
   );
   /* Cookie Consent Banner */
-  --theme-cookie-banner-bg-color: var(--theme-secondary-color, #000);
+  --theme-cookie-banner-bg-color: var(--theme-attention-color, #000);
   --theme-cookie-banner-text-color: var(--theme-text-dark-bg-color, #eee);
   --theme-cookie-banner-link-color: var(--theme-text-dark-bg-color, #eee);
 }
@@ -176,7 +157,7 @@
   /* Text Colors */
   --text-color: var(--theme-text-content-color);
   --link-color: var(--theme-text-link-color);
-  /* TODO: add additional overrides here as needed */
+  /* Add additional overrides here as needed */
 }
 
 /*
@@ -192,6 +173,12 @@
   /* [CustomValue] COLOR: Secondary */
   /* {{ custom_values.color_secondary }} */
   --theme-secondary-color: var(--color-lt9ca2ns);
+  /* [CustomValue] COLOR: Accent */
+  /* {{ custom_values.color_accent }} */
+  --theme-accent-color: var(--color-luhfgx7m);
+  /* [CustomValue] COLOR: Attention */
+  /* {{ custom_values.color_attention }} */
+  --theme-attention-color: var(--color-luhfsans);
   /* Text Colors */
   /* [CustomValue] COLOR: Text Headline */
   /* {{ custom_values.color_text_headline }} */
@@ -199,21 +186,9 @@
   /* [CustomValue] COLOR: Text Content */
   /* {{ custom_values.color_text_content }} */
   --theme-text-content-color: var(--color-lt9cbrrr);
-  /* [CustomValue] COLOR: Text Bold */
-  /* {{ custom_values.color_text_bold }} */
-  --theme-text-bold-color: var(--color-lt9cc31b);
-  /* [CustomValue] COLOR: Text Italic */
-  /* {{ custom_values.color_text_italic }} */
-  --theme-text-italic-color: var(--color-lt9cceqm);
-  /* [CustomValue] COLOR: Text Underline */
-  /* {{ custom_values.color_text_underline }} */
-  --theme-text-underlined-color: var(--color-lt9cdq6h);
   /* [CustomValue] COLOR: Text Link */
   /* {{ custom_values.color_text_link }} */
   --theme-text-link-color: var(--color-lt9ceg80);
-  /* [CustomValue] COLOR: Text Highlight */
-  /* {{ custom_values.color_text_highlight }} */
-  --theme-text-highlight-color: var(--color-lt9cetri);
   /* [CustomValue] COLOR: Text Dark BG */
   /* {{ custom_values.color_text_content_dark_bg }} */
   --theme-text-dark-bg-color: var(--color-lt9cf6ne);
@@ -221,19 +196,12 @@
   /* [CustomValue] COLOR: Icon */
   /* {{ custom_values.color_icon }} */
   --theme-icon-color: var(--color-lt9cg14m);
-  /* Button Colors */
   /* [CustomValue] COLOR: Button Primary Text */
   /* {{ custom_values.color_button_primary_text }} */
-  --theme-button-primary-text-color: var(--color-lt9cge0z);
+  --theme-button-primary-text-color: var(--color-luhh4ycy);
   /* [CustomValue] COLOR: Button Primary BG */
   /* {{ custom_values.color_button_primary_bg }} */
-  --theme-button-primary-bg-color: var(--color-lt9cgr2u);
-  /* [CustomValue] COLOR: Button Secondary Text */
-  /* {{ custom_values.color_button_secondary_text }} */
-  --theme-button-secondary-text-color: var(--color-lt9ch38v);
-  /* [CustomValue] COLOR: Button Secondary BG */
-  /* {{ custom_values.color_button_secondary_bg }} */
-  --theme-button-secondary-bg-color: var(--color-lt9chjvd);
+  --theme-button-primary-bg-color: var(--color-luhgqfvg);
   /* Background Colors */
   /* [CustomValue] COLOR: Background #1 */
   /* {{ custom_values.color_background_1 }} */
@@ -241,9 +209,9 @@
   /* [CustomValue] COLOR: Background #2 */
   /* {{ custom_values.color_background_2 }} */
   --theme-background-2-color: var(--color-lt9ciq7x);
-  /* [CustomValue] COLOR: Background #3 */
-  /* {{ custom_values.color_background_3 }} */
-  --theme-background-3-color: var(--color-lt9cj7fg);
+  /* [CustomValue] COLOR: Background Dark */
+  /* {{ custom_values.color_background_dark }} */
+  --theme-background-dark-color: var(--color-lt9cj7fg);
 }
 
 /*# sourceMappingURL=config.css.map */

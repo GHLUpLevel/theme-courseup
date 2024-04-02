@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.6.14
+ * Version: v1.7.0
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -65,9 +65,6 @@ Does not include config
 }
 .c-faq .hl-faq-child .hl-faq-child-panel {
   margin-left: 3em;
-}
-.c-faq .hl-faq-child.active {
-  border-color: var(--theme-text-highlight-color);
 }
 
 /**
@@ -865,8 +862,8 @@ Does not include config
 .c-button .btn-link {
   --_box-shadown: none;
   --_border: none;
-  --_color: var(--theme-button-secondary-text-color);
-  --_background-color: var(--theme-button-secondary-bg-color);
+  --_color: var(--theme-button-link-text-color);
+  --_background-color: var(--theme-button-link-bg-color);
   --_font-weight: normal;
 }
 .c-button .btn-link .main-heading-button {

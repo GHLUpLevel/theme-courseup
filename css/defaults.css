@@ -8,24 +8,20 @@
 :root {
   --default-theme-primary-color: #079561;
   --default-theme-secondary-color: #56D296;
+  --default-theme-accent-color: #56D296;
+  --default-theme-attention-color: #079561;
   --default-theme-text-headline-color: #000;
   --default-theme-text-content-color: #859389;
-  --default-theme-text-bold-color: #000;
-  --default-theme-text-italic-color: #859389;
-  --default-theme-text-underlined-color: #859389;
   --default-theme-text-link-color: #188bf6;
-  --default-theme-text-highlight-color: #079561;
   --default-theme-text-dark-bg-color: #fff;
   --default-theme-icon-color: #079561;
   --default-theme-button-primary-text-color: #fff;
   --default-theme-button-primary-bg-color: #079561;
-  --default-theme-button-secondary-text-color: #000;
-  --default-theme-button-secondary-bg-color: #fff;
   --default-theme-background-1-color: #fff;
   --default-theme-background-2-color: #FBFBFB;
-  --default-theme-background-3-color: #191E1C;
-  --default-theme-headlinefont: Plus Jakarta Sans;
-  --default-theme-contentfont: Plus Jakarta Sans;
+  --default-theme-background-dark-color: #191E1C;
+  --default-theme-headlinefont: Plus Jakarta Sans, system-ui, sans-serif;
+  --default-theme-contentfont: Plus Jakarta Sans, system-ui, sans-serif;
 }
 
 /*# sourceMappingURL=defaults.css.map */
