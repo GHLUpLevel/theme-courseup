@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.4
+ * Version: v1.7.5
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -443,6 +443,16 @@ Does not include config
   margin-top: 80px;
 }
 
+/**
+ * NAVIGATION MENU
+ **/
+.nav-menu-item:hover > a {
+  border-radius: 1000px;
+}
+.nav-menu-item .dropdown-item > a {
+  padding-left: 1em !important;
+}
+
 /* CUSTOM COMPONENTS */
 /**
  * Animations
@@ -686,45 +696,146 @@ Does not include config
 }
 
 /**
+ * BACKGROUNDS
+ **/
+.bg-gradient,
+.bg-gradient-right,
+.bg-gradient-left,
+.bg-gradient-up,
+.bg-gradient-down {
+  background: linear-gradient(in hsl 90deg, var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
+}
+@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {
+.bg-gradient,
+.bg-gradient-right,
+.bg-gradient-left,
+.bg-gradient-up,
+.bg-gradient-down {
+  background: linear-gradient(in hsl var(--bg-direction, 90deg), var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
+}
+}
+
+.bg-gradient-left {
+  --bg-direction: -90deg;
+}
+
+.bg-gradient-down {
+  --bg-direction: 180deg;
+}
+
+.bg-gradient-up {
+  --bg-direction: -180deg;
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(ellipse at top, var(--bg-color-1, var(--theme-primary-color)), transparent), radial-gradient(ellipse at bottom, var(--bg-color-2, var(--theme-secondary-color)), transparent);
+}
+
+.bg-radial-gradient-top-left,
+.bg-radial-gradient-top-right,
+.bg-radial-gradient-bottom-left,
+.bg-radial-gradient-bottom-right {
+  background: radial-gradient(at top left, var(--bg-color-1, var(--theme-primary-color)), var(--bg-color-2, var(--theme-secondary-color)));
+  background: radial-gradient(var(--bg-radial-start, at top left), var(--bg-color-1, var(--theme-primary-color)), var(--bg-color-2, var(--theme-secondary-color)));
+}
+
+.bg-radial-gradient-top-right {
+  --bg-radial-start: at top right;
+}
+
+.bg-radial-gradient-bottom-right {
+  --bg-radial-start: at bottom right;
+}
+
+.bg-radial-gradient-bottom-left {
+  --bg-radial-start: at bottom left;
+}
+
+.bg-color-1-primary {
+  --bg-color-1: var(--theme-primary-color);
+}
+
+.bg-color-2-primary {
+  --bg-color-2: var(--theme-primary-color);
+}
+
+.bg-color-3-primary {
+  --bg-color-3: var(--theme-primary-color);
+}
+
+.bg-color-1-secondary {
+  --bg-color-1: var(--theme-secondary-color);
+}
+
+.bg-color-2-secondary {
+  --bg-color-2: var(--theme-secondary-color);
+}
+
+.bg-color-3-secondary {
+  --bg-color-3: var(--theme-secondary-color);
+}
+
+.bg-color-1-accent {
+  --bg-color-1: var(--theme-accent-color);
+}
+
+.bg-color-2-accent {
+  --bg-color-2: var(--theme-accent-color);
+}
+
+.bg-color-3-accent {
+  --bg-color-3: var(--theme-accent-color);
+}
+
+/**
  * BUTTONS
  **/
-.c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn, .button.primary, .button.secondary {
-  --_font-size: 1.125rem;
-  --_font-weight: normal;
-  --_border: 1px solid var(--transparent);
-  --_border-radius: 1000px;
-  --_box-shadow: none;
-  --_padding-block: calc(1.15 * var(--_font-size));
-  --_padding-inline: max(10px, min(2em, 10em));
+.c-button .btn-custom, .hl-cookie-consent-banner .button, .c-button .btn-primary, .c-button .btn-secondary, .c-button .btn-link, .c-form .btn, .c-order .form-btn {
+  --_padding-block: calc(1.15 * var(--_font-size, 1.125rem));
   font-family: var(--contentfont) !important;
   font-size: 1.125rem !important;
-  font-size: var(--_font-size) !important;
-  line-height: 1em !important;
+  font-size: var(--_font-size, 1.125rem) !important;
   font-weight: normal !important;
-  font-weight: var(--_font-weight) !important;
-  border: 1px solid var(--transparent) !important;
-  border: var(--_border) !important;
+  font-weight: var(--_font-weight, normal) !important;
+  line-height: 1em !important;
   border-radius: 1000px !important;
-  border-radius: var(--_border-radius) !important;
+  border-radius: var(--_border-radius, 1000px) !important;
+  box-shadow: none !important;
+  box-shadow: var(--_box-shadow, none) !important;
+  transition: transform 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
   padding-top: calc(1.15 * 1.125rem) !important;
   padding-bottom: calc(1.15 * 1.125rem) !important;
   padding-top: var(--_padding-block) !important;
   padding-bottom: var(--_padding-block) !important;
+  cursor: pointer;
+}
+.c-button .btn-custom .main-text, .hl-cookie-consent-banner .button .main-text, .c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-form .btn .main-text, .c-order .form-btn .main-text, .c-button .btn-custom .main-heading-button, .hl-cookie-consent-banner .button .main-heading-button, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-form .btn .main-heading-button, .c-order .form-btn .main-heading-button, .c-button .btn-custom .button-icon-start, .hl-cookie-consent-banner .button .button-icon-start, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-form .btn .button-icon-start, .c-order .form-btn .button-icon-start, .c-button .btn-custom .button-icon-end, .hl-cookie-consent-banner .button .button-icon-end, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-form .btn .button-icon-end, .c-order .form-btn .button-icon-end, .c-button .btn-custom p, .hl-cookie-consent-banner .button p, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-form .btn p, .c-order .form-btn p, .c-button .btn-custom i, .hl-cookie-consent-banner .button i, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn i, .c-order .form-btn i {
+  font-size: 1em !important;
+  line-height: 1em !important;
+  font-weight: normal !important;
+  font-weight: var(--_font-weight, normal) !important;
+}
+
+.hl-cookie-consent-banner .button,
+.c-button .btn-primary,
+.c-button .btn-secondary,
+.c-button .btn-link,
+.c-form .btn,
+.c-order .form-btn {
   color: #fff !important;
   color: var(--_color, #fff) !important;
   background-color: #000 !important;
   background-color: var(--_background-color, #000) !important;
-  box-shadow: none !important;
-  box-shadow: var(--_box-shadow, none) !important;
-  transition: transform 0.3s, box-shadow 0.3s, color 0.3s, background-color 0.3s;
-  cursor: pointer;
 }
-.c-button .btn-primary .main-text, .c-button .btn-secondary .main-text, .c-button .btn-link .main-text, .c-button .btn-primary .main-heading-button, .c-button .btn-secondary .main-heading-button, .c-button .btn-link .main-heading-button, .c-button .btn-primary .button-icon-start, .c-button .btn-secondary .button-icon-start, .c-button .btn-link .button-icon-start, .c-button .btn-primary .button-icon-end, .c-button .btn-secondary .button-icon-end, .c-button .btn-link .button-icon-end, .c-button .btn-primary p, .c-button .btn-secondary p, .c-button .btn-link p, .c-button .btn-primary i, .c-button .btn-secondary i, .c-button .btn-link i, .c-form .btn .main-text, .c-form .btn .main-heading-button, .c-form .btn .button-icon-start, .c-form .btn .button-icon-end, .c-form .btn p, .c-form .btn i, .c-order .form-btn .main-text, .c-order .form-btn .main-heading-button, .c-order .form-btn .button-icon-start, .c-order .form-btn .button-icon-end, .c-order .form-btn p, .c-order .form-btn i, .button.primary .main-text, .button.primary .main-heading-button, .button.primary .button-icon-start, .button.primary .button-icon-end, .button.primary p, .button.primary i, .button.secondary .main-text, .button.secondary .main-heading-button, .button.secondary .button-icon-start, .button.secondary .button-icon-end, .button.secondary p, .button.secondary i {
-  font-size: 1em !important;
-  line-height: 1em !important;
-  font-weight: var(--_font-weight) !important;
+
+.c-form .btn,
+.c-order .form-btn {
+  --_border: 1px solid var(--transparent);
+  border: 1px solid var(--transparent) !important;
+  border: var(--_border) !important;
 }
-.c-button .btn-primary > div, .c-button .btn-secondary > div, .c-button .btn-link > div, .c-form .btn > div, .c-order .form-btn > div, .button.primary > div, .button.secondary > div {
+.c-form .btn > div,
+.c-order .form-btn > div {
   font-size: inherit !important;
   color: inherit !important;
   background-color: transparent !important;
@@ -753,81 +864,100 @@ Does not include config
     padding-right: 0.5rem;
   }
 }
+.hl-cookie-consent-banner .button,
 .c-button .btn-xsmall,
-.c-form .btn-xsmall .btn[type=submit],
-.c-order .btn-xsmall .form-btn {
+.btn-xsmall .btn[type=submit],
+.btn-xsmall .form-btn:not(.does-not-exist) {
   --_font-size: 0.875rem;
   --_padding-block: 1rem;
 }
 
 .c-button .btn-small,
-.c-form .btn-small .btn[type=submit],
-.c-order .btn-small .form-btn {
+.btn-small .btn[type=submit],
+.btn-small .form-btn:not(.does-not-exist) {
   --_font-size: 1rem;
   --_padding-block: 1rem;
 }
 
 .c-button .btn-large,
-.c-form .btn-large .btn[type=submit],
-.c-order .btn-large .form-btn {
+.btn-large .btn[type=submit],
+.btn-large .form-btn:not(.does-not-exist) {
   --_font-size: 1.25rem;
   --_padding-block: 1.25em;
 }
 
 .c-button .btn-xlarge,
-.c-form .btn-xlarge .btn[type=submit],
-.c-order .btn-xlarge .form-btn {
+.btn-xlarge .btn[type=submit],
+.btn-xlarge .form-btn:not(.does-not-exist) {
   --_font-size: 1.5rem;
   --_padding-block: 1em;
 }
 
+.hl-cookie-consent-banner .button.secondary,
 .c-button .btn-primary,
+.btn-primary .btn[type=submit],
+.btn-primary .form-btn:not(.does-not-exist),
 .c-form .btn[type=submit],
-.c-order .form-btn,
-.button.primary {
+.c-order .form-btn {
   --_color: var(--theme-button-primary-text-color);
   --_background-color: var(--theme-button-primary-bg-color);
   --_box-shadow: var(--theme-button-primary-shadow);
   --_font-weight: 600;
 }
+.hl-cookie-consent-banner .button.secondary:hover,
 .c-button .btn-primary:hover,
+.btn-primary .btn[type=submit]:hover,
+.btn-primary .form-btn:not(.does-not-exist):hover,
 .c-form .btn[type=submit]:hover,
-.c-order .form-btn:hover,
-.button.primary:hover {
+.c-order .form-btn:hover {
   --_box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   transform: scale(0.95);
 }
 
+.hl-cookie-consent-banner .button.primary,
 .c-button .btn-secondary,
-.c-form .btn-secondary .btn[type=submit],
-.c-order .btn-secondary .form-btn,
-.button.secondary {
+.btn-secondary .btn[type=submit],
+.btn-secondary .form-btn:not(.does-not-exist) {
   --_color: var(--theme-button-secondary-text-color);
   --_background-color: var(--theme-button-secondary-bg-color);
   --_box-shadow: var(--theme-button-secondary-shadow);
   --_font-weight: normal;
 }
+.hl-cookie-consent-banner .button.primary:hover,
 .c-button .btn-secondary:hover,
-.c-form .btn-secondary .btn[type=submit]:hover,
-.c-order .btn-secondary .form-btn:hover,
-.button.secondary:hover {
+.btn-secondary .btn[type=submit]:hover,
+.btn-secondary .form-btn:not(.does-not-exist):hover {
   --_background-color: var(--theme-button-primary-bg-color);
   --_color: var(--theme-button-primary-text-color);
 }
 
-.c-button .btn-link {
+.c-button .btn-link,
+.btn-link .btn[type=submit],
+.btn-link .form-btn:not(.does-not-exist) {
   --_box-shadown: none;
-  --_border: none;
   --_color: var(--theme-button-link-text-color);
   --_background-color: var(--theme-button-link-bg-color);
   --_font-weight: normal;
+  border: none !important;
 }
-.c-button .btn-link .main-heading-button {
+.c-button .btn-link .main-heading-button,
+.btn-link .btn[type=submit] .main-heading-button,
+.btn-link .form-btn:not(.does-not-exist) .main-heading-button {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
-.c-button .btn-link:hover {
+.c-button .btn-link:hover,
+.btn-link .btn[type=submit]:hover,
+.btn-link .form-btn:not(.does-not-exist):hover {
   --_box-shadow: var(--theme-button-secondary-shadow);
+}
+
+.c-button .btn-custom {
+  --_box-shadow: var(--theme-button-secondary-shadow);
+}
+.c-button .btn-custom:hover {
+  --_box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
 }
 
 /**
@@ -1138,11 +1268,6 @@ chat-widget {
   color: #fff;
   color: var(--theme-cookie-banner-link-color, #fff);
 }
-.hl-cookie-consent-banner .button {
-  --_font-size: 1rem;
-  --_padding-block: 1rem;
-}
-
 /**
  * DECORATORS
  **/

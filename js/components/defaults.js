@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.4
+ * Version: v1.7.5
  ****************************************/
 
 const themeVariablesDefaults = [

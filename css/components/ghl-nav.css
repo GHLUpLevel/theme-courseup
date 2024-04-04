@@ -1,0 +1,9 @@
+/**
+ * NAVIGATION MENU
+ **/
+.nav-menu-item:hover > a {
+  border-radius: 1000px;
+}
+.nav-menu-item .dropdown-item > a {
+  padding-left: 1em !important;
+}

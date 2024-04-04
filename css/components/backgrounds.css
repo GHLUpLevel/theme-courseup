@@ -1,0 +1,91 @@
+/**
+ * BACKGROUNDS
+ **/
+.bg-gradient,
+.bg-gradient-right,
+.bg-gradient-left,
+.bg-gradient-up,
+.bg-gradient-down {
+  background: linear-gradient(in hsl 90deg, var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
+}
+@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {
+.bg-gradient,
+.bg-gradient-right,
+.bg-gradient-left,
+.bg-gradient-up,
+.bg-gradient-down {
+  background: linear-gradient(in hsl var(--bg-direction, 90deg), var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
+}
+}
+
+.bg-gradient-left {
+  --bg-direction: -90deg;
+}
+
+.bg-gradient-down {
+  --bg-direction: 180deg;
+}
+
+.bg-gradient-up {
+  --bg-direction: -180deg;
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(ellipse at top, var(--bg-color-1, var(--theme-primary-color)), transparent), radial-gradient(ellipse at bottom, var(--bg-color-2, var(--theme-secondary-color)), transparent);
+}
+
+.bg-radial-gradient-top-left,
+.bg-radial-gradient-top-right,
+.bg-radial-gradient-bottom-left,
+.bg-radial-gradient-bottom-right {
+  background: radial-gradient(at top left, var(--bg-color-1, var(--theme-primary-color)), var(--bg-color-2, var(--theme-secondary-color)));
+  background: radial-gradient(var(--bg-radial-start, at top left), var(--bg-color-1, var(--theme-primary-color)), var(--bg-color-2, var(--theme-secondary-color)));
+}
+
+.bg-radial-gradient-top-right {
+  --bg-radial-start: at top right;
+}
+
+.bg-radial-gradient-bottom-right {
+  --bg-radial-start: at bottom right;
+}
+
+.bg-radial-gradient-bottom-left {
+  --bg-radial-start: at bottom left;
+}
+
+.bg-color-1-primary {
+  --bg-color-1: var(--theme-primary-color);
+}
+
+.bg-color-2-primary {
+  --bg-color-2: var(--theme-primary-color);
+}
+
+.bg-color-3-primary {
+  --bg-color-3: var(--theme-primary-color);
+}
+
+.bg-color-1-secondary {
+  --bg-color-1: var(--theme-secondary-color);
+}
+
+.bg-color-2-secondary {
+  --bg-color-2: var(--theme-secondary-color);
+}
+
+.bg-color-3-secondary {
+  --bg-color-3: var(--theme-secondary-color);
+}
+
+.bg-color-1-accent {
+  --bg-color-1: var(--theme-accent-color);
+}
+
+.bg-color-2-accent {
+  --bg-color-2: var(--theme-accent-color);
+}
+
+.bg-color-3-accent {
+  --bg-color-3: var(--theme-accent-color);
+}
