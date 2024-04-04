@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.3
+ * Version: v1.7.4
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -445,59 +445,8 @@ Does not include config
 
 /* CUSTOM COMPONENTS */
 /**
- * Animation Keyframes
- **/
-@keyframes bounce {
-  from, 20%, 53%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-  40%, 43% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -30px, 0) scaleY(1.1);
-  }
-  70% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -15px, 0) scaleY(1.05);
-  }
-  80% {
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0) scaleY(0.95);
-  }
-  90% {
-    transform: translate3d(0, -4px, 0) scaleY(1.02);
-  }
-}
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes slide {
-  from {
-    transform: translate3d(0, 0, 0);
-    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/**
  * Animations
+ * @requires keyframes.scss
  **/
 @media only screen and (prefers-reduced-motion: no-preference) {
   #preview-container .animate-bounce, #preview-container .animate-pulse, #preview-container .animate-fadeIn, #preview-container .animate-fadeInLeft, #preview-container .animate-fadeInRight {
@@ -644,19 +593,14 @@ Does not include config
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
-    animation-name: appear;
+    animation-name: adorn-appear;
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
   }
-  @keyframes appear {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-    to {
-      transform: scale3d(2, 2, 1);
-    }
-  }
+}
+/* Arrows */
+@media only screen and (min-width: 768px) {
   .adorn-arrow-left,
   .adorn-arrow-right {
     --_adorn-base-size: 150px;
@@ -692,43 +636,55 @@ Does not include config
     top: 0;
     right: 0;
   }
-  .adorn-scale-25 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
-  }
-  .adorn-scale-50 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
-  }
-  .adorn-scale-75 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
-  }
-  .adorn-scale-100 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1);
-  }
-  .adorn-scale-125 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
-  }
-  .adorn-scale-150 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
-  }
-  .adorn-scale-175 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
-  }
-  .adorn-scale-200 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2);
-  }
-  .adorn-scale-225 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
-  }
-  .adorn-scale-250 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
-  }
-  .adorn-scale-275 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
-  }
-  .adorn-scale-300 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 3);
-  }
 }
+.adorn-scale-25 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+}
+
+.adorn-scale-50 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+}
+
+.adorn-scale-75 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+}
+
+.adorn-scale-100 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1);
+}
+
+.adorn-scale-125 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
+}
+
+.adorn-scale-150 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
+}
+
+.adorn-scale-175 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
+}
+
+.adorn-scale-200 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2);
+}
+
+.adorn-scale-225 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
+}
+
+.adorn-scale-250 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
+}
+
+.adorn-scale-275 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
+}
+
+.adorn-scale-300 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 3);
+}
+
 /**
  * BUTTONS
  **/
@@ -1190,17 +1146,17 @@ chat-widget {
 /**
  * DECORATORS
  **/
-@media (prefers-reduced-motion: no-preference) {
-  #preview-container p > a[href]:not(.no-decorate), #preview-container h1 > a[href]:not(.no-decorate), #preview-container h2 > a[href]:not(.no-decorate), #preview-container h3 > a[href]:not(.no-decorate), #preview-container .decorate a[href] {
+@media only screen and (prefers-reduced-motion: no-preference) {
+  p > a[href]:not(.no-decorate), h1 > a[href]:not(.no-decorate), h2 > a[href]:not(.no-decorate), h3 > a[href]:not(.no-decorate), .decorate a[href] {
     position: relative;
     text-wrap: nowrap;
     text-wrap: var(--decorate-links-wrap, nowrap);
   }
-  #preview-container p > a[href]:not(.no-decorate):hover, #preview-container h1 > a[href]:not(.no-decorate):hover, #preview-container h2 > a[href]:not(.no-decorate):hover, #preview-container h3 > a[href]:not(.no-decorate):hover, #preview-container .decorate a[href]:hover {
+  p > a[href]:not(.no-decorate):hover, h1 > a[href]:not(.no-decorate):hover, h2 > a[href]:not(.no-decorate):hover, h3 > a[href]:not(.no-decorate):hover, .decorate a[href]:hover {
     text-decoration-line: none;
     text-decoration-line: var(--decorate-links-underline, none);
   }
-  #preview-container p > a[href]:not(.no-decorate)::after {
+  p > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1215,7 +1171,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h1 > a[href]:not(.no-decorate)::after {
+  h1 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1230,7 +1186,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h2 > a[href]:not(.no-decorate)::after {
+  h2 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1245,7 +1201,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h3 > a[href]:not(.no-decorate)::after {
+  h3 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1260,7 +1216,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container .decorate a[href]::after {
+  .decorate a[href]::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1275,32 +1231,32 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container p > a[href]:not(.no-decorate):hover::after {
+  p > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h1 > a[href]:not(.no-decorate):hover::after {
+  h1 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h2 > a[href]:not(.no-decorate):hover::after {
+  h2 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h3 > a[href]:not(.no-decorate):hover::after {
+  h3 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container .decorate a[href]:hover::after {
+  .decorate a[href]:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container .decorate a[href]::after {
+  .decorate a[href]::after {
     display: inline;
     display: initial;
   }
 }
-#preview-container .no-decorate {
+.no-decorate {
   --decorate-links: none;
   --decorate-links-underline: underline;
 }
@@ -1458,6 +1414,66 @@ chat-widget {
   flex-basis: 100% !important;
 }
 
+/**
+ * Animation Keyframes
+ **/
+@keyframes bounce {
+  from, 20%, 53%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes adorn-appear {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(2, 2, 1);
+  }
+}
 /**
  * LAYOUT UTILITIES
  **/
@@ -2189,36 +2205,62 @@ chat-widget {
  * SCROLL
  **/
 .scroll-horizontal {
+  --_scrollbar-size: var(--scrollbar-size, 20px);
+  --_section-padding: var(--section-padding, 10px);
+  --_padding-bottom: 20px;
   --min-column-width: 350px;
-  --_scrollbar-size: var(--scrollbar-size, 10px);
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: calc(-1 * 10px) !important;
+  margin-left: calc(-1 * var(--_section-padding)) !important;
+  width: calc(100% + 10px * 2) !important;
+  width: calc(100% + var(--_section-padding) * 2) !important;
+  -webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - 10px * 2), rgba(0, 0, 0, 0) 100%);
+          mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - 10px * 2), rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - var(--_section-padding) * 2), rgba(0, 0, 0, 0) 100%);
+          mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - var(--_section-padding) * 2), rgba(0, 0, 0, 0) 100%);
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .scroll-horizontal {
-    margin-left: -24px !important;
-    min-width: 100vmin;
-    padding-right: 0 !important;
+    --min-column-width: 330px;
   }
 }
 .scroll-horizontal > .inner {
+  --_margin-adjust: calc(var(--_section-padding) / 2);
   --columns-gap: var(--gap, 20px);
   overflow-x: scroll;
+  scrollbar-width: thin;
   flex-direction: row;
-  padding-top: var(--_scrollbar-size);
-  padding-bottom: var(--_scrollbar-size);
-  padding-left: var(--_scrollbar-size) !important;
-  margin-left: calc(-1 * var(--_scrollbar-size)) !important;
+  margin-left: 0 !important;
+  margin-right: calc(-1 * var(--_section-padding) + (var(--_section-padding) / 2));
+  margin-right: calc(-1 * var(--_section-padding) + calc(var(--_section-padding) / 2));
+  margin-right: calc(-1 * var(--_section-padding) + var(--_margin-adjust));
+  padding-left: calc(var(--_section-padding) / 2 + 10px) !important;
+  padding-bottom: var(--_badding-bottom) !important;
 }
-.scroll-horizontal > .inner > .c-column {
+@media only screen and (max-width: 767px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 22px) !important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 15px) !important;
+  }
+}
+.scroll-horizontal .c-column {
+  margin: 5px 0 10px;
+  margin: 5px 0 var(--_scrollbar-size, 10px);
   flex-shrink: 0 !important;
   width: max(var(--min-column-width), 50% - 20px);
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
 }
-.scroll-horizontal > .inner > .card.c-column, .scroll-horizontal > .inner > .card2.c-column {
+.scroll-horizontal .c-column:last-child {
+  margin-right: calc(var(--_section-padding) * 2) !important;
+}
+.scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
   width: max(350px, 33.3333333333% - 20px * 2) !important;
   width: max(var(--min-column-width, 350px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
-}
-.scroll-horizontal > .inner > div:last-child {
-  margin-right: var(--_scrollbar-size) !important;
 }
 
 /**

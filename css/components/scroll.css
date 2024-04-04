@@ -2,34 +2,60 @@
  * SCROLL
  **/
 .scroll-horizontal {
+  --_scrollbar-size: var(--scrollbar-size, 20px);
+  --_section-padding: var(--section-padding, 10px);
+  --_padding-bottom: 20px;
   --min-column-width: 350px;
-  --_scrollbar-size: var(--scrollbar-size, 10px);
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: calc(-1 * 10px) !important;
+  margin-left: calc(-1 * var(--_section-padding)) !important;
+  width: calc(100% + 10px * 2) !important;
+  width: calc(100% + var(--_section-padding) * 2) !important;
+  -webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - 10px * 2), rgba(0, 0, 0, 0) 100%);
+          mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - 10px * 2), rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - var(--_section-padding) * 2), rgba(0, 0, 0, 0) 100%);
+          mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - var(--_section-padding) * 2), rgba(0, 0, 0, 0) 100%);
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .scroll-horizontal {
-    margin-left: -24px !important;
-    min-width: 100vmin;
-    padding-right: 0 !important;
+    --min-column-width: 330px;
   }
 }
 .scroll-horizontal > .inner {
+  --_margin-adjust: calc(var(--_section-padding) / 2);
   --columns-gap: var(--gap, 20px);
   overflow-x: scroll;
+  scrollbar-width: thin;
   flex-direction: row;
-  padding-top: var(--_scrollbar-size);
-  padding-bottom: var(--_scrollbar-size);
-  padding-left: var(--_scrollbar-size) !important;
-  margin-left: calc(-1 * var(--_scrollbar-size)) !important;
+  margin-left: 0 !important;
+  margin-right: calc(-1 * var(--_section-padding) + (var(--_section-padding) / 2));
+  margin-right: calc(-1 * var(--_section-padding) + calc(var(--_section-padding) / 2));
+  margin-right: calc(-1 * var(--_section-padding) + var(--_margin-adjust));
+  padding-left: calc(var(--_section-padding) / 2 + 10px) !important;
+  padding-bottom: var(--_badding-bottom) !important;
 }
-.scroll-horizontal > .inner > .c-column {
+@media only screen and (max-width: 767px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 22px) !important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 15px) !important;
+  }
+}
+.scroll-horizontal .c-column {
+  margin: 5px 0 10px;
+  margin: 5px 0 var(--_scrollbar-size, 10px);
   flex-shrink: 0 !important;
   width: max(var(--min-column-width), 50% - 20px);
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
 }
-.scroll-horizontal > .inner > .card.c-column, .scroll-horizontal > .inner > .card2.c-column {
+.scroll-horizontal .c-column:last-child {
+  margin-right: calc(var(--_section-padding) * 2) !important;
+}
+.scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
   width: max(350px, 33.3333333333% - 20px * 2) !important;
   width: max(var(--min-column-width, 350px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
-}
-.scroll-horizontal > .inner > div:last-child {
-  margin-right: var(--_scrollbar-size) !important;
 }

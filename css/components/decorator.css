@@ -1,17 +1,17 @@
 /**
  * DECORATORS
  **/
-@media (prefers-reduced-motion: no-preference) {
-  #preview-container p > a[href]:not(.no-decorate), #preview-container h1 > a[href]:not(.no-decorate), #preview-container h2 > a[href]:not(.no-decorate), #preview-container h3 > a[href]:not(.no-decorate), #preview-container .decorate a[href] {
+@media only screen and (prefers-reduced-motion: no-preference) {
+  p > a[href]:not(.no-decorate), h1 > a[href]:not(.no-decorate), h2 > a[href]:not(.no-decorate), h3 > a[href]:not(.no-decorate), .decorate a[href] {
     position: relative;
     text-wrap: nowrap;
     text-wrap: var(--decorate-links-wrap, nowrap);
   }
-  #preview-container p > a[href]:not(.no-decorate):hover, #preview-container h1 > a[href]:not(.no-decorate):hover, #preview-container h2 > a[href]:not(.no-decorate):hover, #preview-container h3 > a[href]:not(.no-decorate):hover, #preview-container .decorate a[href]:hover {
+  p > a[href]:not(.no-decorate):hover, h1 > a[href]:not(.no-decorate):hover, h2 > a[href]:not(.no-decorate):hover, h3 > a[href]:not(.no-decorate):hover, .decorate a[href]:hover {
     text-decoration-line: none;
     text-decoration-line: var(--decorate-links-underline, none);
   }
-  #preview-container p > a[href]:not(.no-decorate)::after {
+  p > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -26,7 +26,7 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h1 > a[href]:not(.no-decorate)::after {
+  h1 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -41,7 +41,7 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h2 > a[href]:not(.no-decorate)::after {
+  h2 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -56,7 +56,7 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h3 > a[href]:not(.no-decorate)::after {
+  h3 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -71,7 +71,7 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container .decorate a[href]::after {
+  .decorate a[href]::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -86,32 +86,32 @@
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container p > a[href]:not(.no-decorate):hover::after {
+  p > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h1 > a[href]:not(.no-decorate):hover::after {
+  h1 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h2 > a[href]:not(.no-decorate):hover::after {
+  h2 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h3 > a[href]:not(.no-decorate):hover::after {
+  h3 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container .decorate a[href]:hover::after {
+  .decorate a[href]:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container .decorate a[href]::after {
+  .decorate a[href]::after {
     display: inline;
     display: initial;
   }
 }
-#preview-container .no-decorate {
+.no-decorate {
   --decorate-links: none;
   --decorate-links-underline: underline;
 }

@@ -23,19 +23,14 @@
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
-    animation-name: appear;
+    animation-name: adorn-appear;
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
   }
-  @keyframes appear {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-    to {
-      transform: scale3d(2, 2, 1);
-    }
-  }
+}
+/* Arrows */
+@media only screen and (min-width: 768px) {
   .adorn-arrow-left,
   .adorn-arrow-right {
     --_adorn-base-size: 150px;
@@ -71,40 +66,51 @@
     top: 0;
     right: 0;
   }
-  .adorn-scale-25 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
-  }
-  .adorn-scale-50 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
-  }
-  .adorn-scale-75 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
-  }
-  .adorn-scale-100 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1);
-  }
-  .adorn-scale-125 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
-  }
-  .adorn-scale-150 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
-  }
-  .adorn-scale-175 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
-  }
-  .adorn-scale-200 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2);
-  }
-  .adorn-scale-225 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
-  }
-  .adorn-scale-250 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
-  }
-  .adorn-scale-275 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
-  }
-  .adorn-scale-300 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 3);
-  }
+}
+.adorn-scale-25 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+}
+
+.adorn-scale-50 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+}
+
+.adorn-scale-75 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+}
+
+.adorn-scale-100 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1);
+}
+
+.adorn-scale-125 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
+}
+
+.adorn-scale-150 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
+}
+
+.adorn-scale-175 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
+}
+
+.adorn-scale-200 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2);
+}
+
+.adorn-scale-225 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
+}
+
+.adorn-scale-250 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
+}
+
+.adorn-scale-275 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
+}
+
+.adorn-scale-300 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 3);
 }

@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.3
+ * Version: v1.7.4
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -126,7 +126,7 @@ Show custom value colors: block | none
   /* Secion max width */
   --section-width: 1342px;
   --section-padding: 24px;
-  --section-padding-mobile: calc(var(--section-padding) / 2);
+  --section-padding-mobile: 12px;
   --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
   /* Buttons */
   /* Primary buttons are fully themed. Buttons in forms inherit primary button styles. */
@@ -705,59 +705,8 @@ Show custom value colors: block | none
 
 /* CUSTOM COMPONENTS */
 /**
- * Animation Keyframes
- **/
-@keyframes bounce {
-  from, 20%, 53%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-  40%, 43% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -30px, 0) scaleY(1.1);
-  }
-  70% {
-    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-    transform: translate3d(0, -15px, 0) scaleY(1.05);
-  }
-  80% {
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0) scaleY(0.95);
-  }
-  90% {
-    transform: translate3d(0, -4px, 0) scaleY(1.02);
-  }
-}
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes slide {
-  from {
-    transform: translate3d(0, 0, 0);
-    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/**
  * Animations
+ * @requires keyframes.scss
  **/
 @container EditorViewPort {
   #preview-container .animate-bounce, #preview-container .animate-pulse, #preview-container .animate-fadeIn, #preview-container .animate-fadeInLeft, #preview-container .animate-fadeInRight {
@@ -921,100 +870,14 @@ Show custom value colors: block | none
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
-    animation-name: appear;
+    animation-name: adorn-appear;
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
   }
-  @keyframes appear {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-    to {
-      transform: scale3d(2, 2, 1);
-    }
-  }
   section.hl_page-creator--content.--mobile .adorn-primary-top-left::before {
     /* Editor Only */
     display: none;
-  }
-  .adorn-arrow-left,
-  .adorn-arrow-right {
-    --_adorn-base-size: 150px;
-    --_adorn-size: 150px;
-    isolation: isolate;
-    position: relative;
-  }
-  .adorn-arrow-left::before, .adorn-arrow-left::after,
-  .adorn-arrow-right::before,
-  .adorn-arrow-right::after {
-    --_scaleX: 1;
-    perspective: 1000px;
-    content: "";
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    -webkit-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
-    position: absolute;
-    width: var(--_adorn-size);
-    height: var(--_adorn-size);
-    z-index: -1;
-    display: none;
-    transform: scale3d(1, 1, 1) translate3d(calc(var(--_adorn-size) + 10px), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, 0px)), 0);
-    transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--_adorn-size) + var(--gap, 10px)), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
-  }
-  section.hl_page-creator--content.--mobile .adorn-arrow-left::before, section.hl_page-creator--content.--mobile .adorn-arrow-left::after,
-  section.hl_page-creator--content.--mobile .adorn-arrow-right::before,
-  section.hl_page-creator--content.--mobile .adorn-arrow-right::after {
-    /* Editor Only */
-    display: none;
-  }
-  .adorn-arrow-left::before {
-    display: block;
-    top: 0;
-    left: 0;
-    --_scaleX: -1;
-  }
-  .adorn-arrow-right::after {
-    display: block;
-    top: 0;
-    right: 0;
-  }
-  .adorn-scale-25 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
-  }
-  .adorn-scale-50 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
-  }
-  .adorn-scale-75 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
-  }
-  .adorn-scale-100 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1);
-  }
-  .adorn-scale-125 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
-  }
-  .adorn-scale-150 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
-  }
-  .adorn-scale-175 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
-  }
-  .adorn-scale-200 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2);
-  }
-  .adorn-scale-225 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
-  }
-  .adorn-scale-250 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
-  }
-  .adorn-scale-275 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
-  }
-  .adorn-scale-300 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 3);
   }
 }
 @media only screen and (min-width: 768px) {
@@ -1041,23 +904,18 @@ Show custom value colors: block | none
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
-    animation-name: appear;
+    animation-name: adorn-appear;
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
-  }
-  @keyframes appear {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
-    to {
-      transform: scale3d(2, 2, 1);
-    }
   }
   section.hl_page-creator--content.--mobile .adorn-primary-top-left::before {
     /* Editor Only */
     display: none;
   }
+}
+/* Arrows */
+@container EditorViewPort (min-width: 768px) {
   .adorn-arrow-left,
   .adorn-arrow-right {
     --_adorn-base-size: 150px;
@@ -1100,43 +958,99 @@ Show custom value colors: block | none
     top: 0;
     right: 0;
   }
-  .adorn-scale-25 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+}
+@media only screen and (min-width: 768px) {
+  .adorn-arrow-left,
+  .adorn-arrow-right {
+    --_adorn-base-size: 150px;
+    --_adorn-size: 150px;
+    isolation: isolate;
+    position: relative;
   }
-  .adorn-scale-50 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+  .adorn-arrow-left::before, .adorn-arrow-left::after,
+  .adorn-arrow-right::before,
+  .adorn-arrow-right::after {
+    --_scaleX: 1;
+    perspective: 1000px;
+    content: "";
+    background-color: var(--color-lt985yd7);
+    background-color: var(--theme-primary-color);
+    -webkit-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
+    position: absolute;
+    width: var(--_adorn-size);
+    height: var(--_adorn-size);
+    z-index: -1;
+    display: none;
+    transform: scale3d(1, 1, 1) translate3d(calc(var(--_adorn-size) + 10px), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, 0px)), 0);
+    transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--_adorn-size) + var(--gap, 10px)), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
   }
-  .adorn-scale-75 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+  section.hl_page-creator--content.--mobile .adorn-arrow-left::before, section.hl_page-creator--content.--mobile .adorn-arrow-left::after,
+  section.hl_page-creator--content.--mobile .adorn-arrow-right::before,
+  section.hl_page-creator--content.--mobile .adorn-arrow-right::after {
+    /* Editor Only */
+    display: none;
   }
-  .adorn-scale-100 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1);
+  .adorn-arrow-left::before {
+    display: block;
+    top: 0;
+    left: 0;
+    --_scaleX: -1;
   }
-  .adorn-scale-125 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
-  }
-  .adorn-scale-150 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
-  }
-  .adorn-scale-175 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
-  }
-  .adorn-scale-200 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2);
-  }
-  .adorn-scale-225 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
-  }
-  .adorn-scale-250 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
-  }
-  .adorn-scale-275 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
-  }
-  .adorn-scale-300 {
-    --_adorn-size: calc(var(--_adorn-base-size) * 3);
+  .adorn-arrow-right::after {
+    display: block;
+    top: 0;
+    right: 0;
   }
 }
+.adorn-scale-25 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+}
+
+.adorn-scale-50 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+}
+
+.adorn-scale-75 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+}
+
+.adorn-scale-100 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1);
+}
+
+.adorn-scale-125 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
+}
+
+.adorn-scale-150 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
+}
+
+.adorn-scale-175 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
+}
+
+.adorn-scale-200 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2);
+}
+
+.adorn-scale-225 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
+}
+
+.adorn-scale-250 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
+}
+
+.adorn-scale-275 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
+}
+
+.adorn-scale-300 {
+  --_adorn-size: calc(var(--_adorn-base-size) * 3);
+}
+
 /**
  * BUTTONS
  **/
@@ -1692,17 +1606,17 @@ chat-widget {
 /**
  * DECORATORS
  **/
-@media (prefers-reduced-motion: no-preference) {
-  #preview-container p > a[href]:not(.no-decorate), #preview-container h1 > a[href]:not(.no-decorate), #preview-container h2 > a[href]:not(.no-decorate), #preview-container h3 > a[href]:not(.no-decorate), #preview-container .decorate a[href] {
+@container EditorViewPort {
+  p > a[href]:not(.no-decorate), h1 > a[href]:not(.no-decorate), h2 > a[href]:not(.no-decorate), h3 > a[href]:not(.no-decorate), .decorate a[href] {
     position: relative;
     text-wrap: nowrap;
     text-wrap: var(--decorate-links-wrap, nowrap);
   }
-  #preview-container p > a[href]:not(.no-decorate):hover, #preview-container h1 > a[href]:not(.no-decorate):hover, #preview-container h2 > a[href]:not(.no-decorate):hover, #preview-container h3 > a[href]:not(.no-decorate):hover, #preview-container .decorate a[href]:hover {
+  p > a[href]:not(.no-decorate):hover, h1 > a[href]:not(.no-decorate):hover, h2 > a[href]:not(.no-decorate):hover, h3 > a[href]:not(.no-decorate):hover, .decorate a[href]:hover {
     text-decoration-line: none;
     text-decoration-line: var(--decorate-links-underline, none);
   }
-  #preview-container p > a[href]:not(.no-decorate)::after {
+  p > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1718,7 +1632,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h1 > a[href]:not(.no-decorate)::after {
+  h1 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1734,7 +1648,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h2 > a[href]:not(.no-decorate)::after {
+  h2 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1750,7 +1664,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container h3 > a[href]:not(.no-decorate)::after {
+  h3 > a[href]:not(.no-decorate)::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1766,7 +1680,7 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container .decorate a[href]::after {
+  .decorate a[href]::after {
     display: inline;
     display: initial;
     display: var(--decorate-links, initial);
@@ -1782,32 +1696,147 @@ chat-widget {
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
-  #preview-container p > a[href]:not(.no-decorate):hover::after {
+  p > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h1 > a[href]:not(.no-decorate):hover::after {
+  h1 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h2 > a[href]:not(.no-decorate):hover::after {
+  h2 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container h3 > a[href]:not(.no-decorate):hover::after {
+  h3 > a[href]:not(.no-decorate):hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container .decorate a[href]:hover::after {
+  .decorate a[href]:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  #preview-container .decorate a[href]::after {
+  .decorate a[href]::after {
     display: inline;
     display: initial;
   }
 }
-#preview-container .no-decorate {
+@media only screen and (prefers-reduced-motion: no-preference) {
+  p > a[href]:not(.no-decorate), h1 > a[href]:not(.no-decorate), h2 > a[href]:not(.no-decorate), h3 > a[href]:not(.no-decorate), .decorate a[href] {
+    position: relative;
+    text-wrap: nowrap;
+    text-wrap: var(--decorate-links-wrap, nowrap);
+  }
+  p > a[href]:not(.no-decorate):hover, h1 > a[href]:not(.no-decorate):hover, h2 > a[href]:not(.no-decorate):hover, h3 > a[href]:not(.no-decorate):hover, .decorate a[href]:hover {
+    text-decoration-line: none;
+    text-decoration-line: var(--decorate-links-underline, none);
+  }
+  p > a[href]:not(.no-decorate)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--color-lt9ceg80);
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  h1 > a[href]:not(.no-decorate)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--color-lt9ceg80);
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  h2 > a[href]:not(.no-decorate)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--color-lt9ceg80);
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  h3 > a[href]:not(.no-decorate)::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--color-lt9ceg80);
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  .decorate a[href]::after {
+    display: inline;
+    display: initial;
+    display: var(--decorate-links, initial);
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.1lh;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--color-lt9ceg80);
+    background-color: var(--theme-text-link-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  p > a[href]:not(.no-decorate):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  h1 > a[href]:not(.no-decorate):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  h2 > a[href]:not(.no-decorate):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  h3 > a[href]:not(.no-decorate):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .decorate a[href]:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .decorate a[href]::after {
+    display: inline;
+    display: initial;
+  }
+}
+.no-decorate {
   --decorate-links: none;
   --decorate-links-underline: underline;
 }
@@ -1968,6 +1997,66 @@ chat-widget {
   flex-basis: 100% !important;
 }
 
+/**
+ * Animation Keyframes
+ **/
+@keyframes bounce {
+  from, 20%, 53%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0) scaleY(1.1);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0) scaleY(1.05);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0) scaleY(0.95);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0) scaleY(1.02);
+  }
+}
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes adorn-appear {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(2, 2, 1);
+  }
+}
 /**
  * LAYOUT UTILITIES
  **/
@@ -3066,47 +3155,81 @@ chat-widget {
  * SCROLL
  **/
 .scroll-horizontal {
+  --_scrollbar-size: var(--scrollbar-size, 20px);
+  --_section-padding: var(--section-padding, 10px);
+  --_padding-bottom: 20px;
   --min-column-width: 350px;
-  --_scrollbar-size: var(--scrollbar-size, 10px);
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: calc(-1 * 24px) !important;
+  margin-left: calc(-1 * var(--_section-padding)) !important;
+  width: calc(100% + 24px * 2) !important;
+  width: calc(100% + var(--_section-padding) * 2) !important;
+  -webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - 24px * 2), rgba(0, 0, 0, 0) 100%);
+          mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - 24px * 2), rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - var(--_section-padding) * 2), rgba(0, 0, 0, 0) 100%);
+          mask-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(0, 0, 0) calc(100% - var(--_section-padding) * 2), rgba(0, 0, 0, 0) 100%);
 }
-@container EditorViewPort (max-width: 767px) {
+@container EditorViewPort (max-width: 480px) {
   .scroll-horizontal {
-    margin-left: -24px !important;
-    min-width: 100vmin;
-    padding-right: 0 !important;
+    --min-column-width: 330px;
   }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .scroll-horizontal {
-    margin-left: -24px !important;
-    min-width: 100vmin;
-    padding-right: 0 !important;
+    --min-column-width: 330px;
   }
 }
 .scroll-horizontal > .inner {
+  --_margin-adjust: calc(var(--_section-padding) / 2);
   --columns-gap: var(--gap, 20px);
   overflow-x: scroll;
+  scrollbar-width: thin;
   flex-direction: row;
-  padding-top: var(--_scrollbar-size);
-  padding-bottom: var(--_scrollbar-size);
-  padding-left: var(--_scrollbar-size) !important;
-  margin-left: calc(-1 * var(--_scrollbar-size)) !important;
+  margin-left: 0 !important;
+  margin-right: calc(-1 * var(--_section-padding) + (var(--_section-padding) / 2));
+  margin-right: calc(-1 * var(--_section-padding) + calc(var(--_section-padding) / 2));
+  margin-right: calc(-1 * var(--_section-padding) + var(--_margin-adjust));
+  padding-left: calc(var(--_section-padding) / 2 + 10px) !important;
+  padding-bottom: var(--_badding-bottom) !important;
 }
 section.hl_page-creator--content .scroll-horizontal > .inner {
   /* Editor Only */
   padding-top: 30px !important;
 }
-.scroll-horizontal > .inner > .c-column {
+@container EditorViewPort (max-width: 767px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 22px) !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 22px) !important;
+  }
+}
+@container EditorViewPort (max-width: 480px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 15px) !important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .scroll-horizontal > .inner {
+    padding-left: calc(var(--_section-padding) / 2 + 15px) !important;
+  }
+}
+.scroll-horizontal .c-column {
+  margin: 5px 0 10px;
+  margin: 5px 0 var(--_scrollbar-size, 10px);
   flex-shrink: 0 !important;
   width: max(var(--min-column-width), 50% - 20px);
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
 }
-.scroll-horizontal > .inner > .card.c-column, .scroll-horizontal > .inner > .card2.c-column {
+.scroll-horizontal .c-column:last-child {
+  margin-right: calc(var(--_section-padding) * 2) !important;
+}
+.scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
   width: max(350px, 33.3333333333% - 20px * 2) !important;
   width: max(var(--min-column-width, 350px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
-}
-.scroll-horizontal > .inner > div:last-child {
-  margin-right: var(--_scrollbar-size) !important;
 }
 
 /**

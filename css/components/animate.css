@@ -1,0 +1,123 @@
+/**
+ * Animations
+ * @requires keyframes.scss
+ **/
+@media only screen and (prefers-reduced-motion: no-preference) {
+  #preview-container .animate-bounce, #preview-container .animate-pulse, #preview-container .animate-fadeIn, #preview-container .animate-fadeInLeft, #preview-container .animate-fadeInRight {
+    --animate-duration: 1s;
+    --animate-delay: 1ms;
+    --animate-repeat: 1;
+    animation-duration: 1s;
+    animation-duration: var(--animate-duration, 1s);
+    animation-delay: 1ms;
+    animation-delay: var(--animate-delay, 1ms);
+    animation-iteration-count: 1;
+    animation-iteration-count: var(--animate-repeat, 1);
+    animation-fill-mode: both;
+  }
+}
+.animate-bounce {
+  animation-name: bounce;
+  transform-origin: center bottom;
+}
+
+.animate-pulse {
+  animation-name: pulse;
+  animation-timing-function: ease-in-out;
+}
+
+.animate-fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate-fadeInRight {
+  --animate-x: 100%;
+  --animate-y: 0;
+  animation-name: fadeIn, slide;
+}
+
+.animate-fadeInLeft {
+  --animate-x: -100%;
+  --animate-y: 0;
+  animation-name: fadeIn, slide;
+}
+
+.animate-infinite {
+  animation-iteration-count: infinite !important;
+}
+
+.animate-repeat-1 {
+  --animate-repeat: 1 !important;
+}
+
+.animate-repeat-2 {
+  --animate-repeat: 2 !important;
+}
+
+.animate-repeat-3 {
+  --animate-repeat: 3 !important;
+}
+
+.animate-repeat-4 {
+  --animate-repeat: 4 !important;
+}
+
+.animate-delay-1s {
+  --animate-delay: 1s !important;
+}
+
+.animate-delay-2s {
+  --animate-delay: 2s !important;
+}
+
+.animate-delay-3s {
+  --animate-delay: 3s !important;
+}
+
+.animate-delay-4s {
+  --animate-delay: 4s !important;
+}
+
+.animate-delay-100ms {
+  --animate-delay: 100ms !important;
+}
+
+.animate-delay-200ms {
+  --animate-delay: 200ms !important;
+}
+
+.animate-delay-300ms {
+  --animate-delay: 300ms !important;
+}
+
+.animate-delay-400ms {
+  --animate-delay: 400ms !important;
+}
+
+.animate-delay-500ms {
+  --animate-delay: 500ms !important;
+}
+
+.animate-delay-600ms {
+  --animate-delay: 600ms !important;
+}
+
+.animate-delay-700ms {
+  --animate-delay: 700ms !important;
+}
+
+.animate-delay-800ms {
+  --animate-delay: 800ms !important;
+}
+
+.animate-delay-900ms {
+  --animate-delay: 900ms !important;
+}
+
+.animate-delay-1500ms {
+  --animate-delay: 1500ms !important;
+}
+
+.animate-delay-2500ms {
+  --animate-delay: 2500ms !important;
+}
