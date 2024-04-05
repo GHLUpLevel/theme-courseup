@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.9
+ * Version: v1.7.10
  ****************************************/
 
 var __async = (__this, __arguments, generator) => {
@@ -25,24 +25,17 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 const ANIMATE_SELECTOR = "[class*=animate-]";
+const PLAY_CLASS = "animate-play";
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const elem = entry.target;
-      elem.classList.add(...elem.dataset.animate.split(","));
       observer.unobserve(elem);
+      elem.classList.add(PLAY_CLASS);
     }
   });
 });
 const processElem = (elem) => __async(void 0, null, function* () {
-  const animClasses = [];
-  elem.classList.forEach((cls) => {
-    if (cls.substring(0, 8) === "animate-") {
-      animClasses.push(cls);
-    }
-  });
-  elem.dataset.animate = animClasses.join(",");
-  elem.classList.remove(...animClasses);
   observer.observe(elem);
 });
 const run = () => {

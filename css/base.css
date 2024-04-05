@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.9
+ * Version: v1.7.10
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -494,6 +494,7 @@ Does not include config
     --animate-duration: 1s;
     --animate-delay: 1ms;
     --animate-repeat: 1;
+    animation-play-state: paused;
     animation-duration: 1s;
     animation-duration: var(--animate-duration, 1s);
     animation-delay: 1ms;
@@ -527,6 +528,10 @@ Does not include config
   animation-name: fadeIn, slide;
 }
 
+.animate-play {
+  animation-play-state: running !important;
+}
+
 .animate-infinite {
   animation-iteration-count: infinite !important;
 }
@@ -545,22 +550,6 @@ Does not include config
 
 .animate-repeat-4 {
   --animate-repeat: 4 !important;
-}
-
-.animate-delay-1s {
-  --animate-delay: 1s !important;
-}
-
-.animate-delay-2s {
-  --animate-delay: 2s !important;
-}
-
-.animate-delay-3s {
-  --animate-delay: 3s !important;
-}
-
-.animate-delay-4s {
-  --animate-delay: 4s !important;
 }
 
 .animate-delay-100ms {
@@ -583,28 +572,80 @@ Does not include config
   --animate-delay: 500ms !important;
 }
 
-.animate-delay-600ms {
-  --animate-delay: 600ms !important;
-}
-
-.animate-delay-700ms {
-  --animate-delay: 700ms !important;
-}
-
-.animate-delay-800ms {
-  --animate-delay: 800ms !important;
-}
-
-.animate-delay-900ms {
-  --animate-delay: 900ms !important;
+.animate-delay-1s {
+  --animate-delay: 1s !important;
 }
 
 .animate-delay-1500ms {
   --animate-delay: 1500ms !important;
 }
 
+.animate-delay-2s {
+  --animate-delay: 2s !important;
+}
+
 .animate-delay-2500ms {
   --animate-delay: 2500ms !important;
+}
+
+.animate-delay-3s {
+  --animate-delay: 3s !important;
+}
+
+.animate-delay-4s {
+  --animate-delay: 4s !important;
+}
+
+.animate-delay-5s {
+  --animate-delay: 5s !important;
+}
+
+.animate-duration-100ms {
+  --animate-duration: 100ms !important;
+}
+
+.animate-duration-200ms {
+  --animate-duration: 200ms !important;
+}
+
+.animate-duration-300ms {
+  --animate-duration: 300ms !important;
+}
+
+.animate-duration-400ms {
+  --animate-duration: 400ms !important;
+}
+
+.animate-duration-500ms {
+  --animate-duration: 500ms !important;
+}
+
+.animate-duration-1s {
+  --animate-duration: 1s !important;
+}
+
+.animate-duration-1500ms {
+  --animate-duration: 1500ms !important;
+}
+
+.animate-duration-2s {
+  --animate-duration: 2s !important;
+}
+
+.animate-duration-2500ms {
+  --animate-duration: 2500ms !important;
+}
+
+.animate-duration-3s {
+  --animate-duration: 3s !important;
+}
+
+.animate-duration-4s {
+  --animate-duration: 4s !important;
+}
+
+.animate-duration-5s {
+  --animate-duration: 5s !important;
 }
 
 /**
