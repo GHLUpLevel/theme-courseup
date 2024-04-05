@@ -4,6 +4,7 @@
 /* Adorn primary */
 @media only screen and (min-width: 768px) {
   .adorn-primary-top-left {
+    --_adorn-base-size: 200;
     isolation: isolate;
     position: relative;
   }
@@ -14,17 +15,20 @@
             mask-image: var(--adorn-primary-mask-image);
     background-color: var(--theme-primary-color);
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -40px;
+    left: -20px;
     width: 200px;
     height: 200px;
-    transform: translate3d(-40px, -80px, 0) scale3d(1.2, 1.2, 1);
+    --_adorn-scale: calc(var(--_adorn-size, var(--_adorn-base-size, 200)) / var(--_adorn-base-size, 200));
+    transform: scale3d(calc(200 / 200), calc(200 / 200), 1);
+    transform: scale3d(var(--_adorn-scale, 1), var(--_adorn-scale, 1), 1);
     transition: transform 10s ease-out;
+    transform-origin: 50% 50%;
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
     animation-name: scale;
-    --animate-scale: 2;
+    --animate-scale: calc(var(--_adorn-scale, 1) * 1.6);
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
@@ -33,6 +37,7 @@
 /* Adorn secondary */
 @media only screen and (min-width: 768px) {
   .adorn-secondary-left, .adorn-secondary-right {
+    --_adorn-base-size: 144px;
     position: relative;
   }
   .adorn-secondary-left::before {
@@ -44,11 +49,14 @@
     background-color: var(--theme-primary-color);
     position: absolute;
     width: 144px;
+    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
     height: 144px;
+    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
     transition: transform 10s ease-out;
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
+    animation-range-start: entry 50%;
     animation-name: scaleSlide;
     --animate-scale: 1.2;
     animation-fill-mode: both;
@@ -63,11 +71,14 @@
     background-color: var(--theme-primary-color);
     position: absolute;
     width: 144px;
+    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
     height: 144px;
+    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
     transition: transform 10s ease-out;
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
+    animation-range-start: entry 50%;
     animation-name: scaleSlide;
     --animate-scale: 1.2;
     animation-fill-mode: both;
@@ -82,11 +93,14 @@
     background-color: var(--theme-primary-color);
     position: absolute;
     width: 144px;
+    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
     height: 144px;
+    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
     transition: transform 10s ease-out;
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
+    animation-range-start: entry 50%;
     animation-name: scaleSlide;
     --animate-scale: 1.2;
     animation-fill-mode: both;
@@ -101,11 +115,14 @@
     background-color: var(--theme-primary-color);
     position: absolute;
     width: 144px;
+    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
     height: 144px;
+    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
     transition: transform 10s ease-out;
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
+    animation-range-start: entry 50%;
     animation-name: scaleSlide;
     --animate-scale: 1.2;
     animation-fill-mode: both;
@@ -132,7 +149,6 @@
   .adorn-arrow-right {
     --_adorn-base-size: 150px;
     --_adorn-size: 150px;
-    isolation: isolate;
     position: relative;
   }
   .adorn-arrow-left::before, .adorn-arrow-left::after,
