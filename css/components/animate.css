@@ -31,14 +31,12 @@
 }
 
 .animate-fadeInRight {
-  --animate-x: 100%;
-  --animate-y: 0;
+  --animate-x-start: 100%;
   animation-name: fadeIn, slide;
 }
 
 .animate-fadeInLeft {
-  --animate-x: -100%;
-  --animate-y: 0;
+  --animate-x-start: -100%;
   animation-name: fadeIn, slide;
 }
 

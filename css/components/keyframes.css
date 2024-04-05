@@ -36,10 +36,11 @@
 @keyframes slide {
   from {
     transform: translate3d(0, 0, 0);
-    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
+    transform: translate3d(var(--animate-x-start, 0), var(--animate-y-start, 0), 0);
   }
   to {
     transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--animate-x-end, 0), var(--animate-y-end, 0), 0);
   }
 }
 @keyframes fadeIn {
@@ -50,11 +51,19 @@
     opacity: 1;
   }
 }
-@keyframes adorn-appear {
-  from {
+@keyframes scale {
+  to {
     transform: scale3d(1, 1, 1);
+    transform: scale3d(var(--animate-scale-x, var(--animate-scale, 1)), var(--animate-scale-y, var(--animate-scale, 1)), 1);
+  }
+}
+@keyframes scaleSlide {
+  from {
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform: scale3d(1, 1, 1) translate3d(var(--animate-x-start, 0), var(--animate-y-start, 0), 0);
   }
   to {
-    transform: scale3d(2, 2, 1);
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform: scale3d(var(--animate-scale-x, var(--animate-scale, 1)), var(--animate-scale-y, var(--animate-scale, 1)), 1) translate3d(var(--animate-x-end, 0), var(--animate-y-end, 0), 0);
   }
 }

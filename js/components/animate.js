@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.7
+ * Version: v1.7.8
  ****************************************/
 
 var __async = (__this, __arguments, generator) => {

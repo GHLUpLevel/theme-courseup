@@ -27,6 +27,7 @@
   --columns-gap: var(--gap, 20px);
   overflow-x: scroll;
   scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
   flex-direction: row;
   margin-left: 0 !important;
   margin-right: calc(-1 * var(--_section-padding) + (var(--_section-padding) / 2));
@@ -46,6 +47,7 @@
   }
 }
 .scroll-horizontal .c-column {
+  scroll-snap-align: center;
   margin: 5px 0 10px;
   margin: 5px 0 var(--_scrollbar-size, 10px);
   flex-shrink: 0 !important;

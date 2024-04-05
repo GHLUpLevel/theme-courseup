@@ -1,7 +1,7 @@
 /**
  * ADORNMENTS
  **/
-/* Background green circle floating upper left */
+/* Adorn primary */
 @media only screen and (min-width: 768px) {
   .adorn-primary-top-left {
     isolation: isolate;
@@ -23,10 +23,107 @@
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
-    animation-name: adorn-appear;
+    animation-name: scale;
+    --animate-scale: 2;
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
+  }
+}
+/* Adorn secondary */
+@media only screen and (min-width: 768px) {
+  .adorn-secondary-left, .adorn-secondary-right {
+    position: relative;
+  }
+  .adorn-secondary-left::before {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-right::before {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-left::after {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-right::after {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-left::before {
+    display: block;
+    top: -40px;
+    left: -60px;
+    --animate-x-end: -40px;
+    --animate-y-end: 100px;
+  }
+  .adorn-secondary-right::after {
+    display: block;
+    bottom: -20px;
+    right: -20px;
+    --animate-x-end: 80px;
+    --animate-y-end: -100px;
   }
 }
 /* Arrows */

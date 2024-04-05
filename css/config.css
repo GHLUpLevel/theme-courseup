@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.7
+ * Version: v1.7.8
  ****************************************/
 /** THEME DEFAULTS
  * These values are used as fallbacks if Custom Values are not set.
@@ -106,7 +106,8 @@
   --decorate-links: initial;
   --decorate-links-underline: none;
   --decorate-links-wrap: nowrap;
-  --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+  --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
+  --adorn-secondary-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
   --card-flipper-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   /* Secion max width */
   --section-width: 1342px;

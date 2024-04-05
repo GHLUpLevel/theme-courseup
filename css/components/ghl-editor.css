@@ -208,10 +208,10 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 }
 
 /* HELPER LABELS */
-#page-creator .card > .ui .outline-border::before,
-#page-creator .card2 > .ui .outline-border::before,
-#page-creator .content > .ui .outline-border::before,
-#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link) > .ui .outline-border::before {
+#page-creator .card > .ui .outline-border::after,
+#page-creator .card2 > .ui .outline-border::after,
+#page-creator .content > .ui .outline-border::after,
+#page-creator .c-button:has(.btn-primary, .btn-secondary, .btn-link) > .ui .outline-border::after {
   content: var(--_block-label);
   position: absolute;
   right: 1.5px;
@@ -243,4 +243,22 @@ section.hl_page-creator--content.--mobile div[id^=tippy] {
 }
 #page-creator .c-button:has(.btn-link) {
   --_block-label: "LINK";
+}
+#page-creator .icon2 > .ui .outline-border::before,
+#page-creator .icon2-invert > .ui .outline-border::before {
+  content: "ICON2";
+  content: var(--_block-label);
+  position: absolute;
+  left: 1.5px;
+  bottom: -8px;
+  border-radius: 2px;
+  font-size: 10px;
+  color: #fff;
+  color: var(--white, #fff);
+  background-color: #333;
+  background-color: var(--indigo, #333);
+  line-height: 10px;
+  padding: 2px 4px;
+  white-space: nowrap;
+  --_block-label: "ICON2";
 }

@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.7
+ * Version: v1.7.8
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -109,7 +109,8 @@ THEME CSS FOR LIVE PAGES
   --decorate-links: initial;
   --decorate-links-underline: none;
   --decorate-links-wrap: nowrap;
-  --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+  --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
+  --adorn-secondary-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
   --card-flipper-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   /* Secion max width */
   --section-width: 1342px;
@@ -741,14 +742,12 @@ THEME CSS FOR LIVE PAGES
 }
 
 .animate-fadeInRight {
-  --animate-x: 100%;
-  --animate-y: 0;
+  --animate-x-start: 100%;
   animation-name: fadeIn, slide;
 }
 
 .animate-fadeInLeft {
-  --animate-x: -100%;
-  --animate-y: 0;
+  --animate-x-start: -100%;
   animation-name: fadeIn, slide;
 }
 
@@ -835,7 +834,7 @@ THEME CSS FOR LIVE PAGES
 /**
  * ADORNMENTS
  **/
-/* Background green circle floating upper left */
+/* Adorn primary */
 @media only screen and (min-width: 768px) {
   .adorn-primary-top-left {
     isolation: isolate;
@@ -844,8 +843,8 @@ THEME CSS FOR LIVE PAGES
   .adorn-primary-top-left::before {
     perspective: 1000px;
     content: "";
-    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
-            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="%23000" stroke-width="32px" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
+            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
     -webkit-mask-image: var(--adorn-primary-mask-image);
             mask-image: var(--adorn-primary-mask-image);
     background-color: var(--color-lt985yd7);
@@ -860,10 +859,119 @@ THEME CSS FOR LIVE PAGES
     z-index: -1;
     view-timeline: --subjectReveal block;
     animation-timeline: --subjectReveal;
-    animation-name: adorn-appear;
+    animation-name: scale;
+    --animate-scale: 2;
     animation-range-start: entry 25%;
     animation-fill-mode: both;
     animation-duration: 1ms;
+  }
+}
+/* Adorn secondary */
+@media only screen and (min-width: 768px) {
+  .adorn-secondary-left, .adorn-secondary-right {
+    position: relative;
+  }
+  .adorn-secondary-left::before {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--color-lt985yd7);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-right::before {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--color-lt985yd7);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-left::after {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--color-lt985yd7);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-right::after {
+    display: none;
+    content: "";
+    perspective: 1000px;
+    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+    -webkit-mask-image: var(--adorn-secondary-mask-image);
+            mask-image: var(--adorn-secondary-mask-image);
+    background-color: var(--color-lt985yd7);
+    background-color: var(--theme-primary-color);
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    transition: transform 10s ease-out;
+    z-index: -1;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
+    animation-name: scaleSlide;
+    --animate-scale: 1.2;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+  }
+  .adorn-secondary-left::before {
+    display: block;
+    top: -40px;
+    left: -60px;
+    --animate-x-end: -40px;
+    --animate-y-end: 100px;
+  }
+  .adorn-secondary-right::after {
+    display: block;
+    bottom: -20px;
+    right: -20px;
+    --animate-x-end: 80px;
+    --animate-y-end: -100px;
   }
 }
 /* Arrows */
@@ -1910,10 +2018,11 @@ chat-widget {
 @keyframes slide {
   from {
     transform: translate3d(0, 0, 0);
-    transform: translate3d(var(--animate-x, 0), var(--animate-y, 0), 0);
+    transform: translate3d(var(--animate-x-start, 0), var(--animate-y-start, 0), 0);
   }
   to {
     transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--animate-x-end, 0), var(--animate-y-end, 0), 0);
   }
 }
 @keyframes fadeIn {
@@ -1924,12 +2033,20 @@ chat-widget {
     opacity: 1;
   }
 }
-@keyframes adorn-appear {
-  from {
+@keyframes scale {
+  to {
     transform: scale3d(1, 1, 1);
+    transform: scale3d(var(--animate-scale-x, var(--animate-scale, 1)), var(--animate-scale-y, var(--animate-scale, 1)), 1);
+  }
+}
+@keyframes scaleSlide {
+  from {
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform: scale3d(1, 1, 1) translate3d(var(--animate-x-start, 0), var(--animate-y-start, 0), 0);
   }
   to {
-    transform: scale3d(2, 2, 1);
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transform: scale3d(var(--animate-scale-x, var(--animate-scale, 1)), var(--animate-scale-y, var(--animate-scale, 1)), 1) translate3d(var(--animate-x-end, 0), var(--animate-y-end, 0), 0);
   }
 }
 /**
@@ -2691,6 +2808,7 @@ chat-widget {
   --columns-gap: var(--gap, 20px);
   overflow-x: scroll;
   scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
   flex-direction: row;
   margin-left: 0 !important;
   margin-right: calc(-1 * var(--_section-padding) + (var(--_section-padding) / 2));
@@ -2710,6 +2828,7 @@ chat-widget {
   }
 }
 .scroll-horizontal .c-column {
+  scroll-snap-align: center;
   margin: 5px 0 10px;
   margin: 5px 0 var(--_scrollbar-size, 10px);
   flex-shrink: 0 !important;
