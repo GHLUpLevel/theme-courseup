@@ -30,7 +30,7 @@
   --bg-direction: -180deg;
 }
 
-.bg-radial-gradient {
+.bg-radial-gradient, picture:has(.bg-radial-gradient) {
   background: radial-gradient(ellipse at top, var(--bg-color-1, var(--theme-primary-color)), transparent), radial-gradient(ellipse at bottom, var(--bg-color-2, var(--theme-secondary-color)), transparent);
 }
 

@@ -3,7 +3,7 @@
  * Add these to columns or elements to modify text elements.
  */
 /* Text Utilities */
-.text-wrap-nowrap {
+.text-nowrap, .text-nowrap h1, .text-nowrap h2, .text-nowrap h3, .text-nowrap p {
   text-wrap: nowrap;
 }
 

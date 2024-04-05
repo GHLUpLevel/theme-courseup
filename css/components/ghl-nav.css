@@ -10,6 +10,7 @@
 .nav-menu-item:hover .dropdown-menu {
   max-height: 300px;
   overflow: scroll;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.2);
 }
 .nav-menu-item:not(:hover).dropdown > a {
   transition-delay: 0.15s !important;
@@ -28,7 +29,11 @@
   max-height: 0;
   transition: max-height 0.15s ease, opacity 0.2s ease-out;
   display: block;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
 }
 .nav-menu-item .dropdown-item > a {
   padding-left: 1em !important;
+}
+.nav-menu-item .dropdown-item > a:last-child {
+  padding-bottom: 12px !important;
 }

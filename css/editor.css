@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.6
+ * Version: v1.7.7
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -715,6 +715,7 @@ Show custom value colors: block | none
 .nav-menu-item:hover .dropdown-menu {
   max-height: 300px;
   overflow: scroll;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.2);
 }
 .nav-menu-item:not(:hover).dropdown > a {
   transition-delay: 0.15s !important;
@@ -733,9 +734,13 @@ Show custom value colors: block | none
   max-height: 0;
   transition: max-height 0.15s ease, opacity 0.2s ease-out;
   display: block;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
 }
 .nav-menu-item .dropdown-item > a {
   padding-left: 1em !important;
+}
+.nav-menu-item .dropdown-item > a:last-child {
+  padding-bottom: 12px !important;
 }
 
 /* CUSTOM COMPONENTS */
@@ -1118,7 +1123,7 @@ Show custom value colors: block | none
   --bg-direction: -180deg;
 }
 
-.bg-radial-gradient {
+.bg-radial-gradient, picture:has(.bg-radial-gradient) {
   background: radial-gradient(ellipse at top, var(--bg-color-1, var(--color-lt985yd7)), transparent), radial-gradient(ellipse at bottom, var(--bg-color-2, var(--color-lt9ca2ns)), transparent);
   background: radial-gradient(ellipse at top, var(--bg-color-1, var(--theme-primary-color)), transparent), radial-gradient(ellipse at bottom, var(--bg-color-2, var(--theme-secondary-color)), transparent);
 }
@@ -2105,10 +2110,10 @@ chat-widget {
   background: none;
 }
 @supports selector(:has(+ *)) {
-  .c-image .img-bg-primary {
-    background: none;
-  }
+  .c-image .image-container:has(.icon2-invert) img, .image-container:has(.icon2-invert) .c-image img,
+  .c-column.icon2-invert .c-image:first-child img,
   .c-image .img-bg-primary.img-invert {
+    background: none;
     border: none;
     filter: invert(1);
   }
@@ -2116,18 +2121,84 @@ chat-widget {
     background-color: var(--color-lt985yd7);
     background-color: var(--theme-primary-color);
   }
-  .c-image .image-container:has(.img-circle) {
+  .c-image .c-column.icon2 .c-image:first-child {
     border-radius: 100vw;
     aspect-ratio: 1/1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
   }
-  .c-image .image-container:has(.img-circle) picture, .c-image .image-container:has(.img-circle) > div > div {
+  .c-image .c-column.icon2-invert .c-image:first-child {
+    border-radius: 100vw;
+    aspect-ratio: 1/1;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: auto;
+  }
+  .c-column.icon2 .c-image .c-image:first-child {
+    border-radius: 100vw;
+    aspect-ratio: 1/1;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: auto;
+  }
+  .c-column.icon2-invert .c-image .c-image:first-child {
+    border-radius: 100vw;
+    aspect-ratio: 1/1;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: auto;
+  }
+  .c-image .image-container:has(.icon2, .icon2-invert), .c-image .image-container:has(.img-circle) {
+    border-radius: 100vw;
+    aspect-ratio: 1/1;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: auto;
+  }
+  .c-image .c-column.icon2 .c-image:first-child picture {
+    display: flex !important;
+  }
+  .c-image .c-column.icon2-invert .c-image:first-child picture {
+    display: flex !important;
+  }
+  .c-column.icon2 .c-image .c-image:first-child picture {
+    display: flex !important;
+  }
+  .c-column.icon2-invert .c-image .c-image:first-child picture {
+    display: flex !important;
+  }
+  .c-image .c-column.icon2 .c-image:first-child > div > div {
+    display: flex !important;
+  }
+  .c-image .c-column.icon2-invert .c-image:first-child > div > div {
+    display: flex !important;
+  }
+  .c-column.icon2 .c-image .c-image:first-child > div > div {
+    display: flex !important;
+  }
+  .c-column.icon2-invert .c-image .c-image:first-child > div > div {
+    display: flex !important;
+  }
+  .c-image .image-container:has(.icon2, .icon2-invert) picture, .c-image .image-container:has(.icon2, .icon2-invert) > div > div, .c-image .image-container:has(.img-circle) picture, .c-image .image-container:has(.img-circle) > div > div {
     display: flex !important;
   }
 }
 
+@supports selector(:has(+ *)) {
+  .c-column.icon2 .c-image:first-child img {
+    border-radius: 0 !important;
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  .c-column.icon2-invert .c-image:first-child img {
+    border-radius: 0 !important;
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  .image-container:has(.icon2, .icon2-invert) img {
+    border-radius: 0 !important;
+    transform: scale3d(0.8, 0.8, 1);
+  }
+}
 /**
  * FEATURE IMAGE
  **/
@@ -3603,7 +3674,7 @@ ul.social-links li:hover a i {
  * Add these to columns or elements to modify text elements.
  */
 /* Text Utilities */
-.text-wrap-nowrap {
+.text-nowrap, .text-nowrap h1, .text-nowrap h2, .text-nowrap h3, .text-nowrap p {
   text-wrap: nowrap;
 }
 
