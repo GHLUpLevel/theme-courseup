@@ -36,7 +36,7 @@
     observer.observe(trigger.parentNode, { childList: true });
     addClickListeners(btnContainer, onClick);
   };
-  const run$1 = () => {
+  const run$3 = () => {
     document.querySelectorAll(SEL_BTN_MORE).forEach((trigger) => {
       const btnContainer = trigger.closest("div.inner");
       if (!btnContainer) {
@@ -68,18 +68,8 @@
       }
     });
   };
-  const init$1 = () => {
-    if (document.readyState === "complete" || document.readyState === "interactive") {
-      setTimeout(run$1, 10);
-    } else {
-      document.addEventListener("DOMContentLoaded", () => {
-        setTimeout(run$1, 10);
-      });
-    }
-  };
   var showMore = {
-    init: init$1,
-    run: run$1
+    run: run$3
   };
 
   const themeVariablesDefaults = [
@@ -123,28 +113,9 @@
     });
   }
 
-  var __async = (__this, __arguments, generator) => {
-    return new Promise((resolve, reject) => {
-      var fulfilled = (value) => {
-        try {
-          step(generator.next(value));
-        } catch (e) {
-          reject(e);
-        }
-      };
-      var rejected = (value) => {
-        try {
-          step(generator.throw(value));
-        } catch (e) {
-          reject(e);
-        }
-      };
-      var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-      step((generator = generator.apply(__this, __arguments)).next());
-    });
-  };
-  const ANIMATE_SELECTOR = "[class*=animate-]";
+  const SELECTOR = ":is([class*=animate-], [class*=adorn-])";
   const PLAY_CLASS = "animate-play";
+  const CLIP_CLASSES = ["animate-fadeIn", "adorn-"];
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -154,15 +125,56 @@
       }
     });
   });
-  const processElem = (elem) => __async(void 0, null, function* () {
-    observer.observe(elem);
-  });
-  const run = () => {
-    document.querySelectorAll(ANIMATE_SELECTOR).forEach((elem) => {
-      processElem(elem);
+  const needsClipping = (classList) => {
+    for (const cls of CLIP_CLASSES) {
+      if (classList.value.includes(cls)) {
+        return true;
+      }
+    }
+    return false;
+  };
+  const run$2 = () => {
+    document.querySelectorAll(SELECTOR).forEach((elem) => {
+      if (needsClipping(elem.classList) && elem.parentElement) {
+        const section = elem.closest(".c-section");
+        const clipElem = section ? section : elem.parentElement;
+        clipElem.style.overflowX = "clip";
+      }
+      observer.observe(elem);
     });
   };
-  const init = () => __async(void 0, null, function* () {
+  var animate = {
+    run: run$2
+  };
+
+  const TOPNAV_SELECTOR = ".topnav";
+  const SCROLL_CLASS = "scroll";
+  const run$1 = () => {
+    if (CSS.supports("animation-timeline:scroll()")) {
+      return;
+    }
+    const topnav = document.querySelector(TOPNAV_SELECTOR);
+    if (!topnav || !topnav.parentElement) {
+      return;
+    }
+    const intercept = document.createElement("div");
+    intercept.setAttribute("data-observer-intercept", "");
+    topnav.before(intercept);
+    const observer = new IntersectionObserver(([entry]) => {
+      topnav.classList.toggle(SCROLL_CLASS, !entry.isIntersecting);
+    });
+    observer.observe(intercept);
+  };
+  var topnav = {
+    run: run$1
+  };
+
+  const run = () => {
+    setTimeout(animate.run, 100);
+    setTimeout(topnav.run, 1e3);
+    showMore.run();
+  };
+  const init = () => {
     if (document.readyState === "complete" || document.readyState === "interactive") {
       setTimeout(run, 10);
     } else {
@@ -170,13 +182,10 @@
         setTimeout(run, 10);
       });
     }
-  });
-  var animate = { init };
-
+  };
   setCSSDefaults();
-  showMore.init();
-  animate.init();
-  console.log(`Powered by Level Up Theme v1.7.10:`, "https://highlevelthemes.com");
+  init();
+  console.log(`Powered by Level Up Theme v1.7.11:`, "https://highlevelthemes.com");
 
 })();
 //# sourceMappingURL=all.js.map

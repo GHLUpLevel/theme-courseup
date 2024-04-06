@@ -31,16 +31,16 @@
   animation-name: fadeIn;
 }
 
-.animate-fadeInRight {
-  --animate-x-start: 100%;
-  animation-name: fadeIn, slide;
+@media only screen and (min-width: 768px) {
+  .animate-fadeInRight {
+    --animate-x-start: 100%;
+    animation-name: fadeIn, slide;
+  }
+  .animate-fadeInLeft {
+    --animate-x-start: -100%;
+    animation-name: fadeIn, slide;
+  }
 }
-
-.animate-fadeInLeft {
-  --animate-x-start: -100%;
-  animation-name: fadeIn, slide;
-}
-
 .animate-play {
   animation-play-state: running !important;
 }

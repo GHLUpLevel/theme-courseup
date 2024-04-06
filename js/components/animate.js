@@ -1,31 +1,12 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.10
+ * Version: v1.7.11
  ****************************************/
 
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
-const ANIMATE_SELECTOR = "[class*=animate-]";
+const SELECTOR = ":is([class*=animate-], [class*=adorn-])";
 const PLAY_CLASS = "animate-play";
+const CLIP_CLASSES = ["animate-fadeIn", "adorn-"];
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -35,24 +16,27 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 });
-const processElem = (elem) => __async(void 0, null, function* () {
-  observer.observe(elem);
-});
+const needsClipping = (classList) => {
+  for (const cls of CLIP_CLASSES) {
+    if (classList.value.includes(cls)) {
+      return true;
+    }
+  }
+  return false;
+};
 const run = () => {
-  document.querySelectorAll(ANIMATE_SELECTOR).forEach((elem) => {
-    processElem(elem);
+  document.querySelectorAll(SELECTOR).forEach((elem) => {
+    if (needsClipping(elem.classList) && elem.parentElement) {
+      const section = elem.closest(".c-section");
+      const clipElem = section ? section : elem.parentElement;
+      clipElem.style.overflowX = "clip";
+    }
+    observer.observe(elem);
   });
 };
-const init = () => __async(void 0, null, function* () {
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    setTimeout(run, 10);
-  } else {
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(run, 10);
-    });
-  }
-});
-var animate = { init };
+var animate = {
+  run
+};
 
 export { animate as default };
 //# sourceMappingURL=animate.js.map

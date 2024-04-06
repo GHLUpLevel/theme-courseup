@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//highlevelthemes.com
- * Version: v1.7.10
+ * Version: v1.7.11
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -109,6 +109,7 @@ THEME CSS FOR LIVE PAGES
   --decorate-links: initial;
   --decorate-links-underline: none;
   --decorate-links-wrap: nowrap;
+  --topnav-shadow: hsla(0, 0%, 0%, 0.1) 0 0.5rem 1rem;
   --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
   --adorn-secondary-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
   --card-flipper-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -228,6 +229,10 @@ THEME CSS FOR LIVE PAGES
     scroll-behavior: smooth;
   }
 }
+html {
+  scroll-padding-top: 80px;
+}
+
 .inner {
   gap: initial;
   gap: var(--gap, initial);
@@ -669,46 +674,6 @@ THEME CSS FOR LIVE PAGES
   margin-top: 80px;
 }
 
-/**
- * NAVIGATION MENU
- **/
-.nav-menu-item > a {
-  transition: none !important;
-}
-.nav-menu-item:hover > a {
-  border-radius: 10px;
-}
-.nav-menu-item:hover .dropdown-menu {
-  max-height: 300px;
-  overflow: scroll;
-  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.2);
-}
-.nav-menu-item:not(:hover).dropdown > a {
-  transition-delay: 0.15s !important;
-  transition-property: color, background-color, border-radius !important;
-  transition-duration: 0s !important;
-}
-.nav-menu-item:hover.dropdown > a {
-  border-radius: 10px 10px 0 0;
-  z-index: 2;
-  position: relative;
-}
-.nav-menu-item .dropdown-menu {
-  z-index: 1;
-  border-radius: 0 5px 10px 10px;
-  overflow: clip;
-  max-height: 0;
-  transition: max-height 0.15s ease, opacity 0.2s ease-out;
-  display: block;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
-}
-.nav-menu-item .dropdown-item > a {
-  padding-left: 1em !important;
-}
-.nav-menu-item .dropdown-item > a:last-child {
-  padding-bottom: 12px !important;
-}
-
 /* CUSTOM COMPONENTS */
 /**
  * Animations
@@ -743,16 +708,16 @@ THEME CSS FOR LIVE PAGES
   animation-name: fadeIn;
 }
 
-.animate-fadeInRight {
-  --animate-x-start: 100%;
-  animation-name: fadeIn, slide;
+@media only screen and (min-width: 768px) {
+  .animate-fadeInRight {
+    --animate-x-start: 100%;
+    animation-name: fadeIn, slide;
+  }
+  .animate-fadeInLeft {
+    --animate-x-start: -100%;
+    animation-name: fadeIn, slide;
+  }
 }
-
-.animate-fadeInLeft {
-  --animate-x-start: -100%;
-  animation-name: fadeIn, slide;
-}
-
 .animate-play {
   animation-play-state: running !important;
 }
@@ -3134,4 +3099,85 @@ ul.social-links li:hover a i {
 .responsive-text h1 {
   font-size: clamp(var(--h1-min-size), 4vw + 1rem, var(--h1-max-size)) !important;
   line-height: 1.3em;
+}
+
+/**
+ * NAVIGATION MENU
+ **/
+.topnav {
+  --box-shadow: var(--topnav-shadow, none);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 200ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+.topnav.scroll {
+  box-shadow: var(--box-shadow);
+}
+
+@supports (animation-timeline: scroll()) {
+  .topnav {
+    animation: topnav-scroll linear both;
+    animation-timeline: scroll();
+    animation-range: 5ex 20ex;
+  }
+}
+@keyframes topnav-scroll {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: var(--box-shadow);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+.nav-menu-item > a {
+  transition: none !important;
+}
+.nav-menu-item:hover > a {
+  border-radius: 10px;
+}
+.nav-menu-item:hover .dropdown-menu {
+  max-height: 300px;
+  overflow: scroll;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+.nav-menu-item:not(:hover).dropdown > a {
+  transition-delay: 0.15s !important;
+  transition-property: color, background-color, border-radius !important;
+  transition-duration: 0s !important;
+}
+.nav-menu-item:hover.dropdown > a {
+  border-radius: 10px 10px 0 0;
+  z-index: 2;
+  position: relative;
+}
+.nav-menu-item .dropdown-menu {
+  z-index: 1;
+  border-radius: 0 5px 10px 10px;
+  overflow: clip;
+  max-height: 0;
+  transition: max-height 0.15s ease, opacity 0.2s ease-out;
+  display: block;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+}
+.nav-menu-item .dropdown-item {
+  position: relative;
+}
+.nav-menu-item .dropdown-item:hover::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+}
+.nav-menu-item .dropdown-item > a {
+  padding-left: 1em !important;
+}
+.nav-menu-item .dropdown-item > a:last-child {
+  padding-bottom: 12px !important;
 }
