@@ -265,6 +265,12 @@
   width: 100%;
 }
 
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .c-form {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
 #preview-container .c-survey {
   container-type: inline-size;
 }
@@ -277,7 +283,7 @@
 }
 @container (max-width: 480px) {
   .c-survey #form-builder {
-    --theme-survey-padding-width: 1rem;
+    --theme-survey-padding-inline: 1rem;
   }
 }
 .c-survey #form-builder .hl_form-builder--main {
@@ -289,7 +295,7 @@
   border-color: initial !important;
   border-color: var(--survey-bg, initial) !important;
   padding: 0 40px !important;
-  padding: 0 var(--theme-survey-padding-width, 40px) !important;
+  padding: 0 var(--theme-survey-padding-inline, 40px) !important;
   border-radius: 8px !important;
   border-radius: var(--survey-border-radius, 8px) !important;
   box-shadow: var(--survey-box-shadow) !important;
@@ -321,7 +327,7 @@
 }
 .c-survey #form-builder #_builder-form .ghl-footer {
   margin: 0 calc(-1 * 40px);
-  margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
+  margin: 0 calc(-1 * var(--theme-survey-padding-inline, 40px));
   width: calc(100% + 2 * 40px);
-  width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
+  width: calc(100% + 2 * var(--theme-survey-padding-inline, 40px));
 }

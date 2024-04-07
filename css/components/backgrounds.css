@@ -6,16 +6,8 @@
 .bg-gradient-left,
 .bg-gradient-up,
 .bg-gradient-down {
-  background: linear-gradient(in hsl 90deg, var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
-}
-@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {
-.bg-gradient,
-.bg-gradient-right,
-.bg-gradient-left,
-.bg-gradient-up,
-.bg-gradient-down {
-  background: linear-gradient(in hsl var(--bg-direction, 90deg), var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
-}
+  background: linear-gradient(90deg, var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
+  background: linear-gradient(var(--bg-direction, 90deg), var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
 }
 
 .bg-gradient-left {

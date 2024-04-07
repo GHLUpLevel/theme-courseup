@@ -9,6 +9,7 @@
 }
 html {
   scroll-padding-top: 80px;
+  scroll-padding-top: var(--scroll-padding-top, 80px);
 }
 
 .inner {
@@ -17,7 +18,6 @@ html {
 }
 
 .c-section > .inner {
-  isolation: isolate;
   max-width: var(--section-width) !important;
   padding-left: var(--section-padding) !important;
   padding-right: var(--section-padding) !important;

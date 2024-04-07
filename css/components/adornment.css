@@ -1,133 +1,190 @@
 /**
  * ADORNMENTS
  **/
-/* Adorn primary */
+.c-section:has([class*=adorn-]) {
+  isolation: isolate;
+}
+
+.adorn-arrow-left,
+.adorn-arrow-right,
+.adorn-secondary-left,
+.adorn-secondary-right,
+.adorn-primary-top-left {
+  position: relative;
+}
+.adorn-secondary-left::before {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--theme-primary-color);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-secondary-right::before {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--theme-primary-color);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-secondary-left::after {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--theme-primary-color);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-secondary-right::after {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--theme-primary-color);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-arrow-left::before,
+.adorn-arrow-right::before,
+.adorn-primary-top-left::before,
+.adorn-arrow-left::after,
+.adorn-arrow-right::after,
+.adorn-primary-top-left::after {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--theme-primary-color);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+
+.adorn-secondary-left::before {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-secondary-right::before {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-secondary-left::after {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-secondary-right::after {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-primary-top-left::before, .adorn-primary-top-left::after {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+/* Adorn Primary */
+.adorn-primary-top-left {
+  isolation: isolate;
+}
+.adorn-primary-top-left::before {
+  --_adorn-mask-image: var(--adorn-primary-mask-image);
+  --_max_scale: 1.6;
+  --animate-scale: calc(var(--adorn-scale, 1) * var(--_max-scale, 1.6));
+  top: -40px;
+  left: -20px;
+  width: 200px;
+  height: 200px;
+  transform-origin: 50% 50%;
+  animation-name: scale;
+  animation-range-start: entry 25%;
+}
 @media only screen and (min-width: 768px) {
-  .adorn-primary-top-left {
-    --_adorn-base-size: 200;
-    isolation: isolate;
-    position: relative;
-  }
   .adorn-primary-top-left::before {
-    perspective: 1000px;
-    content: "";
-    -webkit-mask-image: var(--adorn-primary-mask-image);
-            mask-image: var(--adorn-primary-mask-image);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    top: -40px;
-    left: -20px;
-    width: 200px;
-    height: 200px;
-    --_adorn-scale: calc(var(--_adorn-size, var(--_adorn-base-size, 200)) / var(--_adorn-base-size, 200));
-    transform: scale3d(calc(200 / 200), calc(200 / 200), 1);
-    transform: scale3d(var(--_adorn-scale, 1), var(--_adorn-scale, 1), 1);
-    transition: transform 10s ease-out;
-    transform-origin: 50% 50%;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-name: scale;
-    --animate-scale: calc(var(--_adorn-scale, 1) * 1.6);
-    animation-range-start: entry 25%;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
+    display: block;
   }
 }
+
 /* Adorn secondary */
+.adorn-secondary-left::before {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+.adorn-secondary-right::before {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+.adorn-secondary-left::after {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+.adorn-secondary-right::after {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+
 @media only screen and (min-width: 768px) {
-  .adorn-secondary-left, .adorn-secondary-right {
-    --_adorn-base-size: 144px;
-    position: relative;
-  }
-  .adorn-secondary-left::before {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
-  .adorn-secondary-right::before {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
-  .adorn-secondary-left::after {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
-  .adorn-secondary-right::after {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
   .adorn-secondary-left::before {
     display: block;
     top: -40px;
@@ -143,31 +200,21 @@
     --animate-y-end: -100px;
   }
 }
-/* Arrows */
+/* Adorn Arrows */
+.adorn-arrow-left::before, .adorn-arrow-left::after,
+.adorn-arrow-right::before,
+.adorn-arrow-right::after {
+  --_scaleX: 1;
+  --_adorn-mask-image: var(--adorn-arrow-mask-image);
+  width: calc(150px * 1);
+  width: calc(150px * var(--adorn-scale, 1));
+  height: calc(150px * 1);
+  height: calc(150px * var(--adorn-scale, 1));
+  transform: scale3d(1, 1, 1) translate3d(calc(1 * 150px + 10px), calc(-1 * 1 * 150px / 2 + max(0.5lh, 0px)), 0);
+  transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--adorn-scale, 1) * 150px + var(--gap, 10px)), calc(-1 * var(--adorn-scale, 1) * 150px / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
+}
+
 @media only screen and (min-width: 768px) {
-  .adorn-arrow-left,
-  .adorn-arrow-right {
-    --_adorn-base-size: 150px;
-    --_adorn-size: 150px;
-    position: relative;
-  }
-  .adorn-arrow-left::before, .adorn-arrow-left::after,
-  .adorn-arrow-right::before,
-  .adorn-arrow-right::after {
-    --_scaleX: 1;
-    perspective: 1000px;
-    content: "";
-    background-color: var(--theme-primary-color);
-    -webkit-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
-    position: absolute;
-    width: var(--_adorn-size);
-    height: var(--_adorn-size);
-    z-index: -1;
-    display: none;
-    transform: scale3d(1, 1, 1) translate3d(calc(var(--_adorn-size) + 10px), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, 0px)), 0);
-    transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--_adorn-size) + var(--gap, 10px)), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
-  }
   .adorn-arrow-left::before {
     display: block;
     top: 0;
@@ -180,50 +227,51 @@
     right: 0;
   }
 }
+/* Adorn Helpers */
 .adorn-scale-25 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+  --adorn-scale: 0.25;
 }
 
 .adorn-scale-50 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+  --adorn-scale: 0.5;
 }
 
 .adorn-scale-75 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+  --adorn-scale: 0.75;
 }
 
 .adorn-scale-100 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1);
+  --adorn-scale: 1;
 }
 
 .adorn-scale-125 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
+  --adorn-scale: 1.25;
 }
 
 .adorn-scale-150 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
+  --adorn-scale: 1.5;
 }
 
 .adorn-scale-175 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
+  --adorn-scale: 1.75;
 }
 
 .adorn-scale-200 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2);
+  --adorn-scale: 2;
 }
 
 .adorn-scale-225 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
+  --adorn-scale: 2.25;
 }
 
 .adorn-scale-250 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
+  --adorn-scale: 2.5;
 }
 
 .adorn-scale-275 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
+  --adorn-scale: 2.75;
 }
 
 .adorn-scale-300 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 3);
+  --adorn-scale: 3;
 }

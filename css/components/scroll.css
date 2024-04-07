@@ -34,6 +34,7 @@
   margin-right: calc(-1 * var(--_section-padding) + calc(var(--_section-padding) / 2));
   margin-right: calc(-1 * var(--_section-padding) + var(--_margin-adjust));
   padding-left: calc(var(--_section-padding) / 2 + 10px) !important;
+  padding-right: calc(var(--_section-padding) * 2) !important;
   padding-bottom: var(--_badding-bottom) !important;
 }
 @media only screen and (max-width: 767px) {
@@ -53,9 +54,6 @@
   flex-shrink: 0 !important;
   width: max(var(--min-column-width), 50% - 20px);
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
-}
-.scroll-horizontal .c-column:last-child {
-  margin-right: calc(var(--_section-padding) * 2) !important;
 }
 .scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
   width: max(350px, 33.3333333333% - 20px * 2) !important;

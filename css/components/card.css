@@ -207,3 +207,12 @@
     margin-bottom: 0;
   }
 }
+.card-shadow {
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
+  box-shadow: var(--theme-card-shadow, 0 6px 24px 0 rgba(27, 27, 27, 0.04));
+}
+
+.card-shadow2 {
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.2);
+  box-shadow: var(--theme-card-shadow2, 0 6px 24px 0 rgba(27, 27, 27, 0.2));
+}

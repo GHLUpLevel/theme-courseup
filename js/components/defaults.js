@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
- * https//highlevelthemes.com
- * Version: v1.7.11
+ * https//levelupthemes.com
+ * Version: v1.7.12
  ****************************************/
 
 const themeVariablesDefaults = [
@@ -32,7 +32,7 @@ function setCSSDefaults() {
         document.documentElement
       ).getPropertyValue(`--default-${name}`);
       document.documentElement.style.setProperty(themeVar, defaultValue);
-      console.log(`${themeVar} set to default:`, defaultValue);
+      console.log(`Level Up: ${themeVar} set to default:`, defaultValue);
     }
   });
   globalVariables.forEach((name) => {
@@ -40,7 +40,7 @@ function setCSSDefaults() {
     const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
     if (value.replace(/["']/g, "").length > 0) {
       document.documentElement.style.setProperty(`--${name}`, value);
-      console.log(`--${name} set to global value:`, value);
+      console.log(`Level Up: --${name} set to global value:`, value);
     }
   });
 }

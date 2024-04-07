@@ -17,7 +17,7 @@
     transition: transform 0.6s;
     will-change: transform;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    box-shadow: var(--card-flipper-box-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
+    box-shadow: var(--theme-card-flipper-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
     padding-bottom: 20px;
   }
   .c-column.card-flipper .c-wrapper:has(> .card-front, > .card-back),

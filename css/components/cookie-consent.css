@@ -78,6 +78,11 @@
     padding-right: 0.5rem;
   }
 }
+.c-button .btn-inline {
+  --_font-size: 1rem;
+  --_padding-block: 0.25rem;
+}
+
 .hl-cookie-consent-banner .button,
 .c-button .btn-xsmall,
 .btn-xsmall .btn[type=submit],

@@ -110,6 +110,11 @@
     padding-right: 0.5rem;
   }
 }
+.c-button .btn-inline {
+  --_font-size: 1rem;
+  --_padding-block: 0.25rem;
+}
+
 .c-button .btn-xsmall,
 .btn-xsmall .btn[type=submit],
 .btn-xsmall .form-btn:not(.does-not-exist) {

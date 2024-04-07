@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
- * https//highlevelthemes.com
- * Version: v1.7.11
+ * https//levelupthemes.com
+ * Version: v1.7.12
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -110,14 +110,22 @@ THEME CSS FOR LIVE PAGES
   --decorate-links-underline: none;
   --decorate-links-wrap: nowrap;
   --topnav-shadow: hsla(0, 0%, 0%, 0.1) 0 0.5rem 1rem;
+  --scroll-padding-top: 80px;
   --adorn-primary-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
   --adorn-secondary-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-  --card-flipper-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  --adorn-arrow-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
   /* Secion max width */
   --section-width: 1342px;
   --section-padding: 24px;
   --section-padding-mobile: 12px;
+  /* Shadows */
+  --theme-card-flipper-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   --theme-card-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
+  --theme-card-shadow2: 0 6px 24px 0 rgba(27, 27, 27, 0.2);
+  /* Popup */
+  --theme-popup-close-bg-color: var(--theme-button-primary-bg-color, black);
+  --theme-popup-close-color: var(--theme-button-primary-text-color, white);
+  --theme-popup-border-color: var(--theme-secondary-color, transparent);
   /* Buttons */
   /* Primary buttons are fully themed. Buttons in forms inherit primary button styles. */
   --theme-button-primary-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.21);
@@ -134,7 +142,7 @@ THEME CSS FOR LIVE PAGES
   --theme-survey-bg: #fff;
   --theme-survey-input-bg-color: var(--theme-input-bg-color);
   --theme-survey-label-color: black;
-  --theme-survey-padding-width: 40px;
+  --theme-survey-padding-inline: 40px;
   --theme-survey-progressbar-opacity: 0.2;
   /* Chat Widget */
   --theme-chat-widget-primary-color: var(--theme-primary-color, #188bf6);
@@ -231,6 +239,7 @@ THEME CSS FOR LIVE PAGES
 }
 html {
   scroll-padding-top: 80px;
+  scroll-padding-top: var(--scroll-padding-top, 80px);
 }
 
 .inner {
@@ -239,7 +248,6 @@ html {
 }
 
 .c-section > .inner {
-  isolation: isolate;
   max-width: 1342px !important;
   max-width: var(--section-width) !important;
   padding-left: 24px !important;
@@ -562,6 +570,12 @@ html {
   width: 100%;
 }
 
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .c-form {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
 #preview-container .c-survey {
   container-type: inline-size;
 }
@@ -574,7 +588,7 @@ html {
 }
 @container (max-width: 480px) {
   .c-survey #form-builder {
-    --theme-survey-padding-width: 1rem;
+    --theme-survey-padding-inline: 1rem;
   }
 }
 .c-survey #form-builder .hl_form-builder--main {
@@ -586,7 +600,7 @@ html {
   border-color: initial !important;
   border-color: var(--survey-bg, initial) !important;
   padding: 0 40px !important;
-  padding: 0 var(--theme-survey-padding-width, 40px) !important;
+  padding: 0 var(--theme-survey-padding-inline, 40px) !important;
   border-radius: 8px !important;
   border-radius: var(--survey-border-radius, 8px) !important;
   box-shadow: var(--survey-box-shadow) !important;
@@ -618,9 +632,9 @@ html {
 }
 .c-survey #form-builder #_builder-form .ghl-footer {
   margin: 0 calc(-1 * 40px);
-  margin: 0 calc(-1 * var(--theme-survey-padding-width, 40px));
+  margin: 0 calc(-1 * var(--theme-survey-padding-inline, 40px));
   width: calc(100% + 2 * 40px);
-  width: calc(100% + 2 * var(--theme-survey-padding-width, 40px));
+  width: calc(100% + 2 * var(--theme-survey-padding-inline, 40px));
 }
 
 /**
@@ -841,148 +855,190 @@ html {
 /**
  * ADORNMENTS
  **/
-/* Adorn primary */
+.c-section:has([class*=adorn-]) {
+  isolation: isolate;
+}
+
+.adorn-arrow-left,
+.adorn-arrow-right,
+.adorn-secondary-left,
+.adorn-secondary-right,
+.adorn-primary-top-left {
+  position: relative;
+}
+.adorn-secondary-left::before {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--color-lt985yd7);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-secondary-right::before {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--color-lt985yd7);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-secondary-left::after {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--color-lt985yd7);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-secondary-right::after {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--color-lt985yd7);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+.adorn-arrow-left::before,
+.adorn-arrow-right::before,
+.adorn-primary-top-left::before,
+.adorn-arrow-left::after,
+.adorn-arrow-right::after,
+.adorn-primary-top-left::after {
+  --_adorn-color: var(--theme-primary-color);
+  display: none;
+  content: "";
+  perspective: 1000px;
+  position: absolute;
+  z-index: -1;
+  -webkit-mask-image: var(--_adorn-mask-image);
+          mask-image: var(--_adorn-mask-image);
+  background-color: var(--color-lt985yd7);
+  background-color: var(--_adorn-color);
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  transform: scale3d(1, 1, 1);
+  transform: scale3d(var(--adorn-scale, 1), 1, 1);
+  transition: transform 1s ease-out;
+}
+
+.adorn-secondary-left::before {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-secondary-right::before {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-secondary-left::after {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-secondary-right::after {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+.adorn-primary-top-left::before, .adorn-primary-top-left::after {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+}
+
+/* Adorn Primary */
+.adorn-primary-top-left {
+  isolation: isolate;
+}
+.adorn-primary-top-left::before {
+  --_adorn-mask-image: var(--adorn-primary-mask-image);
+  --_max_scale: 1.6;
+  --animate-scale: calc(var(--adorn-scale, 1) * var(--_max-scale, 1.6));
+  top: -40px;
+  left: -20px;
+  width: 200px;
+  height: 200px;
+  transform-origin: 50% 50%;
+  animation-name: scale;
+  animation-range-start: entry 25%;
+}
 @media only screen and (min-width: 768px) {
-  .adorn-primary-top-left {
-    --_adorn-base-size: 200;
-    isolation: isolate;
-    position: relative;
-  }
   .adorn-primary-top-left::before {
-    perspective: 1000px;
-    content: "";
-    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
-            mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="78" fill="transparent" stroke="black" stroke-width="32px" /></svg>');
-    -webkit-mask-image: var(--adorn-primary-mask-image);
-            mask-image: var(--adorn-primary-mask-image);
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    top: -40px;
-    left: -20px;
-    width: 200px;
-    height: 200px;
-    --_adorn-scale: calc(var(--_adorn-size, var(--_adorn-base-size, 200)) / var(--_adorn-base-size, 200));
-    transform: scale3d(calc(200 / 200), calc(200 / 200), 1);
-    transform: scale3d(var(--_adorn-scale, 1), var(--_adorn-scale, 1), 1);
-    transition: transform 10s ease-out;
-    transform-origin: 50% 50%;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-name: scale;
-    --animate-scale: calc(var(--_adorn-scale, 1) * 1.6);
-    animation-range-start: entry 25%;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
+    display: block;
   }
 }
+
 /* Adorn secondary */
+.adorn-secondary-left::before {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+.adorn-secondary-right::before {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+.adorn-secondary-left::after {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+.adorn-secondary-right::after {
+  --_adorn-mask-image: var(--adorn-secondary-mask-image);
+  width: 144px;
+  height: 144px;
+  animation-range-start: entry 50%;
+  animation-name: scaleSlide;
+  --animate-scale: 1.2;
+}
+
 @media only screen and (min-width: 768px) {
-  .adorn-secondary-left, .adorn-secondary-right {
-    --_adorn-base-size: 144px;
-    position: relative;
-  }
-  .adorn-secondary-left::before {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
-  .adorn-secondary-right::before {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
-  .adorn-secondary-left::after {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
-  .adorn-secondary-right::after {
-    display: none;
-    content: "";
-    perspective: 1000px;
-    -webkit-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-    -webkit-mask-image: var(--adorn-secondary-mask-image);
-            mask-image: var(--adorn-secondary-mask-image);
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    position: absolute;
-    width: 144px;
-    width: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    height: 144px;
-    height: var(--_adorn-size, var(--_adorn-base-size, 144px));
-    transition: transform 10s ease-out;
-    z-index: -1;
-    view-timeline: --subjectReveal block;
-    animation-timeline: --subjectReveal;
-    animation-range-start: entry 50%;
-    animation-name: scaleSlide;
-    --animate-scale: 1.2;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-  }
   .adorn-secondary-left::before {
     display: block;
     top: -40px;
@@ -998,32 +1054,21 @@ html {
     --animate-y-end: -100px;
   }
 }
-/* Arrows */
+/* Adorn Arrows */
+.adorn-arrow-left::before, .adorn-arrow-left::after,
+.adorn-arrow-right::before,
+.adorn-arrow-right::after {
+  --_scaleX: 1;
+  --_adorn-mask-image: var(--adorn-arrow-mask-image);
+  width: calc(150px * 1);
+  width: calc(150px * var(--adorn-scale, 1));
+  height: calc(150px * 1);
+  height: calc(150px * var(--adorn-scale, 1));
+  transform: scale3d(1, 1, 1) translate3d(calc(1 * 150px + 10px), calc(-1 * 1 * 150px / 2 + max(0.5lh, 0px)), 0);
+  transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--adorn-scale, 1) * 150px + var(--gap, 10px)), calc(-1 * var(--adorn-scale, 1) * 150px / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
+}
+
 @media only screen and (min-width: 768px) {
-  .adorn-arrow-left,
-  .adorn-arrow-right {
-    --_adorn-base-size: 150px;
-    --_adorn-size: 150px;
-    position: relative;
-  }
-  .adorn-arrow-left::before, .adorn-arrow-left::after,
-  .adorn-arrow-right::before,
-  .adorn-arrow-right::after {
-    --_scaleX: 1;
-    perspective: 1000px;
-    content: "";
-    background-color: var(--color-lt985yd7);
-    background-color: var(--theme-primary-color);
-    -webkit-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
-            mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
-    position: absolute;
-    width: var(--_adorn-size);
-    height: var(--_adorn-size);
-    z-index: -1;
-    display: none;
-    transform: scale3d(1, 1, 1) translate3d(calc(var(--_adorn-size) + 10px), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, 0px)), 0);
-    transform: scale3d(var(--_scaleX, 1), 1, 1) translate3d(calc(var(--_adorn-size) + var(--gap, 10px)), calc(-1 * var(--_adorn-size) / 2 + max(0.5lh, var(--_padding-block, 0px))), 0);
-  }
   .adorn-arrow-left::before {
     display: block;
     top: 0;
@@ -1036,52 +1081,53 @@ html {
     right: 0;
   }
 }
+/* Adorn Helpers */
 .adorn-scale-25 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 0.25);
+  --adorn-scale: 0.25;
 }
 
 .adorn-scale-50 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 0.5);
+  --adorn-scale: 0.5;
 }
 
 .adorn-scale-75 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 0.75);
+  --adorn-scale: 0.75;
 }
 
 .adorn-scale-100 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1);
+  --adorn-scale: 1;
 }
 
 .adorn-scale-125 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1.25);
+  --adorn-scale: 1.25;
 }
 
 .adorn-scale-150 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1.5);
+  --adorn-scale: 1.5;
 }
 
 .adorn-scale-175 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 1.75);
+  --adorn-scale: 1.75;
 }
 
 .adorn-scale-200 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2);
+  --adorn-scale: 2;
 }
 
 .adorn-scale-225 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2.25);
+  --adorn-scale: 2.25;
 }
 
 .adorn-scale-250 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2.5);
+  --adorn-scale: 2.5;
 }
 
 .adorn-scale-275 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 2.75);
+  --adorn-scale: 2.75;
 }
 
 .adorn-scale-300 {
-  --_adorn-size: calc(var(--_adorn-base-size) * 3);
+  --adorn-scale: 3;
 }
 
 /**
@@ -1092,16 +1138,8 @@ html {
 .bg-gradient-left,
 .bg-gradient-up,
 .bg-gradient-down {
-  background: linear-gradient(in hsl 90deg, var(--bg-color-1, var(--color-lt985yd7)) 25%, var(--bg-color-2, var(--color-lt9ca2ns)) 100%);
-}
-@supports (background: linear-gradient(in oklch, red 0%, red 0% 1%, red 2%)) {
-.bg-gradient,
-.bg-gradient-right,
-.bg-gradient-left,
-.bg-gradient-up,
-.bg-gradient-down {
-  background: linear-gradient(in hsl var(--bg-direction, 90deg), var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
-}
+  background: linear-gradient(90deg, var(--bg-color-1, var(--color-lt985yd7)) 25%, var(--bg-color-2, var(--color-lt9ca2ns)) 100%);
+  background: linear-gradient(var(--bg-direction, 90deg), var(--bg-color-1, var(--theme-primary-color)) 25%, var(--bg-color-2, var(--theme-secondary-color)) 100%);
 }
 
 .bg-gradient-left {
@@ -1254,6 +1292,11 @@ html {
     padding-right: 0.5rem;
   }
 }
+.c-button .btn-inline {
+  --_font-size: 1rem;
+  --_padding-block: 0.25rem;
+}
+
 .hl-cookie-consent-banner .button,
 .c-button .btn-xsmall,
 .btn-xsmall .btn[type=submit],
@@ -1559,6 +1602,16 @@ html {
     margin-bottom: 0;
   }
 }
+.card-shadow {
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.04);
+  box-shadow: var(--theme-card-shadow, 0 6px 24px 0 rgba(27, 27, 27, 0.04));
+}
+
+.card-shadow2 {
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.2);
+  box-shadow: var(--theme-card-shadow2, 0 6px 24px 0 rgba(27, 27, 27, 0.2));
+}
+
 /**
  * CARD FLIPPER
  **/
@@ -1578,7 +1631,7 @@ html {
     transition: transform 0.6s;
     will-change: transform;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    box-shadow: var(--card-flipper-box-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
+    box-shadow: var(--theme-card-flipper-shadow, 0 1px 5px rgba(0, 0, 0, 0.1));
     padding-bottom: 20px;
   }
   .c-column.card-flipper .c-wrapper:has(> .card-front, > .card-back),
@@ -2175,6 +2228,9 @@ chat-widget {
   order: -10;
 }
 
+.floating.c-column {
+  z-index: 3;
+}
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .floating.c-column {
     margin: 0;
@@ -2767,11 +2823,14 @@ chat-widget {
 /**
  * POPUP
  **/
-#hl_main_popup {
-  --popup-btn-bg: green;
-  --popup-btn-text: white;
+#hl_main_popup, .hl_main_popup {
+  border-color: var(--color-lt9ca2ns);
+  border-color: var(--theme-popup-border-color, transparent);
+  box-shadow: 0 6px 24px 0 rgba(27, 27, 27, 0.2);
+  box-shadow: var(--theme-card-shadow2, none);
+  border-radius: 20px;
 }
-#hl_main_popup .closeLPModal {
+#hl_main_popup .closeLPModal, .hl_main_popup .closeLPModal {
   position: absolute;
   top: -10px;
   right: -10px;
@@ -2782,14 +2841,14 @@ chat-widget {
   transform: scale3d(1.5, 1.5, 1);
   perspective: 1000px;
   background-color: var(--color-luhh4ycy);
-  background-color: var(--theme-button-primary-text-color);
+  background-color: var(--theme-popup-close-color, var(--theme-button-primary-text-color, white));
   border: 1px solid var(--color-luhh4ycy);
-  border: 1px solid var(--theme-button-primary-text-color);
+  border: 1px solid var(--theme-popup-close-color, var(--theme-button-primary-text-color, white));
 }
-#hl_main_popup .closeLPModal::before {
+#hl_main_popup .closeLPModal::before, .hl_main_popup .closeLPModal::before {
   content: "";
   background-color: var(--color-luhgqfvg);
-  background-color: var(--theme-button-primary-bg-color);
+  background-color: var(--theme-popup-close-bg-color, var(--theme-button-primary-bg-color, black));
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10a10 10 0 0 0 10 10ZM6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707Z' /%3E%3C/svg%3E");
           mask-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10a10 10 0 0 0 10 10ZM6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707Z' /%3E%3C/svg%3E");
   position: absolute;
@@ -2798,7 +2857,7 @@ chat-widget {
   top: 0;
   left: 0;
 }
-#hl_main_popup .closeLPModal img {
+#hl_main_popup .closeLPModal img, .hl_main_popup .closeLPModal img {
   display: none;
 }
 
@@ -2838,6 +2897,7 @@ chat-widget {
   margin-right: calc(-1 * var(--_section-padding) + calc(var(--_section-padding) / 2));
   margin-right: calc(-1 * var(--_section-padding) + var(--_margin-adjust));
   padding-left: calc(var(--_section-padding) / 2 + 10px) !important;
+  padding-right: calc(var(--_section-padding) * 2) !important;
   padding-bottom: var(--_badding-bottom) !important;
 }
 @media only screen and (max-width: 767px) {
@@ -2857,9 +2917,6 @@ chat-widget {
   flex-shrink: 0 !important;
   width: max(var(--min-column-width), 50% - 20px);
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
-}
-.scroll-horizontal .c-column:last-child {
-  margin-right: calc(var(--_section-padding) * 2) !important;
 }
 .scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
   width: max(350px, 33.3333333333% - 20px * 2) !important;
@@ -3102,34 +3159,124 @@ ul.social-links li:hover a i {
 }
 
 /**
- * NAVIGATION MENU
+ * TOP NAV & BANNER
  **/
-.topnav {
+/* Banner */
+@media only screen and (min-width: 481px) {
+  #preview-container .notification-banner {
+    --_top: 0;
+    --_min-padding-block: 5px;
+    z-index: 98;
+    position: sticky;
+    margin: 0;
+    top: 0;
+    top: var(--_top, 0);
+    left: 0;
+    right: 0;
+    perspective: 1000px;
+  }
+  #preview-container .notification-banner > .inner {
+    max-width: 100% !important;
+  }
+  #preview-container .notification-banner.banner-show-fixed {
+    position: fixed;
+  }
+  #preview-container .notification-banner.banner-hide {
+    animation: hide-banner 150ms linear both;
+  }
+  #preview-container .notification-banner .c-paragraph:has(.btn-close) {
+    flex: 0 1 auto !important;
+  }
+  #preview-container .notification-banner .btn-close {
+    transition: opacity 250ms ease-out, transform 100ms linear;
+    padding-left: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #preview-container .notification-banner .btn-close:hover {
+    opacity: 1 !important;
+    transform: scale3d(1.4, 1.4, 1);
+  }
+  #preview-container .notification-banner .btn-close .button-icon-start,
+  #preview-container .notification-banner .btn-close .main-heading-button {
+    display: none;
+  }
+  @supports not (animation-timeline: scroll()) {
+    #preview-container .notification-banner {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-top: var(--_min-padding-block, 5px);
+      padding-bottom: var(--_min-padding-block, 5px);
+    }
+  }
+  @supports (animation-timeline: scroll()) {
+    #preview-container .notification-banner {
+      animation: banner-scroll linear both;
+      animation-timeline: scroll();
+      animation-range: 5ex 20ex;
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  #preview-container .notification-banner .c-column > .inner > div {
+    flex: 1 auto;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #preview-container .notification-banner {
+    --_top: 0 !important;
+    position: relative !important;
+  }
+  #preview-container .notification-banner .c-paragraph:has(.btn-close),
+  #preview-container .notification-banner .btn-close {
+    display: none;
+  }
+}
+@keyframes banner-scroll {
+  100% {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-top: var(--_min-padding-block, 5px);
+    padding-bottom: var(--_min-padding-block, 5px);
+  }
+}
+@keyframes hide-banner {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+  }
+}
+/* TOPNAV */
+#preview-container .topnav {
   --box-shadow: var(--topnav-shadow, none);
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
   transition: box-shadow 200ms cubic-bezier(0.33, 1, 0.68, 1);
+  z-index: 99;
 }
-.topnav.scroll {
+#preview-container .topnav.scroll {
   box-shadow: var(--box-shadow);
 }
-
 @supports (animation-timeline: scroll()) {
-  .topnav {
+  #preview-container .topnav {
     animation: topnav-scroll linear both;
+  }
+  #preview-container .topnav .image-container {
+    --animate-scale: 0.8;
+    animation: scale linear both;
+  }
+  #preview-container .topnav,
+  #preview-container .topnav .image-container {
     animation-timeline: scroll();
     animation-range: 5ex 20ex;
   }
 }
-@keyframes topnav-scroll {
-  from {
-    box-shadow: none;
-  }
-  to {
-    box-shadow: var(--box-shadow);
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
+
 .nav-menu-item > a {
   transition: none !important;
 }
@@ -3180,4 +3327,13 @@ ul.social-links li:hover a i {
 }
 .nav-menu-item .dropdown-item > a:last-child {
   padding-bottom: 12px !important;
+}
+
+@keyframes topnav-scroll {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: var(--box-shadow);
+  }
 }

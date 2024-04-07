@@ -101,6 +101,9 @@
   order: -10;
 }
 
+.floating.c-column {
+  z-index: 3;
+}
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .floating.c-column {
     margin: 0;
