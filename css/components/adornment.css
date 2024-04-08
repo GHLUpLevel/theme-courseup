@@ -1,91 +1,11 @@
 /**
  * ADORNMENTS
  **/
-.c-section:has([class*=adorn-]) {
+.c-section:has([class*=adorn-]) > .inner {
   isolation: isolate;
 }
 
-.adorn-arrow-left,
-.adorn-arrow-right,
-.adorn-secondary-left,
-.adorn-secondary-right,
-.adorn-primary-top-left {
-  position: relative;
-}
-.adorn-secondary-left::before {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--theme-primary-color);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-secondary-right::before {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--theme-primary-color);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-secondary-left::after {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--theme-primary-color);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-secondary-right::after {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--theme-primary-color);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-arrow-left::before,
-.adorn-arrow-right::before,
-.adorn-primary-top-left::before,
-.adorn-arrow-left::after,
-.adorn-arrow-right::after,
-.adorn-primary-top-left::after {
+.adorn-arrow-left::before, .adorn-arrow-right::after, .adorn-secondary-left::before, .adorn-secondary-right::after, .adorn-primary-top-left::before {
   --_adorn-color: var(--theme-primary-color);
   display: none;
   content: "";
@@ -103,33 +23,14 @@
   transition: transform 1s ease-out;
 }
 
-.adorn-secondary-left::before {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-secondary-right::before {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-secondary-left::after {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-secondary-right::after {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-primary-top-left::before, .adorn-primary-top-left::after {
+.adorn-secondary-left::before, .adorn-secondary-right::after, .adorn-primary-top-left::before {
   view-timeline: --subjectReveal block;
   animation-timeline: --subjectReveal;
 }
 
 /* Adorn Primary */
 .adorn-primary-top-left {
+  position: relative;
   isolation: isolate;
 }
 .adorn-primary-top-left::before {
@@ -151,8 +52,11 @@
 }
 
 /* Adorn secondary */
-.adorn-secondary-left::before,
-.adorn-secondary-right::after {
+.adorn-secondary-left, .adorn-secondary-right {
+  position: relative;
+}
+
+.adorn-secondary-left::before, .adorn-secondary-right::after {
   --_adorn-mask-image: var(--adorn-secondary-mask-image);
   width: 144px;
   height: 144px;
@@ -178,9 +82,11 @@
   }
 }
 /* Adorn Arrows */
-.adorn-arrow-left::before, .adorn-arrow-left::after,
-.adorn-arrow-right::before,
-.adorn-arrow-right::after {
+.adorn-arrow-left, .adorn-arrow-right {
+  position: relative;
+}
+
+.adorn-arrow-left::before, .adorn-arrow-right::after {
   --_scaleX: 1;
   --_adorn-mask-image: var(--adorn-arrow-mask-image);
   width: calc(150px * 1);

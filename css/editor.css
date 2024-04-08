@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.14
+ * Version: v1.7.15
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -922,18 +922,11 @@ html {
 /**
  * ADORNMENTS
  **/
-.c-section:has([class*=adorn-]) {
+.c-section:has([class*=adorn-]) > .inner {
   isolation: isolate;
 }
 
-.adorn-arrow-left,
-.adorn-arrow-right,
-.adorn-secondary-left,
-.adorn-secondary-right,
-.adorn-primary-top-left {
-  position: relative;
-}
-.adorn-secondary-left::before {
+.adorn-arrow-left::before, .adorn-arrow-right::after, .adorn-secondary-left::before, .adorn-secondary-right::after, .adorn-primary-top-left::before {
   --_adorn-color: var(--theme-primary-color);
   display: none;
   content: "";
@@ -950,132 +943,19 @@ html {
   transform: scale3d(var(--adorn-scale, 1), 1, 1);
   transition: transform 1s ease-out;
 }
-.adorn-secondary-right::before {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--color-lt985yd7);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-secondary-left::after {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--color-lt985yd7);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-secondary-right::after {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--color-lt985yd7);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-.adorn-arrow-left::before,
-.adorn-arrow-right::before,
-.adorn-primary-top-left::before,
-.adorn-arrow-left::after,
-.adorn-arrow-right::after,
-.adorn-primary-top-left::after {
-  --_adorn-color: var(--theme-primary-color);
-  display: none;
-  content: "";
-  perspective: 1000px;
-  position: absolute;
-  z-index: -1;
-  -webkit-mask-image: var(--_adorn-mask-image);
-          mask-image: var(--_adorn-mask-image);
-  background-color: var(--color-lt985yd7);
-  background-color: var(--_adorn-color);
-  animation-fill-mode: both;
-  animation-duration: 1ms;
-  transform: scale3d(1, 1, 1);
-  transform: scale3d(var(--adorn-scale, 1), 1, 1);
-  transition: transform 1s ease-out;
-}
-section.hl_page-creator--content.--mobile .adorn-secondary-left::before {
-  /* Editor Only */
-  display: none !important;
-}
-section.hl_page-creator--content.--mobile .adorn-secondary-right::before {
-  /* Editor Only */
-  display: none !important;
-}
-section.hl_page-creator--content.--mobile .adorn-secondary-left::after {
-  /* Editor Only */
-  display: none !important;
-}
-section.hl_page-creator--content.--mobile .adorn-secondary-right::after {
-  /* Editor Only */
-  display: none !important;
-}
-section.hl_page-creator--content.--mobile .adorn-arrow-left::before,
-section.hl_page-creator--content.--mobile .adorn-arrow-right::before,
-section.hl_page-creator--content.--mobile .adorn-primary-top-left::before,
-section.hl_page-creator--content.--mobile .adorn-arrow-left::after,
-section.hl_page-creator--content.--mobile .adorn-arrow-right::after,
-section.hl_page-creator--content.--mobile .adorn-primary-top-left::after {
+section.hl_page-creator--content.--mobile .adorn-arrow-left::before, section.hl_page-creator--content.--mobile .adorn-arrow-right::after, section.hl_page-creator--content.--mobile .adorn-secondary-left::before, section.hl_page-creator--content.--mobile .adorn-secondary-right::after, section.hl_page-creator--content.--mobile .adorn-primary-top-left::before {
   /* Editor Only */
   display: none !important;
 }
 
-.adorn-secondary-left::before {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-secondary-right::before {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-secondary-left::after {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-secondary-right::after {
-  view-timeline: --subjectReveal block;
-  animation-timeline: --subjectReveal;
-}
-
-.adorn-primary-top-left::before, .adorn-primary-top-left::after {
+.adorn-secondary-left::before, .adorn-secondary-right::after, .adorn-primary-top-left::before {
   view-timeline: --subjectReveal block;
   animation-timeline: --subjectReveal;
 }
 
 /* Adorn Primary */
 .adorn-primary-top-left {
+  position: relative;
   isolation: isolate;
 }
 .adorn-primary-top-left::before {
@@ -1102,8 +982,11 @@ section.hl_page-creator--content.--mobile .adorn-primary-top-left::after {
 }
 
 /* Adorn secondary */
-.adorn-secondary-left::before,
-.adorn-secondary-right::after {
+.adorn-secondary-left, .adorn-secondary-right {
+  position: relative;
+}
+
+.adorn-secondary-left::before, .adorn-secondary-right::after {
   --_adorn-mask-image: var(--adorn-secondary-mask-image);
   width: 144px;
   height: 144px;
@@ -1145,9 +1028,11 @@ section.hl_page-creator--content.--mobile .adorn-primary-top-left::after {
   }
 }
 /* Adorn Arrows */
-.adorn-arrow-left::before, .adorn-arrow-left::after,
-.adorn-arrow-right::before,
-.adorn-arrow-right::after {
+.adorn-arrow-left, .adorn-arrow-right {
+  position: relative;
+}
+
+.adorn-arrow-left::before, .adorn-arrow-right::after {
   --_scaleX: 1;
   --_adorn-mask-image: var(--adorn-arrow-mask-image);
   width: calc(150px * 1);
