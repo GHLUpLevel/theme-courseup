@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.13
+ * Version: v1.7.14
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -2895,77 +2895,84 @@ ul.social-links li:hover a i {
  * TOP NAV & BANNER
  **/
 /* Banner */
-@media only screen and (min-width: 481px) {
-  #preview-container .notification-banner {
-    --_top: 0;
-    --_min-padding-block: 5px;
-    z-index: 98;
-    position: sticky;
-    margin: 0;
-    top: 0;
-    top: var(--_top, 0);
-    left: 0;
-    right: 0;
-    perspective: 1000px;
-  }
-  #preview-container .notification-banner > .inner {
-    max-width: 100% !important;
-  }
-  #preview-container .notification-banner.banner-show-fixed {
-    position: fixed;
-  }
-  #preview-container .notification-banner.banner-hide {
-    animation: hide-banner 150ms linear both;
-  }
-  #preview-container .notification-banner .c-paragraph:has(.btn-close) {
-    flex: 0 1 auto !important;
-  }
-  #preview-container .notification-banner .btn-close {
-    transition: opacity 250ms ease-out, transform 100ms linear;
-    padding-left: 10px;
-    cursor: pointer;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-  #preview-container .notification-banner .btn-close:hover {
-    opacity: 1 !important;
-    transform: scale3d(1.4, 1.4, 1);
-  }
-  #preview-container .notification-banner .btn-close .button-icon-start,
-  #preview-container .notification-banner .btn-close .main-heading-button {
-    display: none;
-  }
-  @supports not (animation-timeline: scroll()) {
-    #preview-container .notification-banner {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-top: var(--_min-padding-block, 5px);
-      padding-bottom: var(--_min-padding-block, 5px);
-    }
-  }
-  @supports (animation-timeline: scroll()) {
-    #preview-container .notification-banner {
-      animation: banner-scroll linear both;
-      animation-timeline: scroll();
-      animation-range: 5ex 20ex;
-    }
+.notification-banner {
+  --_top: 0;
+  --_min-padding-block: 5px;
+  z-index: 98;
+  margin: 0;
+  top: 0;
+  top: var(--_top, 0);
+  left: 0;
+  right: 0;
+  perspective: 1000px;
+}
+.notification-banner > .inner {
+  max-width: 100% !important;
+}
+.notification-banner .c-column {
+  padding-left: 30px;
+}
+.notification-banner .c-column > .inner > div {
+  flex: 1 auto;
+}
+.notification-banner.banner-show-fixed {
+  position: fixed;
+}
+.notification-banner.banner-hide {
+  animation: hide-banner 150ms linear both;
+}
+.notification-banner .c-paragraph:has(.btn-close) {
+  flex: 0 1 auto !important;
+}
+.notification-banner .btn-close {
+  transition: opacity 250ms ease-out, transform 100ms linear;
+  padding-left: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.notification-banner .btn-close:hover {
+  opacity: 1 !important;
+  transform: scale3d(1.4, 1.4, 1);
+}
+.notification-banner .btn-close .button-icon-start,
+.notification-banner .btn-close .main-heading-button {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  .notification-banner {
+    animation: banner-scroll linear both;
+    animation-timeline: scroll();
+    animation-range: 5ex 20ex;
   }
 }
-@media only screen and (max-width: 767px) {
-  #preview-container .notification-banner .c-column > .inner > div {
-    flex: 1 auto;
+@supports not (animation-timeline: scroll()) {
+  .notification-banner {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-top: var(--_min-padding-block, 5px);
+    padding-bottom: var(--_min-padding-block, 5px);
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  #preview-container .notification-banner {
+    position: sticky;
   }
 }
 @media only screen and (max-width: 480px) {
-  #preview-container .notification-banner {
+  .notification-banner {
     --_top: 0 !important;
     position: relative !important;
   }
-  #preview-container .notification-banner .c-paragraph:has(.btn-close),
-  #preview-container .notification-banner .btn-close {
+  .notification-banner .c-paragraph:has(.btn-close),
+  .notification-banner .btn-close {
     display: none;
+  }
+  .notification-banner .c-column {
+    padding-left: 0;
   }
 }
 @keyframes banner-scroll {
