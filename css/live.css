@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.15
+ * Version: v1.7.16
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -1096,6 +1096,27 @@ html {
 
 .bg-color-3-accent {
   --bg-color-3: var(--theme-accent-color);
+}
+
+/**
+ * BACKGROUNDS
+ **/
+.blog-column-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 3/2;
+}
+
+.blog-items.compact img {
+  flex: 0 1 20%;
+  width: 20% !important;
+}
+
+.blog-html-container {
+  font-family: var(--contentfont) !important;
+}
+.blog-html-container h1, .blog-html-container h2, .blog-html-container h3 {
+  font-family: var(--headlinefont) !important;
 }
 
 /**
@@ -2207,8 +2228,10 @@ chat-widget {
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .inner > .c-wrapper .w-10, .c-column > .inner > .c-wrapper .w-20, .c-column > .inner > .c-wrapper .w-30, .c-column > .inner > .c-wrapper .w-40, .c-column > .inner > .c-wrapper .w-50, .c-column > .inner > .c-wrapper .w-60, .c-column > .inner > .c-wrapper .w-70, .c-column > .inner > .c-wrapper .w-80, .c-column > .inner > .c-wrapper .w-90, .c-column > .inner > .c-wrapper .w-100 {
-    width: 100% !important;
+  .c-column > .inner > .c-wrapper :where(.w-10, .w-20, .w-30),
+  .c-column > .inner > .c-wrapper :where(.w-40, .w-50, .w-60),
+  .c-column > .inner > .c-wrapper :where(.w-70, .w-80, .w-90, .w-100) {
+    width: 100%;
   }
   .c-column > .inner > .c-wrapper:has(.w-10) {
     flex-basis: calc(10% - 0px) !important;

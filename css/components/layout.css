@@ -197,8 +197,10 @@
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .inner > .c-wrapper .w-10, .c-column > .inner > .c-wrapper .w-20, .c-column > .inner > .c-wrapper .w-30, .c-column > .inner > .c-wrapper .w-40, .c-column > .inner > .c-wrapper .w-50, .c-column > .inner > .c-wrapper .w-60, .c-column > .inner > .c-wrapper .w-70, .c-column > .inner > .c-wrapper .w-80, .c-column > .inner > .c-wrapper .w-90, .c-column > .inner > .c-wrapper .w-100 {
-    width: 100% !important;
+  .c-column > .inner > .c-wrapper :where(.w-10, .w-20, .w-30),
+  .c-column > .inner > .c-wrapper :where(.w-40, .w-50, .w-60),
+  .c-column > .inner > .c-wrapper :where(.w-70, .w-80, .w-90, .w-100) {
+    width: 100%;
   }
   .c-column > .inner > .c-wrapper:has(.w-10) {
     flex-basis: calc(10% - 0px) !important;

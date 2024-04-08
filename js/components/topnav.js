@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.15
+ * Version: v1.7.16
  ****************************************/
 
 const POLYFILL_DELAY = 1e3;
