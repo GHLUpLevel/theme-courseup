@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.12
+ * Version: v1.7.13
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -1102,30 +1102,7 @@ section.hl_page-creator--content.--mobile .adorn-primary-top-left::after {
 }
 
 /* Adorn secondary */
-.adorn-secondary-left::before {
-  --_adorn-mask-image: var(--adorn-secondary-mask-image);
-  width: 144px;
-  height: 144px;
-  animation-range-start: entry 50%;
-  animation-name: scaleSlide;
-  --animate-scale: 1.2;
-}
-.adorn-secondary-right::before {
-  --_adorn-mask-image: var(--adorn-secondary-mask-image);
-  width: 144px;
-  height: 144px;
-  animation-range-start: entry 50%;
-  animation-name: scaleSlide;
-  --animate-scale: 1.2;
-}
-.adorn-secondary-left::after {
-  --_adorn-mask-image: var(--adorn-secondary-mask-image);
-  width: 144px;
-  height: 144px;
-  animation-range-start: entry 50%;
-  animation-name: scaleSlide;
-  --animate-scale: 1.2;
-}
+.adorn-secondary-left::before,
 .adorn-secondary-right::after {
   --_adorn-mask-image: var(--adorn-secondary-mask-image);
   width: 144px;

@@ -151,30 +151,7 @@
 }
 
 /* Adorn secondary */
-.adorn-secondary-left::before {
-  --_adorn-mask-image: var(--adorn-secondary-mask-image);
-  width: 144px;
-  height: 144px;
-  animation-range-start: entry 50%;
-  animation-name: scaleSlide;
-  --animate-scale: 1.2;
-}
-.adorn-secondary-right::before {
-  --_adorn-mask-image: var(--adorn-secondary-mask-image);
-  width: 144px;
-  height: 144px;
-  animation-range-start: entry 50%;
-  animation-name: scaleSlide;
-  --animate-scale: 1.2;
-}
-.adorn-secondary-left::after {
-  --_adorn-mask-image: var(--adorn-secondary-mask-image);
-  width: 144px;
-  height: 144px;
-  animation-range-start: entry 50%;
-  animation-name: scaleSlide;
-  --animate-scale: 1.2;
-}
+.adorn-secondary-left::before,
 .adorn-secondary-right::after {
   --_adorn-mask-image: var(--adorn-secondary-mask-image);
   width: 144px;
