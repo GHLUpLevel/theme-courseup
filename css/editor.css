@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.19
+ * Version: v1.7.20
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -3799,9 +3799,6 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
   top: 0;
   top: var(--topnav-height, 0);
 }
-.notification-banner.banner-hide {
-  animation: hide-banner 150ms linear both;
-}
 .notification-banner .c-paragraph:has(.btn-close) {
   flex: 0 1 auto !important;
 }
@@ -3828,6 +3825,14 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
     animation-timeline: scroll();
     animation-range: 5ex 20ex;
   }
+  .notification-banner.banner-hide {
+    transition: opacity 200ms linear;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .notification-banner.banner-hide > div {
+    animation: hide-banner-scroll-contents 150ms linear both;
+  }
 }
 @supports not (animation-timeline: scroll()) {
   .notification-banner {
@@ -3835,6 +3840,9 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
     padding-bottom: 5px;
     padding-top: var(--_min-padding-block, 5px);
     padding-bottom: var(--_min-padding-block, 5px);
+  }
+  .notification-banner.banner-hide {
+    animation: hide-banner 150ms linear both;
   }
 }
 
@@ -3880,6 +3888,11 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
     padding-bottom: var(--_min-padding-block, 5px);
     transform: translate3d(0, calc(-1 * 0), 0);
     transform: translate3d(0, calc(-1 * var(--topnav-padding, 0)), 0);
+  }
+}
+@keyframes hide-banner-scroll-contents {
+  100% {
+    transform: translate3d(0, -50px, 0);
   }
 }
 @keyframes hide-banner {

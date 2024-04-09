@@ -246,9 +246,6 @@
     }
     function closeEvent(event) {
       banner.classList.add(BANNER_HIDE_CLASS);
-      setTimeout(() => {
-        positionBanner(banner, topnav, true);
-      }, 300);
     }
     const closeBtn = banner.querySelector(".btn-close");
     closeBtn == null ? void 0 : closeBtn.addEventListener("click", closeEvent);
@@ -303,7 +300,7 @@
   };
   setCSSDefaults();
   init();
-  console.log(`Powered by Level Up Theme v1.7.19:`, "https://levelupthemes.com");
+  console.log(`Powered by Level Up Theme v1.7.20:`, "https://levelupthemes.com");
 
 })();
 //# sourceMappingURL=all.js.map

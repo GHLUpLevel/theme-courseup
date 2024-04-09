@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.19
+ * Version: v1.7.20
  ****************************************/
 
 const POLYFILL_DELAY = 1e3;
@@ -103,9 +103,6 @@ const setBanner = (topnav) => {
   }
   function closeEvent(event) {
     banner.classList.add(BANNER_HIDE_CLASS);
-    setTimeout(() => {
-      positionBanner(banner, topnav, true);
-    }, 300);
   }
   const closeBtn = banner.querySelector(".btn-close");
   closeBtn == null ? void 0 : closeBtn.addEventListener("click", closeEvent);
