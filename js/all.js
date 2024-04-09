@@ -153,6 +153,7 @@
   const BANNER_SELECTOR = ".notification-banner";
   const BANNER_HIDE_CLASS = "banner-hide";
   const BANNER_FIXED_CLASS = "banner-fixed";
+  const TOPNAV_FIXED_CLASS = "topnav-fixed";
   const BODY_SELECTOR = "body";
   const CONTAINER_SELECTOR = "#preview-container";
   let REPOSITIONED = false;
@@ -169,7 +170,7 @@
   }
   const observeResize = (banner, topnav) => {
     function onViewportResize() {
-      positionBanner(banner, topnav, true);
+      positionBanner(banner, topnav, true, true);
     }
     window.addEventListener("resize", debounce(onViewportResize, 200));
   };
@@ -202,38 +203,44 @@
     }, 0);
     return `${total}px`;
   };
-  const positionBanner = (banner, topnav, smooth = false) => {
+  const positionBanner = (banner, topnav, smooth = false, setTopMargin = true) => {
     if (!banner || !topnav) {
       return;
     }
+    const root = document.documentElement;
     const navRect = topnav.getBoundingClientRect();
     const bannerRect = banner.getBoundingClientRect();
     const container = document.querySelector(CONTAINER_SELECTOR);
-    banner.style.setProperty("--topnav-padding", getBlockPadding(topnav));
     if (!container) {
       return;
     }
-    banner.classList.add(BANNER_FIXED_CLASS);
     if (smooth) {
       container.style.setProperty("transition", "margin-top .3s ease-out");
     }
-    container.style.setProperty("--topnav-height", `${navRect.bottom}px`);
-    let siblingMargin = "";
-    if (banner.nextElementSibling) {
-      siblingMargin = getComputedStyle(
-        banner.nextElementSibling
-      ).getPropertyValue("margin-top");
-    }
-    const bannerPos = getComputedStyle(banner).getPropertyValue("position");
+    banner.classList.add(BANNER_FIXED_CLASS);
+    topnav.classList.add(TOPNAV_FIXED_CLASS);
     let offset = navRect.bottom;
-    const bannerClosed = banner.classList.contains(BANNER_HIDE_CLASS);
+    let totalHeight = offset;
+    const bannerPos = getComputedStyle(banner).getPropertyValue("position");
     if (bannerPos === "fixed") {
-      if (!bannerClosed) {
+      if (!banner.classList.contains(BANNER_HIDE_CLASS)) {
         offset += bannerRect.height;
+        totalHeight += bannerRect.height;
       }
-      offset += parseInt(siblingMargin);
+      if (banner.nextElementSibling) {
+        offset += parseInt(
+          getComputedStyle(banner.nextElementSibling).getPropertyValue(
+            "margin-top"
+          )
+        );
+      }
     }
-    container.style.setProperty("margin-top", `${Math.round(offset)}px`);
+    banner.style.setProperty("--topnav-padding", getBlockPadding(topnav));
+    root.style.setProperty("--sticky-topnav-bottom", `${navRect.bottom}px`);
+    root.style.setProperty("--top-sticky-height", `${totalHeight}px`);
+    if (setTopMargin) {
+      container.style.setProperty("margin-top", `${Math.round(offset)}px`);
+    }
     REPOSITIONED = true;
   };
   const setBanner = (topnav) => {
@@ -244,17 +251,18 @@
     if (getComputedStyle(banner).getPropertyValue("display") === "none") {
       return;
     }
-    function closeEvent(event) {
-      banner.classList.add(BANNER_HIDE_CLASS);
-    }
     const closeBtn = banner.querySelector(".btn-close");
-    closeBtn == null ? void 0 : closeBtn.addEventListener("click", closeEvent);
+    closeBtn == null ? void 0 : closeBtn.addEventListener("click", () => {
+      banner.classList.add(BANNER_HIDE_CLASS);
+      positionBanner(banner, topnav, true, false);
+    });
     const navPos = getComputedStyle(topnav).getPropertyValue("position");
     if (navPos !== "fixed" || !topnav.parentElement) {
       return observeTopnav(banner, topnav);
     }
+    positionBanner(banner, topnav);
     observeResize(banner, topnav);
-    return positionBanner(banner, topnav);
+    return;
   };
   const scrollPolyfill = (topnav) => {
     if (!topnav) {
@@ -300,7 +308,7 @@
   };
   setCSSDefaults();
   init();
-  console.log(`Powered by Level Up Theme v1.7.20:`, "https://levelupthemes.com");
+  console.log(`Powered by Level Up Theme v1.7.21:`, "https://levelupthemes.com");
 
 })();
 //# sourceMappingURL=all.js.map

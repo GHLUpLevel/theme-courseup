@@ -90,7 +90,7 @@
   font-family: inherit !important;
 }
 
-.c-button span.main-heading-group {
+.c-button .main-heading-group {
   display: flex;
   align-items: center;
   justify-content: center;

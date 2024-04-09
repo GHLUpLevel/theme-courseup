@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.20
+ * Version: v1.7.21
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -1278,7 +1278,7 @@ section.hl_page-creator--content.--mobile .adorn-arrow-left::before, section.hl_
   font-family: inherit !important;
 }
 
-.c-button span.main-heading-group {
+.c-button .main-heading-group {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2545,48 +2545,46 @@ chat-widget {
 
 /* WIDTH */
 @supports selector(:has(+ *)) {
-  .c-column > .inner > .c-wrapper :where(.w-10, .w-20, .w-30),
-  .c-column > .inner > .c-wrapper :where(.w-40, .w-50, .w-60),
-  .c-column > .inner > .c-wrapper :where(.w-70, .w-80, .w-90, .w-100) {
-    width: 100%;
+  .content.c-column .w-10, .content.c-column .w-20, .content.c-column .w-30, .card.c-column .w-10, .card.c-column .w-20, .card.c-column .w-30, .card2.c-column .w-10, .card2.c-column .w-20, .card2.c-column .w-30, .content.c-column .w-40, .content.c-column .w-50, .content.c-column .w-60, .card.c-column .w-40, .card.c-column .w-50, .card.c-column .w-60, .card2.c-column .w-40, .card2.c-column .w-50, .card2.c-column .w-60, .content.c-column .w-70, .content.c-column .w-80, .content.c-column .w-90, .content.c-column .w-100, .card.c-column .w-70, .card.c-column .w-80, .card.c-column .w-90, .card.c-column .w-100, .card2.c-column .w-70, .card2.c-column .w-80, .card2.c-column .w-90, .card2.c-column .w-100 {
+    width: 100% !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-10) {
+  .content.c-column > .inner > .c-wrapper:has(.w-10) {
     flex-basis: calc(10% - 0px) !important;
     flex-basis: calc(10% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-20) {
+  .content.c-column > .inner > .c-wrapper:has(.w-20) {
     flex-basis: calc(20% - 0px) !important;
     flex-basis: calc(20% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-30) {
+  .content.c-column > .inner > .c-wrapper:has(.w-30) {
     flex-basis: calc(30% - 0px) !important;
     flex-basis: calc(30% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-40) {
+  .content.c-column > .inner > .c-wrapper:has(.w-40) {
     flex-basis: calc(40% - 0px) !important;
     flex-basis: calc(40% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-50) {
+  .content.c-column > .inner > .c-wrapper:has(.w-50) {
     flex-basis: calc(50% - 0px) !important;
     flex-basis: calc(50% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-60) {
+  .content.c-column > .inner > .c-wrapper:has(.w-60) {
     flex-basis: calc(60% - 0px) !important;
     flex-basis: calc(60% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-70) {
+  .content.c-column > .inner > .c-wrapper:has(.w-70) {
     flex-basis: calc(70% - 0px) !important;
     flex-basis: calc(70% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-80) {
+  .content.c-column > .inner > .c-wrapper:has(.w-80) {
     flex-basis: calc(80% - 0px) !important;
     flex-basis: calc(80% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-90) {
+  .content.c-column > .inner > .c-wrapper:has(.w-90) {
     flex-basis: calc(90% - 0px) !important;
     flex-basis: calc(90% - var(--gap, 0px)) !important;
   }
-  .c-column > .inner > .c-wrapper:has(.w-100) {
+  .content.c-column > .inner > .c-wrapper:has(.w-100) {
     flex-basis: calc(100% - 0px) !important;
     flex-basis: calc(100% - var(--gap, 0px)) !important;
   }
@@ -3559,11 +3557,13 @@ section.hl_page-creator--content .scroll-horizontal > .inner {
 #preview-container .c-column > .inner > .sticky {
   position: sticky;
   top: 0;
+  top: var(--top-sticky-height, 0);
   z-index: 1;
 }
 #preview-container .sticky.c-column {
   position: sticky;
   top: 0;
+  top: var(--top-sticky-height, 0);
   align-self: flex-start;
 }
 @container EditorViewPort (max-width: 767px) {
@@ -3797,7 +3797,7 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
 .notification-banner.banner-fixed {
   position: fixed;
   top: 0;
-  top: var(--topnav-height, 0);
+  top: var(--sticky-topnav-bottom, 0);
 }
 .notification-banner .c-paragraph:has(.btn-close) {
   flex: 0 1 auto !important;
@@ -3820,7 +3820,7 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
   display: none;
 }
 @supports (animation-timeline: scroll()) {
-  .notification-banner {
+  .notification-banner.banner-fixed {
     animation: banner-scroll linear both;
     animation-timeline: scroll();
     animation-range: 5ex 20ex;
@@ -3920,10 +3920,10 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
 }
 
 @supports (animation-timeline: scroll()) {
-  .topnav {
+  .topnav-fixed {
     animation: topnav-scroll linear both;
   }
-  .topnav .image-container {
+  .topnav-fixed .image-container {
     --animate-scale: 0.8;
     animation: scale linear both;
     transform-origin: center left;

@@ -22,7 +22,7 @@
 .notification-banner.banner-fixed {
   position: fixed;
   top: 0;
-  top: var(--topnav-height, 0);
+  top: var(--sticky-topnav-bottom, 0);
 }
 .notification-banner .c-paragraph:has(.btn-close) {
   flex: 0 1 auto !important;
@@ -45,7 +45,7 @@
   display: none;
 }
 @supports (animation-timeline: scroll()) {
-  .notification-banner {
+  .notification-banner.banner-fixed {
     animation: banner-scroll linear both;
     animation-timeline: scroll();
     animation-range: 5ex 20ex;
@@ -128,10 +128,10 @@
 }
 
 @supports (animation-timeline: scroll()) {
-  .topnav {
+  .topnav-fixed {
     animation: topnav-scroll linear both;
   }
-  .topnav .image-container {
+  .topnav-fixed .image-container {
     --animate-scale: 0.8;
     animation: scale linear both;
     transform-origin: center left;
