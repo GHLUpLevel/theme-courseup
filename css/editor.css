@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.18
+ * Version: v1.7.19
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -3878,6 +3878,8 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
     padding-bottom: 5px;
     padding-top: var(--_min-padding-block, 5px);
     padding-bottom: var(--_min-padding-block, 5px);
+    transform: translate3d(0, calc(-1 * 0), 0);
+    transform: translate3d(0, calc(-1 * var(--topnav-padding, 0)), 0);
   }
 }
 @keyframes hide-banner {
@@ -3900,6 +3902,9 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
 .topnav.scroll {
   box-shadow: var(--box-shadow);
 }
+.topnav .image-container {
+  transition: transform 500ms ease-out;
+}
 
 @supports (animation-timeline: scroll()) {
   .topnav {
@@ -3914,6 +3919,20 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
   .topnav .image-container {
     animation-timeline: scroll();
     animation-range: 5ex 20ex;
+  }
+}
+@supports not (animation-timeline: scroll()) {
+  @container EditorViewPort (max-width: 480px) {
+    .topnav .image-container {
+      transform: scale3d(0.8, 0.8, 1);
+      transform-origin: center left;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .topnav .image-container {
+      transform: scale3d(0.8, 0.8, 1);
+      transform-origin: center left;
+    }
   }
 }
 .nav-menu-item > a {
@@ -4002,6 +4021,8 @@ section.hl_page-creator--content.--mobile .responsive-text h1 {
   }
   to {
     box-shadow: var(--box-shadow);
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 /**

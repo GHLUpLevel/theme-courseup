@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.18
+ * Version: v1.7.19
  ****************************************/
 
 const POLYFILL_DELAY = 1e3;
@@ -51,6 +51,14 @@ const observeTopnav = (banner, topnav) => {
   });
   return observer;
 };
+const getBlockPadding = (elem) => {
+  const top = getComputedStyle(elem).getPropertyValue("padding-top");
+  const bottom = getComputedStyle(elem).getPropertyValue("padding-bottom");
+  const total = [top, bottom].reduce((acc, cur) => {
+    return parseInt(cur, 10) + acc;
+  }, 0);
+  return `${total}px`;
+};
 const positionBanner = (banner, topnav, smooth = false) => {
   if (!banner || !topnav) {
     return;
@@ -58,13 +66,13 @@ const positionBanner = (banner, topnav, smooth = false) => {
   const navRect = topnav.getBoundingClientRect();
   const bannerRect = banner.getBoundingClientRect();
   const container = document.querySelector(CONTAINER_SELECTOR);
+  banner.style.setProperty("--topnav-padding", getBlockPadding(topnav));
   if (!container) {
     return;
   }
   banner.classList.add(BANNER_FIXED_CLASS);
   if (smooth) {
-    const container2 = document.querySelector(CONTAINER_SELECTOR);
-    container2.style.setProperty("transition", "margin-top .3s ease-out");
+    container.style.setProperty("transition", "margin-top .3s ease-out");
   }
   container.style.setProperty("--topnav-height", `${navRect.bottom}px`);
   let siblingMargin = "";
@@ -75,8 +83,12 @@ const positionBanner = (banner, topnav, smooth = false) => {
   }
   const bannerPos = getComputedStyle(banner).getPropertyValue("position");
   let offset = navRect.bottom;
+  const bannerClosed = banner.classList.contains(BANNER_HIDE_CLASS);
   if (bannerPos === "fixed") {
-    offset += bannerRect.height + parseInt(siblingMargin);
+    if (!bannerClosed) {
+      offset += bannerRect.height;
+    }
+    offset += parseInt(siblingMargin);
   }
   container.style.setProperty("margin-top", `${Math.round(offset)}px`);
   REPOSITIONED = true;
