@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.17
+ * Version: v1.7.18
  ****************************************/
 
 const POLYFILL_DELAY = 1e3;
@@ -9,11 +9,28 @@ const TOPNAV_SELECTOR = ".topnav";
 const SCROLL_CLASS = "scroll";
 const BANNER_SELECTOR = ".notification-banner";
 const BANNER_HIDE_CLASS = "banner-hide";
-const BANNER_SHOW_CLASS = "banner-show-fixed";
+const BANNER_FIXED_CLASS = "banner-fixed";
 const BODY_SELECTOR = "body";
 const CONTAINER_SELECTOR = "#preview-container";
 let REPOSITIONED = false;
-const observeTopnav = (topnav, banner) => {
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction() {
+    const later = () => {
+      clearTimeout(timeout);
+      func();
+    };
+    clearTimeout(timeout);
+    timeout = window.setTimeout(later, wait);
+  };
+}
+const observeResize = (banner, topnav) => {
+  function onViewportResize() {
+    positionBanner(banner, topnav, true);
+  }
+  window.addEventListener("resize", debounce(onViewportResize, 200));
+};
+const observeTopnav = (banner, topnav) => {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.attributeName === "style") {
@@ -21,6 +38,7 @@ const observeTopnav = (topnav, banner) => {
         if (pos === "fixed") {
           observer.disconnect();
           if (!REPOSITIONED) {
+            observeResize(banner, topnav);
             positionBanner(banner, topnav);
           }
         }
@@ -33,32 +51,34 @@ const observeTopnav = (topnav, banner) => {
   });
   return observer;
 };
-const positionBanner = (banner, topnav) => {
+const positionBanner = (banner, topnav, smooth = false) => {
   if (!banner || !topnav) {
     return;
   }
   const navRect = topnav.getBoundingClientRect();
   const bannerRect = banner.getBoundingClientRect();
-  banner.style.setProperty("--_top", `${navRect.bottom}px`);
-  banner.classList.add(BANNER_SHOW_CLASS);
   const container = document.querySelector(CONTAINER_SELECTOR);
-  if (container) {
-    if (!container.dataset.fixedMarginBase) {
-      const baseMargin = getComputedStyle(container).getPropertyValue("margin-top");
-      container.dataset.fixedMarginBase = baseMargin;
-    }
-    let margin = parseInt(container.dataset.fixedMarginBase) || 0;
-    margin = margin + bannerRect.height;
-    if (banner.nextElementSibling) {
-      margin = margin + parseInt(
-        getComputedStyle(banner.nextElementSibling).getPropertyValue(
-          "margin-top"
-        )
-      ) || 0;
-    }
-    margin = Math.round(margin);
-    container.style.setProperty("margin-top", `${margin}px`);
+  if (!container) {
+    return;
   }
+  banner.classList.add(BANNER_FIXED_CLASS);
+  if (smooth) {
+    const container2 = document.querySelector(CONTAINER_SELECTOR);
+    container2.style.setProperty("transition", "margin-top .3s ease-out");
+  }
+  container.style.setProperty("--topnav-height", `${navRect.bottom}px`);
+  let siblingMargin = "";
+  if (banner.nextElementSibling) {
+    siblingMargin = getComputedStyle(
+      banner.nextElementSibling
+    ).getPropertyValue("margin-top");
+  }
+  const bannerPos = getComputedStyle(banner).getPropertyValue("position");
+  let offset = navRect.bottom;
+  if (bannerPos === "fixed") {
+    offset += bannerRect.height + parseInt(siblingMargin);
+  }
+  container.style.setProperty("margin-top", `${Math.round(offset)}px`);
   REPOSITIONED = true;
 };
 const setBanner = (topnav) => {
@@ -71,20 +91,24 @@ const setBanner = (topnav) => {
   }
   function closeEvent(event) {
     banner.classList.add(BANNER_HIDE_CLASS);
+    setTimeout(() => {
+      positionBanner(banner, topnav, true);
+    }, 300);
   }
   const closeBtn = banner.querySelector(".btn-close");
   closeBtn == null ? void 0 : closeBtn.addEventListener("click", closeEvent);
   const navPos = getComputedStyle(topnav).getPropertyValue("position");
   if (navPos !== "fixed" || !topnav.parentElement) {
-    return observeTopnav(topnav, banner);
+    return observeTopnav(banner, topnav);
   }
-  return positionBanner(topnav, banner);
+  observeResize(banner, topnav);
+  return positionBanner(banner, topnav);
 };
 const scrollPolyfill = (topnav) => {
   if (!topnav) {
     return;
   }
-  console.log("Level Up: Adding nav scroll polyfill");
+  console.log("Level Up Theme: Adding nav scroll polyfill");
   const intercept = document.createElement("div");
   intercept.setAttribute("data-observer-intercept", "");
   const container = document.querySelector(BODY_SELECTOR);

@@ -5,7 +5,7 @@
   --_scrollbar-size: var(--scrollbar-size, 20px);
   --_section-padding: var(--section-padding, 10px);
   --_padding-bottom: 20px;
-  --min-column-width: 350px;
+  --min-column-width: 330px;
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: calc(-1 * 10px) !important;
@@ -19,7 +19,7 @@
 }
 @media only screen and (max-width: 480px) {
   .scroll-horizontal {
-    --min-column-width: 330px;
+    --min-column-width: 310px;
   }
 }
 .scroll-horizontal > .inner {
@@ -56,6 +56,6 @@
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
 }
 .scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
-  width: max(350px, 33.3333333333% - 20px * 2) !important;
-  width: max(var(--min-column-width, 350px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
+  width: max(330px, 33.3333333333% - 20px * 2) !important;
+  width: max(var(--min-column-width, 330px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
 }

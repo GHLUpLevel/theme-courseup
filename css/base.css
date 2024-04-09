@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.17
+ * Version: v1.7.18
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -2528,7 +2528,7 @@ chat-widget {
   --_scrollbar-size: var(--scrollbar-size, 20px);
   --_section-padding: var(--section-padding, 10px);
   --_padding-bottom: 20px;
-  --min-column-width: 350px;
+  --min-column-width: 330px;
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: calc(-1 * 10px) !important;
@@ -2542,7 +2542,7 @@ chat-widget {
 }
 @media only screen and (max-width: 480px) {
   .scroll-horizontal {
-    --min-column-width: 330px;
+    --min-column-width: 310px;
   }
 }
 .scroll-horizontal > .inner {
@@ -2579,8 +2579,8 @@ chat-widget {
   width: max(var(--min-column-width), 50% - var(--columns-gap, 20px));
 }
 .scroll-horizontal .card.c-column, .scroll-horizontal .card2.c-column {
-  width: max(350px, 33.3333333333% - 20px * 2) !important;
-  width: max(var(--min-column-width, 350px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
+  width: max(330px, 33.3333333333% - 20px * 2) !important;
+  width: max(var(--min-column-width, 330px), 33.3333333333% - var(--columns-gap, 20px) * 2) !important;
 }
 
 /**
@@ -2598,8 +2598,8 @@ chat-widget {
 }
 #preview-container .show-more-wrapper {
   opacity: 1;
-  max-height: 1000px;
-  transition: max-height 0.2s ease, opacity 0.2s ease-out;
+  max-height: 10000px;
+  transition: max-height 0.5s ease, opacity 0.5s ease-out;
 }
 #preview-container .show-more-hide {
   opacity: 0;
@@ -2822,12 +2822,9 @@ ul.social-links li:hover a i {
  **/
 /* Banner */
 .notification-banner {
-  --_top: 0;
   --_min-padding-block: 5px;
   z-index: 98;
   margin: 0;
-  top: 0;
-  top: var(--_top, 0);
   left: 0;
   right: 0;
   perspective: 1000px;
@@ -2841,8 +2838,10 @@ ul.social-links li:hover a i {
 .notification-banner .c-column > .inner > div {
   flex: 1 auto;
 }
-.notification-banner.banner-show-fixed {
+.notification-banner.banner-fixed {
   position: fixed;
+  top: 0;
+  top: var(--topnav-height, 0);
 }
 .notification-banner.banner-hide {
   animation: hide-banner 150ms linear both;
@@ -2884,14 +2883,13 @@ ul.social-links li:hover a i {
 }
 
 @media only screen and (min-width: 481px) {
-  #preview-container .notification-banner:not(.banner-show-fixed) {
+  #preview-container .notification-banner:not(.banner-fixed) {
     position: sticky;
   }
 }
 @media only screen and (max-width: 480px) {
   .notification-banner {
-    --_top: 0 !important;
-    position: relative !important;
+    position: static !important;
   }
   .notification-banner .c-paragraph:has(.btn-close),
   .notification-banner .btn-close {
@@ -2916,6 +2914,7 @@ ul.social-links li:hover a i {
   100% {
     opacity: 0;
     transform: translate3d(0, -50px, 0);
+    display: none;
   }
 }
 /* TOPNAV */
@@ -2936,6 +2935,7 @@ ul.social-links li:hover a i {
   .topnav .image-container {
     --animate-scale: 0.8;
     animation: scale linear both;
+    transform-origin: center left;
   }
   .topnav,
   .topnav .image-container {

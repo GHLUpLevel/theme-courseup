@@ -13,8 +13,8 @@
 }
 #preview-container .show-more-wrapper {
   opacity: 1;
-  max-height: 1000px;
-  transition: max-height 0.2s ease, opacity 0.2s ease-out;
+  max-height: 10000px;
+  transition: max-height 0.5s ease, opacity 0.5s ease-out;
 }
 #preview-container .show-more-hide {
   opacity: 0;
