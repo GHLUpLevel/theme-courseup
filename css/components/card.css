@@ -86,11 +86,11 @@
   width: 100% !important;
   height: auto;
   aspect-ratio: 3/2;
-  aspect-ratio: var(--aspect-ratio, 3/2);
+  aspect-ratio: var(--img-aspect-ratio, 3/2);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-fit: var(--object-fit, cover);
-     object-fit: var(--object-fit, cover);
+  -o-object-fit: var(--img-object-fit, cover);
+     object-fit: var(--img-object-fit, cover);
 }
 
 .card.compact.c-column, .card2.compact.c-column {
@@ -109,11 +109,11 @@
   width: 100% !important;
   height: auto;
   aspect-ratio: 3/2;
-  aspect-ratio: var(--aspect-ratio, 3/2);
+  aspect-ratio: var(--img-aspect-ratio, 3/2);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-fit: var(--object-fit, cover);
-     object-fit: var(--object-fit, cover);
+  -o-object-fit: var(--img-object-fit, cover);
+     object-fit: var(--img-object-fit, cover);
 }
 .card2.c-column .c-image:last-child {
   --col-start: 2;

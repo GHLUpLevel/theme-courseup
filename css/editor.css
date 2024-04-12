@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.21
+ * Version: v1.7.22
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -1507,11 +1507,11 @@ section.hl_page-creator--content.--mobile .adorn-arrow-left::before, section.hl_
   width: 100% !important;
   height: auto;
   aspect-ratio: 3/2;
-  aspect-ratio: var(--aspect-ratio, 3/2);
+  aspect-ratio: var(--img-aspect-ratio, 3/2);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-fit: var(--object-fit, cover);
-     object-fit: var(--object-fit, cover);
+  -o-object-fit: var(--img-object-fit, cover);
+     object-fit: var(--img-object-fit, cover);
 }
 
 .card.compact.c-column, .card2.compact.c-column {
@@ -1530,11 +1530,11 @@ section.hl_page-creator--content.--mobile .adorn-arrow-left::before, section.hl_
   width: 100% !important;
   height: auto;
   aspect-ratio: 3/2;
-  aspect-ratio: var(--aspect-ratio, 3/2);
+  aspect-ratio: var(--img-aspect-ratio, 3/2);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-fit: var(--object-fit, cover);
-     object-fit: var(--object-fit, cover);
+  -o-object-fit: var(--img-object-fit, cover);
+     object-fit: var(--img-object-fit, cover);
 }
 .card2.c-column .c-image:last-child {
   --col-start: 2;
@@ -2100,63 +2100,134 @@ chat-widget {
 /**
  * IMAGE
  **/
+.c-image .image-container:has(.icon2-invert) img, .image-container:has(.icon2-invert) .c-image img,
+.c-column.icon2-invert .c-image:first-child img,
+.c-image .img-bg-primary.img-invert, .c-image .img-invert.img-bg-primary, .c-image .img-contrast-200, .c-image .img-contrast-175, .c-image .img-contrast-150, .c-image .img-contrast-125, .c-image .img-contrast-100, .c-image .img-contrast-75, .c-image .img-contrast-50, .c-image .img-contrast-25, .c-image .img-brightness-200, .c-image .img-brightness-175, .c-image .img-brightness-150, .c-image .img-brightness-125, .c-image .img-brightness-100, .c-image .img-brightness-75, .c-image .img-brightness-50, .c-image .img-brightness-25, .c-image .img-grayscale, .c-image .img-invert {
+  filter: invert(0) grayscale(0) brightness(1) contrast(1);
+  filter: invert(var(--img-invert, 0)) grayscale(var(--img-grayscale, 0)) brightness(var(--img-brightness, 1)) contrast(var(--img-contrast, 1));
+}
+
+.c-image .img-aspect-ratio-auto, .c-image .img-fit-cover, .c-image .img-fit-contain, .c-image .img-fit-fill, .c-image .img-fit-none {
+  -o-object-fit: initial;
+     object-fit: initial;
+  -o-object-fit: var(--img-object-fit, initial);
+     object-fit: var(--img-object-fit, initial);
+}
+
+.c-image .c-column.icon2 .c-image:first-child {
+  aspect-ratio: initial;
+  aspect-ratio: var(--img-aspect-ratio, initial);
+}
+
+.c-image .c-column.icon2-invert .c-image:first-child {
+  aspect-ratio: initial;
+  aspect-ratio: var(--img-aspect-ratio, initial);
+}
+
+.c-column.icon2 .c-image .c-image:first-child {
+  aspect-ratio: initial;
+  aspect-ratio: var(--img-aspect-ratio, initial);
+}
+
+.c-column.icon2-invert .c-image .c-image:first-child {
+  aspect-ratio: initial;
+  aspect-ratio: var(--img-aspect-ratio, initial);
+}
+
+.c-image .image-container:has(.icon2, .icon2-invert), .c-image .image-container:has(.img-circle), .c-image .img-aspect-ratio-1-1, .c-image .img-aspect-ratio-16-9, .c-image .img-aspect-ratio-3-2, .c-image .img-circle {
+  aspect-ratio: initial;
+  aspect-ratio: var(--img-aspect-ratio, initial);
+}
+
+.c-image .img-circle {
+  --img-aspect-ratio: 1 / 1;
+  border-radius: 100vw;
+  height: auto;
+}
 .c-image .img-invert {
-  filter: invert(1);
+  --img-invert: 1 ;
 }
 .c-image .img-fit-none {
-  --object-fit: none;
-  -o-object-fit: none;
-     object-fit: none;
+  --img-object-fit: none;
 }
 .c-image .img-fit-fill {
-  --object-fit: fill;
-  -o-object-fit: fill;
-     object-fit: fill;
+  --img-object-fit: fill;
 }
 .c-image .img-fit-contain {
-  --object-fit: contain;
-  -o-object-fit: contain;
-     object-fit: contain;
+  --img-object-fit: contain;
 }
 .c-image .img-fit-cover {
-  --object-fit: cover;
-  -o-object-fit: cover;
-     object-fit: cover;
+  --img-object-fit: cover;
 }
 .c-image .img-aspect-ratio-auto {
-  --aspect-ratio: auto;
-  aspect-ratio: auto;
+  --img-aspect-ratio: auto;
 }
 .c-image .img-aspect-ratio-3-2 {
-  --aspect-ratio: 3 / 2;
-  aspect-ratio: 3/2;
+  --img-aspect-ratio: 3 / 2;
 }
 .c-image .img-aspect-ratio-16-9 {
-  --aspect-ratio: 16 / 9;
-  aspect-ratio: 16/9;
+  --img-aspect-ratio: 16 / 9;
 }
 .c-image .img-aspect-ratio-1-1 {
-  --aspect-ratio: 1 / 1;
-  aspect-ratio: 1/1;
+  --img-aspect-ratio: 1 / 1;
 }
 .c-image .img-bg-primary {
   background-color: var(--color-lt985yd7);
   background-color: var(--theme-primary-color);
 }
-.c-image .img-circle {
-  --aspect-ratio: 1 / 1;
-  --object-fit: contain;
-  border-radius: 100vw;
-  aspect-ratio: 1 / 1;
-  aspect-ratio: var(--aspect-ratio);
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-fit: var(--object-fit);
-     object-fit: var(--object-fit);
-  height: auto;
+.c-image .img-grayscale {
+  --img-grayscale: 1;
+}
+.c-image .img-brightness-25 {
+  --img-brightness: 0.25;
+}
+.c-image .img-brightness-50 {
+  --img-brightness: 0.5;
+}
+.c-image .img-brightness-75 {
+  --img-brightness: 0.75;
+}
+.c-image .img-brightness-100 {
+  --img-brightness: 1;
+}
+.c-image .img-brightness-125 {
+  --img-brightness: 1.25;
+}
+.c-image .img-brightness-150 {
+  --img-brightness: 1.5;
+}
+.c-image .img-brightness-175 {
+  --img-brightness: 1.75;
+}
+.c-image .img-brightness-200 {
+  --img-brightness: 2;
+}
+.c-image .img-contrast-25 {
+  --img-contrast: 0.25;
+}
+.c-image .img-contrast-50 {
+  --img-contrast: 0.5;
+}
+.c-image .img-contrast-75 {
+  --img-contrast: 0.75;
+}
+.c-image .img-contrast-100 {
+  --img-contrast: 1;
+}
+.c-image .img-contrast-125 {
+  --img-contrast: 1.25;
+}
+.c-image .img-contrast-150 {
+  --img-contrast: 1.5;
+}
+.c-image .img-contrast-175 {
+  --img-contrast: 1.75;
+}
+.c-image .img-contrast-200 {
+  --img-contrast: 2;
 }
 .c-image .img-invert.img-bg-primary {
-  filter: none;
+  --img-invert: 0;
   border: 4px solid var(--color-lt985yd7);
   border: 4px solid var(--theme-primary-color);
   background: none;
@@ -2165,9 +2236,9 @@ chat-widget {
   .c-image .image-container:has(.icon2-invert) img, .image-container:has(.icon2-invert) .c-image img,
   .c-column.icon2-invert .c-image:first-child img,
   .c-image .img-bg-primary.img-invert {
+    --img-invert: 1;
     background: none;
     border: none;
-    filter: invert(1);
   }
   .c-image .image-container:has(.img-bg-primary) {
     background-color: var(--color-lt985yd7);
@@ -2175,35 +2246,35 @@ chat-widget {
   }
   .c-image .c-column.icon2 .c-image:first-child {
     border-radius: 100vw;
-    aspect-ratio: 1/1;
+    --img-aspect-ratio: 1 / 1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
   }
   .c-image .c-column.icon2-invert .c-image:first-child {
     border-radius: 100vw;
-    aspect-ratio: 1/1;
+    --img-aspect-ratio: 1 / 1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
   }
   .c-column.icon2 .c-image .c-image:first-child {
     border-radius: 100vw;
-    aspect-ratio: 1/1;
+    --img-aspect-ratio: 1 / 1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
   }
   .c-column.icon2-invert .c-image .c-image:first-child {
     border-radius: 100vw;
-    aspect-ratio: 1/1;
+    --img-aspect-ratio: 1 / 1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
   }
   .c-image .image-container:has(.icon2, .icon2-invert), .c-image .image-container:has(.img-circle) {
     border-radius: 100vw;
-    aspect-ratio: 1/1;
+    --img-aspect-ratio: 1 / 1;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: auto;
