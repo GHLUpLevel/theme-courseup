@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.22
+ * Version: v1.7.23
  ****************************************/
 /*--------------------------------------------------------------
 THEME CSS FOR GHL EDITOR & LIVE VIEW
@@ -387,7 +387,7 @@ html {
 #form-builder #_builder-form .fields-container > div:nth-child(n+2):has(label) {
   margin-top: 20px;
 }
-#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=tel], [type=number]), #form-builder #_builder-form .form-builder--item [type=password], #form-builder #_builder-form .form-builder--item input[type=email], #form-builder #_builder-form .form-builder--item > textarea, #form-builder #_builder-form .form-builder--item .option > input, #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
+#form-builder #_builder-form .form-builder--item > input:where([type=text], [type=number]), #form-builder #_builder-form .form-builder--item [type=tel], #form-builder #_builder-form .form-builder--item [type=password], #form-builder #_builder-form .form-builder--item input[type=email], #form-builder #_builder-form .form-builder--item > textarea, #form-builder #_builder-form .form-builder--item .option > input, #form-builder #_builder-form .form-builder--item .date-picker-custom-style {
   color: var(--input-text-color) !important;
   background-color: var(--input-bg-color) !important;
   border: var(--input-border) !important;
@@ -400,6 +400,9 @@ html {
   box-shadow: none !important;
   font-weight: 300;
   height: calc(1lh + var(--input-padding-top) * 2);
+}
+#form-builder #_builder-form .form-builder--item .iti input[type=tel] {
+  --input-padding-left: 50px;
 }
 #form-builder #_builder-form .form-builder--item textarea {
   line-height: 1.2em;
