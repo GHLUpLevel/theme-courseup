@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.24
+ * Version: v1.7.25
  ****************************************/
 /*
 THEME CSS FOR LIVE PAGES
@@ -115,7 +115,7 @@ THEME CSS FOR LIVE PAGES
   --adorn-secondary-mask-image: url('data:image/svg+xml,<svg width="144" height="144" xmlns="http://www.w3.org/2000/svg"><pattern id="dots" patternUnits="userSpaceOnUse" width="12" height="12"><circle cx="6" cy="6" r="1.5" fill="black"/></pattern><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
   --adorn-arrow-mask-image: url('data:image/svg+xml,<svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg"><path d="m81 92 5-38a5 5 0 0 0-8-5L2 116l-1 1c-2 2-1 5 1 7l76 63 4 1c3-1 5-3 4-6l-5-31c29-5 57-20 77-43 17-18 28-42 27-71 0-10-3-22-7-34a5 5 0 0 0-9 1c-5 37-19 58-37 71-15 11-34 15-51 17Z" fill-rule="evenodd"/></svg>');
   /* Secion max width */
-  --section-width: 1342px;
+  --section-width: 1170px;
   --section-padding: 24px;
   --section-padding-mobile: 12px;
   /* Shadows */
@@ -248,7 +248,7 @@ html {
 }
 
 .c-section > .inner {
-  max-width: 1342px !important;
+  max-width: 1170px !important;
   max-width: var(--section-width) !important;
   padding-left: 24px !important;
   padding-left: var(--section-padding) !important;
