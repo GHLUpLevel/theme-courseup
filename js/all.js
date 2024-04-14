@@ -100,7 +100,7 @@
           document.documentElement
         ).getPropertyValue(`--default-${name}`);
         document.documentElement.style.setProperty(themeVar, defaultValue);
-        console.log(`Level Up: ${themeVar} set to default:`, defaultValue);
+        console.log(`Level Up Theme: ${themeVar} set to default:`, defaultValue);
       }
     });
     globalVariables.forEach((name) => {
@@ -108,7 +108,7 @@
       const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
       if (value.replace(/["']/g, "").length > 0) {
         document.documentElement.style.setProperty(`--${name}`, value);
-        console.log(`Level Up: --${name} set to global value:`, value);
+        console.log(`Level Up Theme: --${name} set to global value:`, value);
       }
     });
   }
@@ -294,8 +294,8 @@
 
   const run = () => {
     topnav.run();
-    setTimeout(animate.run, 100);
     showMore.run();
+    setTimeout(animate.run, 100);
   };
   const init = () => {
     if (document.readyState === "complete" || document.readyState === "interactive") {
@@ -306,9 +306,9 @@
       });
     }
   };
+  console.log(`Powered by Level Up Theme v1.7.26:`, "https://levelupthemes.com");
   setCSSDefaults();
   init();
-  console.log(`Powered by Level Up Theme v1.7.25:`, "https://levelupthemes.com");
 
 })();
 //# sourceMappingURL=all.js.map

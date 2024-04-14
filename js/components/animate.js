@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.25
+ * Version: v1.7.26
  ****************************************/
 
 const SELECTOR = ":is([class*=animate-], [class*=adorn-])";

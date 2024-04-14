@@ -22,7 +22,7 @@
     height: 0.1lh;
     bottom: -3px;
     left: 0;
-    background-color: var(--theme-text-link-color);
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -37,7 +37,7 @@
     height: 0.1lh;
     bottom: -3px;
     left: 0;
-    background-color: var(--theme-text-link-color);
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -52,7 +52,7 @@
     height: 0.1lh;
     bottom: -3px;
     left: 0;
-    background-color: var(--theme-text-link-color);
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -67,7 +67,7 @@
     height: 0.1lh;
     bottom: -3px;
     left: 0;
-    background-color: var(--theme-text-link-color);
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -82,7 +82,7 @@
     height: 0.1lh;
     bottom: -3px;
     left: 0;
-    background-color: var(--theme-text-link-color);
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
