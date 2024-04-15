@@ -1,7 +1,7 @@
 /****************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.26
+ * Version: v1.7.27
  ****************************************/
 
 const CHAT_EMBED_CONTAINER_SELECTOR = "#levelup-chat-embed";

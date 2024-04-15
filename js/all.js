@@ -306,7 +306,7 @@
       });
     }
   };
-  console.log(`Powered by Level Up Theme v1.7.26:`, "https://levelupthemes.com");
+  console.log(`Powered by Level Up Theme v1.7.27:`, "https://levelupthemes.com");
   setCSSDefaults();
   init();
 
