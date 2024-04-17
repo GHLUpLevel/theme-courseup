@@ -1,19 +1,9 @@
 /*!***************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.28
+ * Version: v1.7.29
  ****************************************/
 
-const POLYFILL_DELAY = 1e3;
-const TOPNAV_SELECTOR = ".topnav";
-const SCROLL_CLASS = "scroll";
-const BANNER_SELECTOR = ".notification-banner";
-const BANNER_HIDE_CLASS = "banner-hide";
-const BANNER_FIXED_CLASS = "banner-fixed";
-const TOPNAV_FIXED_CLASS = "topnav-fixed";
-const BODY_SELECTOR = "body";
-const CONTAINER_SELECTOR = "#preview-container";
-let REPOSITIONED = false;
 function debounce(func, wait) {
   let timeout;
   return function executedFunction() {
@@ -25,6 +15,17 @@ function debounce(func, wait) {
     timeout = window.setTimeout(later, wait);
   };
 }
+
+const POLYFILL_DELAY = 1e3;
+const TOPNAV_SELECTOR = ".topnav";
+const SCROLL_CLASS = "scroll";
+const BANNER_SELECTOR = ".notification-banner";
+const BANNER_HIDE_CLASS = "banner-hide";
+const BANNER_FIXED_CLASS = "banner-fixed";
+const TOPNAV_FIXED_CLASS = "topnav-fixed";
+const BODY_SELECTOR = "body";
+const CONTAINER_SELECTOR = "#preview-container";
+let REPOSITIONED = false;
 const observeResize = (banner, topnav) => {
   function onViewportResize() {
     positionBanner(banner, topnav, true, true);
