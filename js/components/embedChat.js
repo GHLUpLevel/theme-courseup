@@ -1,7 +1,7 @@
 /*!***************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.29
+ * Version: v1.7.30
  ****************************************/
 
 const CHAT_EMBED_CONTAINER_SELECTOR = "#levelup-chat-embed";
@@ -31,6 +31,7 @@ const embedChat = (attempts = 1) => {
   const button = root.querySelector(".lc_text-widget--btn");
   const widget = root.querySelector(".lc_text-widget");
   const box = root.querySelector(".lc_text-widget--box");
+  const inner = root.querySelector(".inner-scroll");
   const heading = root.querySelector(
     ".lc_text-widget_heading--root"
   );
@@ -41,10 +42,11 @@ const embedChat = (attempts = 1) => {
   widget.style.position = "static";
   widget.style.width = "100%";
   box.style.maxWidth = "100%";
+  inner.style.overscrollBehavior = "auto";
   embedDiv.appendChild(chat);
   button == null ? void 0 : button.click();
   button.style.display = "none";
 };
 
 export { embedChat };
-//# sourceMappingURL=chatEmbed.js.map
+//# sourceMappingURL=embedChat.js.map

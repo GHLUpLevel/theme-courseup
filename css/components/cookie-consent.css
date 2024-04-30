@@ -64,8 +64,6 @@
 @media only screen and (max-width: 480px) {
   .c-button {
     --width: 100%;
-    flex: 1 0 100% !important;
-    flex: 1 0 var(--width) !important;
   }
   .c-button button,
   .c-button a {
