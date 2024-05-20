@@ -1,7 +1,7 @@
 /*!***************************************
  * Level Up Theme for High Level (GHL)
  * https//levelupthemes.com
- * Version: v1.7.31
+ * Version: v1.7.32
  ****************************************/
 
 (function () {
@@ -313,7 +313,7 @@
       });
     }
   };
-  console.log(`Powered by Level Up Theme v1.7.31:`, "https://levelupthemes.com");
+  console.log(`Powered by Level Up Theme v1.7.32:`, "https://levelupthemes.com");
   setCSSDefaults();
   init();
 
